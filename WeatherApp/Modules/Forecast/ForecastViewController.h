@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class ForecastViewPresenter;
+@class ForecastViewPresenter, SearchCitiesViewController;
 @interface ForecastViewController : UIViewController
 
 @property (strong, nonatomic) ForecastViewPresenter *presenter;
+@property (weak, nonatomic, readonly) SearchCitiesViewController *searchCitiesController;
 
 @end

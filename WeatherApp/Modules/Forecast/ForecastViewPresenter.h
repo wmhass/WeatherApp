@@ -17,6 +17,5 @@
 #pragma mark - Presenter Actions
 
 - (void)doInitialLoad;
-- (void)prepareForSegue:(nonnull UIStoryboardSegue *)segue;
 
 @end

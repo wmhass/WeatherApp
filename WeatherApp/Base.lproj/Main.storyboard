@@ -103,7 +103,7 @@
                                 <rect key="frame" x="0.0" y="600" width="600" height="600"/>
                                 <animations/>
                                 <connections>
-                                    <segue destination="4fw-Ut-0ND" kind="embed" id="IUi-EK-PqQ"/>
+                                    <segue destination="4fw-Ut-0ND" kind="embed" identifier="search_segue" id="IUi-EK-PqQ"/>
                                 </connections>
                             </containerView>
                         </subviews>

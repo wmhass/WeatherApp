@@ -9,6 +9,8 @@
 #import "ForecastViewController.h"
 #import "ForecastViewPresenter.h"
 
+NSString * const ForecastViewSearchSegueIdentifier = @"search_segue";
+
 @interface ForecastViewController ()
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchLabelBottomConstraint;
@@ -26,8 +28,12 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [self.presenter prepareForSegue:segue];
+    if ([segue.identifier isEqualToString:ForecastViewSearchSegueIdentifier]) {
+        _searchCitiesController = (SearchCitiesViewController *)segue.destinationViewController;
+    }
 }
+
+
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
