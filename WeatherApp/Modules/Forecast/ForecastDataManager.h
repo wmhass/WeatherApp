@@ -12,6 +12,6 @@ typedef void(^ForecastDataManagerCompletionBlock)(void);
 
 @interface ForecastDataManager : NSObject
 
-- (void)fetchForecastRemoteInformationWithCompletion:(ForecastDataManagerCompletionBlock)completionBlock;
+- (void)fetchForecastRemoteInformationForCity:(NSString *)cityName withCompletion:(ForecastDataManagerCompletionBlock)completionBlock;
 
 @end

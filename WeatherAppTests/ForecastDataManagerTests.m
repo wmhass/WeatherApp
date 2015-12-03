@@ -29,7 +29,9 @@
 }
 
 - (void)testLoadRemoteData {
-    
+    [self.dataManager fetchForecastRemoteInformationForCity:@"Porto alegre" withCompletion:^{
+        
+    }];
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
 
