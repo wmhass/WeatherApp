@@ -6,6 +6,7 @@
 target 'WeatherApp' do
 
 pod 'AFNetworking'
+pod 'MMDrawerController', '~> 0.5.7'
 
 end
 

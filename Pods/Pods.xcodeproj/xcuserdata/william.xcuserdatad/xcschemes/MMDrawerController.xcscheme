@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '015B5A402A6C1B3DF08EC031'
-               BlueprintName = 'Pods-WeatherApp'
+               BlueprintIdentifier = 'D6A68AFC945A03A442308E4A'
+               BlueprintName = 'MMDrawerController'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-WeatherApp.a'>
+               BuildableName = 'libMMDrawerController.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
