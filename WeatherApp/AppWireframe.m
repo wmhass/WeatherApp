@@ -7,7 +7,18 @@
 //
 
 #import "AppWireframe.h"
+#import "AppStoryboard.h"
+
+#import "ForecastViewController.h"
 
 @implementation AppWireframe
+
+- (void)installRootViewInWindow:(UIWindow *)window {
+    [window makeKeyAndVisible];
+    
+    ForecastViewController *initialViewController = [[AppStoryboard sharedInstance] initialViewController];
+    window.rootViewController = initialViewController;
+    
+}
 
 @end

@@ -8,6 +8,39 @@
 
 #import "AppStoryboard.h"
 
+NSString * const AppStoryboardMainStoryBoard = @"Main";
+
+@interface AppStoryboard()
+
+@property (strong, nonatomic) UIStoryboard *mainStoryBoard;
+
+@end
+
 @implementation AppStoryboard
+
+#pragma mark - Initializers
+
+- (id)init {
+    self = [super init];
+    if(self) {
+        _mainStoryBoard = [UIStoryboard storyboardWithName:AppStoryboardMainStoryBoard bundle:[NSBundle mainBundle]];
+    }
+    return self;
+}
+
++ (instancetype)sharedInstance {
+    static AppStoryboard *sharedInstance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[AppStoryboard alloc] init];
+    });
+    return sharedInstance;
+}
+
+#pragma mark - Public
+
+- (ForecastViewController *)initialViewController {
+    return [self.mainStoryBoard instantiateInitialViewController];
+}
 
 @end

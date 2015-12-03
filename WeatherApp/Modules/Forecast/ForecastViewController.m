@@ -14,5 +14,4 @@
 
 @implementation ForecastViewController
 
-
 @end

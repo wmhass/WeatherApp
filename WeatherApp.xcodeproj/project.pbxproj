@@ -11,6 +11,8 @@
 		3D342FF71C0FDEC700351C0F /* ForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D342FF61C0FDEC700351C0F /* ForecastViewController.m */; };
 		3D342FFB1C0FDF2500351C0F /* SavedCitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D342FFA1C0FDF2500351C0F /* SavedCitiesViewController.m */; };
 		3D3430051C0FDFB700351C0F /* SearchCitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430041C0FDFB700351C0F /* SearchCitiesViewController.m */; };
+		3D3430091C0FE06900351C0F /* AppWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430081C0FE06900351C0F /* AppWireframe.m */; };
+		3D34300D1C0FE1B500351C0F /* AppStoryboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D34300C1C0FE1B500351C0F /* AppStoryboard.m */; };
 		3DF3B7B01C0FDDA10024C06C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF3B7AF1C0FDDA10024C06C /* main.m */; };
 		3DF3B7B31C0FDDA10024C06C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF3B7B21C0FDDA10024C06C /* AppDelegate.m */; };
 		3DF3B7B91C0FDDA10024C06C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3B7B71C0FDDA10024C06C /* Main.storyboard */; };
@@ -36,6 +38,10 @@
 		3D342FFA1C0FDF2500351C0F /* SavedCitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedCitiesViewController.m; sourceTree = "<group>"; };
 		3D3430031C0FDFB700351C0F /* SearchCitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCitiesViewController.h; sourceTree = "<group>"; };
 		3D3430041C0FDFB700351C0F /* SearchCitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCitiesViewController.m; sourceTree = "<group>"; };
+		3D3430071C0FE06900351C0F /* AppWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppWireframe.h; sourceTree = "<group>"; };
+		3D3430081C0FE06900351C0F /* AppWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppWireframe.m; sourceTree = "<group>"; };
+		3D34300B1C0FE1B500351C0F /* AppStoryboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStoryboard.h; sourceTree = "<group>"; };
+		3D34300C1C0FE1B500351C0F /* AppStoryboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppStoryboard.m; sourceTree = "<group>"; };
 		3DF3B7AB1C0FDDA10024C06C /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF3B7AF1C0FDDA10024C06C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DF3B7B11C0FDDA10024C06C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -98,6 +104,22 @@
 			path = SearchCities;
 			sourceTree = "<group>";
 		};
+		3D3430061C0FE00900351C0F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3D34300A1C0FE19A00351C0F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3D34300B1C0FE1B500351C0F /* AppStoryboard.h */,
+				3D34300C1C0FE1B500351C0F /* AppStoryboard.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		3DF3B7A21C0FDDA10024C06C = {
 			isa = PBXGroup;
 			children = (
@@ -121,12 +143,16 @@
 		3DF3B7AD1C0FDDA10024C06C /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				3D34300A1C0FE19A00351C0F /* Helpers */,
+				3D3430061C0FE00900351C0F /* Resources */,
 				3DF3B7D31C0FDDC30024C06C /* Modules */,
 				3DF3B7B11C0FDDA10024C06C /* AppDelegate.h */,
 				3DF3B7B21C0FDDA10024C06C /* AppDelegate.m */,
+				3D3430071C0FE06900351C0F /* AppWireframe.h */,
+				3D3430081C0FE06900351C0F /* AppWireframe.m */,
 				3DF3B7B71C0FDDA10024C06C /* Main.storyboard */,
-				3DF3B7BA1C0FDDA10024C06C /* Assets.xcassets */,
 				3DF3B7BC1C0FDDA10024C06C /* LaunchScreen.storyboard */,
+				3DF3B7BA1C0FDDA10024C06C /* Assets.xcassets */,
 				3DF3B7BF1C0FDDA10024C06C /* Info.plist */,
 				3DF3B7AE1C0FDDA10024C06C /* Supporting Files */,
 			);
@@ -331,7 +357,9 @@
 				3DF3B7B31C0FDDA10024C06C /* AppDelegate.m in Sources */,
 				3D342FFB1C0FDF2500351C0F /* SavedCitiesViewController.m in Sources */,
 				3D3430051C0FDFB700351C0F /* SearchCitiesViewController.m in Sources */,
+				3D34300D1C0FE1B500351C0F /* AppStoryboard.m in Sources */,
 				3D342FF71C0FDEC700351C0F /* ForecastViewController.m in Sources */,
+				3D3430091C0FE06900351C0F /* AppWireframe.m in Sources */,
 				3DF3B7B01C0FDDA10024C06C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

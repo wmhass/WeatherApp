@@ -6,8 +6,12 @@
 //  Copyright © 2015 William Hass. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
+@class ForecastViewController;
 @interface AppStoryboard : NSObject
+
++ (instancetype)sharedInstance;
+- (ForecastViewController *)initialViewController;
 
 @end

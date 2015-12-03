@@ -6,8 +6,10 @@
 //  Copyright © 2015 William Hass. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface AppWireframe : NSObject
+
+- (void)installRootViewInWindow:(UIWindow *)window;
 
 @end
