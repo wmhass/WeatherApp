@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class ForecastViewController;
+@class MMDrawerController;
 @interface AppStoryboard : NSObject
 
 + (instancetype)sharedInstance;
-- (ForecastViewController *)initialViewController;
+- (MMDrawerController *)initialViewController;
 
 @end

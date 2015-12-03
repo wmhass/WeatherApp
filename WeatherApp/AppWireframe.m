@@ -16,7 +16,7 @@
 - (void)installRootViewInWindow:(UIWindow *)window {
     [window makeKeyAndVisible];
     
-    ForecastViewController *initialViewController = [[AppStoryboard sharedInstance] initialViewController];
+    MMDrawerController *initialViewController = [[AppStoryboard sharedInstance] initialViewController];
     window.rootViewController = initialViewController;
     
 }
