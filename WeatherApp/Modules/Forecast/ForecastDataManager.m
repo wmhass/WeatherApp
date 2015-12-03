@@ -49,8 +49,6 @@ NSString * const APIResponsePrefferedFormat = @"json";
 
 - (void)fetchForecastRemoteInformationWithParameters:(ForecastDataManagerParameters * _Nonnull)parameters withCompletion:(ForecastDataManagerCompletionBlock _Nullable)completionBlock {
     
-    //http://api.worldweatheronline.com/free/v2/weather.ashx?q=Dublin&format=json&num_of_days=5&key=4cc86076775e39d5d4f399e70293f
-    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
 
