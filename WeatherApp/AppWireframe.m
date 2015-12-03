@@ -7,18 +7,15 @@
 //
 
 #import "AppWireframe.h"
-#import "AppStoryboard.h"
-
-#import "ForecastViewController.h"
+#import "InitialDrawerViewWireframe.h"
 
 @implementation AppWireframe
 
 - (void)installRootViewInWindow:(UIWindow *)window {
     [window makeKeyAndVisible];
-    
-    MMDrawerController *initialViewController = [[AppStoryboard sharedInstance] initialViewController];
-    window.rootViewController = initialViewController;
-    
+
+    InitialDrawerViewWireframe *wireframe = [[InitialDrawerViewWireframe alloc] init];
+    [wireframe launchInitialViewInWindow:window];
 }
 
 @end

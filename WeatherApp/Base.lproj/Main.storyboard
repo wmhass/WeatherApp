@@ -22,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q4V-cu-crE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="156"/>
+            <point key="canvasLocation" x="844" y="184"/>
         </scene>
         <!--Drawer Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -38,6 +38,10 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="tdT-Ol-YMV" kind="custom" identifier="center_drawer_segue" customClass="InitialDrawerSegues" id="gea-6J-yvi"/>
+                        <segue destination="JQh-Te-LZR" kind="custom" identifier="left_drawer_segue" customClass="InitialDrawerSegues" id="yat-IV-oGV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,7 +64,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qoL-n8-8sb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="804" y="858"/>
+            <point key="canvasLocation" x="844" y="1552"/>
+        </scene>
+        <!--Forecast View Controller-->
+        <scene sceneID="tHu-Tc-z1C">
+            <objects>
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="tdT-Ol-YMV" customClass="ForecastViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="z8S-nF-B03"/>
+                        <viewControllerLayoutGuide type="bottom" id="cQX-Hh-RQR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Itx-Dx-4nT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GKo-wR-rxF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="844" y="858"/>
         </scene>
     </scenes>
 </document>
