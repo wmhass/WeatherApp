@@ -8,6 +8,13 @@
 
 #import "ForecastViewPresenter.h"
 #import "ForecastViewController.h"
+#import "ForecastViewWireframe.h"
+
+NSString * const ForecastViewSearchSegueIdentifier = @"search_segue";
+
+@interface ForecastViewPresenter()
+
+@end
 
 @implementation ForecastViewPresenter
 
@@ -17,5 +24,10 @@
     
 }
 
+- (void)prepareForSegue:(nonnull UIStoryboardSegue *)segue {
+    if ([segue.identifier isEqualToString:ForecastViewSearchSegueIdentifier]) {
+        [self.forecastWireframe willPresentSearchView:(SearchCitiesViewController *)segue.destinationViewController];
+    }
+}
 
 @end

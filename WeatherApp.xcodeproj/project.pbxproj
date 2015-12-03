@@ -16,6 +16,7 @@
 		3D3430111C0FE56200351C0F /* InitialDrawerViewWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430101C0FE56200351C0F /* InitialDrawerViewWireframe.m */; };
 		3D3430141C0FE75500351C0F /* InitialDrawerSegues.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430131C0FE75500351C0F /* InitialDrawerSegues.m */; };
 		3D3430171C0FEBA600351C0F /* ForecastViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430161C0FEBA600351C0F /* ForecastViewPresenter.m */; };
+		3D34301A1C0FF06200351C0F /* ForecastViewWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430191C0FF06200351C0F /* ForecastViewWireframe.m */; };
 		3DF3B7B01C0FDDA10024C06C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF3B7AF1C0FDDA10024C06C /* main.m */; };
 		3DF3B7B31C0FDDA10024C06C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF3B7B21C0FDDA10024C06C /* AppDelegate.m */; };
 		3DF3B7B91C0FDDA10024C06C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3B7B71C0FDDA10024C06C /* Main.storyboard */; };
@@ -51,6 +52,8 @@
 		3D3430131C0FE75500351C0F /* InitialDrawerSegues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialDrawerSegues.m; sourceTree = "<group>"; };
 		3D3430151C0FEBA600351C0F /* ForecastViewPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastViewPresenter.h; sourceTree = "<group>"; };
 		3D3430161C0FEBA600351C0F /* ForecastViewPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewPresenter.m; sourceTree = "<group>"; };
+		3D3430181C0FF06200351C0F /* ForecastViewWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastViewWireframe.h; sourceTree = "<group>"; };
+		3D3430191C0FF06200351C0F /* ForecastViewWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewWireframe.m; sourceTree = "<group>"; };
 		3DF3B7AB1C0FDDA10024C06C /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF3B7AF1C0FDDA10024C06C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DF3B7B11C0FDDA10024C06C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -93,6 +96,8 @@
 				3D342FF61C0FDEC700351C0F /* ForecastViewController.m */,
 				3D3430151C0FEBA600351C0F /* ForecastViewPresenter.h */,
 				3D3430161C0FEBA600351C0F /* ForecastViewPresenter.m */,
+				3D3430181C0FF06200351C0F /* ForecastViewWireframe.h */,
+				3D3430191C0FF06200351C0F /* ForecastViewWireframe.m */,
 			);
 			path = Forecast;
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 				3D3430051C0FDFB700351C0F /* SearchCitiesViewController.m in Sources */,
 				3D3430111C0FE56200351C0F /* InitialDrawerViewWireframe.m in Sources */,
 				3D34300D1C0FE1B500351C0F /* AppStoryboard.m in Sources */,
+				3D34301A1C0FF06200351C0F /* ForecastViewWireframe.m in Sources */,
 				3D342FF71C0FDEC700351C0F /* ForecastViewController.m in Sources */,
 				3D3430091C0FE06900351C0F /* AppWireframe.m in Sources */,
 				3DF3B7B01C0FDDA10024C06C /* main.m in Sources */,

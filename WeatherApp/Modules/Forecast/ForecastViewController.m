@@ -11,6 +11,8 @@
 
 @interface ForecastViewController ()
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchLabelBottomConstraint;
+
 @end
 
 @implementation ForecastViewController
@@ -19,7 +21,27 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewDidLoad];
+    [self setupKeyboardListener];
     [self.presenter doInitialLoad];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [self.presenter prepareForSegue:segue];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Private
+
+- (void)setupKeyboardListener {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillAppear:) name:UIKeyboardWillShowNotification object:nil];
+}
+
+- (void)keyboardWillAppear:(NSNotification *)notification {
+    self.searchLabelBottomConstraint.priority = UILayoutPriorityDefaultLow;
+}
+
 
 @end

@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class ForecastViewController;
+@class ForecastViewController, ForecastViewWireframe,UIStoryboardSegue;
 @interface ForecastViewPresenter : NSObject
 
-@property (weak, nonatomic) ForecastViewController *forecastView;
+@property (weak, nonatomic) ForecastViewController * forecastView;
+@property (strong, nonatomic) ForecastViewWireframe *  _Nonnull forecastWireframe;
 
 #pragma mark - Presenter Actions
 
 - (void)doInitialLoad;
+- (void)prepareForSegue:(nonnull UIStoryboardSegue *)segue;
 
 @end
