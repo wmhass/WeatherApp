@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Saved Cities View Controller-->
@@ -64,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qoL-n8-8sb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="844" y="1552"/>
+            <point key="canvasLocation" x="844" y="1604"/>
         </scene>
         <!--Forecast View Controller-->
         <scene sceneID="tHu-Tc-z1C">
@@ -77,8 +78,34 @@
                     <view key="view" contentMode="scaleToFill" id="Itx-Dx-4nT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="77C-Li-Rdm" userLabel="Searchbar view">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.78922161440000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7gp-NX-cbS"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLO-kN-dGz">
+                                <rect key="frame" x="0.0" y="600" width="600" height="600"/>
+                                <animations/>
+                                <connections>
+                                    <segue destination="4fw-Ut-0ND" kind="embed" id="IUi-EK-PqQ"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hLO-kN-dGz" firstAttribute="leading" secondItem="77C-Li-Rdm" secondAttribute="leading" id="CFi-C6-fYo"/>
+                            <constraint firstItem="77C-Li-Rdm" firstAttribute="leading" secondItem="Itx-Dx-4nT" secondAttribute="leading" id="Kpg-O9-whE"/>
+                            <constraint firstItem="hLO-kN-dGz" firstAttribute="top" secondItem="77C-Li-Rdm" secondAttribute="bottom" id="Ovm-8Y-Ybn"/>
+                            <constraint firstItem="hLO-kN-dGz" firstAttribute="height" secondItem="Itx-Dx-4nT" secondAttribute="height" id="Se5-Ej-BTL"/>
+                            <constraint firstItem="hLO-kN-dGz" firstAttribute="trailing" secondItem="77C-Li-Rdm" secondAttribute="trailing" id="agR-Vk-J6L"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="77C-Li-Rdm" secondAttribute="bottom" id="dga-lA-ePq"/>
+                            <constraint firstAttribute="trailing" secondItem="77C-Li-Rdm" secondAttribute="trailing" id="hrB-Au-lG3"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKo-wR-rxF" userLabel="First Responder" sceneMemberID="firstResponder"/>

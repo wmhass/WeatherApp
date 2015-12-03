@@ -9,9 +9,11 @@
 #import "InitialDrawerViewWireframe.h"
 #import "AppStoryboard.h"
 #import "InitialDrawerSegues.h"
-#import "ForecastViewController.h"
-#import "SavedCitiesViewController.h"
 
+#import "ForecastViewController.h"
+#import "ForecastViewPresenter.h"
+
+#import "SavedCitiesViewController.h"
 #import <UIKit/UIKit.h>
 #import <MMDrawerController/MMDrawerController.h>
 
@@ -24,10 +26,11 @@
     [drawer performSegueWithIdentifier:InitialDrawerLeftViewSegueIdentifier sender:self];
     
     ForecastViewController *forecastView = (ForecastViewController *)drawer.centerViewController;
-    // TODO: Setup forecastview
+    forecastView.presenter = [[ForecastViewPresenter alloc] init];
+    forecastView.presenter.forecastView = forecastView;
     
-    SavedCitiesViewController *savedCitiesView = (SavedCitiesViewController *)drawer.leftDrawerViewController;
     // TODO: Setup savedcitiesview
+    //SavedCitiesViewController *savedCitiesView = (SavedCitiesViewController *)drawer.leftDrawerViewController;
     
     window.rootViewController = drawer;
 }

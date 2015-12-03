@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class ForecastViewPresenter;
 @interface ForecastViewController : UIViewController
+
+@property (strong, nonatomic) ForecastViewPresenter *presenter;
 
 @end

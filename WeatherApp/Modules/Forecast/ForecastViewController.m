@@ -7,11 +7,19 @@
 //
 
 #import "ForecastViewController.h"
+#import "ForecastViewPresenter.h"
 
 @interface ForecastViewController ()
 
 @end
 
 @implementation ForecastViewController
+
+#pragma mark - Lifecycle
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewDidLoad];
+    [self.presenter doInitialLoad];
+}
 
 @end
