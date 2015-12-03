@@ -24,11 +24,8 @@ NSString * const APIResponsePrefferedFormat = @"json";
 }
 
 + (NSDictionary * _Nonnull)parametersWithParameterObject:(ForecastDataManagerParameters * _Nonnull)parameters {
-    NSMutableDictionary *returnParameters = [@{
-                                               @"format": APIResponsePrefferedFormat,
-                                               @"key": APIKey
-                                               } mutableCopy];
-    
+    NSMutableDictionary *returnParameters = [@{@"format": APIResponsePrefferedFormat, @"key": APIKey} mutableCopy];
+
     if (parameters.cityName) {
         [returnParameters setObject:parameters.cityName forKey:@"q"];
     }
@@ -40,7 +37,12 @@ NSString * const APIResponsePrefferedFormat = @"json";
 }
 
 + (NSString * __nullable)errorMessageForResponse:(NSDictionary * __nullable)responseObject {
-    return [[[[responseObject objectForKey:@"data"] objectForKey:@"error"] lastObject] objectForKey:@"msg"];
+    NSDictionary *data = [responseObject objectForKey:@"data"];
+    if (!data) {
+        // TODO: Localize error message
+        return @"No data recevied from the server";
+    }
+    return [[[data objectForKey:@"error"] lastObject] objectForKey:@"msg"];
 }
 
 #pragma mark - Public
