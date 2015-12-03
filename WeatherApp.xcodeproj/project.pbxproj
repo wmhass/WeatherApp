@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C2FE9D8E777E8C48B9111B9 /* libPods-WeatherApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CED7F61D916E1EA629133D2 /* libPods-WeatherApp.a */; };
+		3D342FF71C0FDEC700351C0F /* ForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D342FF61C0FDEC700351C0F /* ForecastViewController.m */; };
 		3DF3B7B01C0FDDA10024C06C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF3B7AF1C0FDDA10024C06C /* main.m */; };
 		3DF3B7B31C0FDDA10024C06C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF3B7B21C0FDDA10024C06C /* AppDelegate.m */; };
 		3DF3B7B91C0FDDA10024C06C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3B7B71C0FDDA10024C06C /* Main.storyboard */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D342FF51C0FDEC700351C0F /* ForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastViewController.h; sourceTree = "<group>"; };
+		3D342FF61C0FDEC700351C0F /* ForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewController.m; sourceTree = "<group>"; };
 		3DF3B7AB1C0FDDA10024C06C /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF3B7AF1C0FDDA10024C06C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DF3B7B11C0FDDA10024C06C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D342FF41C0FDE9A00351C0F /* Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				3D342FF51C0FDEC700351C0F /* ForecastViewController.h */,
+				3D342FF61C0FDEC700351C0F /* ForecastViewController.m */,
+			);
+			path = Forecast;
+			sourceTree = "<group>";
+		};
 		3DF3B7A21C0FDDA10024C06C = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +129,7 @@
 		3DF3B7D31C0FDDC30024C06C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3D342FF41C0FDE9A00351C0F /* Forecast */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -290,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DF3B7B31C0FDDA10024C06C /* AppDelegate.m in Sources */,
+				3D342FF71C0FDEC700351C0F /* ForecastViewController.m in Sources */,
 				3DF3B7B01C0FDDA10024C06C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
