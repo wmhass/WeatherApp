@@ -5,6 +5,25 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
+        <!--Saved Cities View Controller-->
+        <scene sceneID="xu9-xg-o8F">
+            <objects>
+                <viewController id="JQh-Te-LZR" customClass="SavedCitiesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rcs-sl-TIQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="LnE-h5-5rS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r53-ud-fdZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q4V-cu-crE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="156"/>
+        </scene>
         <!--Forecast View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -22,7 +41,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="207" y="376"/>
+            <point key="canvasLocation" x="140" y="858"/>
+        </scene>
+        <!--Search Cities View Controller-->
+        <scene sceneID="vtU-Dw-D4p">
+            <objects>
+                <viewController id="4fw-Ut-0ND" customClass="SearchCitiesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tmy-il-ucN"/>
+                        <viewControllerLayoutGuide type="bottom" id="bTF-Ja-5zz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w4y-nX-de6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qoL-n8-8sb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="804" y="858"/>
         </scene>
     </scenes>
 </document>
