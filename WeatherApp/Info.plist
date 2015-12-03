@@ -45,7 +45,7 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>api.worldweatheronline.com/</key>
+			<key>api.worldweatheronline.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>

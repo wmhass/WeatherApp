@@ -23,7 +23,7 @@
 		3D3430281C10775800351C0F /* ForecastHourlyCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430271C10775800351C0F /* ForecastHourlyCondition.m */; };
 		3D34302B1C10785A00351C0F /* ForecastWeatherDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D34302A1C10785A00351C0F /* ForecastWeatherDescription.m */; };
 		3D34302E1C1083A000351C0F /* ForecastUpcomingCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D34302D1C1083A000351C0F /* ForecastUpcomingCondition.m */; };
-		3D3430301C10888900351C0F /* ForecastDataManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D34302F1C10888900351C0F /* ForecastDataManagerTests.m */; };
+		3D3430331C108CE400351C0F /* ForecastDataManagerParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430321C108CE400351C0F /* ForecastDataManagerParameters.m */; };
 		3DF3B7B01C0FDDA10024C06C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF3B7AF1C0FDDA10024C06C /* main.m */; };
 		3DF3B7B31C0FDDA10024C06C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF3B7B21C0FDDA10024C06C /* AppDelegate.m */; };
 		3DF3B7B91C0FDDA10024C06C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3B7B71C0FDDA10024C06C /* Main.storyboard */; };
@@ -72,7 +72,8 @@
 		3D34302A1C10785A00351C0F /* ForecastWeatherDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastWeatherDescription.m; sourceTree = "<group>"; };
 		3D34302C1C1083A000351C0F /* ForecastUpcomingCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastUpcomingCondition.h; sourceTree = "<group>"; };
 		3D34302D1C1083A000351C0F /* ForecastUpcomingCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastUpcomingCondition.m; sourceTree = "<group>"; };
-		3D34302F1C10888900351C0F /* ForecastDataManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastDataManagerTests.m; sourceTree = "<group>"; };
+		3D3430311C108CE400351C0F /* ForecastDataManagerParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastDataManagerParameters.h; sourceTree = "<group>"; };
+		3D3430321C108CE400351C0F /* ForecastDataManagerParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastDataManagerParameters.m; sourceTree = "<group>"; };
 		3DF3B7AB1C0FDDA10024C06C /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF3B7AF1C0FDDA10024C06C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DF3B7B11C0FDDA10024C06C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -169,11 +170,10 @@
 		3D34301E1C10682100351C0F /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				3D3430341C108CE900351C0F /* DataManager */,
 				3D3430221C10773800351C0F /* Models */,
 				3D34301B1C1066F900351C0F /* ForecastViewInteractor.h */,
 				3D34301C1C1066F900351C0F /* ForecastViewInteractor.m */,
-				3D34301F1C10688F00351C0F /* ForecastDataManager.h */,
-				3D3430201C10688F00351C0F /* ForecastDataManager.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -191,6 +191,17 @@
 				3D34302A1C10785A00351C0F /* ForecastWeatherDescription.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		3D3430341C108CE900351C0F /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				3D34301F1C10688F00351C0F /* ForecastDataManager.h */,
+				3D3430201C10688F00351C0F /* ForecastDataManager.m */,
+				3D3430311C108CE400351C0F /* ForecastDataManagerParameters.h */,
+				3D3430321C108CE400351C0F /* ForecastDataManagerParameters.m */,
+			);
+			name = DataManager;
 			sourceTree = "<group>";
 		};
 		3DF3B7A21C0FDDA10024C06C = {
@@ -244,7 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				3DF3B7CA1C0FDDA10024C06C /* Info.plist */,
-				3D34302F1C10888900351C0F /* ForecastDataManagerTests.m */,
 			);
 			path = WeatherAppTests;
 			sourceTree = "<group>";
@@ -430,6 +440,7 @@
 			files = (
 				3D3430251C10774A00351C0F /* ForecastCurrentCondition.m in Sources */,
 				3D34301D1C1066F900351C0F /* ForecastViewInteractor.m in Sources */,
+				3D3430331C108CE400351C0F /* ForecastDataManagerParameters.m in Sources */,
 				3D34302E1C1083A000351C0F /* ForecastUpcomingCondition.m in Sources */,
 				3D34302B1C10785A00351C0F /* ForecastWeatherDescription.m in Sources */,
 				3D3430281C10775800351C0F /* ForecastHourlyCondition.m in Sources */,
@@ -452,7 +463,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D3430301C10888900351C0F /* ForecastDataManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

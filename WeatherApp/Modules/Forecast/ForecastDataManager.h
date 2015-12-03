@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ForecastDataManagerParameters.h"
 
-typedef void(^ForecastDataManagerCompletionBlock)(void);
+typedef void(^ForecastDataManagerCompletionBlock)(NSArray * __nullable response, NSString * __nullable errorMessage);
 
 @interface ForecastDataManager : NSObject
 
-- (void)fetchForecastRemoteInformationForCity:(NSString *)cityName withCompletion:(ForecastDataManagerCompletionBlock)completionBlock;
+- (void)fetchForecastRemoteInformationWithParameters:(ForecastDataManagerParameters * _Nonnull)parameters withCompletion:(ForecastDataManagerCompletionBlock _Nullable)completionBlock;
 
 @end
