@@ -13,6 +13,7 @@
 #import "ForecastViewController.h"
 #import "ForecastViewPresenter.h"
 #import "ForecastViewWireframe.h"
+#import "ForecastViewInteractor.h"
 
 #import "SavedCitiesViewController.h"
 #import <UIKit/UIKit.h>
@@ -30,6 +31,8 @@
     forecastView.presenter = [[ForecastViewPresenter alloc] init];
     forecastView.presenter.forecastView = forecastView;
     forecastView.presenter.forecastWireframe = [[ForecastViewWireframe alloc] init];
+    forecastView.presenter.forecastInteractor = [[ForecastViewInteractor alloc] init];
+    forecastView.presenter.forecastInteractor.delegate = forecastView.presenter;
     
     // TODO: Setup savedcitiesview
     //SavedCitiesViewController *savedCitiesView = (SavedCitiesViewController *)drawer.leftDrawerViewController;

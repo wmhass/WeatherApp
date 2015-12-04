@@ -8,14 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@class ForecastViewController, ForecastViewWireframe,UIStoryboardSegue;
-@interface ForecastViewPresenter : NSObject
+@class ForecastViewController, ForecastViewWireframe, ForecastViewInteractor, UIStoryboardSegue;
+@protocol ForecastViewInteractorDelegate;
+
+@interface ForecastViewPresenter : NSObject <ForecastViewInteractorDelegate>
 
 @property (weak, nonatomic) ForecastViewController * forecastView;
 @property (strong, nonatomic) ForecastViewWireframe *  _Nonnull forecastWireframe;
+@property (strong, nonatomic) ForecastViewInteractor * _Nonnull forecastInteractor;
 
 #pragma mark - Presenter Actions
 
 - (void)doInitialLoad;
+- (void)reloadViewData;
 
 @end

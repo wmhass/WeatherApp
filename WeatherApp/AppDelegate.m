@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 #import "AppWireframe.h"
-#import "ForecastDataManager.h"
-
 
 @interface AppDelegate ()
 
@@ -26,14 +24,7 @@
     
     AppWireframe *wireframe = [[AppWireframe alloc] init];
     [wireframe installRootViewInWindow:self.window];
-    
-    ForecastDataManager *dataManager = [[ForecastDataManager alloc] init];
-    ForecastDataManagerParameters *fetchParameter = [[ForecastDataManagerParameters alloc] initWithCityName:@"Porto Alegre" numberOfDays:@(0)];
-    [dataManager fetchForecastRemoteInformationWithParameters:fetchParameter withCompletion:^(NSArray * _Nullable response, NSString * _Nullable errorMessage) {
-        
-    }];
-    
-    
+
     return YES;
 }
 

@@ -14,4 +14,7 @@
 @property (strong, nonatomic) ForecastViewPresenter *presenter;
 @property (weak, nonatomic, readonly) SearchCitiesViewController *searchCitiesController;
 
+- (NSString *)searchingCity;
+- (void)presentErrorMessage:(NSString *)message;
+
 @end

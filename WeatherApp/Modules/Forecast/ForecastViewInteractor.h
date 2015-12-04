@@ -8,15 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@class ForecastViewInteractor;
+@class ForecastViewInteractor, Forecast;
 @protocol ForecastViewInteractorDelegate
 
-- (void)forecastViewInteractor:(ForecastViewInteractor *)interactor didFetchForecast:(NSArray *)forecast;
+- (void)forecastViewInteractor:(ForecastViewInteractor *)interactor didFetchForecast:(Forecast *)forecast;
+- (void)forecastViewInteractor:(ForecastViewInteractor *)interactor didFailFetchingForecastWithError:(NSError *)error;
 
 @end
 
 @interface ForecastViewInteractor : NSObject
 
 @property (weak, nonatomic) id<ForecastViewInteractorDelegate> delegate;
+
+- (void)forecastForCity:(NSString *)cityName;
 
 @end

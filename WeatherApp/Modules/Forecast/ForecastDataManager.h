@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ForecastDataManagerParameters.h"
 
-typedef void(^ForecastDataManagerCompletionBlock)(NSArray * __nullable response, NSString * __nullable errorMessage);
+typedef void(^ForecastDataManagerCompletionBlock)(NSDictionary * __nullable response, NSError * __nullable error);
 
 @interface ForecastDataManager : NSObject
 

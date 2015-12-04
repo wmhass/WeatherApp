@@ -39,10 +39,15 @@ NSString * const APIResponsePrefferedFormat = @"json";
 + (NSString * __nullable)errorMessageForResponse:(NSDictionary * __nullable)responseObject {
     NSDictionary *data = [responseObject objectForKey:@"data"];
     if (!data) {
-        // TODO: Localize error message
-        return @"No data recevied from the server";
+        return NSLocalizedString(@"REQUEST_ERROR_MESSAGE", @"No data recevied from the server");
     }
     return [[[data objectForKey:@"error"] lastObject] objectForKey:@"msg"];
+}
+
+
++ (NSError *)datamanagerErrorWithMessage:(NSString * _Nonnull)message {
+    NSError *error = [[NSError alloc] initWithDomain:@"com.datamanager" code:0 userInfo:@{NSLocalizedDescriptionKey: message}];
+    return error;
 }
 
 #pragma mark - Public
@@ -56,19 +61,19 @@ NSString * const APIResponsePrefferedFormat = @"json";
       parameters:[ForecastDataManager parametersWithParameterObject:parameters]
          success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
              
-             NSString *errorMessage = [ForecastDataManager errorMessageForResponse:responseObject];
+             NSString * _Nonnull errorMessage = [ForecastDataManager errorMessageForResponse:responseObject];
              
-             if (errorMessage) {
-                 NSLog(@"Error: %@", errorMessage);
-                 
-             } else {
-                 //TODO: Parse response
-                 NSLog(@"Response object: %@",responseObject);
+             if (errorMessage && completionBlock) {
+                 completionBlock(nil, [ForecastDataManager datamanagerErrorWithMessage:errorMessage]);
+             } else  if(completionBlock) {
+                 completionBlock([responseObject objectForKey:@"data"], nil);
              }
              
          }
          failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-             NSLog(@"Error!: %@", error.localizedDescription);
+             if (completionBlock) {
+                 completionBlock(nil, [ForecastDataManager datamanagerErrorWithMessage:error.localizedDescription]);
+             }
          }];
 }
 

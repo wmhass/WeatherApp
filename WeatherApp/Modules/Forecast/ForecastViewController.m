@@ -33,8 +33,6 @@ NSString * const ForecastViewSearchSegueIdentifier = @"search_segue";
     }
 }
 
-
-
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -49,5 +47,23 @@ NSString * const ForecastViewSearchSegueIdentifier = @"search_segue";
     self.searchLabelBottomConstraint.priority = UILayoutPriorityDefaultLow;
 }
 
+
+#pragma mark - Public
+
+- (NSString *)searchingCity {
+    return @"____";
+}
+
+
+- (void)presentErrorMessage:(NSString *)message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ERROR_ALERT", @"Ooops!") message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"Ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 @end

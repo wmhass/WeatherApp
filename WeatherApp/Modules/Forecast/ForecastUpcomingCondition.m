@@ -15,9 +15,21 @@
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
+        _maxTempC = @([dictionary[@"maxtempC"] floatValue]);
+        _maxTempF = @([dictionary[@"maxtempF"] floatValue]);
+        _minTempC = @([dictionary[@"mintempC"] floatValue]);
+        _minTempF = @([dictionary[@"mintempF"] floatValue]);
+        _date = [[ForecastUpcomingCondition dateFormatter] dateFromString:dictionary[@"date"]];
+        
         
     }
     return self;
+}
+
++ (NSDateFormatter *)dateFormatter {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-mm-dd";
+    return formatter;
 }
 
 @end
