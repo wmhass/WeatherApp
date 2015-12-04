@@ -18,7 +18,7 @@
 
 #pragma mark - Initializers
 
-- (id)initWithValues:(NSArray<NSString *> *)values {
+- (id _Nonnull)initWithValues:(NSArray<NSString *> * _Nullable)values {
     self = [super init];
     if (self) {
         _values = values;
@@ -28,7 +28,7 @@
 
 #pragma mark - Public (Rewrtitten)
 
-- (NSString *)description {
+- (NSString * _Nullable)description {
     return [self.values componentsJoinedByString:@", "];
 }
 

@@ -10,10 +10,10 @@
 
 @interface ForecastUpcomingConditionDisplayData : NSObject
 
-@property (strong, nonatomic) NSString *maxTempC;
-@property (strong, nonatomic) NSString *maxTempF;
-@property (strong, nonatomic) NSString *minTempF;
-@property (strong, nonatomic) NSString *minTempC;
-@property (strong, nonatomic) NSString *weekDayName;
+@property (strong, nonatomic) NSString * _Nullable maxTempC;
+@property (strong, nonatomic) NSString * _Nullable maxTempF;
+@property (strong, nonatomic) NSString * _Nullable minTempF;
+@property (strong, nonatomic) NSString * _Nullable minTempC;
+@property (strong, nonatomic) NSString * _Nullable weekDayName;
 
 @end

@@ -35,7 +35,7 @@
 
 #pragma mark - Private
 
-- (ForecastDisplayData *)forecastDisplayDataFromForecast:(Forecast *)forecast {
+- (ForecastDisplayData * _Nonnull)forecastDisplayDataFromForecast:(Forecast * _Nonnull)forecast {
     ForecastDisplayDataCollector *collector = [[ForecastDisplayDataCollector alloc] init];
 
     [collector collectCurrentCondition:forecast.currentCondition];
@@ -49,11 +49,11 @@
 
 #pragma mark - ForecastViewInteractorDelegate
 
-- (void)forecastViewInteractor:(ForecastViewInteractor *)interactor didFetchForecast:(Forecast *)forecast {
+- (void)forecastViewInteractor:(ForecastViewInteractor * _Nonnull)interactor didFetchForecast:(Forecast *  _Nonnull)forecast {
     [self.forecastView displayData:[self forecastDisplayDataFromForecast:forecast]];
 }
 
-- (void)forecastViewInteractor:(ForecastViewInteractor *)interactor didFailFetchingForecastWithError:(NSError *)error {
+- (void)forecastViewInteractor:(ForecastViewInteractor * _Nonnull)interactor didFailFetchingForecastWithError:(NSError * _Nonnull)error {
     [self.forecastView presentErrorMessage:error.localizedDescription];
 }
 

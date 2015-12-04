@@ -11,6 +11,6 @@
 @class UIWindow;
 @interface InitialDrawerViewWireframe : NSObject
 
-- (void)launchInitialViewInWindow:(UIWindow *)window;
+- (void)launchInitialViewInWindow:(UIWindow * _Nonnull)window;
 
 @end

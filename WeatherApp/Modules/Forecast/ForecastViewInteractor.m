@@ -18,7 +18,7 @@
 
 #pragma mark - Public 
 
-- (void)forecastForCity:(NSString *)cityName {
+- (void)forecastForCity:(NSString *  _Nullable)cityName {
     
     ForecastDataManager *manager = [[ForecastDataManager alloc] init];
     ForecastDataManagerParameters *parameters = [[ForecastDataManagerParameters alloc] initWithCityName:cityName numberOfDays:@(5)];
@@ -44,7 +44,7 @@
     return [[Forecast alloc] initWithCurrentCondition:currentCondition upcomingConditions:upcomingConditions];
 }
 
-+ (NSArray <ForecastUpcomingCondition *> *)forecastUpcomingConditionsWithDictionary:(NSDictionary *)dictionary {
++ (NSArray <ForecastUpcomingCondition *> * _Nonnull)forecastUpcomingConditionsWithDictionary:(NSDictionary * _Nullable)dictionary {
     NSMutableArray <ForecastUpcomingCondition *> *upcomingConditions = [@[] mutableCopy];
     
     NSArray *weather = dictionary[@"weather"];
@@ -58,7 +58,7 @@
     return [NSArray arrayWithArray:upcomingConditions];
 }
 
-+ (ForecastCurrentCondition * _Nonnull)forecastCurrentConditionFromDictionary:(NSDictionary *)dictionary {
++ (ForecastCurrentCondition * _Nonnull)forecastCurrentConditionFromDictionary:(NSDictionary * _Nullable)dictionary {
 
     NSMutableArray <ForecastHourlyCondition *> *hourlyConditions = [@[] mutableCopy];
     

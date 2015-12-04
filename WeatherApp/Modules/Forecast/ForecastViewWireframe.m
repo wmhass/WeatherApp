@@ -11,13 +11,13 @@
 
 @interface ForecastViewWireframe()
 
-@property (weak, nonatomic) SearchCitiesViewController *presentedSearchView;
+@property (weak, nonatomic) SearchCitiesViewController * _Nullable presentedSearchView;
 
 @end
 
 @implementation ForecastViewWireframe
 
-- (void)didPresentSearchView:(SearchCitiesViewController *)searchView {
+- (void)didPresentSearchView:(SearchCitiesViewController * _Nonnull)searchView {
     self.presentedSearchView = searchView;
     // TODO: Set presenter, wireframe....
 }

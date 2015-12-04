@@ -10,7 +10,7 @@
 
 @implementation ForecastDisplayData
 
-- (id)initWithCurrentCondition:(ForecastCurrentConditionDisplayData *)currentCondition upcomingConditions:(NSArray <ForecastUpcomingConditionDisplayData *> *)upcomingConditions {
+- (id _Nonnull)initWithCurrentCondition:(ForecastCurrentConditionDisplayData * _Nonnull)currentCondition upcomingConditions:(NSArray <ForecastUpcomingConditionDisplayData *> * _Nonnull)upcomingConditions {
     self = [super init];
     if (self) {
         _currentCondition = currentCondition;

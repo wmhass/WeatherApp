@@ -82,18 +82,18 @@
 
 #pragma mark - Public
 
-- (void)collectCurrentCondition:(ForecastCurrentCondition *)currentCondition {
+- (void)collectCurrentCondition:(ForecastCurrentCondition * _Nonnull)currentCondition {
     self.currentCondition = [self currentConditionDisplayDataFromCurrentCondition:currentCondition];
 }
 
-- (void)collectUpcomingConditions:(NSArray <ForecastUpcomingCondition *> *)upcomingConditions {
+- (void)collectUpcomingConditions:(NSArray <ForecastUpcomingCondition *> *_Nonnull)upcomingConditions {
     self.upcomingConditions = [[NSMutableArray alloc] initWithCapacity:upcomingConditions.count];
     for (ForecastUpcomingCondition * upcomingCondition in upcomingConditions) {
         [self collectUpcomingCondition:upcomingCondition];
     }
 }
 
-- (ForecastDisplayData *)collectedData {
+- (ForecastDisplayData *_Nonnull)collectedData {
     return [[ForecastDisplayData alloc] initWithCurrentCondition:self.currentCondition upcomingConditions:self.upcomingConditions];
     
 }

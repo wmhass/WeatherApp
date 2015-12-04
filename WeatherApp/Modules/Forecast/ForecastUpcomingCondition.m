@@ -12,7 +12,7 @@
 
 #pragma mark - Initializers 
 
-- (id)initWithDictionary:(NSDictionary *)dictionary {
+- (id _Nonnull)initWithDictionary:(NSDictionary * _Nullable)dictionary {
     self = [super init];
     if (self) {
         _maxTempC = @([dictionary[@"maxtempC"] floatValue]);
@@ -24,7 +24,7 @@
     return self;
 }
 
-+ (NSDateFormatter *)dateFormatter {
++ (NSDateFormatter * _Nonnull)dateFormatter {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyy-mm-dd";
     return formatter;

@@ -10,14 +10,14 @@
 
 @interface ForecastUpcomingCondition : NSObject
 
-@property (strong, nonatomic) NSDate *date;
+@property (strong, nonatomic) NSDate * _Nullable date;
 
-@property (strong, nonatomic) NSNumber *maxTempC;
-@property (strong, nonatomic) NSNumber *maxTempF;
+@property (strong, nonatomic) NSNumber * _Nullable maxTempC;
+@property (strong, nonatomic) NSNumber * _Nullable maxTempF;
 
-@property (strong, nonatomic) NSNumber *minTempC;
-@property (strong, nonatomic) NSNumber *minTempF;
+@property (strong, nonatomic) NSNumber * _Nullable minTempC;
+@property (strong, nonatomic) NSNumber * _Nullable minTempF;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary;
+- (id _Nonnull)initWithDictionary:(NSDictionary * _Nullable)dictionary;
 
 @end

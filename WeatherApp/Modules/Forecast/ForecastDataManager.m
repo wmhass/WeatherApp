@@ -36,7 +36,7 @@ NSString * const APIResponsePrefferedFormat = @"json";
     return returnParameters;
 }
 
-+ (NSString * __nullable)errorMessageForResponse:(NSDictionary * __nullable)responseObject {
++ (NSString * _Nullable)errorMessageForResponse:(NSDictionary * _Nullable)responseObject {
     NSDictionary *data = [responseObject objectForKey:@"data"];
     if (!data) {
         return NSLocalizedString(@"REQUEST_ERROR_MESSAGE", @"No data recevied from the server");
@@ -45,7 +45,7 @@ NSString * const APIResponsePrefferedFormat = @"json";
 }
 
 
-+ (NSError *)datamanagerErrorWithMessage:(NSString * _Nonnull)message {
++ (NSError * _Nonnull)datamanagerErrorWithMessage:(NSString * _Nonnull)message {
     NSError *error = [[NSError alloc] initWithDomain:@"com.datamanager" code:0 userInfo:@{NSLocalizedDescriptionKey: message}];
     return error;
 }

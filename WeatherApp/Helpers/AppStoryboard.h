@@ -12,7 +12,7 @@
 
 @interface AppStoryboard : NSObject
 
-+ (instancetype)sharedInstance;
-- (MMDrawerController *)initialViewController;
++ (instancetype _Nonnull)sharedInstance;
+- (MMDrawerController * _Nonnull)initialViewController;
 
 @end

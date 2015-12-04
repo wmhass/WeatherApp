@@ -12,9 +12,9 @@
 @interface ForecastDisplayData : NSObject
 
 // TODO: Replace this properties for getters/setters methods
-@property (strong, nonatomic, readonly) ForecastCurrentConditionDisplayData *currentCondition;
-@property (strong, nonatomic, readonly) NSArray <ForecastUpcomingConditionDisplayData *> *upcomingConditions;
+@property (strong, nonatomic, readonly) ForecastCurrentConditionDisplayData * _Nullable currentCondition;
+@property (strong, nonatomic, readonly) NSArray <ForecastUpcomingConditionDisplayData *> * _Nullable upcomingConditions;
 
-- (id)initWithCurrentCondition:(ForecastCurrentConditionDisplayData *)currentCondition upcomingConditions:(NSArray <ForecastUpcomingConditionDisplayData *> *)upcomingConditions;
+- (id _Nonnull)initWithCurrentCondition:(ForecastCurrentConditionDisplayData * _Nonnull)currentCondition upcomingConditions:(NSArray <ForecastUpcomingConditionDisplayData *> * _Nonnull)upcomingConditions;
 
 @end

@@ -10,6 +10,6 @@
 
 @interface ForecastWeatherDescription : NSObject
 
-- (id)initWithValues:(NSArray<NSString *> *)values;
+- (id _Nonnull)initWithValues:(NSArray<NSString *> * _Nullable)values;
 
 @end

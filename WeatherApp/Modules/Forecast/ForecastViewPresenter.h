@@ -13,9 +13,9 @@
 
 @interface ForecastViewPresenter : NSObject <ForecastViewInteractorDelegate>
 
-@property (weak, nonatomic) ForecastViewController * forecastView;
-@property (strong, nonatomic) ForecastViewWireframe *  _Nonnull forecastWireframe;
-@property (strong, nonatomic) ForecastViewInteractor * _Nonnull forecastInteractor;
+@property (weak, nonatomic) ForecastViewController * _Nullable forecastView;
+@property (strong, nonatomic) ForecastViewWireframe *  _Nullable forecastWireframe;
+@property (strong, nonatomic) ForecastViewInteractor * _Nullable forecastInteractor;
 
 #pragma mark - Presenter Actions
 

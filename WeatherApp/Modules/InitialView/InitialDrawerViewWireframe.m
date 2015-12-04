@@ -21,7 +21,7 @@
 
 @implementation InitialDrawerViewWireframe
 
-- (void)launchInitialViewInWindow:(UIWindow *)window {
+- (void)launchInitialViewInWindow:(UIWindow * _Nonnull)window {
     
     MMDrawerController *drawer = [[AppStoryboard sharedInstance] initialViewController];
     [drawer performSegueWithIdentifier:InitialDrawerCenterViewSegueIdentifier sender:self];

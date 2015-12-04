@@ -29,7 +29,7 @@ NSString * const ForecastViewSearchSegueIdentifier = @"search_segue";
     [self.presenter doInitialLoad];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender {
     if ([segue.identifier isEqualToString:ForecastViewSearchSegueIdentifier]) {
         _searchCitiesController = (SearchCitiesViewController *)segue.destinationViewController;
     }
@@ -46,23 +46,23 @@ NSString * const ForecastViewSearchSegueIdentifier = @"search_segue";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillAppear:) name:UIKeyboardWillShowNotification object:nil];
 }
 
-- (void)keyboardWillAppear:(NSNotification *)notification {
+- (void)keyboardWillAppear:(NSNotification * _Nullable)notification {
     self.searchLabelBottomConstraint.priority = UILayoutPriorityDefaultLow;
 }
 
 
 #pragma mark - Public
 
-- (void)displayData:(ForecastDisplayData *)displayData {
+- (void)displayData:(ForecastDisplayData * _Nullable)displayData {
     self.displayData = displayData;
 }
 
-- (NSString *)searchingCity {
+- (NSString * _Nullable)searchingCity {
     return @"Porto alegre";
 }
 
 
-- (void)presentErrorMessage:(NSString *)message {
+- (void)presentErrorMessage:(NSString * _Nonnull)message {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ERROR_ALERT", @"Ooops!") message:message preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"Ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
