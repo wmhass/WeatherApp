@@ -8,12 +8,14 @@
 
 #import "ForecastViewController.h"
 #import "ForecastViewPresenter.h"
+#import "ForecastDisplayData.h"
 
 NSString * const ForecastViewSearchSegueIdentifier = @"search_segue";
 
 @interface ForecastViewController ()
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchLabelBottomConstraint;
+@property (strong, nonatomic) ForecastDisplayData *displayData;
 
 @end
 
@@ -37,6 +39,7 @@ NSString * const ForecastViewSearchSegueIdentifier = @"search_segue";
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+
 #pragma mark - Private
 
 - (void)setupKeyboardListener {
@@ -50,8 +53,12 @@ NSString * const ForecastViewSearchSegueIdentifier = @"search_segue";
 
 #pragma mark - Public
 
+- (void)displayData:(ForecastDisplayData *)displayData {
+    self.displayData = displayData;
+}
+
 - (NSString *)searchingCity {
-    return @"____";
+    return @"Porto alegre";
 }
 
 

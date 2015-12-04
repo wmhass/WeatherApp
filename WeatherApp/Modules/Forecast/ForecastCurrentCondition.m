@@ -16,11 +16,11 @@
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
-        _feelsLikeC = dictionary[@"FeelsLikeC"];
-        _feelsLikeF = dictionary[@"FeelsLikeF"];
-        _tempC = dictionary[@"temp_C"];
-        _tempF = dictionary[@"temp_F"];
-        _humidity = dictionary[@"humidity"];
+        _feelsLikeC = @([dictionary[@"FeelsLikeC"] floatValue]);
+        _feelsLikeF = @([dictionary[@"FeelsLikeF"] floatValue]);
+        _tempC = @([dictionary[@"temp_C"] floatValue]);
+        _tempF = @([dictionary[@"temp_F"] floatValue]);
+        _humidity = @([dictionary[@"humidity"] floatValue]);
         _observationTime = dictionary[@"observation_time"];
         _weatherDescription = [[ForecastWeatherDescription alloc] initWithValues:dictionary[@"weatherDesc"]];
     }

@@ -20,8 +20,6 @@
         _minTempC = @([dictionary[@"mintempC"] floatValue]);
         _minTempF = @([dictionary[@"mintempF"] floatValue]);
         _date = [[ForecastUpcomingCondition dateFormatter] dateFromString:dictionary[@"date"]];
-        
-        
     }
     return self;
 }

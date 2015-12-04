@@ -11,6 +11,7 @@
 #import "ForecastCurrentCondition.h"
 #import "ForecastUpcomingCondition.h"
 #import "Forecast.h"
+#import "ForecastHourlyCondition.h"
 
 @implementation ForecastViewInteractor
 
@@ -35,15 +36,41 @@
 }
 
 + (Forecast * _Nonnull)forecastFromDictionary:(NSDictionary * _Nonnull)dictionary {
-    ForecastCurrentCondition *currentCondition = [[ForecastCurrentCondition alloc] initWithDictionary:[dictionary[@"current_condition"] firstObject]];
     
+    ForecastCurrentCondition *currentCondition = [ForecastViewInteractor forecastCurrentConditionFromDictionary:dictionary];
+    
+    NSArray <ForecastUpcomingCondition *> *upcomingConditions = [ForecastViewInteractor forecastUpcomingConditionsWithDictionary:dictionary];
+    
+    return [[Forecast alloc] initWithCurrentCondition:currentCondition upcomingConditions:upcomingConditions];
+}
+
++ (NSArray <ForecastUpcomingCondition *> *)forecastUpcomingConditionsWithDictionary:(NSDictionary *)dictionary {
     NSMutableArray <ForecastUpcomingCondition *> *upcomingConditions = [@[] mutableCopy];
     
-    for (NSDictionary *upcomingCondition in dictionary[@"weather"]) {
+    NSArray *weather = dictionary[@"weather"];
+
+    // The first item of the array is actually the current day, so we skip it
+    NSArray *upcomingWeather = [weather subarrayWithRange:NSMakeRange(1, weather.count-1)];
+    for (NSDictionary *upcomingCondition in upcomingWeather) {
         [upcomingConditions addObject:[[ForecastUpcomingCondition alloc] initWithDictionary:upcomingCondition]];
     }
-    //TODO: Check the upcoming condition's order
-    return [[Forecast alloc] initWithCurrentCondition:currentCondition upcomingConditions:upcomingConditions];
+
+    return [NSArray arrayWithArray:upcomingConditions];
+}
+
++ (ForecastCurrentCondition * _Nonnull)forecastCurrentConditionFromDictionary:(NSDictionary *)dictionary {
+
+    NSMutableArray <ForecastHourlyCondition *> *hourlyConditions = [@[] mutableCopy];
+    
+    NSDictionary *currentWeather = [dictionary[@"weather"] firstObject];
+    for (NSDictionary *hourlyCondition in currentWeather[@"hourly"]) {
+        [hourlyConditions addObject:[[ForecastHourlyCondition alloc] initWithDictionary:hourlyCondition]];
+    }
+    
+    ForecastCurrentCondition *currentCondition = [[ForecastCurrentCondition alloc] initWithDictionary:[dictionary[@"current_condition"] firstObject]];
+    currentCondition.hourlyConditions = [NSArray arrayWithArray:hourlyConditions];
+
+    return currentCondition;
 }
 
 @end

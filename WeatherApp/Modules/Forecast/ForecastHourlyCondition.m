@@ -15,7 +15,10 @@
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
-        
+        _tempF = @([dictionary[@"tempF"] floatValue]);
+        _tempC = @([dictionary[@"tempC"] floatValue]);
+        _chanceOfRain = @([dictionary[@"chanceofrain"] floatValue]);
+        //TODO: Time??
     }
     return self;
 }

@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class ForecastViewPresenter, SearchCitiesViewController;
+@class ForecastViewPresenter, SearchCitiesViewController, ForecastDisplayData;
 @interface ForecastViewController : UIViewController
 
 @property (strong, nonatomic) ForecastViewPresenter *presenter;
 @property (weak, nonatomic, readonly) SearchCitiesViewController *searchCitiesController;
 
 - (NSString *)searchingCity;
+
 - (void)presentErrorMessage:(NSString *)message;
+- (void)displayData:(ForecastDisplayData *)displayData;
 
 @end

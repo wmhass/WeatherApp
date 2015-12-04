@@ -10,6 +10,9 @@
 #import "ForecastViewController.h"
 #import "ForecastViewWireframe.h"
 #import "ForecastViewInteractor.h"
+#import "ForecastDisplayDataCollector.h"
+#import "ForecastDisplayData.h"
+#import "Forecast.h"
 
 @interface ForecastViewPresenter()
 
@@ -30,10 +33,24 @@
 }
 
 
+#pragma mark - Private
+
+- (ForecastDisplayData *)forecastDisplayDataFromForecast:(Forecast *)forecast {
+    ForecastDisplayDataCollector *collector = [[ForecastDisplayDataCollector alloc] init];
+
+    [collector collectCurrentCondition:forecast.currentCondition];
+    [collector collectUpcomingConditions:forecast.upcomingConditions];
+    
+    return [collector collectedData];
+}
+
+
+
+
 #pragma mark - ForecastViewInteractorDelegate
 
 - (void)forecastViewInteractor:(ForecastViewInteractor *)interactor didFetchForecast:(Forecast *)forecast {
-    // TODO: Ask view present data
+    [self.forecastView displayData:[self forecastDisplayDataFromForecast:forecast]];
 }
 
 - (void)forecastViewInteractor:(ForecastViewInteractor *)interactor didFailFetchingForecastWithError:(NSError *)error {
