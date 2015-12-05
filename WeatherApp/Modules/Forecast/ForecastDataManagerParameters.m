@@ -12,7 +12,7 @@
 
 #pragma mark - Initializers
 
-- (id _Nonnull)initWithCityName:(NSString * _Nonnull)cityName numberOfDays:(NSNumber * _Nonnull)numberOfDays {
+- (id _Nonnull)initWithCityName:(NSString * _Nonnull)cityName numberOfDays:(NSNumber * _Nullable)numberOfDays {
     self = [super init];
     if(self) {
         _cityName = cityName;

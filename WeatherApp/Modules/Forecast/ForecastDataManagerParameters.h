@@ -13,6 +13,6 @@
 @property (strong, nonatomic, readonly) NSString * _Nullable cityName;
 @property (strong, nonatomic, readonly) NSNumber * _Nullable numberOfDays;
 
-- (id _Nonnull)initWithCityName:(NSString * _Nonnull)cityName numberOfDays:(NSNumber * _Nonnull)numberOfDays;
+- (id _Nonnull)initWithCityName:(NSString * _Nonnull)cityName numberOfDays:(NSNumber * _Nullable)numberOfDays;
 
 @end

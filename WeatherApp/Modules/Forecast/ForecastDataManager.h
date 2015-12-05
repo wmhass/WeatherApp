@@ -15,4 +15,6 @@ typedef void(^ForecastDataManagerCompletionBlock)(NSDictionary * _Nullable respo
 
 - (void)fetchForecastRemoteInformationWithParameters:(ForecastDataManagerParameters * _Nonnull)parameters withCompletion:(ForecastDataManagerCompletionBlock _Nullable)completionBlock;
 
+- (void)fetchCitiesWithSearch:(NSString * _Nonnull)cityName withCompletion:(ForecastDataManagerCompletionBlock _Nullable)completionBlock;
+
 @end

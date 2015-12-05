@@ -13,17 +13,18 @@ NSString * const APIKey = @"e09a42c0b1e877e6738cf26aa20ca";
 NSString * const APIURI = @"http://api.worldweatheronline.com/free";
 NSString * const APIVersion = @"v2";
 NSString * const APIWeatherEndPoint = @"weather.ashx";
+NSString * const APICitySearchEndPoint = @"search.ashx";
 NSString * const APIResponsePrefferedFormat = @"json";
 
 @implementation ForecastDataManager
 
 #pragma mark - Private
 
-+ (NSString * _Nonnull)URLForEndPoint:(NSString * _Nonnull)endpoint {
+- (NSString * _Nonnull)URLForEndPoint:(NSString * _Nonnull)endpoint {
     return [@[APIURI, APIVersion, endpoint] componentsJoinedByString:@"/"];
 }
 
-+ (NSDictionary * _Nonnull)parametersWithParameterObject:(ForecastDataManagerParameters * _Nonnull)parameters {
+- (NSDictionary * _Nonnull)parametersWithParameterObject:(ForecastDataManagerParameters * _Nonnull)parameters {
     NSMutableDictionary *returnParameters = [@{@"format": APIResponsePrefferedFormat, @"key": APIKey} mutableCopy];
 
     if (parameters.cityName) {
@@ -36,7 +37,7 @@ NSString * const APIResponsePrefferedFormat = @"json";
     return returnParameters;
 }
 
-+ (NSString * _Nullable)errorMessageForResponse:(NSDictionary * _Nullable)responseObject {
+- (NSString * _Nullable)errorMessageForResponse:(NSDictionary * _Nullable)responseObject {
     NSDictionary *data = [responseObject objectForKey:@"data"];
     if (!data) {
         return NSLocalizedString(@"REQUEST_ERROR_MESSAGE", @"No data recevied from the server");
@@ -45,7 +46,7 @@ NSString * const APIResponsePrefferedFormat = @"json";
 }
 
 
-+ (NSError * _Nonnull)datamanagerErrorWithMessage:(NSString * _Nonnull)message {
+- (NSError * _Nonnull)datamanagerErrorWithMessage:(NSString * _Nonnull)message {
     NSError *error = [[NSError alloc] initWithDomain:@"com.datamanager" code:0 userInfo:@{NSLocalizedDescriptionKey: message}];
     return error;
 }
@@ -57,14 +58,14 @@ NSString * const APIResponsePrefferedFormat = @"json";
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
 
-    [manager GET:[ForecastDataManager URLForEndPoint:APIWeatherEndPoint]
-      parameters:[ForecastDataManager parametersWithParameterObject:parameters]
+    [manager GET:[self URLForEndPoint:APIWeatherEndPoint]
+      parameters:[self parametersWithParameterObject:parameters]
          success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
              
-             NSString * _Nonnull errorMessage = [ForecastDataManager errorMessageForResponse:responseObject];
+             NSString * _Nonnull errorMessage = [self errorMessageForResponse:responseObject];
              
              if (errorMessage && completionBlock) {
-                 completionBlock(nil, [ForecastDataManager datamanagerErrorWithMessage:errorMessage]);
+                 completionBlock(nil, [self datamanagerErrorWithMessage:errorMessage]);
              } else  if(completionBlock) {
                  completionBlock([responseObject objectForKey:@"data"], nil);
              }
@@ -72,10 +73,38 @@ NSString * const APIResponsePrefferedFormat = @"json";
          }
          failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
              if (completionBlock) {
-                 completionBlock(nil, [ForecastDataManager datamanagerErrorWithMessage:error.localizedDescription]);
+                 completionBlock(nil, [self datamanagerErrorWithMessage:error.localizedDescription]);
              }
          }];
 }
 
+
+- (void)fetchCitiesWithSearch:(NSString *)cityName withCompletion:(ForecastDataManagerCompletionBlock)completionBlock {
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    ForecastDataManagerParameters *parameters = [[ForecastDataManagerParameters alloc] initWithCityName:cityName numberOfDays:nil];
+    
+    __weak ForecastDataManager *weakSelf = self;
+    [manager GET:[self URLForEndPoint:APICitySearchEndPoint]
+      parameters:[self parametersWithParameterObject:parameters]
+         success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+             
+             NSString * _Nonnull errorMessage = [weakSelf errorMessageForResponse:responseObject];
+             
+             if (errorMessage && completionBlock) {
+                 completionBlock(nil, [weakSelf datamanagerErrorWithMessage:errorMessage]);
+             } else  if(completionBlock) {
+                 completionBlock(responseObject[@"search_api"], nil);
+             }
+             
+         }
+         failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+             if (completionBlock) {
+                 completionBlock(nil, [weakSelf datamanagerErrorWithMessage:error.localizedDescription]);
+             }
+         }];
+}
 
 @end

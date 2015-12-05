@@ -27,7 +27,7 @@
 }
 
 - (void)reloadViewData {
-    [self.forecastInteractor forecastForCity:[self.forecastView searchingCity]];
+    [self.forecastInteractor loadForecastForCity:[self.forecastView searchingCity]];
 }
 
 

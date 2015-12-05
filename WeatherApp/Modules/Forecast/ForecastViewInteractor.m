@@ -20,7 +20,7 @@ static NSInteger const ForecastViewInteractorNumberOfDays = 5;
 
 #pragma mark - Public 
 
-- (void)forecastForCity:(NSString *  _Nullable)cityName {
+- (void)loadForecastForCity:(NSString *  _Nullable)cityName {
     
     ForecastDataManager *manager = [[ForecastDataManager alloc] init];
     ForecastDataManagerParameters *parameters = [[ForecastDataManagerParameters alloc] initWithCityName:cityName numberOfDays:@(ForecastViewInteractorNumberOfDays)];
@@ -49,7 +49,7 @@ static NSInteger const ForecastViewInteractorNumberOfDays = 5;
 }
 
 + (NSString * _Nonnull)locationNameFromDictionary:(NSDictionary * _Nullable)dictionary {
-    return [[dictionary[@"request"] firstObject] objectForKey:@"query"];
+    return dictionary[@"request"][0][@"query"];
 }
 
 + (NSArray <ForecastUpcomingCondition *> * _Nonnull)forecastUpcomingConditionsWithDictionary:(NSDictionary * _Nullable)dictionary {
