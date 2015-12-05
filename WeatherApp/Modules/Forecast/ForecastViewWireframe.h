@@ -6,9 +6,11 @@
 //  Copyright © 2015 William Hass. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class SearchCitiesViewController;
 @interface ForecastViewWireframe : NSObject
+
+- (void)launchViewInWindow:(UIWindow *)window;
 
 @end

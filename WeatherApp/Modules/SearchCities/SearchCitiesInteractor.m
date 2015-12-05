@@ -14,7 +14,7 @@
 
 #pragma mark - Public 
 
-- (void)searchCitiesWithSearchString:(NSString *)searchString {
+- (void)searchCitiesWithSearchString:(NSString * _Nonnull)searchString {
     ForecastDataManager *dataManager = [[ForecastDataManager alloc] init];
     
     __weak SearchCitiesInteractor *weakSelf = self;

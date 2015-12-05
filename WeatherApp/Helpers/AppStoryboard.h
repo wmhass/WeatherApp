@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class MMDrawerController;
-
 @interface AppStoryboard : NSObject
 
 + (instancetype _Nonnull)sharedInstance;
-- (MMDrawerController * _Nonnull)initialViewController;
+- (UIViewController * _Nonnull)initialViewController;
 
 @end

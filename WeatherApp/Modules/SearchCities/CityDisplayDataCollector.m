@@ -9,6 +9,7 @@
 #import "CityDisplayDataCollector.h"
 #import "City.h"
 #import "CityDisplayData.h"
+#import "CitiesListDisplayData.h"
 
 @interface CityDisplayDataCollector()
 
@@ -43,6 +44,13 @@
     for (City * city in cities) {
         [self collectCity:city];
     }
+}
+
+- (CitiesListDisplayData * _Nullable)collectedData {
+    if (!self.citiesDisplayData) {
+        return nil;
+    }
+    return [[CitiesListDisplayData alloc] initWithCitiesDisplayData:self.citiesDisplayData];
 }
 
 @end

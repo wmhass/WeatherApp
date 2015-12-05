@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class City;
+@class City, CitiesListDisplayData;
 @interface CityDisplayDataCollector : NSObject
 
 - (void)collectCities:(NSArray <City *> * _Nonnull)cities;
-
+- (CitiesListDisplayData * _Nullable)collectedData;
 
 @end

@@ -39,8 +39,8 @@ NSString * const AppStoryboardMainStoryBoard = @"Main";
 
 #pragma mark - Public
 
-- (MMDrawerController * _Nonnull)initialViewController {
-    return (MMDrawerController *)[self.mainStoryBoard instantiateInitialViewController];
+- (UIViewController * _Nonnull)initialViewController {
+    return [self.mainStoryBoard instantiateInitialViewController];
 }
 
 @end

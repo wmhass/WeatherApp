@@ -15,4 +15,26 @@
 @implementation SearchCitiesViewController
 
 
+#pragma mark - Public
+
+- (NSString * _Nullable)searchingTerm {
+    return @"";
+}
+
+- (void)presentSearchEmptyMessage {
+    
+}
+
+- (void)presentErrorMessage:(NSString * _Nonnull)errorMessage {
+    
+}
+
+- (void)displayData:(CitiesListDisplayData * _Nonnull)listDisplayData {
+    
+}
+
+- (void)reloadAllData {
+    
+}
+
 @end

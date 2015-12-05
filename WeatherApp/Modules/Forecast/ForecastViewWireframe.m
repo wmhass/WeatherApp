@@ -7,14 +7,33 @@
 //
 
 #import "ForecastViewWireframe.h"
-#import "SearchCitiesViewController.h"
+#import "ForecastViewController.h"
+#import "ForecastViewInteractor.h"
+#import "ForecastViewPresenter.h"
+#import "AppStoryboard.h"
 
 @interface ForecastViewWireframe()
 
-@property (weak, nonatomic) SearchCitiesViewController * _Nullable presentedSearchView;
+@property (weak, nonatomic) ForecastViewController *presentingView;
 
 @end
 
 @implementation ForecastViewWireframe
+
+#pragma mark - Public
+
+- (void)launchViewInWindow:(UIWindow *)window {
+    
+    ForecastViewController *forecastView = (ForecastViewController *)[[AppStoryboard sharedInstance] initialViewController];
+    forecastView.presenter = [[ForecastViewPresenter alloc] init];
+    forecastView.presenter.forecastView = forecastView;
+    forecastView.presenter.forecastWireframe = [[ForecastViewWireframe alloc] init];
+    forecastView.presenter.forecastInteractor = [[ForecastViewInteractor alloc] init];
+    forecastView.presenter.forecastInteractor.delegate = forecastView.presenter;
+    
+    window.rootViewController = forecastView;
+    
+    self.presentingView = forecastView;
+}
 
 @end

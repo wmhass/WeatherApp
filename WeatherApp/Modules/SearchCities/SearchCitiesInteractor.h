@@ -20,6 +20,6 @@
 
 @property (weak, nonatomic) id<SearchCitiesInteractorDelegate> _Nullable delegate;
 
-- (void)searchCitiesWithSearchString:(NSString *)searchString;
+- (void)searchCitiesWithSearchString:(NSString * _Nonnull)searchString;
 
 @end

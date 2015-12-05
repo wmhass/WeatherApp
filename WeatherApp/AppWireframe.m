@@ -7,15 +7,15 @@
 //
 
 #import "AppWireframe.h"
-#import "InitialDrawerViewWireframe.h"
+#import "ForecastViewWireframe.h"
 
 @implementation AppWireframe
 
 - (void)installRootViewInWindow:(UIWindow *)window {
     [window makeKeyAndVisible];
 
-    InitialDrawerViewWireframe *wireframe = [[InitialDrawerViewWireframe alloc] init];
-    [wireframe launchInitialViewInWindow:window];
+    ForecastViewWireframe *wireframe = [[ForecastViewWireframe alloc] init];
+    [wireframe launchViewInWindow:window];
 }
 
 @end

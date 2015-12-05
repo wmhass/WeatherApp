@@ -9,12 +9,9 @@
 /* Begin PBXBuildFile section */
 		1C2FE9D8E777E8C48B9111B9 /* libPods-WeatherApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CED7F61D916E1EA629133D2 /* libPods-WeatherApp.a */; };
 		3D342FF71C0FDEC700351C0F /* ForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D342FF61C0FDEC700351C0F /* ForecastViewController.m */; };
-		3D342FFB1C0FDF2500351C0F /* SavedCitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D342FFA1C0FDF2500351C0F /* SavedCitiesViewController.m */; };
 		3D3430051C0FDFB700351C0F /* SearchCitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430041C0FDFB700351C0F /* SearchCitiesViewController.m */; };
 		3D3430091C0FE06900351C0F /* AppWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430081C0FE06900351C0F /* AppWireframe.m */; };
 		3D34300D1C0FE1B500351C0F /* AppStoryboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D34300C1C0FE1B500351C0F /* AppStoryboard.m */; };
-		3D3430111C0FE56200351C0F /* InitialDrawerViewWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430101C0FE56200351C0F /* InitialDrawerViewWireframe.m */; };
-		3D3430141C0FE75500351C0F /* InitialDrawerSegues.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430131C0FE75500351C0F /* InitialDrawerSegues.m */; };
 		3D3430171C0FEBA600351C0F /* ForecastViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430161C0FEBA600351C0F /* ForecastViewPresenter.m */; };
 		3D34301A1C0FF06200351C0F /* ForecastViewWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430191C0FF06200351C0F /* ForecastViewWireframe.m */; };
 		3D34301D1C1066F900351C0F /* ForecastViewInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D34301C1C1066F900351C0F /* ForecastViewInteractor.m */; };
@@ -28,6 +25,8 @@
 		3D80EE3D1C1371BF00ACE7AF /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE3C1C1371BF00ACE7AF /* City.m */; };
 		3D80EE411C1378A900ACE7AF /* CityDisplayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE401C1378A900ACE7AF /* CityDisplayData.m */; };
 		3D80EE441C1379AB00ACE7AF /* CityDisplayDataCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE431C1379AB00ACE7AF /* CityDisplayDataCollector.m */; };
+		3D80EE471C137B5400ACE7AF /* SearchCitiesPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE461C137B5400ACE7AF /* SearchCitiesPresenter.m */; };
+		3D80EE4A1C137CF500ACE7AF /* CitiesListDisplayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE491C137CF500ACE7AF /* CitiesListDisplayData.m */; };
 		3DD9571C1C128EB80027A63D /* UIUpcomingConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9571B1C128EB80027A63D /* UIUpcomingConditionTableViewCell.m */; };
 		3DD957201C12A4610027A63D /* UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9571F1C12A4610027A63D /* UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.m */; };
 		3DD957231C12A7A70027A63D /* UIHourlyConditionTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD957221C12A7A70027A63D /* UIHourlyConditionTableViewHeaderView.m */; };
@@ -63,18 +62,12 @@
 /* Begin PBXFileReference section */
 		3D342FF51C0FDEC700351C0F /* ForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastViewController.h; sourceTree = "<group>"; };
 		3D342FF61C0FDEC700351C0F /* ForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewController.m; sourceTree = "<group>"; };
-		3D342FF91C0FDF2500351C0F /* SavedCitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedCitiesViewController.h; sourceTree = "<group>"; };
-		3D342FFA1C0FDF2500351C0F /* SavedCitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedCitiesViewController.m; sourceTree = "<group>"; };
 		3D3430031C0FDFB700351C0F /* SearchCitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCitiesViewController.h; sourceTree = "<group>"; };
 		3D3430041C0FDFB700351C0F /* SearchCitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCitiesViewController.m; sourceTree = "<group>"; };
 		3D3430071C0FE06900351C0F /* AppWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppWireframe.h; sourceTree = "<group>"; };
 		3D3430081C0FE06900351C0F /* AppWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppWireframe.m; sourceTree = "<group>"; };
 		3D34300B1C0FE1B500351C0F /* AppStoryboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStoryboard.h; sourceTree = "<group>"; };
 		3D34300C1C0FE1B500351C0F /* AppStoryboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppStoryboard.m; sourceTree = "<group>"; };
-		3D34300F1C0FE56200351C0F /* InitialDrawerViewWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialDrawerViewWireframe.h; sourceTree = "<group>"; };
-		3D3430101C0FE56200351C0F /* InitialDrawerViewWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialDrawerViewWireframe.m; sourceTree = "<group>"; };
-		3D3430121C0FE75500351C0F /* InitialDrawerSegues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialDrawerSegues.h; sourceTree = "<group>"; };
-		3D3430131C0FE75500351C0F /* InitialDrawerSegues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialDrawerSegues.m; sourceTree = "<group>"; };
 		3D3430151C0FEBA600351C0F /* ForecastViewPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastViewPresenter.h; sourceTree = "<group>"; };
 		3D3430161C0FEBA600351C0F /* ForecastViewPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewPresenter.m; sourceTree = "<group>"; };
 		3D3430181C0FF06200351C0F /* ForecastViewWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastViewWireframe.h; sourceTree = "<group>"; };
@@ -101,6 +94,10 @@
 		3D80EE401C1378A900ACE7AF /* CityDisplayData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityDisplayData.m; sourceTree = "<group>"; };
 		3D80EE421C1379AB00ACE7AF /* CityDisplayDataCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityDisplayDataCollector.h; sourceTree = "<group>"; };
 		3D80EE431C1379AB00ACE7AF /* CityDisplayDataCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityDisplayDataCollector.m; sourceTree = "<group>"; };
+		3D80EE451C137B5400ACE7AF /* SearchCitiesPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCitiesPresenter.h; sourceTree = "<group>"; };
+		3D80EE461C137B5400ACE7AF /* SearchCitiesPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCitiesPresenter.m; sourceTree = "<group>"; };
+		3D80EE481C137CF500ACE7AF /* CitiesListDisplayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitiesListDisplayData.h; sourceTree = "<group>"; };
+		3D80EE491C137CF500ACE7AF /* CitiesListDisplayData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitiesListDisplayData.m; sourceTree = "<group>"; };
 		3DD9571A1C128EB80027A63D /* UIUpcomingConditionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUpcomingConditionTableViewCell.h; sourceTree = "<group>"; };
 		3DD9571B1C128EB80027A63D /* UIUpcomingConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUpcomingConditionTableViewCell.m; sourceTree = "<group>"; };
 		3DD9571E1C12A4610027A63D /* UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.h"; sourceTree = "<group>"; };
@@ -178,15 +175,6 @@
 			path = Forecast;
 			sourceTree = "<group>";
 		};
-		3D342FF81C0FDF0700351C0F /* SavedCities */ = {
-			isa = PBXGroup;
-			children = (
-				3D342FF91C0FDF2500351C0F /* SavedCitiesViewController.h */,
-				3D342FFA1C0FDF2500351C0F /* SavedCitiesViewController.m */,
-			);
-			path = SavedCities;
-			sourceTree = "<group>";
-		};
 		3D342FFC1C0FDF4F00351C0F /* SearchCities */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +182,8 @@
 				3D80EE361C13630B00ACE7AF /* Data */,
 				3D3430031C0FDFB700351C0F /* SearchCitiesViewController.h */,
 				3D3430041C0FDFB700351C0F /* SearchCitiesViewController.m */,
+				3D80EE451C137B5400ACE7AF /* SearchCitiesPresenter.h */,
+				3D80EE461C137B5400ACE7AF /* SearchCitiesPresenter.m */,
 			);
 			path = SearchCities;
 			sourceTree = "<group>";
@@ -214,17 +204,6 @@
 				3D34300C1C0FE1B500351C0F /* AppStoryboard.m */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		3D34300E1C0FE4F900351C0F /* InitialView */ = {
-			isa = PBXGroup;
-			children = (
-				3D34300F1C0FE56200351C0F /* InitialDrawerViewWireframe.h */,
-				3D3430101C0FE56200351C0F /* InitialDrawerViewWireframe.m */,
-				3D3430121C0FE75500351C0F /* InitialDrawerSegues.h */,
-				3D3430131C0FE75500351C0F /* InitialDrawerSegues.m */,
-			);
-			path = InitialView;
 			sourceTree = "<group>";
 		};
 		3D34301E1C10682100351C0F /* Data */ = {
@@ -290,6 +269,8 @@
 			children = (
 				3D80EE3F1C1378A900ACE7AF /* CityDisplayData.h */,
 				3D80EE401C1378A900ACE7AF /* CityDisplayData.m */,
+				3D80EE481C137CF500ACE7AF /* CitiesListDisplayData.h */,
+				3D80EE491C137CF500ACE7AF /* CitiesListDisplayData.m */,
 				3D80EE421C1379AB00ACE7AF /* CityDisplayDataCollector.h */,
 				3D80EE431C1379AB00ACE7AF /* CityDisplayDataCollector.m */,
 			);
@@ -390,9 +371,7 @@
 		3DF3B7D31C0FDDC30024C06C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				3D34300E1C0FE4F900351C0F /* InitialView */,
 				3D342FFC1C0FDF4F00351C0F /* SearchCities */,
-				3D342FF81C0FDF0700351C0F /* SavedCities */,
 				3D342FF41C0FDE9A00351C0F /* Forecast */,
 			);
 			path = Modules;
@@ -595,6 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D80EE471C137B5400ACE7AF /* SearchCitiesPresenter.m in Sources */,
 				3D80EE391C1370B500ACE7AF /* SearchCitiesInteractor.m in Sources */,
 				3D80EE411C1378A900ACE7AF /* CityDisplayData.m in Sources */,
 				3DD957231C12A7A70027A63D /* UIHourlyConditionTableViewHeaderView.m in Sources */,
@@ -611,12 +591,9 @@
 				3D3430171C0FEBA600351C0F /* ForecastViewPresenter.m in Sources */,
 				3DF76D8A1C11CE5D00C181FA /* ForecastHourlyConditionDisplayData.m in Sources */,
 				3DF76D7A1C115A6B00C181FA /* ForecastUpcomingConditionDisplayData.m in Sources */,
-				3D3430141C0FE75500351C0F /* InitialDrawerSegues.m in Sources */,
 				3DF3B7B31C0FDDA10024C06C /* AppDelegate.m in Sources */,
 				3DF76D911C11D39600C181FA /* NSNumber+TemperatureFormatter.m in Sources */,
-				3D342FFB1C0FDF2500351C0F /* SavedCitiesViewController.m in Sources */,
 				3D3430051C0FDFB700351C0F /* SearchCitiesViewController.m in Sources */,
-				3D3430111C0FE56200351C0F /* InitialDrawerViewWireframe.m in Sources */,
 				3DF76D701C114AB700C181FA /* Forecast.m in Sources */,
 				3D80EE441C1379AB00ACE7AF /* CityDisplayDataCollector.m in Sources */,
 				3D34300D1C0FE1B500351C0F /* AppStoryboard.m in Sources */,
@@ -625,6 +602,7 @@
 				3D342FF71C0FDEC700351C0F /* ForecastViewController.m in Sources */,
 				3D80EE3D1C1371BF00ACE7AF /* City.m in Sources */,
 				3D3430091C0FE06900351C0F /* AppWireframe.m in Sources */,
+				3D80EE4A1C137CF500ACE7AF /* CitiesListDisplayData.m in Sources */,
 				3DF3B7B01C0FDDA10024C06C /* main.m in Sources */,
 				3D3430211C10688F00351C0F /* ForecastDataManager.m in Sources */,
 				3DF76D761C11578600C181FA /* ForecastDisplayDataCollector.m in Sources */,
