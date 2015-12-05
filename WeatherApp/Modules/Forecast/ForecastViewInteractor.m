@@ -41,7 +41,13 @@
     
     NSArray <ForecastUpcomingCondition *> *upcomingConditions = [ForecastViewInteractor forecastUpcomingConditionsWithDictionary:dictionary];
     
-    return [[Forecast alloc] initWithCurrentCondition:currentCondition upcomingConditions:upcomingConditions];
+    NSString *locationName = [ForecastViewInteractor locationNameFromDictionary:dictionary];
+    
+    return [[Forecast alloc] initWithLocationName:locationName CurrentCondition:currentCondition upcomingConditions:upcomingConditions];
+}
+
++ (NSString * _Nonnull)locationNameFromDictionary:(NSDictionary * _Nullable)dictionary {
+    return [dictionary[@"request"] firstObject][@"query"];
 }
 
 + (NSArray <ForecastUpcomingCondition *> * _Nonnull)forecastUpcomingConditionsWithDictionary:(NSDictionary * _Nullable)dictionary {

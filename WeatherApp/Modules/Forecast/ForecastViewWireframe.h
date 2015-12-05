@@ -11,6 +11,4 @@
 @class SearchCitiesViewController;
 @interface ForecastViewWireframe : NSObject
 
-- (void)didPresentSearchView:(SearchCitiesViewController * _Nonnull)searchView;
-
 @end

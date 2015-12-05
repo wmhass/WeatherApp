@@ -13,7 +13,6 @@
 @interface ForecastViewController : UIViewController
 
 @property (strong, nonatomic) ForecastViewPresenter * _Nullable presenter;
-@property (weak, nonatomic, readonly) SearchCitiesViewController * _Nullable  searchCitiesController;
 
 - (NSString * _Nullable)searchingCity;
 - (void)presentErrorMessage:(NSString * _Nonnull)message;

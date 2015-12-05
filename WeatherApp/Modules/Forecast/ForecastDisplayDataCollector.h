@@ -11,6 +11,7 @@
 @class ForecastCurrentCondition,ForecastUpcomingCondition, ForecastDisplayData;
 @interface ForecastDisplayDataCollector : NSObject
 
+- (void)collectLocationName:(NSString * _Nonnull)locationName;
 - (void)collectCurrentCondition:(ForecastCurrentCondition * _Nonnull)currentCondition;
 - (void)collectUpcomingConditions:(NSArray <ForecastUpcomingCondition *> *_Nonnull)upcomingConditions;
 - (ForecastDisplayData *_Nonnull)collectedData;

@@ -17,9 +17,4 @@
 
 @implementation ForecastViewWireframe
 
-- (void)didPresentSearchView:(SearchCitiesViewController * _Nonnull)searchView {
-    self.presentedSearchView = searchView;
-    // TODO: Set presenter, wireframe....
-}
-
 @end

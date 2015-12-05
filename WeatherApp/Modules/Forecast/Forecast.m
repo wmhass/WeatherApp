@@ -12,11 +12,12 @@
 
 #pragma mark - Initializers
 
-- (instancetype _Nonnull)initWithCurrentCondition:(ForecastCurrentCondition * _Nullable)currentCondition upcomingConditions:(NSArray <ForecastUpcomingCondition *> * _Nullable)upcomingConditions {
+- (instancetype _Nonnull)initWithLocationName:(NSString * _Nonnull)locationName CurrentCondition:(ForecastCurrentCondition * _Nonnull)currentCondition upcomingConditions:(NSArray <ForecastUpcomingCondition *> * _Nonnull)upcomingConditions {
     self = [super init];
     if(self) {
         _currentCondition = currentCondition;
         _upcomingConditions = upcomingConditions;
+        _locationName = locationName;
     }
     return self;
 }

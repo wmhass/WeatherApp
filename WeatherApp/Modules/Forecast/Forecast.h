@@ -11,9 +11,10 @@
 @class ForecastCurrentCondition, ForecastUpcomingCondition;
 @interface Forecast : NSObject
 
-@property (strong, nonatomic, readonly) ForecastCurrentCondition * _Nullable currentCondition;
-@property (strong, nonatomic, readonly) NSArray <ForecastUpcomingCondition *> * _Nullable upcomingConditions;
+@property (strong, nonatomic, readonly) NSString * _Nonnull locationName;
+@property (strong, nonatomic, readonly) ForecastCurrentCondition * _Nonnull currentCondition;
+@property (strong, nonatomic, readonly) NSArray <ForecastUpcomingCondition *> * _Nonnull upcomingConditions;
 
-- (instancetype _Nonnull)initWithCurrentCondition:(ForecastCurrentCondition * _Nullable)currentCondition upcomingConditions:(NSArray <ForecastUpcomingCondition *> * _Nullable)upcomingConditions;
+- (instancetype _Nonnull)initWithLocationName:(NSString * _Nonnull)locationName CurrentCondition:(ForecastCurrentCondition * _Nonnull)currentCondition upcomingConditions:(NSArray <ForecastUpcomingCondition *> * _Nonnull)upcomingConditions;
 
 @end

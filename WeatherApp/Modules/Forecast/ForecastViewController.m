@@ -25,15 +25,9 @@ NSString * const ForecastViewSearchSegueIdentifier = @"search_segue";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewDidLoad];
-    [self setupKeyboardListener];
     [self.presenter doInitialLoad];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender {
-    if ([segue.identifier isEqualToString:ForecastViewSearchSegueIdentifier]) {
-        _searchCitiesController = (SearchCitiesViewController *)segue.destinationViewController;
-    }
-}
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -41,14 +35,6 @@ NSString * const ForecastViewSearchSegueIdentifier = @"search_segue";
 
 
 #pragma mark - Private
-
-- (void)setupKeyboardListener {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillAppear:) name:UIKeyboardWillShowNotification object:nil];
-}
-
-- (void)keyboardWillAppear:(NSNotification * _Nullable)notification {
-    self.searchLabelBottomConstraint.priority = UILayoutPriorityDefaultLow;
-}
 
 
 #pragma mark - Public

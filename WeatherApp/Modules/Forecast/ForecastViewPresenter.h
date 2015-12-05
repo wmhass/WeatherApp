@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ForecastViewInteractor.h"
 
 @class ForecastViewController, ForecastViewWireframe, ForecastViewInteractor, UIStoryboardSegue;
-@protocol ForecastViewInteractorDelegate;
 
 @interface ForecastViewPresenter : NSObject <ForecastViewInteractorDelegate>
 

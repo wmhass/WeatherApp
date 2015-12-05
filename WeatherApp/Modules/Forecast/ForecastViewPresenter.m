@@ -23,9 +23,7 @@
 #pragma mark - Presenter Actions
 
 - (void)doInitialLoad {
-    [self.forecastWireframe didPresentSearchView:self.forecastView.searchCitiesController];
     [self reloadViewData];
-    
 }
 
 - (void)reloadViewData {
