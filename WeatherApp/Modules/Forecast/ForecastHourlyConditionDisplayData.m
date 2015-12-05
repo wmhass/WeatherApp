@@ -10,4 +10,14 @@
 
 @implementation ForecastHourlyConditionDisplayData
 
+#pragma mark - Public
+
+- (NSString *)time {
+
+    NSInteger intTime = [_time integerValue]/100;
+    NSString *amPm = intTime > 12 ? @"PM" : @"AM";
+    
+    return [NSString stringWithFormat:@"%d%@",(int)intTime,amPm];
+}
+
 @end

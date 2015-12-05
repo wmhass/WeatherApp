@@ -34,7 +34,8 @@
 #pragma mark - Private
 
 - (ForecastDisplayData * _Nonnull)forecastDisplayDataFromForecast:(Forecast * _Nonnull)forecast {
-    ForecastDisplayDataCollector *collector = [[ForecastDisplayDataCollector alloc] init];
+    
+    ForecastDisplayDataCollector *collector = [[ForecastDisplayDataCollector alloc] initWithTemperatureMetric:[self selectedMetric]];
 
     [collector collectCurrentCondition:forecast.currentCondition];
     [collector collectUpcomingConditions:forecast.upcomingConditions];
@@ -43,7 +44,9 @@
     return [collector collectedData];
 }
 
-
+- (ForecastDisplayDataCollectorTemperatureMetric)selectedMetric {
+    return (ForecastDisplayDataCollectorTemperatureMetric)[self.forecastView selectedMetric];
+}
 
 
 #pragma mark - ForecastViewInteractorDelegate

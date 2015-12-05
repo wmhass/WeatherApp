@@ -8,8 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, ForecastDisplayDataCollectorTemperatureMetric) {
+    ForecastDisplayDataCollectorTemperatureCelsiusMetric = 0,
+    ForecastDisplayDataCollectorTemperatureFarenheitMetric
+};
+
 @class ForecastCurrentCondition,ForecastUpcomingCondition, ForecastDisplayData;
 @interface ForecastDisplayDataCollector : NSObject
+
+- (id _Nonnull)initWithTemperatureMetric:(ForecastDisplayDataCollectorTemperatureMetric)metric;
 
 - (void)collectLocationName:(NSString * _Nonnull)locationName;
 - (void)collectCurrentCondition:(ForecastCurrentCondition * _Nonnull)currentCondition;

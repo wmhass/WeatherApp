@@ -21,12 +21,28 @@
 @property (strong, nonatomic) NSString * _Nullable locationName;
 @property (strong, nonatomic) ForecastCurrentConditionDisplayData * _Nullable currentCondition;
 @property (strong, nonatomic) NSMutableArray <ForecastUpcomingConditionDisplayData *> * _Nullable  upcomingConditions;
+@property (nonatomic) ForecastDisplayDataCollectorTemperatureMetric collectingMetric;
 
 @end
 
 @implementation ForecastDisplayDataCollector
 
+#pragma mark - Public 
+
+- (id _Nonnull)initWithTemperatureMetric:(ForecastDisplayDataCollectorTemperatureMetric)metric {
+    self = [super init];
+    if(self) {
+        _collectingMetric = metric;
+    }
+    return self;
+}
+
+
 #pragma mark - Private
+
+- (BOOL)isCollectingFarenheit {
+    return self.collectingMetric == ForecastDisplayDataCollectorTemperatureFarenheitMetric;
+}
 
 - (void)collectUpcomingCondition:(ForecastUpcomingCondition *)upcomingCondition {
     [self.upcomingConditions addObject:[self upcomingDisplayDataWithUpcomingContidion:upcomingCondition]];
@@ -35,10 +51,14 @@
 - (ForecastUpcomingConditionDisplayData *)upcomingDisplayDataWithUpcomingContidion:(ForecastUpcomingCondition *)upcomingCondition {
     ForecastUpcomingConditionDisplayData *displayData = [[ForecastUpcomingConditionDisplayData alloc] init];
     
-    displayData.maxTempC = [upcomingCondition.maxTempC wmh_stringTemperature];
-    displayData.maxTempF = [upcomingCondition.maxTempF wmh_stringTemperature];
-    displayData.minTempF = [upcomingCondition.minTempF wmh_stringTemperature];
-    displayData.minTempC = [upcomingCondition.minTempC wmh_stringTemperature];
+    if ([self isCollectingFarenheit]) {
+        displayData.maxTemp = [upcomingCondition.maxTempF wmh_stringTemperature];
+        displayData.minTemp = [upcomingCondition.minTempF wmh_stringTemperature];
+    } else {
+        displayData.maxTemp = [upcomingCondition.maxTempC wmh_stringTemperature];
+        displayData.minTemp = [upcomingCondition.minTempC wmh_stringTemperature];
+    }
+
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"EEEE";
     displayData.weekDayName = [dateFormatter stringFromDate:upcomingCondition.date];
@@ -50,10 +70,14 @@
     
     ForecastCurrentConditionDisplayData *displayData = [[ForecastCurrentConditionDisplayData alloc] init];
     
-    displayData.tempC = [currentCondition.tempC wmh_stringTemperature];
-    displayData.tempF = [currentCondition.tempF wmh_stringTemperature];
-    displayData.feelsLikeC = [currentCondition.feelsLikeC wmh_stringTemperature];
-    displayData.feelsLikeF = [currentCondition.feelsLikeF wmh_stringTemperature];
+    if ([self isCollectingFarenheit]) {
+        displayData.temp = [currentCondition.tempF wmh_stringTemperature];
+        displayData.feelsLike = [currentCondition.feelsLikeF wmh_stringTemperature];
+    } else {
+        displayData.temp = [currentCondition.tempC wmh_stringTemperature];
+        displayData.feelsLike = [currentCondition.feelsLikeC wmh_stringTemperature];
+    }
+
     displayData.humidity = [NSString stringWithFormat:@"%.2f",[currentCondition.humidity floatValue]];
     displayData.observationTime = currentCondition.observationTime;
     displayData.weatherDescription = [currentCondition.weatherDescription description];
@@ -65,18 +89,20 @@
 - (ForecastHourlyConditionDisplayData *)hourlyConditionDisplayDataFromHourlyCondition:(ForecastHourlyCondition *)hourlyCondition {
     ForecastHourlyConditionDisplayData *displayData = [[ForecastHourlyConditionDisplayData alloc] init];
     
-    displayData.tempC = [hourlyCondition.tempC wmh_stringTemperature];
-    displayData.tempF = [hourlyCondition.tempF wmh_stringTemperature];
+    if ([self isCollectingFarenheit]) {
+        displayData.temp = [hourlyCondition.tempF wmh_stringTemperature];
+    } else {
+        displayData.temp = [hourlyCondition.tempC wmh_stringTemperature];
+    }
     displayData.chanceOfRain = [NSString stringWithFormat:@"%.1f",[hourlyCondition.chanceOfRain floatValue]];
-    
+    displayData.time = hourlyCondition.time;
     return displayData;
 }
 
 - (NSArray <ForecastHourlyConditionDisplayData *> *)hourlyDisplayDataFromHourlyConditions:(NSArray <ForecastHourlyCondition *> *)hourlyConditions {
 
     NSMutableArray *hourlyConditionDisplayData = [[NSMutableArray alloc] initWithCapacity:hourlyConditions.count];
-    for (int i = (int)hourlyConditions.count-1; i >= 0; i--) {
-        ForecastHourlyCondition *hourlyCondition = hourlyConditions[i];
+    for (ForecastHourlyCondition *hourlyCondition in hourlyConditions) {
         [hourlyConditionDisplayData addObject:[self hourlyConditionDisplayDataFromHourlyCondition:hourlyCondition]];
     }
     return [NSArray arrayWithArray:hourlyConditionDisplayData];

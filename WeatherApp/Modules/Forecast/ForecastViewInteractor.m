@@ -13,7 +13,7 @@
 #import "Forecast.h"
 #import "ForecastHourlyCondition.h"
 
-static NSInteger const ForecastViewInteractorNumberOfDays = 6;
+static NSInteger const ForecastViewInteractorNumberOfDays = 5;
 
 @implementation ForecastViewInteractor
 
@@ -69,9 +69,7 @@ static NSInteger const ForecastViewInteractorNumberOfDays = 6;
 + (ForecastCurrentCondition * _Nonnull)forecastCurrentConditionFromDictionary:(NSDictionary * _Nullable)dictionary {
 
     NSMutableArray <ForecastHourlyCondition *> *hourlyConditions = [@[] mutableCopy];
-    
-    NSDictionary *currentWeather = [dictionary[@"weather"] firstObject];
-    for (NSDictionary *hourlyCondition in currentWeather[@"hourly"]) {
+    for (NSDictionary *hourlyCondition in dictionary[@"weather"][0][@"hourly"]) {
         [hourlyConditions addObject:[[ForecastHourlyCondition alloc] initWithDictionary:hourlyCondition]];
     }
     

@@ -15,7 +15,7 @@
 
 - (void)displayHourlyCondition:(ForecastHourlyConditionDisplayData *)hourlyCondition {
     self.timeLabel.text = hourlyCondition.time;
-    self.temperatureLabel.text = hourlyCondition.tempC;
+    self.temperatureLabel.text = hourlyCondition.temp;
 }
 
 @end

@@ -13,8 +13,8 @@
 
 - (void)displayUpcomingCondition:(ForecastUpcomingConditionDisplayData *)displayData {
     self.weekDayLabel.text = displayData.weekDayName;
-    self.maxTempLabel.text = displayData.maxTempC;
-    self.minTempLabel.text = displayData.minTempC;
+    self.maxTempLabel.text = displayData.maxTemp;
+    self.minTempLabel.text = displayData.minTemp;
 }
 
 @end

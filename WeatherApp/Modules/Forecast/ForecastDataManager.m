@@ -30,7 +30,7 @@ NSString * const APIResponsePrefferedFormat = @"json";
         [returnParameters setObject:parameters.cityName forKey:@"q"];
     }
     if (parameters.numberOfDays) {
-        [returnParameters setObject:parameters.numberOfDays forKey:@"number_of_days"];
+        [returnParameters setObject:parameters.numberOfDays forKey:@"num_of_days"];
     }
     
     return returnParameters;

@@ -71,6 +71,9 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+- (NSInteger)selectedMetric {
+    return 0;
+}
 
 #pragma mark - Private
 

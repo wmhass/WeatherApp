@@ -18,7 +18,7 @@
         _tempF = @([dictionary[@"tempF"] floatValue]);
         _tempC = @([dictionary[@"tempC"] floatValue]);
         _chanceOfRain = @([dictionary[@"chanceofrain"] floatValue]);
-        //TODO: Time??
+        _time = dictionary[@"time"];
     }
     return self;
 }

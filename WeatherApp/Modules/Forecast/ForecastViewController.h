@@ -15,7 +15,9 @@
 @property (strong, nonatomic) ForecastViewPresenter * _Nullable presenter;
 
 - (NSString * _Nullable)searchingCity;
+- (NSInteger)selectedMetric;
 - (void)presentErrorMessage:(NSString * _Nonnull)message;
 - (void)displayData:(ForecastDisplayData * _Nullable)displayData;
 - (void)reloadAllData;
+
 @end

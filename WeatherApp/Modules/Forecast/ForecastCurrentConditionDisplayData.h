@@ -11,10 +11,8 @@
 @class ForecastHourlyConditionDisplayData;
 @interface ForecastCurrentConditionDisplayData : NSObject
 
-@property (strong, nonatomic) NSString * _Nullable tempC;
-@property (strong, nonatomic) NSString * _Nullable tempF;
-@property (strong, nonatomic) NSString * _Nullable feelsLikeC;
-@property (strong, nonatomic) NSString * _Nullable feelsLikeF;
+@property (strong, nonatomic) NSString * _Nullable temp;
+@property (strong, nonatomic) NSString * _Nullable feelsLike;
 @property (strong, nonatomic) NSString * _Nullable humidity;
 @property (strong, nonatomic) NSString * _Nullable observationTime;
 @property (strong, nonatomic) NSString * _Nullable weatherDescription;

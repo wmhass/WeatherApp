@@ -62,7 +62,7 @@
 }
 
 - (NSString *)currentTemperature {
-    return self.currentCondition.tempC;
+    return self.currentCondition.temp;
 }
 
 @end
