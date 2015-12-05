@@ -10,15 +10,4 @@
 
 @implementation ForecastDataManagerParameters
 
-#pragma mark - Initializers
-
-- (id _Nonnull)initWithCityName:(NSString * _Nonnull)cityName numberOfDays:(NSNumber * _Nullable)numberOfDays {
-    self = [super init];
-    if(self) {
-        _cityName = cityName;
-        _numberOfDays = numberOfDays;
-    }
-    return self;
-}
-
 @end

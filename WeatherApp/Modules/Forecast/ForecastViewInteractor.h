@@ -20,6 +20,6 @@
 
 @property (weak, nonatomic) id<ForecastViewInteractorDelegate> _Nullable delegate;
 
-- (void)loadForecastForCity:(NSString *  _Nullable)cityName;
+- (void)loadForecastForLatitude:(NSString * _Nonnull)latitude longitude:(NSString * _Nonnull)longitude;
 
 @end

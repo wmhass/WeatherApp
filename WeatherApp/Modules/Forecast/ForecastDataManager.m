@@ -29,7 +29,10 @@ NSString * const APIResponsePrefferedFormat = @"json";
 
     if (parameters.cityName) {
         [returnParameters setObject:parameters.cityName forKey:@"q"];
+    } else if (parameters.latitude.length > 0 && parameters.longitude > 0) {
+        
     }
+    
     if (parameters.numberOfDays) {
         [returnParameters setObject:parameters.numberOfDays forKey:@"num_of_days"];
     }
@@ -84,7 +87,8 @@ NSString * const APIResponsePrefferedFormat = @"json";
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    ForecastDataManagerParameters *parameters = [[ForecastDataManagerParameters alloc] initWithCityName:cityName numberOfDays:nil];
+    ForecastDataManagerParameters *parameters = [[ForecastDataManagerParameters alloc] init];
+    parameters.cityName = cityName;
     
     __weak ForecastDataManager *weakSelf = self;
     [manager GET:[self URLForEndPoint:APICitySearchEndPoint]

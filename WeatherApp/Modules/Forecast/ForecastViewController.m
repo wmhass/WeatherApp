@@ -12,13 +12,15 @@
 #import "ForecastUpcomingConditionDisplayData.h"
 #import "UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.h"
 #import "UIHourlyConditionTableViewHeaderView.h"
+#import "CityDisplayData.h"
 
 NSString * const ForecastViewSearchSegueIdentifier = @"search_segue";
 NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_header";
 
 @interface ForecastViewController () <UITableViewDataSource, UITableViewDelegate, UIHourlyConditionTableViewHeaderViewDataSource>
 
-@property (strong, nonatomic) ForecastDisplayData *displayData;
+@property (strong, nonatomic) ForecastDisplayData * _Nullable displayData;
+@property (strong, nonatomic) CityDisplayData * _Nullable currentCity;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *currentLocation;
@@ -44,6 +46,10 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 
 
 #pragma mark - Public
+
+- (CityDisplayData * _Nullable)selectedCity {
+    return self.currentCity;
+}
 
 - (void)reloadAllData {
     [self.tableView reloadData];

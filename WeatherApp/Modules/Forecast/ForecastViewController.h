@@ -8,16 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@class ForecastViewPresenter, SearchCitiesViewController, ForecastDisplayData;
+@class ForecastViewPresenter, SearchCitiesViewController, ForecastDisplayData, CityDisplayData;
 
 @interface ForecastViewController : UIViewController
 
 @property (strong, nonatomic) ForecastViewPresenter * _Nullable presenter;
 
-- (NSString * _Nullable)searchingCity;
+- (CityDisplayData * _Nullable)selectedCity;
 - (NSInteger)selectedMetric;
 - (void)presentErrorMessage:(NSString * _Nonnull)message;
 - (void)displayData:(ForecastDisplayData * _Nullable)displayData;
 - (void)reloadAllData;
+
 
 @end

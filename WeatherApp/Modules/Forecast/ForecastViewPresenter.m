@@ -13,6 +13,7 @@
 #import "ForecastDisplayDataCollector.h"
 #import "ForecastDisplayData.h"
 #import "Forecast.h"
+#import "CityDisplayData.h"
 
 @interface ForecastViewPresenter()
 
@@ -27,7 +28,12 @@
 }
 
 - (void)reloadViewData {
-    [self.forecastInteractor loadForecastForCity:[self.forecastView searchingCity]];
+    CityDisplayData *selectedCity = [self.forecastView selectedCity];
+    if (!selectedCity) {
+        // TODO: Maybe try to obtain user's location ? Ot just ask view to present empty state
+    } else {
+        [self.forecastInteractor loadForecastForLatitude:selectedCity.latitude longitude:selectedCity.longitude];
+    }
 }
 
 
