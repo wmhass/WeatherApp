@@ -7,6 +7,18 @@
 //
 
 #import "ForecastDisplayData.h"
+#import "ForecastUpcomingConditionDisplayData.h"
+#import "ForecastCurrentConditionDisplayData.h"
+#import "ForecastHourlyConditionDisplayData.h"
+
+@interface ForecastDisplayData()
+
+@property (strong, nonatomic) NSString * _Nonnull locationName;
+@property (strong, nonatomic) ForecastCurrentConditionDisplayData * _Nonnull currentCondition;
+@property (strong, nonatomic) NSArray <ForecastUpcomingConditionDisplayData *> * _Nonnull upcomingConditions;
+
+
+@end
 
 @implementation ForecastDisplayData
 
@@ -21,4 +33,36 @@
     }
     return self;
 }
+
+
+#pragma mark - Public
+
+- (NSInteger)numberOfUpcomingConditions {
+    return self.upcomingConditions.count;
+}
+
+- (ForecastUpcomingConditionDisplayData * _Nonnull)upcomingConditionDisplayDataAtIndex:(NSInteger)index {
+    return self.upcomingConditions[index];
+}
+
+- (NSInteger)numberOfHourlyConditionsForCurrentCondition {
+    return self.currentCondition.hourlyConditions.count;
+}
+
+- (ForecastHourlyConditionDisplayData * _Nonnull)hourlyConditionDisplayDataAtIndex:(NSInteger)index {
+    return self.currentCondition.hourlyConditions[index];
+}
+
+- (NSString *)currentLocation {
+    return self.locationName;
+}
+
+- (NSString *)currentWeatherDescription {
+    return self.currentCondition.weatherDescription;
+}
+
+- (NSString *)currentTemperature {
+    return self.currentCondition.tempC;
+}
+
 @end

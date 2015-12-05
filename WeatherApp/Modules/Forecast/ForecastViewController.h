@@ -17,5 +17,5 @@
 - (NSString * _Nullable)searchingCity;
 - (void)presentErrorMessage:(NSString * _Nonnull)message;
 - (void)displayData:(ForecastDisplayData * _Nullable)displayData;
-
+- (void)reloadAllData;
 @end

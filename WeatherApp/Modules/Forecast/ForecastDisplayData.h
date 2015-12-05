@@ -8,14 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@class ForecastCurrentConditionDisplayData, ForecastUpcomingConditionDisplayData;
+@class ForecastCurrentConditionDisplayData, ForecastUpcomingConditionDisplayData, ForecastHourlyConditionDisplayData;
+
 @interface ForecastDisplayData : NSObject
 
-// TODO: Replace this properties for getters/setters methods
-@property (strong, nonatomic, readonly) NSString * _Nonnull locationName;
-@property (strong, nonatomic, readonly) ForecastCurrentConditionDisplayData * _Nonnull currentCondition;
-@property (strong, nonatomic, readonly) NSArray <ForecastUpcomingConditionDisplayData *> * _Nonnull upcomingConditions;
-
 - (id _Nonnull)initWithLocationName:(NSString * _Nonnull)locationName currentCondition:(ForecastCurrentConditionDisplayData * _Nonnull)currentCondition upcomingConditions:(NSArray <ForecastUpcomingConditionDisplayData *> * _Nonnull)upcomingConditions;
+
+- (NSInteger)numberOfUpcomingConditions;
+- (ForecastUpcomingConditionDisplayData * _Nonnull)upcomingConditionDisplayDataAtIndex:(NSInteger)index;
+- (NSInteger)numberOfHourlyConditionsForCurrentCondition;
+- (ForecastHourlyConditionDisplayData * _Nonnull)hourlyConditionDisplayDataAtIndex:(NSInteger)index;
+- (NSString * _Nonnull)currentLocation;
+- (NSString * _Nonnull)currentWeatherDescription;
+- (NSString * _Nonnull)currentTemperature;
 
 @end

@@ -13,6 +13,8 @@
 #import "Forecast.h"
 #import "ForecastHourlyCondition.h"
 
+static NSInteger const ForecastViewInteractorNumberOfDays = 6;
+
 @implementation ForecastViewInteractor
 
 
@@ -21,7 +23,7 @@
 - (void)forecastForCity:(NSString *  _Nullable)cityName {
     
     ForecastDataManager *manager = [[ForecastDataManager alloc] init];
-    ForecastDataManagerParameters *parameters = [[ForecastDataManagerParameters alloc] initWithCityName:cityName numberOfDays:@(5)];
+    ForecastDataManagerParameters *parameters = [[ForecastDataManagerParameters alloc] initWithCityName:cityName numberOfDays:@(ForecastViewInteractorNumberOfDays)];
     
     __weak ForecastViewInteractor *weakSelf = self;
     [manager fetchForecastRemoteInformationWithParameters:parameters withCompletion:^(NSDictionary * _Nullable response, NSError * _Nullable error) {
@@ -47,7 +49,7 @@
 }
 
 + (NSString * _Nonnull)locationNameFromDictionary:(NSDictionary * _Nullable)dictionary {
-    return [dictionary[@"request"] firstObject][@"query"];
+    return [[dictionary[@"request"] firstObject] objectForKey:@"query"];
 }
 
 + (NSArray <ForecastUpcomingCondition *> * _Nonnull)forecastUpcomingConditionsWithDictionary:(NSDictionary * _Nullable)dictionary {

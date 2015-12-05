@@ -73,8 +73,10 @@
 }
 
 - (NSArray <ForecastHourlyConditionDisplayData *> *)hourlyDisplayDataFromHourlyConditions:(NSArray <ForecastHourlyCondition *> *)hourlyConditions {
+
     NSMutableArray *hourlyConditionDisplayData = [[NSMutableArray alloc] initWithCapacity:hourlyConditions.count];
-    for (ForecastHourlyCondition *hourlyCondition in hourlyConditions) {
+    for (int i = (int)hourlyConditions.count-1; i >= 0; i--) {
+        ForecastHourlyCondition *hourlyCondition = hourlyConditions[i];
         [hourlyConditionDisplayData addObject:[self hourlyConditionDisplayDataFromHourlyCondition:hourlyCondition]];
     }
     return [NSArray arrayWithArray:hourlyConditionDisplayData];

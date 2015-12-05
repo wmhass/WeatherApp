@@ -10,7 +10,7 @@
 
 @interface ForecastWeatherDescription()
 
-@property (strong, nonatomic) NSArray<NSString *> *values;
+@property (strong, nonatomic) NSArray<NSDictionary *> *values;
 
 @end
 
@@ -18,7 +18,7 @@
 
 #pragma mark - Initializers
 
-- (id _Nonnull)initWithValues:(NSArray<NSString *> * _Nullable)values {
+- (id _Nonnull)initWithValues:(NSArray<NSDictionary *> * _Nullable)values {
     self = [super init];
     if (self) {
         _values = values;
@@ -29,7 +29,11 @@
 #pragma mark - Public (Rewrtitten)
 
 - (NSString * _Nullable)description {
-    return [self.values componentsJoinedByString:@", "];
+    NSMutableArray *values = [[NSMutableArray alloc] initWithCapacity:self.values.count];
+    [self.values enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [values addObject:obj[@"value"]];
+    }];
+    return [values componentsJoinedByString:@", "];
 }
 
 @end

@@ -38,6 +38,7 @@
 
     [collector collectCurrentCondition:forecast.currentCondition];
     [collector collectUpcomingConditions:forecast.upcomingConditions];
+    [collector collectLocationName:forecast.locationName];
     
     return [collector collectedData];
 }
@@ -49,6 +50,7 @@
 
 - (void)forecastViewInteractor:(ForecastViewInteractor * _Nonnull)interactor didFetchForecast:(Forecast *  _Nonnull)forecast {
     [self.forecastView displayData:[self forecastDisplayDataFromForecast:forecast]];
+    [self.forecastView reloadAllData];
 }
 
 - (void)forecastViewInteractor:(ForecastViewInteractor * _Nonnull)interactor didFailFetchingForecastWithError:(NSError * _Nonnull)error {
