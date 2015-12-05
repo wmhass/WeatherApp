@@ -10,13 +10,12 @@
 
 @interface City : NSObject
 
-// TODO: Clean comments
 @property (strong, nonatomic) NSString * _Nonnull country;
 @property (strong, nonatomic) NSString * _Nonnull city;
-@property (strong, nonatomic) NSString * _Nonnull region; // State
+@property (strong, nonatomic) NSString * _Nonnull region;
 @property (strong, nonatomic) NSString * _Nonnull latitude;
 @property (strong, nonatomic) NSString * _Nonnull longitude;
 
-- (id)initWithDictionary:(NSDictionary * _Nonnull)dictionary;
+- (id _Nonnull)initWithDictionary:(NSDictionary * _Nonnull)dictionary;
 
 @end

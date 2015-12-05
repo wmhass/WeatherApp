@@ -13,7 +13,7 @@
 
 #pragma mark - Initializers
 
-- (id)initWithDictionary:(NSDictionary * _Nonnull)dictionary {
+- (id _Nonnull)initWithDictionary:(NSDictionary * _Nonnull)dictionary {
     self = [super init];
     if(self) {
         

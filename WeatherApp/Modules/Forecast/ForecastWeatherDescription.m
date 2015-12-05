@@ -28,7 +28,7 @@
 
 #pragma mark - Public (Rewrtitten)
 
-- (NSString * _Nullable)description {
+- (NSString * _Nonnull)description {
     NSMutableArray *values = [[NSMutableArray alloc] initWithCapacity:self.values.count];
     [self.values enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [values addObject:obj[@"value"]];

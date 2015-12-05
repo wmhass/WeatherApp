@@ -12,4 +12,7 @@
 
 - (id _Nonnull)initWithValues:(NSArray<NSDictionary *> * _Nullable)values;
 
+// Explicitng we are rewriting this method
+- (NSString * _Nonnull)description;
+
 @end
