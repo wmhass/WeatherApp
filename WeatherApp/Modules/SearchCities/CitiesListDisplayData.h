@@ -13,6 +13,7 @@
 
 - (id _Nonnull)initWithCitiesDisplayData:(NSArray <CityDisplayData *> *_Nonnull)citiesDisplayData;
 
-// TODO: Add methods to get display data, number of items...
+- (NSInteger)numberOfCities;
+- (CityDisplayData * _Nonnull)cityDisplayDataAtIndex:(NSInteger)index;
 
 @end

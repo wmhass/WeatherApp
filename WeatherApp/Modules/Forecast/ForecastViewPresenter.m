@@ -14,12 +14,28 @@
 #import "ForecastDisplayData.h"
 #import "Forecast.h"
 #import "CityDisplayData.h"
+#import "SearchCitiesInteractor.h"
+#import "CityDisplayDataCollector.h"
 
-@interface ForecastViewPresenter()
+@interface ForecastViewPresenter() <SearchCitiesInteractorDelegate>
+
+@property (strong, nonatomic) SearchCitiesInteractor * _Nonnull searchCitiesInteractor;
 
 @end
 
 @implementation ForecastViewPresenter
+
+#pragma mark - Initializer
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        _searchCitiesInteractor = [[SearchCitiesInteractor alloc] init];
+        _searchCitiesInteractor.delegate = self;
+    }
+    return self;
+}
+
 
 #pragma mark - Presenter Actions
 
@@ -28,12 +44,8 @@
 }
 
 - (void)reloadViewData {
-    CityDisplayData *selectedCity = [self.forecastView selectedCity];
-    if (!selectedCity) {
-        // TODO: Maybe try to obtain user's location ? Ot just ask view to present empty state
-    } else {
-        [self.forecastInteractor loadForecastForLatitude:selectedCity.latitude longitude:selectedCity.longitude];
-    }
+    // If we could get the cities, we load the forecast, otherwise we present an error
+    [self.searchCitiesInteractor loadSavedCities];
 }
 
 
@@ -58,12 +70,31 @@
 #pragma mark - ForecastViewInteractorDelegate
 
 - (void)forecastViewInteractor:(ForecastViewInteractor * _Nonnull)interactor didFetchForecast:(Forecast *  _Nonnull)forecast {
-    [self.forecastView displayData:[self forecastDisplayDataFromForecast:forecast]];
+    [self.forecastView displayForecastData:[self forecastDisplayDataFromForecast:forecast]];
     [self.forecastView reloadAllData];
 }
 
 - (void)forecastViewInteractor:(ForecastViewInteractor * _Nonnull)interactor didFailFetchingForecastWithError:(NSError * _Nonnull)error {
     [self.forecastView presentErrorMessage:error.localizedDescription];
+}
+
+#pragma mark - SearchCitiesInteractorDelegate
+
+- (void)searchCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFetchCities:(NSArray <City *> * _Nonnull)cities {
+    CityDisplayDataCollector *dataCollector = [[CityDisplayDataCollector alloc] init];
+    [dataCollector collectCities:cities];
+    [self.forecastView displayCities:[dataCollector collectedData]];
+
+    CityDisplayData *selectedCity = [self.forecastView selectedCity];
+    if (!selectedCity) {
+        // TODO: Maybe try to obtain user's location ? Ot just ask view to present empty state
+    } else {
+        [self.forecastInteractor loadForecastForLatitude:selectedCity.latitude longitude:selectedCity.longitude];
+    }
+}
+
+- (void)searchCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFailFetchingCitiesWithError:(NSError * _Nonnull)error {
+    [self.forecastView presentNoCitiesFoundMessage:error.localizedDescription];
 }
 
 

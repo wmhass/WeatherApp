@@ -13,6 +13,7 @@
 #import "UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.h"
 #import "UIHourlyConditionTableViewHeaderView.h"
 #import "CityDisplayData.h"
+#import "CitiesListDisplayData.h"
 
 NSString * const ForecastViewSearchSegueIdentifier = @"search_segue";
 NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_header";
@@ -21,8 +22,11 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 
 @property (strong, nonatomic) ForecastDisplayData * _Nullable displayData;
 @property (strong, nonatomic) CityDisplayData * _Nullable currentCity;
+@property (strong, nonatomic) CitiesListDisplayData * _Nullable citiesList;
+@property (weak, nonatomic) IBOutlet UIView *noCitiesView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (weak, nonatomic) IBOutlet UILabel *noCitiesViewLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentLocation;
 @property (weak, nonatomic) IBOutlet UILabel *currentWeatherDescription;
 @property (weak, nonatomic) IBOutlet UILabel *currentTemperature;
@@ -47,6 +51,16 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 
 #pragma mark - Public
 
+- (void)presentNoCitiesFoundMessage:(NSString * _Nonnull)message {
+    self.noCitiesView.hidden = NO;
+    self.noCitiesViewLabel.text = message;
+}
+
+- (void)displayCities:(CitiesListDisplayData * _Nonnull)citiesList {
+    self.noCitiesView.hidden = [citiesList numberOfCities] > 0;
+    self.citiesList = citiesList;
+}
+
 - (CityDisplayData * _Nullable)selectedCity {
     return self.currentCity;
 }
@@ -55,16 +69,10 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     [self.tableView reloadData];
 }
 
-- (void)displayData:(ForecastDisplayData * _Nullable)displayData {
+- (void)displayForecastData:(ForecastDisplayData * _Nullable)displayData {
     self.displayData = displayData;
     [self updateHeaderInformation];
 }
-
-- (NSString * _Nullable)searchingCity {
-    // TODO: Pass search string
-    return @"Porto alegre";
-}
-
 
 - (void)presentErrorMessage:(NSString * _Nonnull)message {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ERROR_ALERT", @"Ooops!") message:message preferredStyle:UIAlertControllerStyleAlert];
@@ -84,6 +92,7 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 #pragma mark - Private
 
 - (void)updateHeaderInformation {
+    //TODO: Remove currentLocation from displayData, we already have this data in the currentCity property
     self.currentLocation.text = [self.displayData currentLocation];
     self.currentTemperature.text = [self.displayData currentTemperature];
     self.currentWeatherDescription.text = [self.displayData currentWeatherDescription];
@@ -96,6 +105,17 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     [self.tableView registerNib:headerNib forHeaderFooterViewReuseIdentifier:ForecastViewControllerTableHeaderReuseIdentifier];
 }
 
+- (void)setCitiesList:(CitiesListDisplayData *)citiesList {
+    _citiesList = citiesList;
+    if(!self.currentCity && [citiesList numberOfCities]) {
+        self.currentCity = [citiesList cityDisplayDataAtIndex:0];
+    }
+}
+
+- (void)setCurrentCity:(CityDisplayData *)currentCity {
+    _currentCity = currentCity;
+    [self updateHeaderInformation];
+}
 
 #pragma mark - UITableViewDataSource
 

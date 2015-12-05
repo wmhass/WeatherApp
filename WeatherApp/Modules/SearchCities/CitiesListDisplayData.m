@@ -27,4 +27,15 @@
     return self;
 }
 
+
+#pragma mark - Public
+
+- (CityDisplayData * _Nonnull)cityDisplayDataAtIndex:(NSInteger)index {
+    return self.citiesDisplay[index];
+}
+
+- (NSInteger)numberOfCities {
+    return self.citiesDisplay.count;
+}
+
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class ForecastViewPresenter, SearchCitiesViewController, ForecastDisplayData, CityDisplayData;
+@class ForecastViewPresenter, SearchCitiesViewController, ForecastDisplayData, CityDisplayData, CitiesListDisplayData;
 
 @interface ForecastViewController : UIViewController
 
@@ -17,7 +17,9 @@
 - (CityDisplayData * _Nullable)selectedCity;
 - (NSInteger)selectedMetric;
 - (void)presentErrorMessage:(NSString * _Nonnull)message;
-- (void)displayData:(ForecastDisplayData * _Nullable)displayData;
+- (void)displayForecastData:(ForecastDisplayData * _Nullable)displayData;
+- (void)displayCities:(CitiesListDisplayData * _Nonnull)citiesList;
+- (void)presentNoCitiesFoundMessage:(NSString * _Nonnull)message;
 - (void)reloadAllData;
 
 

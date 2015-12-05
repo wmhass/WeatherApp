@@ -27,7 +27,7 @@
 
 #pragma mark - SearchCitiesInteractorDelegate
 
-- (void)serachCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFetchCities:(NSArray <City *> * _Nonnull)cities {
+- (void)searchCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFetchCities:(NSArray <City *> * _Nonnull)cities {
     CityDisplayDataCollector *dataCollector = [[CityDisplayDataCollector alloc] init];
     [dataCollector collectCities:cities];
     
@@ -36,7 +36,7 @@
 }
 
 
-- (void)serachCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFailFetchingCitiesWithError:(NSError * _Nonnull)error {
+- (void)searchCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFailFetchingCitiesWithError:(NSError * _Nonnull)error {
     [self.searchCitiesView presentErrorMessage:error.localizedDescription];
 }
 

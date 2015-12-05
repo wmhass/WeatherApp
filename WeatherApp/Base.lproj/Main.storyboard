@@ -149,13 +149,37 @@
                                     <outlet property="delegate" destination="tdT-Ol-YMV" id="kIC-iT-EzJ"/>
                                 </connections>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFT-oz-bCu" userLabel="No cities view">
+                                <rect key="frame" x="0.0" y="200" width="600" height="400"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yD1-vk-yo9">
+                                        <rect key="frame" x="280" y="190" width="40" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="yD1-vk-yo9" secondAttribute="trailing" constant="20" id="Bhx-pe-ixv"/>
+                                    <constraint firstItem="yD1-vk-yo9" firstAttribute="centerX" secondItem="qFT-oz-bCu" secondAttribute="centerX" id="UaC-5x-zvg"/>
+                                    <constraint firstItem="yD1-vk-yo9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qFT-oz-bCu" secondAttribute="topMargin" constant="20" id="nSM-ii-oFm"/>
+                                    <constraint firstItem="yD1-vk-yo9" firstAttribute="centerY" secondItem="qFT-oz-bCu" secondAttribute="centerY" id="ut5-OZ-hOa"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.30588235289999999" green="0.67843137249999996" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="iyz-z2-grw" secondAttribute="bottom" id="B34-tR-ZWg"/>
+                            <constraint firstItem="qFT-oz-bCu" firstAttribute="leading" secondItem="Itx-Dx-4nT" secondAttribute="leading" id="PHT-ME-SXC"/>
                             <constraint firstItem="iyz-z2-grw" firstAttribute="leading" secondItem="Itx-Dx-4nT" secondAttribute="leading" id="a5a-qt-Ue6"/>
                             <constraint firstAttribute="trailing" secondItem="iyz-z2-grw" secondAttribute="trailing" id="bP1-xI-qhU"/>
+                            <constraint firstAttribute="trailing" secondItem="qFT-oz-bCu" secondAttribute="trailing" id="c8C-Hf-vlu"/>
+                            <constraint firstItem="qFT-oz-bCu" firstAttribute="top" secondItem="vyR-ht-Gvf" secondAttribute="bottom" id="eyr-M5-hYI"/>
+                            <constraint firstItem="cQX-Hh-RQR" firstAttribute="top" secondItem="qFT-oz-bCu" secondAttribute="bottom" id="ftp-Tt-oIB"/>
                             <constraint firstItem="iyz-z2-grw" firstAttribute="top" secondItem="z8S-nF-B03" secondAttribute="bottom" constant="120" id="jSp-Gj-IiL"/>
                             <constraint firstItem="vyR-ht-Gvf" firstAttribute="leading" secondItem="Itx-Dx-4nT" secondAttribute="leading" id="ryo-Oa-NJO"/>
                             <constraint firstAttribute="trailing" secondItem="vyR-ht-Gvf" secondAttribute="trailing" id="tu9-Ly-yZB"/>
@@ -167,6 +191,8 @@
                         <outlet property="currentTemperature" destination="Iw8-YI-jFZ" id="Chv-aM-CeJ"/>
                         <outlet property="currentWeatherDescription" destination="Ap3-C9-jNP" id="UY2-Fz-1Yj"/>
                         <outlet property="headerView" destination="vyR-ht-Gvf" id="ft6-na-JN7"/>
+                        <outlet property="noCitiesView" destination="qFT-oz-bCu" id="PvE-S8-2x0"/>
+                        <outlet property="noCitiesViewLabel" destination="yD1-vk-yo9" id="EKI-Sk-IPa"/>
                         <outlet property="tableView" destination="iyz-z2-grw" id="26g-vc-gxK"/>
                     </connections>
                 </viewController>

@@ -11,3 +11,5 @@
 "ERROR_ALERT" = "Ooops!";
 
 "OK" = "Ok";
+
+"NO_CITIES_MESSAGE" = "No cities were found. Try searching a city to see its forecast!";

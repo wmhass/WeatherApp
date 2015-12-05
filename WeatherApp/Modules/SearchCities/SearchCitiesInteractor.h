@@ -11,8 +11,8 @@
 @class SearchCitiesInteractor, City;
 @protocol SearchCitiesInteractorDelegate
 
-- (void)serachCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFetchCities:(NSArray <City *> * _Nonnull)cities;
-- (void)serachCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFailFetchingCitiesWithError:(NSError * _Nonnull)error;
+- (void)searchCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFetchCities:(NSArray <City *> * _Nonnull)cities;
+- (void)searchCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFailFetchingCitiesWithError:(NSError * _Nonnull)error;
 
 @end
 
@@ -21,5 +21,6 @@
 @property (weak, nonatomic) id<SearchCitiesInteractorDelegate> _Nullable delegate;
 
 - (void)searchCitiesWithSearchString:(NSString * _Nonnull)searchString;
+- (void)loadSavedCities;
 
 @end
