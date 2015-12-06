@@ -16,7 +16,10 @@ NSString * const SavedCitiesViewControllerIdentifier = @"SavedCitiesViewControll
 
 @interface SavedCitiesViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UILabel *emptyMessageLabel;
+@property (strong, nonatomic) IBOutlet UIView *tableFooterView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomKeylineHeightConstraint;
 @property (strong, nonatomic) CitiesListDisplayData *  listDisplay;
 
 @end
@@ -28,6 +31,9 @@ NSString * const SavedCitiesViewControllerIdentifier = @"SavedCitiesViewControll
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupTableView];
+    self.bottomKeylineHeightConstraint.constant = .5f;
+    
+    self.emptyMessageLabel.text = @"Oops! Looks like you don't have any saved city!";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -46,7 +52,7 @@ NSString * const SavedCitiesViewControllerIdentifier = @"SavedCitiesViewControll
 }
 
 - (void)presentEmptyContent {
-    // TODO: Present
+    self.tableView.tableFooterView = self.tableFooterView;
 }
 
 #pragma mark - IBActions

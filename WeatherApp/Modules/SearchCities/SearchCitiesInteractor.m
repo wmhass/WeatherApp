@@ -11,15 +11,30 @@
 #import "ForecastDataManager.h"
 #import "SavedCitiesDataManager.h"
 
+@interface SearchCitiesInteractor()
+
+@property (strong, nonatomic) ForecastDataManager *dataManager;
+
+@end
+
 @implementation SearchCitiesInteractor
+
+#pragma mark - Initializers
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        _dataManager = [[ForecastDataManager alloc] init];
+    }
+    return self;
+}
 
 #pragma mark - Public 
 
 - (void)searchCitiesWithSearchString:(NSString * )searchString {
-    ForecastDataManager *dataManager = [[ForecastDataManager alloc] init];
     
     __weak SearchCitiesInteractor *weakSelf = self;
-    [dataManager fetchCitiesWithSearch:searchString withCompletion:^(NSDictionary *  response, NSError *  error) {
+    [self.dataManager fetchCitiesWithSearch:searchString withCompletion:^(NSDictionary *  response, NSError *  error) {
 
         if (error) {
             [weakSelf.delegate searchCitiesInteractor:weakSelf didFailFetchingCitiesWithError:error];

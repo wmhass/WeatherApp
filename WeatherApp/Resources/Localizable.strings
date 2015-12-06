@@ -12,4 +12,4 @@
 
 "OK" = "Ok";
 
-"NO_CITIES_MESSAGE" = "No cities were found. Try searching a city to see its forecast!";
+"NO_CITIES_MESSAGE" = "Looks like you don't have saved cities. Try searching a city to see its forecast!";

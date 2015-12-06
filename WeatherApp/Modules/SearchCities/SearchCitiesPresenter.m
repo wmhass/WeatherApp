@@ -25,10 +25,12 @@
 
     [self.searchTimer invalidate];
     
-    if (searchString.length == 0) {
+    if ([self searchStringIsEmpty:searchString]) {
+        [self cleanViewData];
         return [self.searchCitiesView presentEmptySearchTextMessage];
     }
 
+    [self.searchCitiesView presentLoadingContent];
     self.searchTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(searchTimerFinished:) userInfo:searchString repeats:NO];
     
 }
@@ -42,6 +44,15 @@
 }
 
 #pragma mark - Private
+
+- (void)cleanViewData {
+    [self.searchCitiesView displayData:nil];
+    [self.searchCitiesView reloadAllData];
+}
+
+- (BOOL)searchStringIsEmpty:(NSString *)searchString {
+    return [searchString stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]].length == 0;
+}
 
 - (void)makeViewDisplayCities:(NSArray <City *> * )cities {
     CityDisplayDataCollector *dataCollector = [[CityDisplayDataCollector alloc] init];

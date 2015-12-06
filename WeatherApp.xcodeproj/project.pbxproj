@@ -33,6 +33,9 @@
 		3D80EE601C140D5400ACE7AF /* SavedCitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE5F1C140D5400ACE7AF /* SavedCitiesViewController.m */; };
 		3D80EE631C14127600ACE7AF /* SavedCitiesPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE621C14127600ACE7AF /* SavedCitiesPresenter.m */; };
 		3D80EE661C1417B600ACE7AF /* SavedCitiesWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE651C1417B600ACE7AF /* SavedCitiesWireframe.m */; };
+		3D80EE6A1C14CB6C00ACE7AF /* search_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D80EE671C14CB6C00ACE7AF /* search_icon.png */; };
+		3D80EE6B1C14CB6C00ACE7AF /* search_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D80EE681C14CB6C00ACE7AF /* search_icon@2x.png */; };
+		3D80EE6C1C14CB6C00ACE7AF /* search_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D80EE691C14CB6C00ACE7AF /* search_icon@3x.png */; };
 		3DD9571C1C128EB80027A63D /* UIUpcomingConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9571B1C128EB80027A63D /* UIUpcomingConditionTableViewCell.m */; };
 		3DD957201C12A4610027A63D /* UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9571F1C12A4610027A63D /* UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.m */; };
 		3DD957231C12A7A70027A63D /* UIHourlyConditionTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD957221C12A7A70027A63D /* UIHourlyConditionTableViewHeaderView.m */; };
@@ -120,6 +123,9 @@
 		3D80EE621C14127600ACE7AF /* SavedCitiesPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedCitiesPresenter.m; sourceTree = "<group>"; };
 		3D80EE641C1417B600ACE7AF /* SavedCitiesWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedCitiesWireframe.h; sourceTree = "<group>"; };
 		3D80EE651C1417B600ACE7AF /* SavedCitiesWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedCitiesWireframe.m; sourceTree = "<group>"; };
+		3D80EE671C14CB6C00ACE7AF /* search_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_icon.png; sourceTree = "<group>"; };
+		3D80EE681C14CB6C00ACE7AF /* search_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search_icon@2x.png"; sourceTree = "<group>"; };
+		3D80EE691C14CB6C00ACE7AF /* search_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search_icon@3x.png"; sourceTree = "<group>"; };
 		3DD9571A1C128EB80027A63D /* UIUpcomingConditionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUpcomingConditionTableViewCell.h; sourceTree = "<group>"; };
 		3DD9571B1C128EB80027A63D /* UIUpcomingConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUpcomingConditionTableViewCell.m; sourceTree = "<group>"; };
 		3DD9571E1C12A4610027A63D /* UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.h"; sourceTree = "<group>"; };
@@ -330,6 +336,9 @@
 		3DD957161C1287130027A63D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3D80EE671C14CB6C00ACE7AF /* search_icon.png */,
+				3D80EE681C14CB6C00ACE7AF /* search_icon@2x.png */,
+				3D80EE691C14CB6C00ACE7AF /* search_icon@3x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -558,7 +567,10 @@
 				3DD957251C12A7B50027A63D /* UIHourlyConditionTableViewHeaderView.xib in Resources */,
 				3DF76D6A1C1147D100C181FA /* Localizable.strings in Resources */,
 				3DF3B7BB1C0FDDA10024C06C /* Assets.xcassets in Resources */,
+				3D80EE6A1C14CB6C00ACE7AF /* search_icon.png in Resources */,
+				3D80EE6B1C14CB6C00ACE7AF /* search_icon@2x.png in Resources */,
 				3DF3B7B91C0FDDA10024C06C /* Main.storyboard in Resources */,
+				3D80EE6C1C14CB6C00ACE7AF /* search_icon@3x.png in Resources */,
 				3DD9572A1C12AFBF0027A63D /* UIHourlyConditionCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

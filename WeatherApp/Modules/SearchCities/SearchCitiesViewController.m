@@ -16,6 +16,9 @@ NSString * const SearchCitiesViewControllerIdentifier = @"SearchCitiesViewContro
 
 @interface SearchCitiesViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinnerView;
+@property (weak, nonatomic) IBOutlet UILabel *footerEmptyStateLabel;
+@property (strong, nonatomic) IBOutlet UIView *tableFooterView;
 @property (weak, nonatomic) IBOutlet UITableView *  tableView;
 @property (strong, nonatomic) CitiesListDisplayData *  displayData;
 
@@ -28,32 +31,47 @@ NSString * const SearchCitiesViewControllerIdentifier = @"SearchCitiesViewContro
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupTableView];
+    [self presentEmptySearchTextMessage];
 }
 
 #pragma mark - Private
 
 - (void)setupTableView {
-    self.tableView.tableFooterView = [UIView new];
     self.tableView.estimatedRowHeight = 120;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
+- (void)presentFooterMessage {
+    self.tableView.tableFooterView = self.tableFooterView;
+    self.footerEmptyStateLabel.alpha = 1;
+    [self.spinnerView stopAnimating];
+}
 
 #pragma mark - Public
 
+- (void)presentLoadingContent {
+    self.tableView.tableFooterView = self.tableFooterView;
+    self.footerEmptyStateLabel.alpha = 0;
+    [self.spinnerView startAnimating];
+}
+
 - (void)presentEmptySearchTextMessage {
-    [self displayNoCitiesFound];
+    [self presentFooterMessage];
+    self.footerEmptyStateLabel.text = @"Type a city's name";
 }
 
 - (void)displayNoCitiesFound {
-    //TODO: Implement empty state
+    [self presentFooterMessage];
+    self.footerEmptyStateLabel.text = @"No cities found";
 }
 
 - (void)presentErrorMessage:(NSString * )errorMessage {
-    
+    [self presentFooterMessage];
+    self.footerEmptyStateLabel.text = errorMessage;
 }
 
 - (void)displayData:(CitiesListDisplayData * )listDisplayData {
+    self.tableView.tableFooterView = nil;
     self.displayData = listDisplayData;
 }
 

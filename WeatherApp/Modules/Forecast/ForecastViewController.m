@@ -33,19 +33,32 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 @property (weak, nonatomic) IBOutlet UIButton *saveCityButton;
 @property (weak, nonatomic) IBOutlet UIButton *removeCityButton;
 @property (weak, nonatomic) IBOutlet UIView *searchCityContainer;
+@property (weak, nonatomic) IBOutlet UIView *loadingContainerView;
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinnerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchTextContainerTopConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchTextContainerBottomConstraint;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *metricsSegmentedControl;
+@property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *keylinesHeightConstraints;
 @end
 
 @implementation ForecastViewController
 
 #pragma mark - Lifecycle
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self setupTableView];
+    [self setupSearchTextField];
+    
+    [self.keylinesHeightConstraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *  _Nonnull constraint, NSUInteger idx, BOOL * _Nonnull stop) {
+        constraint.constant = .5f;
+    }];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self setupTableView];
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -58,6 +71,9 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDefault;
+}
 
 #pragma mark - Public
 
@@ -82,14 +98,7 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 }
 
 - (void)presentErrorMessage:(NSString * )message {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ERROR_ALERT", @"Ooops!") message:message preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"Ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction *  action) {
-        [alertController dismissViewControllerAnimated:YES completion:nil];
-    }];
-    
-    [alertController addAction:okAction];
-    [self presentViewController:alertController animated:YES completion:nil];
+    [self presentNoCitiesFoundMessage:message];
 }
 
 - (NSInteger)selectedMetric {
@@ -116,6 +125,21 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 - (void)displayCity:(CityDisplayData * )cityDisplay {
     self.currentCity = cityDisplay;
     [self updateHeaderInformation];
+}
+
+- (void)showLoadingView {
+    [self.spinnerView startAnimating];
+    [UIView animateWithDuration:0.2 animations:^{
+        self.loadingContainerView.alpha = 1;
+    }];
+}
+
+- (void)hideLoadingView {
+    [UIView animateWithDuration:0.2 animations:^{
+        self.loadingContainerView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.spinnerView stopAnimating];
+    }];
 }
 
 #pragma mark - Private
@@ -157,10 +181,10 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 }
 
 - (void)updateHeaderInformation {
-    //TODO: Remove currentLocation from displayData, we already have this data in the currentCity property
-    self.currentLocation.text = self.currentCity.description;
-    self.currentTemperature.text = [self.displayData currentTemperature];
-    self.currentWeatherDescription.text = [self.displayData currentWeatherDescription];
+    
+    self.currentLocation.text = self.currentCity.description ?: @"--";
+    self.currentTemperature.text = [self.displayData currentTemperature] ?: @"--";
+    self.currentWeatherDescription.text = [self.displayData currentWeatherDescription] ?: @"--";
     
     BOOL cityIsSaved = self.currentCity.saved;
     self.saveCityButton.hidden = cityIsSaved;
@@ -172,6 +196,15 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     self.tableView.tableFooterView = [UIView new];
     UINib *headerNib = [UINib nibWithNibName:UIHourlyConditionTableViewHeaderViewNibName bundle:nil];
     [self.tableView registerNib:headerNib forHeaderFooterViewReuseIdentifier:ForecastViewControllerTableHeaderReuseIdentifier];
+}
+
+- (void)setupSearchTextField {
+    UIImage *searchImage = [[UIImage imageNamed:@"search_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImageView *leftAccessory = [[UIImageView alloc] initWithImage:searchImage];
+    leftAccessory.contentMode = UIViewContentModeCenter;
+    leftAccessory.frame = CGRectMake(0, 0, searchImage.size.width, CGRectGetHeight(self.searchTextField.frame));
+    self.searchTextField.leftView = leftAccessory;
+    self.searchTextField.leftViewMode = UITextFieldViewModeAlways;
 }
 
 #pragma mark - IBActions

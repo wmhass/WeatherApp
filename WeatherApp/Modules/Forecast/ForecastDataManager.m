@@ -9,7 +9,7 @@
 #import "ForecastDataManager.h"
 #import <AFNetworking/AFNetworking.h>
 
-NSString * const APIKey = @"9702c27797d0afe90e0b3b165c404";
+NSString * const APIKey = @"9968f117acac39952af7a517732e8";
 NSString * const APIURI = @"http://api.worldweatheronline.com/free";
 NSString * const APIVersion = @"v2";
 NSString * const APIWeatherEndPoint = @"weather.ashx";
@@ -42,11 +42,10 @@ NSString * const APIResponsePrefferedFormat = @"json";
 }
 
 - (NSString * )errorMessageForResponse:(NSDictionary * )responseObject {
-    NSDictionary *data = [responseObject objectForKey:@"data"];
-    if (!data) {
+    if (!responseObject) {
         return NSLocalizedString(@"REQUEST_ERROR_MESSAGE", @"No data recevied from the server");
     }
-    return [[[data objectForKey:@"error"] lastObject] objectForKey:@"msg"];
+    return responseObject[@"data"][@"error"][0][@"mesg"];
 }
 
 

@@ -20,5 +20,6 @@ extern NSString *  const SearchCitiesViewControllerIdentifier;
 - (void)displayData:(CitiesListDisplayData * )listDisplayData;
 - (void)displayNoCitiesFound;
 - (void)presentEmptySearchTextMessage;
+- (void)presentLoadingContent;
 
 @end

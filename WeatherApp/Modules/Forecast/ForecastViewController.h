@@ -21,7 +21,8 @@
 - (void)reloadAllData;
 - (void)presentSearchCitiesView:(SearchCitiesViewController * )viewController;
 - (void)dismissSearchCitiesView;
-
+- (void)showLoadingView;
+- (void)hideLoadingView;
 - (NSInteger)selectedMetric;
 - (NSString * )searchingCityString;
 - (CityDisplayData * )presentingCity;

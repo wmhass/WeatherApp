@@ -26,6 +26,7 @@
 #import "City.h"
 @interface ForecastViewPresenter() <SearchCitiesPresenterDelegate, SavedCitiesPresenterDelegate>
 
+@property (strong, nonatomic) Forecast *cachedForecast;
 @property (strong, nonatomic) SavedCitiesInteractor *  savedCitiesInteractor;
 @property (weak, nonatomic) SearchCitiesPresenter *  searchCitiesPresenter;
 
@@ -70,7 +71,7 @@
 }
 
 - (void)metricValueChanged {
-    [self refreshForecast];
+    [self makeViewPresentDisplayData:[self forecastDisplayDataFromForecast:self.cachedForecast]];
 }
 
 - (BOOL)canStartSearchingCity {
@@ -112,6 +113,7 @@
 #pragma mark - Private
 
 - (void)refreshForecast {
+    [self.forecastView showLoadingView];
     CityDisplayData *displayingCity = [self.forecastView presentingCity];
     [self.forecastInteractor loadForecastForLatitude:displayingCity.latitude longitude:displayingCity.longitude];
 }
@@ -135,15 +137,21 @@
     return (ForecastDisplayDataCollectorTemperatureMetric)[self.forecastView selectedMetric];
 }
 
+- (void)makeViewPresentDisplayData:(ForecastDisplayData *)forecastDisplayData {
+    [self.forecastView displayForecastData:forecastDisplayData];
+    [self.forecastView reloadAllData];
+}
 
 #pragma mark - ForecastViewInteractorDelegate
 
 - (void)forecastViewInteractor:(ForecastViewInteractor * )interactor didFetchForecast:(Forecast *  )forecast {
-    [self.forecastView displayForecastData:[self forecastDisplayDataFromForecast:forecast]];
-    [self.forecastView reloadAllData];
+    self.cachedForecast = forecast;
+    [self makeViewPresentDisplayData:[self forecastDisplayDataFromForecast:forecast]];
+    [self.forecastView hideLoadingView];
 }
 
 - (void)forecastViewInteractor:(ForecastViewInteractor * )interactor didFailFetchingForecastWithError:(NSError * )error {
+    [self.forecastView hideLoadingView];
     [self.forecastView presentErrorMessage:error.localizedDescription];
 }
 

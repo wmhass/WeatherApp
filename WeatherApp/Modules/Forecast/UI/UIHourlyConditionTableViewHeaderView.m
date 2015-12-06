@@ -14,6 +14,8 @@ NSString * const UIHourlyConditionTableViewHeaderViewNibName = @"UIHourlyConditi
 @interface UIHourlyConditionTableViewHeaderView() <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView * hourlyConditionCollectionView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topKeylineHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomKeylineHeightConstraint;
 
 @end
 
@@ -25,6 +27,9 @@ NSString * const UIHourlyConditionTableViewHeaderViewNibName = @"UIHourlyConditi
 - (void)awakeFromNib {
     UINib *cellNib = [UINib nibWithNibName:UIHourlyConditionCollectionViewCellNibName bundle:nil];
     [self.hourlyConditionCollectionView registerNib:cellNib forCellWithReuseIdentifier:UIHourlyConditionCollectionViewCellReuseIdentifier];
+    
+    self.topKeylineHeightConstraint.constant = .5f;
+    self.bottomKeylineHeightConstraint.constant = .5f;
 }
 
 
@@ -60,5 +65,9 @@ NSString * const UIHourlyConditionTableViewHeaderViewNibName = @"UIHourlyConditi
 
 
 #pragma mark - UICollectionViewDelegateFlowLayout
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(0, 10, 0, 10);
+}
 
 @end
