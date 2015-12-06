@@ -30,43 +30,9 @@
     }];
 }
 
-- (void)loadSavedCities {
-    NSArray *savedCities = [self storedCities];
-    if (savedCities) {
-        [self.delegate searchCitiesInteractor:self didFetchCities:savedCities];
-    } else {
-        [self.delegate searchCitiesInteractor:self didFailFetchingCitiesWithError:[self noCitiesError]];
-    }
-}
-
-- (NSError *)noCitiesError {
-    NSString *message = NSLocalizedString(@"NO_CITIES_MESSAGE", nil);
-    return [[NSError alloc] initWithDomain:@"com.interactor" code:0 userInfo:@{NSLocalizedDescriptionKey: message}];
-}
-
-- (BOOL)storeCity:(City * _Nonnull)city {
-    NSMutableArray *savedCities = [self storedCities];
-    [savedCities addObject:city];
-    return [[[SavedCitiesDataManager alloc] init] storeCities:savedCities];
-}
-
-- (BOOL)removeCity:(City * _Nonnull)city {
-    NSMutableArray *savedCities = [self storedCities];
-    [savedCities removeObject:city];
-    return [[[SavedCitiesDataManager alloc] init] storeCities:savedCities];
-}
 
 #pragma mark - Private
 
-- (NSMutableArray <City *> *  _Nullable)storedCities {
-    static NSMutableArray <City *> * storedCities;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        SavedCitiesDataManager *dataManager = [[SavedCitiesDataManager alloc] init];
-        storedCities = [[dataManager loadStoredCities] mutableCopy] ?: [NSMutableArray new];
-    });
-    return storedCities;
-}
 
 - (NSArray <City *> * _Nonnull)citiesFromDictionary:(NSDictionary * _Nonnull)dictionary {
     

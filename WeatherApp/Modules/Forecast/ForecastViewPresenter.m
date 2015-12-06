@@ -14,29 +14,33 @@
 #import "ForecastDisplayData.h"
 #import "Forecast.h"
 #import "CityDisplayData.h"
-#import "SearchCitiesInteractor.h"
 #import "CityDisplayDataCollector.h"
 #import "SearchCitiesViewWireframe.h"
 #import "SearchCitiesPresenter.h"
 #import "SearchCitiesViewController.h"
 #import "CitiesListDisplayData.h"
+#import "SavedCitiesInteractor.h"
 
 @interface ForecastViewPresenter() <SearchCitiesInteractorDelegate, SearchCitiesPresenterDelegate>
 
-@property (strong, nonatomic) SearchCitiesInteractor * _Nonnull searchCitiesInteractor;
+@property (strong, nonatomic) SavedCitiesInteractor * _Nonnull savedCitiesInteractor;
 @property (weak, nonatomic) SearchCitiesPresenter * _Nullable searchCitiesPresenter;
 
 @end
 
 @implementation ForecastViewPresenter
 
+/*- (NSError *)noCitiesError {
+    NSString *message = NSLocalizedString(@"NO_CITIES_MESSAGE", nil);
+    return [[NSError alloc] initWithDomain:@"com.interactor" code:0 userInfo:@{NSLocalizedDescriptionKey: message}];
+}*/
+
 #pragma mark - Initializer
 
 - (id)init {
     self = [super init];
     if (self) {
-        _searchCitiesInteractor = [[SearchCitiesInteractor alloc] init];
-        _searchCitiesInteractor.delegate = self;
+        _savedCitiesInteractor = [[SavedCitiesInteractor alloc] init];
     }
     return self;
 }
@@ -49,8 +53,22 @@
 }
 
 - (void)reloadViewData {
-    // If we can get the cities, we load the forecast, otherwise we present an empty state
-    [self.searchCitiesInteractor loadSavedCities];
+
+    NSArray *cities = [self.savedCitiesInteractor loadSavedCities];
+    
+    if (cities.count > 0) {
+        
+        CityDisplayDataCollector *dataCollector = [[CityDisplayDataCollector alloc] init];
+        [dataCollector collectCities:cities];
+        CityDisplayData *firstCity = [[dataCollector collectedData] cityDisplayDataAtIndex:0];
+        
+        [self.forecastView displayCity:firstCity];
+        [self.forecastInteractor loadForecastForLatitude:firstCity.latitude longitude:firstCity.longitude];
+        
+    } else {
+        [self.forecastView presentNoCitiesFoundMessage:NSLocalizedString(@"NO_CITIES_MESSAGE", nil)];
+    }
+    
 }
 
 - (BOOL)canStartSearchingCity {
@@ -74,14 +92,14 @@
 - (void)saveCity {
     CityDisplayData *selectedCity = [self.forecastView presentingCity];
     if(selectedCity.saved) { return ; }
-    selectedCity.saved = [self.searchCitiesInteractor storeCity:selectedCity.referencedModel];
+    selectedCity.saved = [self.savedCitiesInteractor storeCity:selectedCity.referencedModel];
     [self.forecastView displayCity:selectedCity];
 }
 
 - (void)removeCity {
     CityDisplayData *selectedCity = [self.forecastView presentingCity];
     if(!selectedCity.saved) { return; }
-    selectedCity.saved = ![self.searchCitiesInteractor removeCity:selectedCity.referencedModel];
+    selectedCity.saved = ![self.savedCitiesInteractor removeCity:selectedCity.referencedModel];
     [self.forecastView displayCity:selectedCity];
 }
 
@@ -118,27 +136,6 @@
     [self.forecastView presentErrorMessage:error.localizedDescription];
 }
 
-#pragma mark - SearchCitiesInteractorDelegate
-
-- (void)searchCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFetchCities:(NSArray <City *> * _Nonnull)cities {
-
-    CityDisplayDataCollector *dataCollector = [[CityDisplayDataCollector alloc] init];
-    [dataCollector collectCities:cities];
-    CitiesListDisplayData *citiesList = [dataCollector collectedData];
-
-    if ([citiesList numberOfCities] > 0) {
-        CityDisplayData *firstCity = [citiesList cityDisplayDataAtIndex:0];
-        [self.forecastView displayCity:firstCity];
-        [self.forecastInteractor loadForecastForLatitude:firstCity.latitude longitude:firstCity.longitude];
-    } else {
-        // TODO: Hmm, what else can we do?
-    }
-    
-}
-
-- (void)searchCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFailFetchingCitiesWithError:(NSError * _Nonnull)error {
-    [self.forecastView presentNoCitiesFoundMessage:error.localizedDescription];
-}
 
 #pragma mark - SearchCitiesPresenterDelegate
 

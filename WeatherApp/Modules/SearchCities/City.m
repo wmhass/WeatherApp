@@ -42,7 +42,6 @@
     [aCoder encodeObject:self.region forKey:@"region"];
     [aCoder encodeObject:self.latitude forKey:@"latitude"];
     [aCoder encodeObject:self.longitude forKey:@"longitude"];
-    [aCoder encodeObject:self.longitude forKey:@"longitude"];
 }
 
 - (nullable instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -53,7 +52,7 @@
         _region = [aDecoder decodeObjectForKey:@"region"];
         _latitude = [aDecoder decodeObjectForKey:@"latitude"];
         _longitude = [aDecoder decodeObjectForKey:@"longitude"];
-        _saved = YES;
+        _saved =  YES;
     }
     return self;
 }

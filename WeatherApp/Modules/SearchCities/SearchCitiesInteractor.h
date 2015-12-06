@@ -22,8 +22,5 @@
 @property (weak, nonatomic) id<SearchCitiesInteractorDelegate> _Nullable delegate;
 
 - (void)searchCitiesWithSearchString:(NSString * _Nonnull)searchString;
-- (void)loadSavedCities;
-- (BOOL)storeCity:(City * _Nonnull)city;
-- (BOOL)removeCity:(City * _Nonnull)city;
 
 @end
