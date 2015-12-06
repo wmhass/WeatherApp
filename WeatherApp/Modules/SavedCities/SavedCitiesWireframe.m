@@ -13,7 +13,7 @@
 
 @interface SavedCitiesWireframe()
 
-@property (weak, nonatomic) SavedCitiesViewController * _Nullable presentingView;
+@property (weak, nonatomic) SavedCitiesViewController *  presentingView;
 
 @end
 
@@ -21,7 +21,7 @@
 
 #pragma mark - Public
 
-- (void)setupSavedCitiesView:(SavedCitiesViewController * _Nonnull)savedCitiesView {
+- (void)setupSavedCitiesView:(SavedCitiesViewController * )savedCitiesView {
     savedCitiesView.presenter = [[SavedCitiesPresenter alloc] init];
     savedCitiesView.presenter.savedCitiesView = savedCitiesView;
     savedCitiesView.presenter.savedCitiesWireframe = self;

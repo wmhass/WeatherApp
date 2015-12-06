@@ -11,7 +11,7 @@
 
 @interface CitiesListDisplayData()
 
-@property (strong, nonatomic) NSMutableArray <CityDisplayData *> * _Nonnull citiesDisplay;
+@property (strong, nonatomic) NSMutableArray <CityDisplayData *> *  citiesDisplay;
 
 @end
 
@@ -19,7 +19,7 @@
 
 #pragma mark - Intializers
 
-- (id _Nonnull)initWithCitiesDisplayData:(NSArray <CityDisplayData *> *_Nonnull)citiesDisplayData {
+- (id )initWithCitiesDisplayData:(NSArray <CityDisplayData *> *)citiesDisplayData {
     self = [super init];
     if (self) {
         _citiesDisplay = [citiesDisplayData mutableCopy];
@@ -30,7 +30,7 @@
 
 #pragma mark - Public
 
-- (CityDisplayData * _Nonnull)cityDisplayDataAtIndex:(NSInteger)index {
+- (CityDisplayData * )cityDisplayDataAtIndex:(NSInteger)index {
     return self.citiesDisplay[index];
 }
 
@@ -38,7 +38,7 @@
     return self.citiesDisplay.count;
 }
 
-- (void)addCityDisplayData:(CityDisplayData * _Nonnull)cityDisplaydata {
+- (void)addCityDisplayData:(CityDisplayData * )cityDisplaydata {
     [self.citiesDisplay addObject:cityDisplaydata];
 }
 

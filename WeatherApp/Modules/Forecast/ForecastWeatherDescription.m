@@ -18,7 +18,7 @@
 
 #pragma mark - Initializers
 
-- (id _Nonnull)initWithValues:(NSArray<NSDictionary *> * _Nullable)values {
+- (id )initWithValues:(NSArray<NSDictionary *> * )values {
     self = [super init];
     if (self) {
         _values = values;
@@ -28,9 +28,9 @@
 
 #pragma mark - Public (Rewrtitten)
 
-- (NSString * _Nonnull)description {
+- (NSString * )description {
     NSMutableArray *values = [[NSMutableArray alloc] initWithCapacity:self.values.count];
-    [self.values enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.values enumerateObjectsUsingBlock:^(NSDictionary *  obj, NSUInteger idx, BOOL *  stop) {
         [values addObject:obj[@"value"]];
     }];
     return [values componentsJoinedByString:@", "];

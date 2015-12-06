@@ -20,7 +20,7 @@ static NSInteger const ForecastViewInteractorNumberOfDays = 5;
 
 #pragma mark - Public 
 
-- (void)loadForecastForLatitude:(NSString *  _Nonnull)latitude longitude:(NSString *_Nonnull)longitude {
+- (void)loadForecastForLatitude:(NSString *  )latitude longitude:(NSString *)longitude {
     
     ForecastDataManager *manager = [[ForecastDataManager alloc] init];
     ForecastDataManagerParameters *parameters = [[ForecastDataManagerParameters alloc] init];
@@ -29,7 +29,7 @@ static NSInteger const ForecastViewInteractorNumberOfDays = 5;
     parameters.longitude = longitude;
     
     __weak ForecastViewInteractor *weakSelf = self;
-    [manager fetchForecastRemoteInformationWithParameters:parameters withCompletion:^(NSDictionary * _Nullable response, NSError * _Nullable error) {
+    [manager fetchForecastRemoteInformationWithParameters:parameters withCompletion:^(NSDictionary *  response, NSError *  error) {
         
         if (error) {
             [weakSelf.delegate forecastViewInteractor:weakSelf didFailFetchingForecastWithError:error];
@@ -40,7 +40,7 @@ static NSInteger const ForecastViewInteractorNumberOfDays = 5;
     }];
 }
 
-- (Forecast * _Nonnull)forecastFromDictionary:(NSDictionary * _Nonnull)dictionary {
+- (Forecast * )forecastFromDictionary:(NSDictionary * )dictionary {
     
     ForecastCurrentCondition *currentCondition = [self forecastCurrentConditionFromDictionary:dictionary];
     
@@ -49,7 +49,7 @@ static NSInteger const ForecastViewInteractorNumberOfDays = 5;
     return [[Forecast alloc] initWithCurrentCondition:currentCondition upcomingConditions:upcomingConditions];
 }
 
-- (NSArray <ForecastUpcomingCondition *> * _Nonnull)forecastUpcomingConditionsWithDictionary:(NSDictionary * _Nullable)dictionary {
+- (NSArray <ForecastUpcomingCondition *> * )forecastUpcomingConditionsWithDictionary:(NSDictionary * )dictionary {
     NSMutableArray <ForecastUpcomingCondition *> *upcomingConditions = [@[] mutableCopy];
     
     NSArray *weather = dictionary[@"weather"];
@@ -63,7 +63,7 @@ static NSInteger const ForecastViewInteractorNumberOfDays = 5;
     return [NSArray arrayWithArray:upcomingConditions];
 }
 
-- (ForecastCurrentCondition * _Nonnull)forecastCurrentConditionFromDictionary:(NSDictionary * _Nullable)dictionary {
+- (ForecastCurrentCondition * )forecastCurrentConditionFromDictionary:(NSDictionary * )dictionary {
 
     NSMutableArray <ForecastHourlyCondition *> *hourlyConditions = [@[] mutableCopy];
     for (NSDictionary *hourlyCondition in dictionary[@"weather"][0][@"hourly"]) {

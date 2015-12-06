@@ -11,15 +11,15 @@
 @class City;
 @interface CityDisplayData : NSObject
 
-@property (strong, nonatomic) NSString * _Nullable country;
-@property (strong, nonatomic) NSString * _Nullable city;
-@property (strong, nonatomic) NSString * _Nullable region;
-@property (strong, nonatomic) NSString * _Nullable latitude;
-@property (strong, nonatomic) NSString * _Nullable longitude;
-@property (strong, nonatomic) City * _Nullable referencedModel;
+@property (strong, nonatomic) NSString *  country;
+@property (strong, nonatomic) NSString *  city;
+@property (strong, nonatomic) NSString *  region;
+@property (strong, nonatomic) NSString *  latitude;
+@property (strong, nonatomic) NSString *  longitude;
+@property (strong, nonatomic) City *  referencedModel;
 @property (nonatomic) BOOL saved;
 
 // Explicitng we are rewriting this method
-- (NSString * _Nonnull)description;
+- (NSString * )description;
 
 @end

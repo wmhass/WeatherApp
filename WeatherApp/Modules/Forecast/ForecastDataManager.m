@@ -20,11 +20,11 @@ NSString * const APIResponsePrefferedFormat = @"json";
 
 #pragma mark - Private
 
-- (NSString * _Nonnull)URLForEndPoint:(NSString * _Nonnull)endpoint {
+- (NSString * )URLForEndPoint:(NSString * )endpoint {
     return [@[APIURI, APIVersion, endpoint] componentsJoinedByString:@"/"];
 }
 
-- (NSDictionary * _Nonnull)parametersWithParameterObject:(ForecastDataManagerParameters * _Nonnull)parameters {
+- (NSDictionary * )parametersWithParameterObject:(ForecastDataManagerParameters * )parameters {
     NSMutableDictionary *returnParameters = [@{@"format": APIResponsePrefferedFormat, @"key": APIKey} mutableCopy];
 
     if (parameters.cityName) {
@@ -41,7 +41,7 @@ NSString * const APIResponsePrefferedFormat = @"json";
     return returnParameters;
 }
 
-- (NSString * _Nullable)errorMessageForResponse:(NSDictionary * _Nullable)responseObject {
+- (NSString * )errorMessageForResponse:(NSDictionary * )responseObject {
     NSDictionary *data = [responseObject objectForKey:@"data"];
     if (!data) {
         return NSLocalizedString(@"REQUEST_ERROR_MESSAGE", @"No data recevied from the server");
@@ -50,23 +50,23 @@ NSString * const APIResponsePrefferedFormat = @"json";
 }
 
 
-- (NSError * _Nonnull)datamanagerErrorWithMessage:(NSString * _Nonnull)message {
+- (NSError * )datamanagerErrorWithMessage:(NSString * )message {
     NSError *error = [[NSError alloc] initWithDomain:@"com.datamanager" code:0 userInfo:@{NSLocalizedDescriptionKey: message}];
     return error;
 }
 
 #pragma mark - Public
 
-- (void)fetchForecastRemoteInformationWithParameters:(ForecastDataManagerParameters * _Nonnull)parameters withCompletion:(ForecastDataManagerCompletionBlock _Nullable)completionBlock {
+- (void)fetchForecastRemoteInformationWithParameters:(ForecastDataManagerParameters * )parameters withCompletion:(ForecastDataManagerCompletionBlock )completionBlock {
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
 
     [manager GET:[self URLForEndPoint:APIWeatherEndPoint]
       parameters:[self parametersWithParameterObject:parameters]
-         success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+         success:^(AFHTTPRequestOperation *  operation, id   responseObject) {
              
-             NSString * _Nonnull errorMessage = [self errorMessageForResponse:responseObject];
+             NSString *  errorMessage = [self errorMessageForResponse:responseObject];
              
              if (errorMessage && completionBlock) {
                  completionBlock(nil, [self datamanagerErrorWithMessage:errorMessage]);
@@ -75,7 +75,7 @@ NSString * const APIResponsePrefferedFormat = @"json";
              }
              
          }
-         failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+         failure:^(AFHTTPRequestOperation *  operation, NSError *  error) {
              if (completionBlock) {
                  completionBlock(nil, [self datamanagerErrorWithMessage:error.localizedDescription]);
              }
@@ -94,9 +94,9 @@ NSString * const APIResponsePrefferedFormat = @"json";
     __weak ForecastDataManager *weakSelf = self;
     [manager GET:[self URLForEndPoint:APICitySearchEndPoint]
       parameters:[self parametersWithParameterObject:parameters]
-         success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+         success:^(AFHTTPRequestOperation *  operation, id   responseObject) {
              
-             NSString * _Nonnull errorMessage = [weakSelf errorMessageForResponse:responseObject];
+             NSString *  errorMessage = [weakSelf errorMessageForResponse:responseObject];
              
              if (errorMessage && completionBlock) {
                  completionBlock(nil, [weakSelf datamanagerErrorWithMessage:errorMessage]);
@@ -105,7 +105,7 @@ NSString * const APIResponsePrefferedFormat = @"json";
              }
              
          }
-         failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+         failure:^(AFHTTPRequestOperation *  operation, NSError *  error) {
              if (completionBlock) {
                  completionBlock(nil, [weakSelf datamanagerErrorWithMessage:error.localizedDescription]);
              }

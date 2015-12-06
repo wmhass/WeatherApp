@@ -12,20 +12,20 @@
 
 @protocol SavedCitiesPresenterDelegate <NSObject>
 
-- (void)savedCitiesPresenter:(SavedCitiesPresenter * _Nonnull)presenter didSelectCityDisplay:(CityDisplayData * _Nonnull)cityDisplayData;
+- (void)savedCitiesPresenter:(SavedCitiesPresenter * )presenter didSelectCityDisplay:(CityDisplayData * )cityDisplayData;
 
 @end
 
 @interface SavedCitiesPresenter : NSObject
 
-@property (weak, nonatomic) id<SavedCitiesPresenterDelegate> _Nullable delegate;
+@property (weak, nonatomic) id<SavedCitiesPresenterDelegate>  delegate;
 
-@property (weak, nonatomic) SavedCitiesViewController * _Nullable savedCitiesView;
-@property (strong, nonatomic) SavedCitiesInteractor * _Nullable savedCitiesInteractor;
-@property (strong, nonatomic) SavedCitiesWireframe * _Nullable savedCitiesWireframe;
+@property (weak, nonatomic) SavedCitiesViewController *  savedCitiesView;
+@property (strong, nonatomic) SavedCitiesInteractor *  savedCitiesInteractor;
+@property (strong, nonatomic) SavedCitiesWireframe *  savedCitiesWireframe;
 
 - (void)loadData;
-- (void)didSelectCityDisplay:(CityDisplayData * _Nonnull)cityDisplayData;
+- (void)didSelectCityDisplay:(CityDisplayData * )cityDisplayData;
 - (void)didTapCloseButton;
 
 @end

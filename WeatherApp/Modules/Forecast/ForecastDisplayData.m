@@ -13,9 +13,9 @@
 
 @interface ForecastDisplayData()
 
-@property (strong, nonatomic) NSString * _Nonnull locationName;
-@property (strong, nonatomic) ForecastCurrentConditionDisplayData * _Nonnull currentCondition;
-@property (strong, nonatomic) NSArray <ForecastUpcomingConditionDisplayData *> * _Nonnull upcomingConditions;
+@property (strong, nonatomic) NSString *  locationName;
+@property (strong, nonatomic) ForecastCurrentConditionDisplayData *  currentCondition;
+@property (strong, nonatomic) NSArray <ForecastUpcomingConditionDisplayData *> *  upcomingConditions;
 
 
 @end
@@ -24,7 +24,7 @@
 
 #pragma mark - Intializer
 
-- (id _Nonnull)initWithCurrentCondition:(ForecastCurrentConditionDisplayData * _Nonnull)currentCondition upcomingConditions:(NSArray <ForecastUpcomingConditionDisplayData *> * _Nonnull)upcomingConditions {
+- (id )initWithCurrentCondition:(ForecastCurrentConditionDisplayData * )currentCondition upcomingConditions:(NSArray <ForecastUpcomingConditionDisplayData *> * )upcomingConditions {
     self = [super init];
     if (self) {
         _currentCondition = currentCondition;
@@ -40,7 +40,7 @@
     return self.upcomingConditions.count;
 }
 
-- (ForecastUpcomingConditionDisplayData * _Nonnull)upcomingConditionDisplayDataAtIndex:(NSInteger)index {
+- (ForecastUpcomingConditionDisplayData * )upcomingConditionDisplayDataAtIndex:(NSInteger)index {
     return self.upcomingConditions[index];
 }
 
@@ -48,7 +48,7 @@
     return self.currentCondition.hourlyConditions.count;
 }
 
-- (ForecastHourlyConditionDisplayData * _Nonnull)hourlyConditionDisplayDataAtIndex:(NSInteger)index {
+- (ForecastHourlyConditionDisplayData * )hourlyConditionDisplayDataAtIndex:(NSInteger)index {
     return self.currentCondition.hourlyConditions[index];
 }
 

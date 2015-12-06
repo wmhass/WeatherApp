@@ -12,15 +12,15 @@
 @class ForecastHourlyCondition;
 @interface ForecastCurrentCondition : NSObject
 
-@property (strong, nonatomic) NSNumber * _Nullable tempC;
-@property (strong, nonatomic) NSNumber * _Nullable tempF;
-@property (strong, nonatomic) NSNumber * _Nullable feelsLikeC;
-@property (strong, nonatomic) NSNumber * _Nullable feelsLikeF;
-@property (strong, nonatomic) NSNumber * _Nullable humidity;
-@property (strong, nonatomic) NSString * _Nullable observationTime;
-@property (strong, nonatomic) ForecastWeatherDescription * _Nullable weatherDescription;
-@property (strong, nonatomic) NSArray <ForecastHourlyCondition *> * _Nullable hourlyConditions;
+@property (strong, nonatomic) NSNumber *  tempC;
+@property (strong, nonatomic) NSNumber *  tempF;
+@property (strong, nonatomic) NSNumber *  feelsLikeC;
+@property (strong, nonatomic) NSNumber *  feelsLikeF;
+@property (strong, nonatomic) NSNumber *  humidity;
+@property (strong, nonatomic) NSString *  observationTime;
+@property (strong, nonatomic) ForecastWeatherDescription *  weatherDescription;
+@property (strong, nonatomic) NSArray <ForecastHourlyCondition *> *  hourlyConditions;
 
-- (id _Nonnull)initWithDictionary:(NSDictionary * _Nullable)dictionary;
+- (id )initWithDictionary:(NSDictionary * )dictionary;
 
 @end

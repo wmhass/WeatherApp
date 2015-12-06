@@ -18,8 +18,8 @@
 
 @interface ForecastDisplayDataCollector()
 
-@property (strong, nonatomic) ForecastCurrentConditionDisplayData * _Nullable currentCondition;
-@property (strong, nonatomic) NSMutableArray <ForecastUpcomingConditionDisplayData *> * _Nullable  upcomingConditions;
+@property (strong, nonatomic) ForecastCurrentConditionDisplayData *  currentCondition;
+@property (strong, nonatomic) NSMutableArray <ForecastUpcomingConditionDisplayData *> *   upcomingConditions;
 @property (nonatomic) ForecastDisplayDataCollectorTemperatureMetric collectingMetric;
 
 @end
@@ -28,7 +28,7 @@
 
 #pragma mark - Public 
 
-- (id _Nonnull)initWithTemperatureMetric:(ForecastDisplayDataCollectorTemperatureMetric)metric {
+- (id )initWithTemperatureMetric:(ForecastDisplayDataCollectorTemperatureMetric)metric {
     self = [super init];
     if(self) {
         _collectingMetric = metric;
@@ -110,18 +110,18 @@
 
 #pragma mark - Public
 
-- (void)collectCurrentCondition:(ForecastCurrentCondition * _Nonnull)currentCondition {
+- (void)collectCurrentCondition:(ForecastCurrentCondition * )currentCondition {
     self.currentCondition = [self currentConditionDisplayDataFromCurrentCondition:currentCondition];
 }
 
-- (void)collectUpcomingConditions:(NSArray <ForecastUpcomingCondition *> *_Nonnull)upcomingConditions {
+- (void)collectUpcomingConditions:(NSArray <ForecastUpcomingCondition *> *)upcomingConditions {
     self.upcomingConditions = [[NSMutableArray alloc] initWithCapacity:upcomingConditions.count];
     for (ForecastUpcomingCondition * upcomingCondition in upcomingConditions) {
         [self collectUpcomingCondition:upcomingCondition];
     }
 }
 
-- (ForecastDisplayData *_Nonnull)collectedData {
+- (ForecastDisplayData *)collectedData {
     return [[ForecastDisplayData alloc] initWithCurrentCondition:self.currentCondition upcomingConditions:self.upcomingConditions];
 }
 

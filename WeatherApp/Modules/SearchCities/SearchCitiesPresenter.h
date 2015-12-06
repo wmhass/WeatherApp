@@ -13,21 +13,21 @@
 
 @protocol SearchCitiesPresenterDelegate <NSObject>
 
-- (void)searchCitiesPresenter:(SearchCitiesPresenter * _Nonnull)presenter didSelectCityDisplayData:(CityDisplayData * _Nonnull)cityDisplayData;
+- (void)searchCitiesPresenter:(SearchCitiesPresenter * )presenter didSelectCityDisplayData:(CityDisplayData * )cityDisplayData;
 
 @end
 
 @interface SearchCitiesPresenter : NSObject <SearchCitiesInteractorDelegate>
 
-@property (weak, nonatomic) id<SearchCitiesPresenterDelegate> _Nullable delegate;
+@property (weak, nonatomic) id<SearchCitiesPresenterDelegate>  delegate;
 
-@property (assign, nonatomic) SearchCitiesViewController * _Nullable searchCitiesView;
-@property (strong, nonatomic) SearchCitiesInteractor * _Nullable searchCitiesInteractor;
-@property (strong, nonatomic) SearchCitiesViewWireframe * _Nullable searchCitiesWireframe;
+@property (assign, nonatomic) SearchCitiesViewController *  searchCitiesView;
+@property (strong, nonatomic) SearchCitiesInteractor *  searchCitiesInteractor;
+@property (strong, nonatomic) SearchCitiesViewWireframe *  searchCitiesWireframe;
 
 #pragma mark - Presenter actions
 
-- (void)fetchCitiesWithSearchString:(NSString * _Nullable)searchString;
-- (void)didSelectCityDisplayData:(CityDisplayData * _Nonnull)cityDisplayData;
+- (void)fetchCitiesWithSearchString:(NSString * )searchString;
+- (void)didSelectCityDisplayData:(CityDisplayData * )cityDisplayData;
 
 @end

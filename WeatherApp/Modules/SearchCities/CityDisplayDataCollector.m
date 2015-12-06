@@ -13,7 +13,7 @@
 
 @interface CityDisplayDataCollector()
 
-@property (strong, nonatomic) NSMutableArray <CityDisplayData *> * _Nullable citiesDisplayData;
+@property (strong, nonatomic) NSMutableArray <CityDisplayData *> *  citiesDisplayData;
 
 @end
 
@@ -41,14 +41,14 @@
 
 #pragma mark - Public
 
-- (void)collectCities:(NSArray <City *> * _Nonnull)cities {
+- (void)collectCities:(NSArray <City *> * )cities {
     self.citiesDisplayData = [[NSMutableArray alloc] initWithCapacity:cities.count];
     for (City * city in cities) {
         [self collectCity:city];
     }
 }
 
-- (CitiesListDisplayData * _Nullable)collectedData {
+- (CitiesListDisplayData * )collectedData {
     if (!self.citiesDisplayData) {
         return nil;
     }

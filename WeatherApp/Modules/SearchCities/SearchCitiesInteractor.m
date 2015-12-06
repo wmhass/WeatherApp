@@ -15,11 +15,11 @@
 
 #pragma mark - Public 
 
-- (void)searchCitiesWithSearchString:(NSString * _Nonnull)searchString {
+- (void)searchCitiesWithSearchString:(NSString * )searchString {
     ForecastDataManager *dataManager = [[ForecastDataManager alloc] init];
     
     __weak SearchCitiesInteractor *weakSelf = self;
-    [dataManager fetchCitiesWithSearch:searchString withCompletion:^(NSDictionary * _Nullable response, NSError * _Nullable error) {
+    [dataManager fetchCitiesWithSearch:searchString withCompletion:^(NSDictionary *  response, NSError *  error) {
 
         if (error) {
             [weakSelf.delegate searchCitiesInteractor:weakSelf didFailFetchingCitiesWithError:error];
@@ -34,7 +34,7 @@
 #pragma mark - Private
 
 
-- (NSArray <City *> * _Nonnull)citiesFromDictionary:(NSDictionary * _Nonnull)dictionary {
+- (NSArray <City *> * )citiesFromDictionary:(NSDictionary * )dictionary {
     
     NSArray <NSDictionary *> * rawCities = dictionary[@"result"];
     

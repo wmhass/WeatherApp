@@ -28,7 +28,7 @@ NSString * const AppStoryboardMainStoryBoard = @"Main";
     return self;
 }
 
-+ (instancetype _Nonnull)sharedInstance {
++ (instancetype )sharedInstance {
     static AppStoryboard *sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -39,11 +39,11 @@ NSString * const AppStoryboardMainStoryBoard = @"Main";
 
 #pragma mark - Public
 
-- (UIViewController * _Nonnull)initialViewController {
+- (UIViewController * )initialViewController {
     return [self.mainStoryBoard instantiateInitialViewController];
 }
 
-- (UIViewController * _Nullable)viewControllerWithIdentifier:(NSString * _Nonnull)controllerIdentifier {
+- (UIViewController * )viewControllerWithIdentifier:(NSString * )controllerIdentifier {
     return [self.mainStoryBoard instantiateViewControllerWithIdentifier:controllerIdentifier];
 }
 

@@ -11,10 +11,10 @@
 @class CityDisplayData;
 @interface CitiesListDisplayData : NSObject
 
-- (id _Nonnull)initWithCitiesDisplayData:(NSArray <CityDisplayData *> *_Nonnull)citiesDisplayData;
+- (id )initWithCitiesDisplayData:(NSArray <CityDisplayData *> *)citiesDisplayData;
 
 - (NSInteger)numberOfCities;
-- (CityDisplayData * _Nonnull)cityDisplayDataAtIndex:(NSInteger)index;
-- (void)addCityDisplayData:(CityDisplayData * _Nonnull)cityDisplaydata;
+- (CityDisplayData * )cityDisplayDataAtIndex:(NSInteger)index;
+- (void)addCityDisplayData:(CityDisplayData * )cityDisplaydata;
 
 @end

@@ -13,7 +13,7 @@
 
 #pragma mark - Initializers
 
-- (id _Nonnull)initWithDictionary:(NSDictionary * _Nullable)dictionary {
+- (id )initWithDictionary:(NSDictionary * )dictionary {
     self = [super init];
     if (self) {
         _feelsLikeC = @([dictionary[@"FeelsLikeC"] floatValue]);

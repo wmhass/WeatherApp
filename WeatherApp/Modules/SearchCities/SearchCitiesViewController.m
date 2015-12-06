@@ -16,8 +16,8 @@ NSString * const SearchCitiesViewControllerIdentifier = @"SearchCitiesViewContro
 
 @interface SearchCitiesViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UITableView * _Nullable tableView;
-@property (strong, nonatomic) CitiesListDisplayData * _Nullable displayData;
+@property (weak, nonatomic) IBOutlet UITableView *  tableView;
+@property (strong, nonatomic) CitiesListDisplayData *  displayData;
 
 @end
 
@@ -49,11 +49,11 @@ NSString * const SearchCitiesViewControllerIdentifier = @"SearchCitiesViewContro
     //TODO: Implement empty state
 }
 
-- (void)presentErrorMessage:(NSString * _Nonnull)errorMessage {
+- (void)presentErrorMessage:(NSString * )errorMessage {
     
 }
 
-- (void)displayData:(CitiesListDisplayData * _Nonnull)listDisplayData {
+- (void)displayData:(CitiesListDisplayData * )listDisplayData {
     self.displayData = listDisplayData;
 }
 

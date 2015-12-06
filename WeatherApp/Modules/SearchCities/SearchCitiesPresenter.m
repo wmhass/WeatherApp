@@ -12,7 +12,7 @@
 
 @interface SearchCitiesPresenter()
 
-@property (strong, nonatomic) NSTimer * _Nullable searchTimer;
+@property (strong, nonatomic) NSTimer *  searchTimer;
 
 @end
 
@@ -21,7 +21,7 @@
 
 #pragma mark - Public
 
-- (void)fetchCitiesWithSearchString:(NSString * _Nullable)searchString {
+- (void)fetchCitiesWithSearchString:(NSString * )searchString {
 
     [self.searchTimer invalidate];
     
@@ -43,7 +43,7 @@
 
 #pragma mark - Private
 
-- (void)makeViewDisplayCities:(NSArray <City *> * _Nonnull)cities {
+- (void)makeViewDisplayCities:(NSArray <City *> * )cities {
     CityDisplayDataCollector *dataCollector = [[CityDisplayDataCollector alloc] init];
     [dataCollector collectCities:cities];
     
@@ -54,7 +54,7 @@
 
 #pragma mark - SearchCitiesInteractorDelegate
 
-- (void)searchCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFetchCities:(NSArray <City *> * _Nonnull)cities {
+- (void)searchCitiesInteractor:(SearchCitiesInteractor * )interactor didFetchCities:(NSArray <City *> * )cities {
     
     if (cities.count == 0) {
         [self.searchCitiesView displayNoCitiesFound];
@@ -65,7 +65,7 @@
 }
 
 
-- (void)searchCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFailFetchingCitiesWithError:(NSError * _Nonnull)error {
+- (void)searchCitiesInteractor:(SearchCitiesInteractor * )interactor didFailFetchingCitiesWithError:(NSError * )error {
     [self.searchCitiesView presentErrorMessage:error.localizedDescription];
 }
 

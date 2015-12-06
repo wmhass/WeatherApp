@@ -26,7 +26,7 @@
     [self.savedCitiesView reloadAllData];
 }
 
-- (void)didSelectCityDisplay:(CityDisplayData * _Nonnull)cityDisplayData {
+- (void)didSelectCityDisplay:(CityDisplayData * )cityDisplayData {
     [self.delegate savedCitiesPresenter:self didSelectCityDisplay:cityDisplayData];
     [self.savedCitiesWireframe closeView];
 }
@@ -37,7 +37,7 @@
 
 #pragma mark - Private
 
-- (void)makeViewDisplayCities:(NSArray <City *> * _Nonnull)cities {
+- (void)makeViewDisplayCities:(NSArray <City *> * )cities {
     CityDisplayDataCollector *dataCollector = [[CityDisplayDataCollector alloc] init];
     [dataCollector collectCities:cities];
     [self.savedCitiesView displayData:[dataCollector collectedData]];

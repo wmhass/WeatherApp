@@ -12,7 +12,7 @@
 
 @interface AppWireframe()
 
-@property (strong, nonatomic) ForecastViewWireframe * _Nullable rootWireframe;
+@property (strong, nonatomic) ForecastViewWireframe *  rootWireframe;
 
 @end
 

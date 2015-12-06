@@ -16,10 +16,10 @@ typedef NS_ENUM(NSInteger, ForecastDisplayDataCollectorTemperatureMetric) {
 @class ForecastCurrentCondition,ForecastUpcomingCondition, ForecastDisplayData;
 @interface ForecastDisplayDataCollector : NSObject
 
-- (id _Nonnull)initWithTemperatureMetric:(ForecastDisplayDataCollectorTemperatureMetric)metric;
+- (id )initWithTemperatureMetric:(ForecastDisplayDataCollectorTemperatureMetric)metric;
 
-- (void)collectCurrentCondition:(ForecastCurrentCondition * _Nonnull)currentCondition;
-- (void)collectUpcomingConditions:(NSArray <ForecastUpcomingCondition *> *_Nonnull)upcomingConditions;
-- (ForecastDisplayData *_Nonnull)collectedData;
+- (void)collectCurrentCondition:(ForecastCurrentCondition * )currentCondition;
+- (void)collectUpcomingConditions:(NSArray <ForecastUpcomingCondition *> *)upcomingConditions;
+- (ForecastDisplayData *)collectedData;
 
 @end

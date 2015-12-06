@@ -10,13 +10,13 @@
 
 @interface City : NSObject <NSCoding>
 
-@property (strong, nonatomic) NSString * _Nonnull country;
-@property (strong, nonatomic) NSString * _Nonnull city;
-@property (strong, nonatomic) NSString * _Nonnull region;
-@property (strong, nonatomic) NSString * _Nonnull latitude;
-@property (strong, nonatomic) NSString * _Nonnull longitude;
+@property (strong, nonatomic) NSString *  country;
+@property (strong, nonatomic) NSString *  city;
+@property (strong, nonatomic) NSString *  region;
+@property (strong, nonatomic) NSString *  latitude;
+@property (strong, nonatomic) NSString *  longitude;
 @property (nonatomic) BOOL saved;
 
-- (id _Nonnull)initWithDictionary:(NSDictionary * _Nonnull)dictionary;
+- (id )initWithDictionary:(NSDictionary * )dictionary;
 
 @end

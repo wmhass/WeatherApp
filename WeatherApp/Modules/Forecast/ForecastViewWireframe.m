@@ -17,7 +17,7 @@
 
 @interface ForecastViewWireframe()
 
-@property (weak, nonatomic) ForecastViewController * _Nullable presentingView;
+@property (weak, nonatomic) ForecastViewController *  presentingView;
 
 @end
 
@@ -25,7 +25,7 @@
 
 #pragma mark - Public
 
-- (void)launchViewInWindow:(UIWindow *_Nonnull)window {
+- (void)launchViewInWindow:(UIWindow *)window {
     
     ForecastViewController *forecastView = (ForecastViewController *)[[AppStoryboard sharedInstance] initialViewController];
     forecastView.presenter = [[ForecastViewPresenter alloc] init];
@@ -39,7 +39,7 @@
     window.rootViewController = forecastView;
 }
 
-- (void)willPresentSavedCitiesView:(SavedCitiesViewController *_Nonnull)savedCitiesView {
+- (void)willPresentSavedCitiesView:(SavedCitiesViewController *)savedCitiesView {
     [self.savedCitiesWireframe setupSavedCitiesView:savedCitiesView];
 }
 

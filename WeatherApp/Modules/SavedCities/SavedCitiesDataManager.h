@@ -11,7 +11,7 @@
 @class City;
 @interface SavedCitiesDataManager : NSObject
 
-- (NSArray <City *> * _Nullable)loadStoredCities;
-- (BOOL)storeCities:(NSArray <City *> * _Nonnull)cities;
+- (NSArray <City *> * )loadStoredCities;
+- (BOOL)storeCities:(NSArray <City *> * )cities;
 
 @end

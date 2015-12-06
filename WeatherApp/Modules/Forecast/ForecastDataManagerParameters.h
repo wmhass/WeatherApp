@@ -10,9 +10,9 @@
 
 @interface ForecastDataManagerParameters : NSObject
 
-@property (strong, nonatomic) NSString * _Nullable cityName;
-@property (strong, nonatomic) NSNumber * _Nullable numberOfDays;
-@property (strong, nonatomic) NSString * _Nullable latitude;
-@property (strong, nonatomic) NSString * _Nullable longitude;
+@property (strong, nonatomic) NSString *  cityName;
+@property (strong, nonatomic) NSNumber *  numberOfDays;
+@property (strong, nonatomic) NSString *  latitude;
+@property (strong, nonatomic) NSString *  longitude;
 
 @end

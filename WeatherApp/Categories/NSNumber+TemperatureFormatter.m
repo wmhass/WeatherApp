@@ -10,7 +10,7 @@
 
 @implementation NSNumber (TemperatureFormatter)
 
-- (NSString * _Nonnull)wmh_stringTemperature {
+- (NSString * )wmh_stringTemperature {
     return [NSString stringWithFormat:@"%.0f°",[self floatValue]];
 }
 

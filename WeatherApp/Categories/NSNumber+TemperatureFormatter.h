@@ -10,6 +10,6 @@
 
 @interface NSNumber (TemperatureFormatter)
 
-- (NSString * _Nonnull)wmh_stringTemperature;
+- (NSString * )wmh_stringTemperature;
 
 @end

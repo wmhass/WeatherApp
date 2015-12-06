@@ -13,9 +13,9 @@
 
 @interface ForecastViewPresenter : NSObject <ForecastViewInteractorDelegate>
 
-@property (weak, nonatomic) ForecastViewController * _Nullable forecastView;
-@property (strong, nonatomic) ForecastViewWireframe *  _Nullable forecastWireframe;
-@property (strong, nonatomic) ForecastViewInteractor * _Nullable forecastInteractor;
+@property (weak, nonatomic) ForecastViewController *  forecastView;
+@property (strong, nonatomic) ForecastViewWireframe *   forecastWireframe;
+@property (strong, nonatomic) ForecastViewInteractor *  forecastInteractor;
 
 #pragma mark - Presenter Actions
 
@@ -27,6 +27,6 @@
 - (void)saveCity;
 - (void)removeCity;
 - (void)metricValueChanged;
-- (void)willPresentMyCitiesView:(SavedCitiesViewController * _Nonnull)viewController;
+- (void)willPresentMyCitiesView:(SavedCitiesViewController * )viewController;
 
 @end

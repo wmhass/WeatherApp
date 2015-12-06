@@ -11,9 +11,9 @@
 @class SavedCitiesPresenter, CitiesListDisplayData;
 @interface SavedCitiesViewController : UIViewController
 
-@property (strong, nonatomic) SavedCitiesPresenter * _Nonnull presenter;
+@property (strong, nonatomic) SavedCitiesPresenter *  presenter;
 
-- (void)displayData:(CitiesListDisplayData * _Nonnull)listDisplayData;
+- (void)displayData:(CitiesListDisplayData * )listDisplayData;
 - (void)reloadAllData;
 - (void)presentEmptyContent;
 

@@ -11,15 +11,15 @@
 @class ForecastViewInteractor, Forecast;
 @protocol ForecastViewInteractorDelegate <NSObject>
 
-- (void)forecastViewInteractor:(ForecastViewInteractor * _Nonnull)interactor didFetchForecast:(Forecast * _Nonnull)forecast;
-- (void)forecastViewInteractor:(ForecastViewInteractor * _Nonnull)interactor didFailFetchingForecastWithError:(NSError * _Nonnull)error;
+- (void)forecastViewInteractor:(ForecastViewInteractor * )interactor didFetchForecast:(Forecast * )forecast;
+- (void)forecastViewInteractor:(ForecastViewInteractor * )interactor didFailFetchingForecastWithError:(NSError * )error;
 
 @end
 
 @interface ForecastViewInteractor : NSObject
 
-@property (weak, nonatomic) id<ForecastViewInteractorDelegate> _Nullable delegate;
+@property (weak, nonatomic) id<ForecastViewInteractorDelegate>  delegate;
 
-- (void)loadForecastForLatitude:(NSString * _Nonnull)latitude longitude:(NSString * _Nonnull)longitude;
+- (void)loadForecastForLatitude:(NSString * )latitude longitude:(NSString * )longitude;
 
 @end

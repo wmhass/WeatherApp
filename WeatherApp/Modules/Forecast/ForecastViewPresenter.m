@@ -26,8 +26,8 @@
 
 @interface ForecastViewPresenter() <SearchCitiesPresenterDelegate, SavedCitiesPresenterDelegate>
 
-@property (strong, nonatomic) SavedCitiesInteractor * _Nonnull savedCitiesInteractor;
-@property (weak, nonatomic) SearchCitiesPresenter * _Nullable searchCitiesPresenter;
+@property (strong, nonatomic) SavedCitiesInteractor *  savedCitiesInteractor;
+@property (weak, nonatomic) SearchCitiesPresenter *  searchCitiesPresenter;
 
 @end
 
@@ -105,7 +105,7 @@
     [self.forecastView displayCity:selectedCity];
 }
 
-- (void)willPresentMyCitiesView:(SavedCitiesViewController * _Nonnull)viewController {
+- (void)willPresentMyCitiesView:(SavedCitiesViewController * )viewController {
     viewController.presenter.delegate = self;
     [self.forecastWireframe willPresentSavedCitiesView:viewController];
 }
@@ -122,7 +122,7 @@
     self.searchCitiesPresenter = presenter;
 }
 
-- (ForecastDisplayData * _Nonnull)forecastDisplayDataFromForecast:(Forecast * _Nonnull)forecast {
+- (ForecastDisplayData * )forecastDisplayDataFromForecast:(Forecast * )forecast {
     
     ForecastDisplayDataCollector *collector = [[ForecastDisplayDataCollector alloc] initWithTemperatureMetric:[self selectedMetric]];
 
@@ -139,19 +139,19 @@
 
 #pragma mark - ForecastViewInteractorDelegate
 
-- (void)forecastViewInteractor:(ForecastViewInteractor * _Nonnull)interactor didFetchForecast:(Forecast *  _Nonnull)forecast {
+- (void)forecastViewInteractor:(ForecastViewInteractor * )interactor didFetchForecast:(Forecast *  )forecast {
     [self.forecastView displayForecastData:[self forecastDisplayDataFromForecast:forecast]];
     [self.forecastView reloadAllData];
 }
 
-- (void)forecastViewInteractor:(ForecastViewInteractor * _Nonnull)interactor didFailFetchingForecastWithError:(NSError * _Nonnull)error {
+- (void)forecastViewInteractor:(ForecastViewInteractor * )interactor didFailFetchingForecastWithError:(NSError * )error {
     [self.forecastView presentErrorMessage:error.localizedDescription];
 }
 
 
 #pragma mark - SearchCitiesPresenterDelegate
 
-- (void)searchCitiesPresenter:(SearchCitiesPresenter * _Nonnull)presenter didSelectCityDisplayData:(CityDisplayData * _Nonnull)cityDisplayData {
+- (void)searchCitiesPresenter:(SearchCitiesPresenter * )presenter didSelectCityDisplayData:(CityDisplayData * )cityDisplayData {
     
     [self.forecastView displayCity:cityDisplayData];
     [self refreshForecast];

@@ -21,8 +21,8 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 
 @interface ForecastViewController () <UITableViewDataSource, UITableViewDelegate, UIHourlyConditionTableViewHeaderViewDataSource, UITextFieldDelegate>
 
-@property (strong, nonatomic) ForecastDisplayData * _Nullable displayData;
-@property (strong, nonatomic) CityDisplayData * _Nullable currentCity;
+@property (strong, nonatomic) ForecastDisplayData *  displayData;
+@property (strong, nonatomic) CityDisplayData *  currentCity;
 @property (weak, nonatomic) IBOutlet UIView *noCitiesView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
@@ -69,11 +69,11 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 
 #pragma mark - Public
 
-- (CityDisplayData * _Nullable)presentingCity {
+- (CityDisplayData * )presentingCity {
     return self.currentCity;
 }
 
-- (void)presentNoCitiesFoundMessage:(NSString * _Nonnull)message {
+- (void)presentNoCitiesFoundMessage:(NSString * )message {
     self.noCitiesView.hidden = NO;
     self.noCitiesViewLabel.text = message;
 }
@@ -83,16 +83,16 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     [self.tableView reloadData];
 }
 
-- (void)displayForecastData:(ForecastDisplayData * _Nullable)displayData {
+- (void)displayForecastData:(ForecastDisplayData * )displayData {
     self.noCitiesView.hidden = YES;
     self.displayData = displayData;
     [self updateHeaderInformation];
 }
 
-- (void)presentErrorMessage:(NSString * _Nonnull)message {
+- (void)presentErrorMessage:(NSString * )message {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ERROR_ALERT", @"Ooops!") message:message preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"Ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"Ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction *  action) {
         [alertController dismissViewControllerAnimated:YES completion:nil];
     }];
     
@@ -104,7 +104,7 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     return self.metricsSegmentedControl.selectedSegmentIndex;
 }
 
-- (void)presentSearchCitiesView:(SearchCitiesViewController * _Nonnull)viewController {
+- (void)presentSearchCitiesView:(SearchCitiesViewController * )viewController {
     [self addViewControllerToContainer:viewController];
     [self raiseContainerViewAnimated];
 }
@@ -117,11 +117,11 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     }];
 }
 
-- (NSString * _Nullable)searchingCityString {
+- (NSString * )searchingCityString {
     return self.searchTextField.text;
 }
 
-- (void)displayCity:(CityDisplayData * _Nonnull)cityDisplay {
+- (void)displayCity:(CityDisplayData * )cityDisplay {
     self.currentCity = cityDisplay;
     [self updateHeaderInformation];
 }

@@ -8,19 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString * _Nonnull const UIHourlyConditionTableViewHeaderViewNibName;
+extern NSString *  const UIHourlyConditionTableViewHeaderViewNibName;
 
 @class ForecastHourlyConditionDisplayData;
 @protocol UIHourlyConditionTableViewHeaderViewDataSource;
 @interface UIHourlyConditionTableViewHeaderView : UITableViewHeaderFooterView
 
-@property (weak, nonatomic) id<UIHourlyConditionTableViewHeaderViewDataSource> _Nullable dataSource;
+@property (weak, nonatomic) id<UIHourlyConditionTableViewHeaderViewDataSource>  dataSource;
 
 @end
 
 @protocol UIHourlyConditionTableViewHeaderViewDataSource <NSObject>
 
-- (NSInteger)numberOfHourlyConditionsForHourlyConditionHeaderView:(UIHourlyConditionTableViewHeaderView * _Nonnull)headerView;
-- (ForecastHourlyConditionDisplayData * _Nonnull)hourlyConditionHeaderView:(UIHourlyConditionTableViewHeaderView * _Nonnull)haderView hourlyConditionDisplayDataAtIndex:(NSInteger)index;
+- (NSInteger)numberOfHourlyConditionsForHourlyConditionHeaderView:(UIHourlyConditionTableViewHeaderView * )headerView;
+- (ForecastHourlyConditionDisplayData * )hourlyConditionHeaderView:(UIHourlyConditionTableViewHeaderView * )haderView hourlyConditionDisplayDataAtIndex:(NSInteger)index;
 
 @end

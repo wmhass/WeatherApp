@@ -14,7 +14,7 @@
 
 #pragma mark - Private
 
-- (NSMutableArray <City *> *  _Nullable)storedCities {
+- (NSMutableArray <City *> *  )storedCities {
     static NSMutableArray <City *> * storedCities;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -26,17 +26,17 @@
 
 #pragma mark - Public
 
-- (NSArray <City *> * _Nullable)loadSavedCities {
+- (NSArray <City *> * )loadSavedCities {
     return [NSArray arrayWithArray:[self storedCities]];
 }
 
-- (BOOL)storeCity:(City * _Nonnull)city {
+- (BOOL)storeCity:(City * )city {
     NSMutableArray *savedCities = [self storedCities];
     [savedCities addObject:city];
     return [[[SavedCitiesDataManager alloc] init] storeCities:savedCities];
 }
 
-- (BOOL)removeCity:(City * _Nonnull)city {
+- (BOOL)removeCity:(City * )city {
     NSMutableArray *savedCities = [self storedCities];
     [savedCities removeObject:city];
     return [[[SavedCitiesDataManager alloc] init] storeCities:savedCities];

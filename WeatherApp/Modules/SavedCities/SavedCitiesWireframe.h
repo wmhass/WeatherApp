@@ -11,7 +11,7 @@
 @class SavedCitiesViewController;
 @interface SavedCitiesWireframe : NSObject
 
-- (void)setupSavedCitiesView:(SavedCitiesViewController * _Nonnull)savedCitiesView;
+- (void)setupSavedCitiesView:(SavedCitiesViewController * )savedCitiesView;
 - (void)closeView;
 
 @end

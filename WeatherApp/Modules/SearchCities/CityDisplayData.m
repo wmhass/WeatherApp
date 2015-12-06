@@ -13,7 +13,7 @@
 
 #pragma mark - Public (Rewrtitten)
 
-- (NSString * _Nonnull)description {
+- (NSString * )description {
     
     NSMutableArray *descriptionComponents = [[NSMutableArray alloc] initWithCapacity:3];
     

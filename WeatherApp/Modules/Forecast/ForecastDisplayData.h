@@ -12,14 +12,14 @@
 
 @interface ForecastDisplayData : NSObject
 
-- (id _Nonnull)initWithCurrentCondition:(ForecastCurrentConditionDisplayData * _Nonnull)currentCondition upcomingConditions:(NSArray <ForecastUpcomingConditionDisplayData *> * _Nonnull)upcomingConditions;
+- (id )initWithCurrentCondition:(ForecastCurrentConditionDisplayData * )currentCondition upcomingConditions:(NSArray <ForecastUpcomingConditionDisplayData *> * )upcomingConditions;
 
 - (NSInteger)numberOfUpcomingConditions;
-- (ForecastUpcomingConditionDisplayData * _Nonnull)upcomingConditionDisplayDataAtIndex:(NSInteger)index;
+- (ForecastUpcomingConditionDisplayData * )upcomingConditionDisplayDataAtIndex:(NSInteger)index;
 - (NSInteger)numberOfHourlyConditionsForCurrentCondition;
-- (ForecastHourlyConditionDisplayData * _Nonnull)hourlyConditionDisplayDataAtIndex:(NSInteger)index;
+- (ForecastHourlyConditionDisplayData * )hourlyConditionDisplayDataAtIndex:(NSInteger)index;
 
-- (NSString * _Nonnull)currentWeatherDescription;
-- (NSString * _Nonnull)currentTemperature;
+- (NSString * )currentWeatherDescription;
+- (NSString * )currentTemperature;
 
 @end

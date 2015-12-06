@@ -15,7 +15,7 @@
 @interface SavedCitiesViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) CitiesListDisplayData * _Nullable listDisplay;
+@property (strong, nonatomic) CitiesListDisplayData *  listDisplay;
 
 @end
 
@@ -35,7 +35,7 @@
 
 #pragma mark - Public
 
-- (void)displayData:(CitiesListDisplayData * _Nonnull)listDisplayData {
+- (void)displayData:(CitiesListDisplayData * )listDisplayData {
     self.listDisplay = listDisplayData;
 }
 
