@@ -22,24 +22,34 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 
 @property (strong, nonatomic) ForecastDisplayData *  displayData;
 @property (strong, nonatomic) CityDisplayData *  currentCity;
+
 @property (weak, nonatomic) IBOutlet UIView *noCitiesView;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (weak, nonatomic) IBOutlet UIView *searchCityContainer;
+@property (weak, nonatomic) IBOutlet UIView *loadingContainerView;
+
+@property (weak, nonatomic) IBOutlet UIButton *cancelSearchButton;
+@property (weak, nonatomic) IBOutlet UIButton *saveCityButton;
+@property (weak, nonatomic) IBOutlet UIButton *removeCityButton;
+@property (weak, nonatomic) IBOutlet UIButton *myCitiesButton;
+
 @property (weak, nonatomic) IBOutlet UILabel *noCitiesViewLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentLocation;
 @property (weak, nonatomic) IBOutlet UILabel *currentWeatherDescription;
 @property (weak, nonatomic) IBOutlet UILabel *currentTemperature;
-@property (weak, nonatomic) IBOutlet UIButton *cancelSearchButton;
-@property (weak, nonatomic) IBOutlet UIButton *saveCityButton;
-@property (weak, nonatomic) IBOutlet UIButton *removeCityButton;
-@property (weak, nonatomic) IBOutlet UIView *searchCityContainer;
-@property (weak, nonatomic) IBOutlet UIView *loadingContainerView;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinnerView;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchTextContainerTopConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchTextContainerBottomConstraint;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *metricsSegmentedControl;
 @property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *keylinesHeightConstraints;
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinnerView;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *metricsSegmentedControl;
+
 @end
 
 @implementation ForecastViewController
@@ -143,6 +153,13 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 }
 
 #pragma mark - Private
+
+- (void)localizeView {
+    [self.myCitiesButton setTitle:NSLocalizedString(@"MY_CITIES_BUTTON", nil) forState:UIControlStateNormal];
+    [self.saveCityButton setTitle:NSLocalizedString(@"SAVE_CITY_BUTTON", nil) forState:UIControlStateNormal];
+    [self.removeCityButton setTitle:NSLocalizedString(@"REMOVE_CITY_BUTTON", nil) forState:UIControlStateNormal];
+    [self.cancelSearchButton setTitle:NSLocalizedString(@"CANCEL", nil) forState:UIControlStateNormal];
+}
 
 - (void)raiseContainerViewAnimated {
     [self.view layoutIfNeeded];

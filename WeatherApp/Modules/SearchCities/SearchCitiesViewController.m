@@ -58,12 +58,12 @@ NSString * const SearchCitiesViewControllerIdentifier = @"SearchCitiesViewContro
 
 - (void)presentEmptySearchTextMessage {
     [self presentFooterMessage];
-    self.footerEmptyStateLabel.text = @"Type a city's name";
+    self.footerEmptyStateLabel.text = NSLocalizedString(@"SEARCH_PLACEHOLDER", nil);
 }
 
 - (void)displayNoCitiesFound {
     [self presentFooterMessage];
-    self.footerEmptyStateLabel.text = @"No cities found";
+    self.footerEmptyStateLabel.text = NSLocalizedString(@"NO_CITIES_FOUND", nil);
 }
 
 - (void)presentErrorMessage:(NSString * )errorMessage {

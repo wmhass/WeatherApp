@@ -533,6 +533,7 @@
                         <outlet property="headerView" destination="vyR-ht-Gvf" id="ft6-na-JN7"/>
                         <outlet property="loadingContainerView" destination="Ftm-P6-YGn" id="0DR-LY-Ahb"/>
                         <outlet property="metricsSegmentedControl" destination="GLH-16-Jl1" id="Xb8-hp-yPj"/>
+                        <outlet property="myCitiesButton" destination="XLo-vg-57h" id="hNC-yI-jAa"/>
                         <outlet property="noCitiesView" destination="qFT-oz-bCu" id="PvE-S8-2x0"/>
                         <outlet property="noCitiesViewLabel" destination="yD1-vk-yo9" id="EKI-Sk-IPa"/>
                         <outlet property="removeCityButton" destination="VYq-kz-34G" id="D58-5O-MI3"/>
@@ -655,6 +656,7 @@
                         <outlet property="emptyMessageLabel" destination="Lac-dF-euM" id="Z5Q-44-H2T"/>
                         <outlet property="tableFooterView" destination="k5h-b8-KcK" id="LVy-Xh-QGv"/>
                         <outlet property="tableView" destination="WLI-9y-gUt" id="lan-kT-flu"/>
+                        <outlet property="titleLabel" destination="ssx-ES-Y0G" id="lR5-ti-wbg"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="k5h-b8-KcK">

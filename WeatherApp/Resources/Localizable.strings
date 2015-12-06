@@ -12,4 +12,22 @@
 
 "OK" = "Ok";
 
-"NO_CITIES_MESSAGE" = "Looks like you don't have saved cities. Try searching a city to see its forecast!";
+"NO_CITIES_MESSAGE" = "Looks like you don't have any saved cities. Try searching a city to see its forecast!";
+
+"NO_CITIES_SAVED" = "Oops! Looks like you don't have any saved city!";
+
+"SEARCH_PLACEHOLDER" = "Type a city's name";
+
+"NO_CITIES_FOUND" = "No cities were found";
+
+"SAVED_CITIES_VIEW_TITLE" = "My cities";
+
+"CLOSE" = "Close";
+
+"MY_CITIES_BUTTON" = "My cities";
+
+"SAVE_CITY_BUTTON" = "Save city";
+
+"REMOVE_CITY_BUTTON" = "Remove city";
+
+"CANCEL" = "Cancel";

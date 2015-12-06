@@ -16,6 +16,8 @@ NSString * const SavedCitiesViewControllerIdentifier = @"SavedCitiesViewControll
 
 @interface SavedCitiesViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emptyMessageLabel;
 @property (strong, nonatomic) IBOutlet UIView *tableFooterView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -30,10 +32,9 @@ NSString * const SavedCitiesViewControllerIdentifier = @"SavedCitiesViewControll
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self localizeView];
     [self setupTableView];
     self.bottomKeylineHeightConstraint.constant = .5f;
-    
-    self.emptyMessageLabel.text = @"Oops! Looks like you don't have any saved city!";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,6 +63,12 @@ NSString * const SavedCitiesViewControllerIdentifier = @"SavedCitiesViewControll
 }
 
 #pragma mark - Private
+
+- (void)localizeView {
+    [self.closeButton setTitle:NSLocalizedString(@"CLOSE", nil) forState:UIControlStateNormal];
+    self.titleLabel.text = NSLocalizedString(@"SAVED_CITIES_VIEW_TITLE", nil);
+    self.emptyMessageLabel.text = NSLocalizedString(@"NO_CITIES_SAVED", nil);
+}
 
 - (void)setupTableView {
     self.tableView.tableFooterView = [UIView new];
