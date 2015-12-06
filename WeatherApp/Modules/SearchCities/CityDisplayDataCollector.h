@@ -11,7 +11,6 @@
 @class City, CitiesListDisplayData, CityDisplayData;
 @interface CityDisplayDataCollector : NSObject
 
-- (void)collectSavedCities:(NSArray <City *> * _Nonnull)cities;
 - (void)collectCities:(NSArray <City *> * _Nonnull)cities;
 - (CitiesListDisplayData * _Nullable)collectedData;
 

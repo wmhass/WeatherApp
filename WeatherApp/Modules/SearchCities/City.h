@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSString * _Nonnull region;
 @property (strong, nonatomic) NSString * _Nonnull latitude;
 @property (strong, nonatomic) NSString * _Nonnull longitude;
+@property (nonatomic) BOOL saved;
 
 - (id _Nonnull)initWithDictionary:(NSDictionary * _Nonnull)dictionary;
 

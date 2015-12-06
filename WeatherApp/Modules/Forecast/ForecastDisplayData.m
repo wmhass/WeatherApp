@@ -24,12 +24,11 @@
 
 #pragma mark - Intializer
 
-- (id _Nonnull)initWithLocationName:(NSString * _Nonnull)locationName currentCondition:(ForecastCurrentConditionDisplayData * _Nonnull)currentCondition upcomingConditions:(NSArray <ForecastUpcomingConditionDisplayData *> * _Nonnull)upcomingConditions {
+- (id _Nonnull)initWithCurrentCondition:(ForecastCurrentConditionDisplayData * _Nonnull)currentCondition upcomingConditions:(NSArray <ForecastUpcomingConditionDisplayData *> * _Nonnull)upcomingConditions {
     self = [super init];
     if (self) {
         _currentCondition = currentCondition;
         _upcomingConditions = upcomingConditions;
-        _locationName = locationName;
     }
     return self;
 }

@@ -17,7 +17,7 @@
 @property (strong, nonatomic) NSString * _Nullable latitude;
 @property (strong, nonatomic) NSString * _Nullable longitude;
 @property (strong, nonatomic) City * _Nullable referencedModel;
-@property (nonatomic) BOOL stored;
+@property (nonatomic) BOOL saved;
 
 // Explicitng we are rewriting this method
 - (NSString * _Nonnull)description;

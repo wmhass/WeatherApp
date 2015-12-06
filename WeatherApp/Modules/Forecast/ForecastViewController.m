@@ -23,7 +23,6 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 
 @property (strong, nonatomic) ForecastDisplayData * _Nullable displayData;
 @property (strong, nonatomic) CityDisplayData * _Nullable currentCity;
-@property (strong, nonatomic) CitiesListDisplayData * _Nullable citiesList;
 @property (weak, nonatomic) IBOutlet UIView *noCitiesView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
@@ -58,19 +57,15 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 
 #pragma mark - Public
 
+- (CityDisplayData * _Nullable)presentingCity {
+    return self.currentCity;
+}
+
 - (void)presentNoCitiesFoundMessage:(NSString * _Nonnull)message {
     self.noCitiesView.hidden = NO;
     self.noCitiesViewLabel.text = message;
 }
 
-- (void)displayCities:(CitiesListDisplayData * _Nonnull)citiesList {
-    self.noCitiesView.hidden = NO;
-    self.citiesList = citiesList;
-}
-
-- (CityDisplayData * _Nullable)selectedCity {
-    return self.currentCity;
-}
 
 - (void)reloadAllData {
     [self.tableView reloadData];
@@ -116,12 +111,8 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 }
 
 - (void)displayCity:(CityDisplayData * _Nonnull)cityDisplay {
-    if (cityDisplay == self.currentCity) {
-        [self updateHeaderInformation];
-    } else {
-        [self.citiesList addCityDisplayData:cityDisplay];
-        self.currentCity = cityDisplay;        
-    }
+    self.currentCity = cityDisplay;
+    [self updateHeaderInformation];
 }
 
 #pragma mark - Private
@@ -168,7 +159,7 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     self.currentTemperature.text = [self.displayData currentTemperature];
     self.currentWeatherDescription.text = [self.displayData currentWeatherDescription];
     
-    BOOL cityIsSaved = self.currentCity.stored;
+    BOOL cityIsSaved = self.currentCity.saved;
     self.saveCityButton.hidden = cityIsSaved;
     self.removeCityButton.hidden = !cityIsSaved;
 }
@@ -178,18 +169,6 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     self.tableView.tableFooterView = [UIView new];
     UINib *headerNib = [UINib nibWithNibName:UIHourlyConditionTableViewHeaderViewNibName bundle:nil];
     [self.tableView registerNib:headerNib forHeaderFooterViewReuseIdentifier:ForecastViewControllerTableHeaderReuseIdentifier];
-}
-
-- (void)setCitiesList:(CitiesListDisplayData *)citiesList {
-    _citiesList = citiesList;
-    if(!self.currentCity && [citiesList numberOfCities]) {
-        self.currentCity = [citiesList cityDisplayDataAtIndex:0];
-    }
-}
-
-- (void)setCurrentCity:(CityDisplayData *)currentCity {
-    _currentCity = currentCity;
-    [self updateHeaderInformation];
 }
 
 #pragma mark - IBActions

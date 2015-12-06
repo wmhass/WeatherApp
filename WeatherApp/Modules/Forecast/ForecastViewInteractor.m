@@ -46,13 +46,7 @@ static NSInteger const ForecastViewInteractorNumberOfDays = 5;
     
     NSArray <ForecastUpcomingCondition *> *upcomingConditions = [self forecastUpcomingConditionsWithDictionary:dictionary];
     
-    NSString *locationName = [self locationNameFromDictionary:dictionary];
-    
-    return [[Forecast alloc] initWithLocationName:locationName CurrentCondition:currentCondition upcomingConditions:upcomingConditions];
-}
-
-- (NSString * _Nonnull)locationNameFromDictionary:(NSDictionary * _Nullable)dictionary {
-    return dictionary[@"request"][0][@"query"];
+    return [[Forecast alloc] initWithCurrentCondition:currentCondition upcomingConditions:upcomingConditions];
 }
 
 - (NSArray <ForecastUpcomingCondition *> * _Nonnull)forecastUpcomingConditionsWithDictionary:(NSDictionary * _Nullable)dictionary {

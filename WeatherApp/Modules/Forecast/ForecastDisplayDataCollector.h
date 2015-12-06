@@ -18,7 +18,6 @@ typedef NS_ENUM(NSInteger, ForecastDisplayDataCollectorTemperatureMetric) {
 
 - (id _Nonnull)initWithTemperatureMetric:(ForecastDisplayDataCollectorTemperatureMetric)metric;
 
-- (void)collectLocationName:(NSString * _Nonnull)locationName;
 - (void)collectCurrentCondition:(ForecastCurrentCondition * _Nonnull)currentCondition;
 - (void)collectUpcomingConditions:(NSArray <ForecastUpcomingCondition *> *_Nonnull)upcomingConditions;
 - (ForecastDisplayData *_Nonnull)collectedData;

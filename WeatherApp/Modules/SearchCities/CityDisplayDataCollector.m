@@ -21,11 +21,11 @@
 
 #pragma mark - Private
 
-- (void)collectCity:(City *)city saved:(BOOL)saved {
-    [self.citiesDisplayData addObject:[self cityDisplayDataFromCity:city saved:saved]];
+- (void)collectCity:(City *)city {
+    [self.citiesDisplayData addObject:[self cityDisplayDataFromCity:city]];
 }
 
-- (CityDisplayData *)cityDisplayDataFromCity:(City *)city saved:(BOOL)saved {
+- (CityDisplayData *)cityDisplayDataFromCity:(City *)city {
     CityDisplayData *displayData = [[CityDisplayData alloc] init];
     
     displayData.city = city.city;
@@ -34,26 +34,18 @@
     displayData.latitude = city.latitude;
     displayData.longitude = city.longitude;
     displayData.referencedModel = city;
-    displayData.stored = saved;
+    displayData.saved = city.saved;
     return displayData;
-}
-
-- (void)collectCities:(NSArray <City *> * _Nonnull)cities saved:(BOOL)saved {
-    self.citiesDisplayData = [[NSMutableArray alloc] initWithCapacity:cities.count];
-    for (City * city in cities) {
-        [self collectCity:city saved:saved];
-    }
 }
 
 
 #pragma mark - Public
 
 - (void)collectCities:(NSArray <City *> * _Nonnull)cities {
-    [self collectCities:cities saved:NO];
-}
-
-- (void)collectSavedCities:(NSArray <City *> * _Nonnull)cities {
-    [self collectCities:cities saved:YES];
+    self.citiesDisplayData = [[NSMutableArray alloc] initWithCapacity:cities.count];
+    for (City * city in cities) {
+        [self collectCity:city];
+    }
 }
 
 - (CitiesListDisplayData * _Nullable)collectedData {

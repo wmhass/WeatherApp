@@ -18,7 +18,6 @@
 
 @interface ForecastDisplayDataCollector()
 
-@property (strong, nonatomic) NSString * _Nullable locationName;
 @property (strong, nonatomic) ForecastCurrentConditionDisplayData * _Nullable currentCondition;
 @property (strong, nonatomic) NSMutableArray <ForecastUpcomingConditionDisplayData *> * _Nullable  upcomingConditions;
 @property (nonatomic) ForecastDisplayDataCollectorTemperatureMetric collectingMetric;
@@ -122,12 +121,8 @@
     }
 }
 
-- (void)collectLocationName:(NSString * _Nonnull)locationName {
-    self.locationName = locationName;
-}
-
 - (ForecastDisplayData *_Nonnull)collectedData {
-    return [[ForecastDisplayData alloc] initWithLocationName:self.locationName currentCondition:self.currentCondition upcomingConditions:self.upcomingConditions];
+    return [[ForecastDisplayData alloc] initWithCurrentCondition:self.currentCondition upcomingConditions:self.upcomingConditions];
 }
 
 @end

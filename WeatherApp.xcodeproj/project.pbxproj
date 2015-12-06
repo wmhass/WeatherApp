@@ -300,6 +300,13 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
+		3D80EE561C13EF6900ACE7AF /* SavedCities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SavedCities;
+			sourceTree = "<group>";
+		};
 		3DD957161C1287130027A63D /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +401,7 @@
 		3DF3B7D31C0FDDC30024C06C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3D80EE561C13EF6900ACE7AF /* SavedCities */,
 				3D342FFC1C0FDF4F00351C0F /* SearchCities */,
 				3D342FF41C0FDE9A00351C0F /* Forecast */,
 			);
