@@ -33,13 +33,31 @@
 - (BOOL)storeCity:(City * )city {
     NSMutableArray *savedCities = [self storedCities];
     [savedCities addObject:city];
-    return [[[SavedCitiesDataManager alloc] init] storeCities:savedCities];
+    if ([[[SavedCitiesDataManager alloc] init] storeCities:savedCities]) {
+        city.saved = YES;
+        return YES;
+    }
+    return NO;
 }
 
 - (BOOL)removeCity:(City * )city {
     NSMutableArray *savedCities = [self storedCities];
     [savedCities removeObject:city];
-    return [[[SavedCitiesDataManager alloc] init] storeCities:savedCities];
+    if ([[[SavedCitiesDataManager alloc] init] storeCities:savedCities]) {
+        city.saved = NO;
+        return YES;
+    }
+    return NO;
+}
+
+- (City *)storedCityWithModel:(City *)city {
+    NSArray <City *> * cities = [self loadSavedCities];
+    for (City *storedCity in cities) {
+        if ([storedCity isEqual:city]) {
+            return storedCity;
+        }
+    }
+    return nil;
 }
 
 @end

@@ -34,7 +34,6 @@
     displayData.latitude = city.latitude;
     displayData.longitude = city.longitude;
     displayData.referencedModel = city;
-    displayData.saved = city.saved;
     return displayData;
 }
 

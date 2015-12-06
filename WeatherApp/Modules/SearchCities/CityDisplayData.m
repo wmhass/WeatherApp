@@ -7,7 +7,7 @@
 //
 
 #import "CityDisplayData.h"
-
+#import "City.h"
 @implementation CityDisplayData
 
 
@@ -32,5 +32,9 @@
     return [descriptionComponents componentsJoinedByString:@", "];
 }
 
+
+- (BOOL)saved {
+    return self.referencedModel.saved;
+}
 
 @end

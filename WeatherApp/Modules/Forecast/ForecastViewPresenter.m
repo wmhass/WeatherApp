@@ -23,7 +23,7 @@
 #import "SavedCitiesViewController.h"
 #import "SavedCitiesPresenter.h"
 #import "SavedCitiesWireframe.h"
-
+#import "City.h"
 @interface ForecastViewPresenter() <SearchCitiesPresenterDelegate, SavedCitiesPresenterDelegate>
 
 @property (strong, nonatomic) SavedCitiesInteractor *  savedCitiesInteractor;
@@ -94,14 +94,14 @@
 - (void)saveCity {
     CityDisplayData *selectedCity = [self.forecastView presentingCity];
     if(selectedCity.saved) { return ; }
-    selectedCity.saved = [self.savedCitiesInteractor storeCity:selectedCity.referencedModel];
+    [self.savedCitiesInteractor storeCity:selectedCity.referencedModel];
     [self.forecastView displayCity:selectedCity];
 }
 
 - (void)removeCity {
     CityDisplayData *selectedCity = [self.forecastView presentingCity];
     if(!selectedCity.saved) { return; }
-    selectedCity.saved = ![self.savedCitiesInteractor removeCity:selectedCity.referencedModel];
+    [self.savedCitiesInteractor removeCity:selectedCity.referencedModel];
     [self.forecastView displayCity:selectedCity];
 }
 
@@ -151,6 +151,12 @@
 #pragma mark - SearchCitiesPresenterDelegate
 
 - (void)searchCitiesPresenter:(SearchCitiesPresenter * )presenter didSelectCityDisplayData:(CityDisplayData * )cityDisplayData {
+    
+    // We check if this city already exists in our list of saved cities
+    City *existingCity = [self.savedCitiesInteractor storedCityWithModel:cityDisplayData.referencedModel];
+    if (existingCity) {
+        cityDisplayData.referencedModel = existingCity;
+    }
     
     [self.forecastView displayCity:cityDisplayData];
     [self refreshForecast];

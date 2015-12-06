@@ -14,5 +14,6 @@
 - (NSArray <City *> * )loadSavedCities;
 - (BOOL)storeCity:(City * )city;
 - (BOOL)removeCity:(City * )city;
+- (City *)storedCityWithModel:(City *)city;
 
 @end

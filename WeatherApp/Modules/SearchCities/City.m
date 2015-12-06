@@ -34,6 +34,10 @@
     return [self.country hash] ^ [self.city hash] ^ [self.region hash] ^ [self.latitude hash] ^ [self.longitude hash];
 }
 
+- (BOOL)isEqual:(id)object {
+    return [object hash] == [self hash];
+}
+
 #pragma mark - NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
