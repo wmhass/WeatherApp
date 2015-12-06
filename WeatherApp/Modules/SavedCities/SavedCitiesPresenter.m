@@ -19,7 +19,7 @@
 - (void)loadData {
     NSArray <City *> *cities = [self.savedCitiesInteractor loadSavedCities];
     if (cities.count == 0) {
-        [self.savedCitiesView presentEmptyContent];
+        [self.savedCitiesView presentEmptySavedCities];
     } else {
         [self makeViewDisplayCities:cities];
     }
@@ -40,7 +40,7 @@
 - (void)makeViewDisplayCities:(NSArray <City *> * )cities {
     CityDisplayDataCollector *dataCollector = [[CityDisplayDataCollector alloc] init];
     [dataCollector collectCities:cities];
-    [self.savedCitiesView displayData:[dataCollector collectedData]];
+    [self.savedCitiesView displayCitiesList:[dataCollector collectedData]];
 }
 
 @end

@@ -23,7 +23,7 @@ static NSString * const SavedCitiesFileName = @"saved_cities";
 
 #pragma mark - Public
 
-- (NSArray <City *> *  )loadStoredCities {
+- (NSArray <City *> *)loadStoredCities {
     return [NSKeyedUnarchiver unarchiveObjectWithFile:[self filePath]];
 }
 

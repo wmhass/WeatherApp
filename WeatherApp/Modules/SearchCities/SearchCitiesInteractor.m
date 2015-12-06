@@ -34,7 +34,7 @@
 - (void)searchCitiesWithSearchString:(NSString * )searchString {
     
     __weak SearchCitiesInteractor *weakSelf = self;
-    [self.dataManager fetchCitiesWithSearch:searchString withCompletion:^(NSArray <City *> * cities, NSError *  error) {
+    [self.dataManager fetchCitiesWithSearch:searchString withCompletion:^(NSArray <City *> * cities, NSError *error) {
 
         if (error) {
             [weakSelf.delegate searchCitiesInteractor:weakSelf didFailFetchingCitiesWithError:error];

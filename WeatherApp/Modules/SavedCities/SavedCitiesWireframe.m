@@ -13,7 +13,7 @@
 
 @interface SavedCitiesWireframe()
 
-@property (weak, nonatomic) SavedCitiesViewController *  presentingView;
+@property (weak, nonatomic) SavedCitiesViewController *presentingView;
 
 @end
 

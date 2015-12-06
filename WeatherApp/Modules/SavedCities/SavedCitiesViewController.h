@@ -13,10 +13,10 @@ extern NSString * const SavedCitiesViewControllerIdentifier;
 @class SavedCitiesPresenter, CitiesListDisplayData;
 @interface SavedCitiesViewController : UIViewController
 
-@property (strong, nonatomic) SavedCitiesPresenter *  presenter;
+@property (strong, nonatomic) SavedCitiesPresenter *presenter;
 
-- (void)displayData:(CitiesListDisplayData * )listDisplayData;
 - (void)reloadAllData;
-- (void)presentEmptyContent;
+- (void)displayCitiesList:(CitiesListDisplayData * )listDisplayData;
+- (void)presentEmptySavedCities;
 
 @end

@@ -10,8 +10,8 @@
 
 @interface ForecastHourlyConditionDisplayData : NSObject
 
-@property (strong, nonatomic) NSString *  temp;
-@property (strong, nonatomic) NSString *  chanceOfRain;
-@property (strong, nonatomic) NSString *  time;
+@property (strong, nonatomic) NSString *temp;
+@property (strong, nonatomic) NSString *chanceOfRain;
+@property (strong, nonatomic) NSString *time;
 
 @end

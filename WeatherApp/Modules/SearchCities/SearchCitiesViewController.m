@@ -19,8 +19,8 @@ NSString * const SearchCitiesViewControllerIdentifier = @"SearchCitiesViewContro
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinnerView;
 @property (weak, nonatomic) IBOutlet UILabel *footerEmptyStateLabel;
 @property (strong, nonatomic) IBOutlet UIView *tableHeaderView;
-@property (weak, nonatomic) IBOutlet UITableView *  tableView;
-@property (strong, nonatomic) CitiesListDisplayData *  displayData;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) CitiesListDisplayData *displayData;
 
 @end
 

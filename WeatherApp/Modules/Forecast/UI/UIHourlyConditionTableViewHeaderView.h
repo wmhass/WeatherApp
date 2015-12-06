@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString *  const UIHourlyConditionTableViewHeaderViewNibName;
+extern NSString *const UIHourlyConditionTableViewHeaderViewNibName;
 
 @class ForecastHourlyConditionDisplayData;
 @protocol UIHourlyConditionTableViewHeaderViewDataSource;

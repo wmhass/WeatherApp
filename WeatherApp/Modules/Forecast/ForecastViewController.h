@@ -12,17 +12,23 @@
 
 @interface ForecastViewController : UIViewController
 
-@property (strong, nonatomic) ForecastViewPresenter *  presenter;
+@property (strong, nonatomic) ForecastViewPresenter *presenter;
+
+- (void)reloadAllData;
 
 - (void)presentErrorMessage:(NSString * )message;
-- (void)displayForecastData:(ForecastDisplayData * )displayData;
-- (void)displayCity:(CityDisplayData * )cityDisplay;
-- (void)presentNoCitiesFoundMessage:(NSString * )message;
-- (void)reloadAllData;
-- (void)presentSearchCitiesView:(SearchCitiesViewController * )viewController;
+- (void)presentEmptySavedCities;
+
 - (void)dismissSearchCitiesView;
+- (void)presentSearchCitiesView:(SearchCitiesViewController * )viewController;
+
+- (void)displayForecast:(ForecastDisplayData * )displayData;
+- (void)displayCity:(CityDisplayData * )cityDisplay;
+
 - (void)showLoadingView;
 - (void)hideLoadingView;
+
+// Datasource methods
 - (NSInteger)selectedMetric;
 - (NSString * )searchingCityString;
 - (CityDisplayData * )presentingCity;

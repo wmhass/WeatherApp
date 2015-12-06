@@ -9,24 +9,23 @@
 #import <Foundation/Foundation.h>
 #import "ForecastViewInteractor.h"
 
-@class ForecastViewController, ForecastViewWireframe, ForecastViewInteractor, SavedCitiesWireframe;
+@class ForecastViewController, ForecastViewWireframe, SavedCitiesWireframe;
 @interface ForecastViewPresenter : NSObject <ForecastViewInteractorDelegate>
 
-@property (weak, nonatomic) ForecastViewController *  forecastView;
-@property (strong, nonatomic) ForecastViewWireframe *   forecastWireframe;
-@property (strong, nonatomic) ForecastViewInteractor *  forecastInteractor;
+@property (weak, nonatomic) ForecastViewController *forecastView;
+@property (strong, nonatomic) ForecastViewWireframe * forecastWireframe;
+@property (strong, nonatomic) ForecastViewInteractor *forecastInteractor;
 @property (strong, nonatomic) SavedCitiesWireframe * savedCitiesWireframe;
 
 #pragma mark - Presenter Actions
 
-- (void)doInitialLoad;
-- (void)reloadViewData;
-- (BOOL)canStartSearchingCity;
-- (void)cancelCitySearch;
+- (void)viewWillAppear;
 - (void)citySearchTextChanged;
-- (void)saveCity;
-- (void)removeCity;
 - (void)metricValueChanged;
-- (void)presentMyCities;
+- (void)didTapCancelSearchButton;
+- (void)didTapSaveCityButton;
+- (void)didTapRemoveCityButton;
+- (void)didStartTypingCitySearch;
+- (void)didTapMyCitiesButton;
 
 @end

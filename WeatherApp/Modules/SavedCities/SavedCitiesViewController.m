@@ -22,7 +22,7 @@ NSString * const SavedCitiesViewControllerIdentifier = @"SavedCitiesViewControll
 @property (strong, nonatomic) IBOutlet UIView *tableFooterView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomKeylineHeightConstraint;
-@property (strong, nonatomic) CitiesListDisplayData *  listDisplay;
+@property (strong, nonatomic) CitiesListDisplayData *listDisplay;
 
 @end
 
@@ -44,7 +44,7 @@ NSString * const SavedCitiesViewControllerIdentifier = @"SavedCitiesViewControll
 
 #pragma mark - Public
 
-- (void)displayData:(CitiesListDisplayData * )listDisplayData {
+- (void)displayCitiesList:(CitiesListDisplayData * )listDisplayData {
     self.listDisplay = listDisplayData;
 }
 
@@ -52,7 +52,7 @@ NSString * const SavedCitiesViewControllerIdentifier = @"SavedCitiesViewControll
     [self.tableView reloadData];
 }
 
-- (void)presentEmptyContent {
+- (void)presentEmptySavedCities {
     self.tableView.tableFooterView = self.tableFooterView;
 }
 

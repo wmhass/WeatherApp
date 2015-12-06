@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString *  const SearchCitiesViewControllerIdentifier;
+extern NSString *const SearchCitiesViewControllerIdentifier;
 
 @class CitiesListDisplayData, SearchCitiesPresenter;
 @interface SearchCitiesViewController : UIViewController
 
-@property (strong, nonatomic) SearchCitiesPresenter *  presenter;
+@property (strong, nonatomic) SearchCitiesPresenter *presenter;
 
 - (void)reloadAllData;
 - (void)presentErrorMessage:(NSString * )errorMessage;

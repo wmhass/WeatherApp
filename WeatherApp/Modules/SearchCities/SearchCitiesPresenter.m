@@ -12,7 +12,7 @@
 
 @interface SearchCitiesPresenter()
 
-@property (strong, nonatomic) NSTimer *  searchTimer;
+@property (strong, nonatomic) NSTimer *searchTimer;
 
 @end
 

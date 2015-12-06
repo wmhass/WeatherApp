@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString *  const UIHourlyConditionCollectionViewCellReuseIdentifier;
-extern NSString *  const UIHourlyConditionCollectionViewCellNibName;
+extern NSString *const UIHourlyConditionCollectionViewCellReuseIdentifier;
+extern NSString *const UIHourlyConditionCollectionViewCellNibName;
 
 @interface UIHourlyConditionCollectionViewCell : UICollectionViewCell
 
-@property (strong, nonatomic, readonly) UILabel *  timeLabel;
-@property (strong, nonatomic, readonly) UILabel *  temperatureLabel;
+@property (strong, nonatomic, readonly) UILabel *timeLabel;
+@property (strong, nonatomic, readonly) UILabel *temperatureLabel;
 
 @end

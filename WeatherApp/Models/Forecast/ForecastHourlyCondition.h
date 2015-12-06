@@ -11,10 +11,10 @@
 
 @interface ForecastHourlyCondition : NSObject
 
-@property (strong, nonatomic) NSNumber *  tempC;
-@property (strong, nonatomic) NSNumber *  tempF;
-@property (strong, nonatomic) NSNumber *  chanceOfRain;
-@property (strong, nonatomic) NSString *  time; // TODO: Check this
+@property (strong, nonatomic) NSNumber *tempC;
+@property (strong, nonatomic) NSNumber *tempF;
+@property (strong, nonatomic) NSNumber *chanceOfRain;
+@property (strong, nonatomic) NSString *time; // TODO: Check this
 
 - (id )initWithDictionary:(NSDictionary * )dictionary;
 

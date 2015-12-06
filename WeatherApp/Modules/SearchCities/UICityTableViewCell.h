@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString *  const UICityTableViewCellReuseIdentifier;
+extern NSString *const UICityTableViewCellReuseIdentifier;
 
 @interface UICityTableViewCell : UITableViewCell
 
-@property (weak, nonatomic, readonly) UILabel *  cityInformationLabel;
+@property (weak, nonatomic, readonly) UILabel *cityInformationLabel;
 
 @end

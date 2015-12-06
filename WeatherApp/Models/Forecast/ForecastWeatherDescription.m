@@ -30,7 +30,7 @@
 
 - (NSString * )description {
     NSMutableArray *values = [[NSMutableArray alloc] initWithCapacity:self.values.count];
-    [self.values enumerateObjectsUsingBlock:^(NSDictionary *  obj, NSUInteger idx, BOOL *  stop) {
+    [self.values enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
         [values addObject:obj[@"value"]];
     }];
     return [values componentsJoinedByString:@", "];

@@ -68,9 +68,9 @@ NSString * const APIResponsePrefferedFormat = @"json";
 
     [manager GET:[self URLForEndPoint:APIWeatherEndPoint]
       parameters:[self parametersWithParameterObject:parameters]
-         success:^(AFHTTPRequestOperation *  operation, id   responseObject) {
+         success:^(AFHTTPRequestOperation *operation, id   responseObject) {
              
-             NSString *  errorMessage = [self errorMessageForResponse:responseObject];
+             NSString *errorMessage = [self errorMessageForResponse:responseObject];
              
              if (errorMessage && completionBlock) {
                  completionBlock(nil, [self datamanagerErrorWithMessage:errorMessage]);
@@ -79,7 +79,7 @@ NSString * const APIResponsePrefferedFormat = @"json";
              }
              
          }
-         failure:^(AFHTTPRequestOperation *  operation, NSError *  error) {
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              if (completionBlock) {
                  completionBlock(nil, [self datamanagerErrorWithMessage:error.localizedDescription]);
              }
@@ -98,9 +98,9 @@ NSString * const APIResponsePrefferedFormat = @"json";
     __weak ForecastDataManager *weakSelf = self;
     [manager GET:[self URLForEndPoint:APICitySearchEndPoint]
       parameters:[self parametersWithParameterObject:parameters]
-         success:^(AFHTTPRequestOperation *  operation, id   responseObject) {
+         success:^(AFHTTPRequestOperation *operation, id   responseObject) {
              
-             NSString *  errorMessage = [weakSelf errorMessageForResponse:responseObject];
+             NSString *errorMessage = [weakSelf errorMessageForResponse:responseObject];
              
              if (errorMessage && completionBlock) {
                  completionBlock(nil, [weakSelf datamanagerErrorWithMessage:errorMessage]);
@@ -109,7 +109,7 @@ NSString * const APIResponsePrefferedFormat = @"json";
              }
              
          }
-         failure:^(AFHTTPRequestOperation *  operation, NSError *  error) {
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              if (completionBlock) {
                  completionBlock(nil, [weakSelf datamanagerErrorWithMessage:error.localizedDescription]);
              }

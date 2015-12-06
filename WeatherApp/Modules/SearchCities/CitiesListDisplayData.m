@@ -11,7 +11,7 @@
 
 @interface CitiesListDisplayData()
 
-@property (strong, nonatomic) NSMutableArray <CityDisplayData *> *  citiesDisplay;
+@property (strong, nonatomic) NSMutableArray <CityDisplayData *> *citiesDisplay;
 
 @end
 

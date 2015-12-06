@@ -17,13 +17,14 @@
 
 @end
 
+
 @interface SearchCitiesPresenter : NSObject <SearchCitiesInteractorDelegate>
 
-@property (weak, nonatomic) id<SearchCitiesPresenterDelegate>  delegate;
+@property (weak, nonatomic) id<SearchCitiesPresenterDelegate> delegate;
 
-@property (assign, nonatomic) SearchCitiesViewController *  searchCitiesView;
-@property (strong, nonatomic) SearchCitiesInteractor *  searchCitiesInteractor;
-@property (strong, nonatomic) SearchCitiesViewWireframe *  searchCitiesWireframe;
+@property (assign, nonatomic) SearchCitiesViewController *searchCitiesView;
+@property (strong, nonatomic) SearchCitiesInteractor *searchCitiesInteractor;
+@property (strong, nonatomic) SearchCitiesViewWireframe *searchCitiesWireframe;
 
 #pragma mark - Presenter actions
 

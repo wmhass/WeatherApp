@@ -9,19 +9,17 @@
 #import "ForecastViewController.h"
 #import "ForecastViewPresenter.h"
 #import "ForecastDisplayData.h"
-#import "ForecastUpcomingConditionDisplayData.h"
 #import "UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.h"
 #import "UIHourlyConditionTableViewHeaderView.h"
 #import "CityDisplayData.h"
-#import "CitiesListDisplayData.h"
 #import "SearchCitiesViewController.h"
 
 NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_header";
 
 @interface ForecastViewController () <UITableViewDataSource, UITableViewDelegate, UIHourlyConditionTableViewHeaderViewDataSource, UITextFieldDelegate>
 
-@property (strong, nonatomic) ForecastDisplayData *  displayData;
-@property (strong, nonatomic) CityDisplayData *  currentCity;
+@property (strong, nonatomic) ForecastDisplayData *displayData;
+@property (strong, nonatomic) CityDisplayData *currentCity;
 
 @property (weak, nonatomic) IBOutlet UIView *noCitiesView;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
@@ -61,29 +59,18 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     
     [self setupTableView];
     [self setupSearchTextField];
-    
-    [self.keylinesHeightConstraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *  _Nonnull constraint, NSUInteger idx, BOOL * _Nonnull stop) {
-        constraint.constant = .5f;
-    }];
+    [self setupKeylines];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self.presenter doInitialLoad];
-    });
-}
-
-
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.presenter viewWillAppear];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleDefault;
 }
+
 
 #pragma mark - Public
 
@@ -91,24 +78,22 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     return self.currentCity;
 }
 
-- (void)presentNoCitiesFoundMessage:(NSString * )message {
-    self.noCitiesView.hidden = NO;
-    self.noCitiesViewLabel.text = message;
+- (void)presentEmptySavedCities {
+    [self showEmptyStateLabelWithMessage:NSLocalizedString(@"NO_CITIES_MESSAGE", nil)];
 }
-
 
 - (void)reloadAllData {
     [self.tableView reloadData];
 }
 
-- (void)displayForecastData:(ForecastDisplayData * )displayData {
+- (void)displayForecast:(ForecastDisplayData * )displayData {
     self.noCitiesView.hidden = YES;
     self.displayData = displayData;
     [self updateHeaderInformation];
 }
 
 - (void)presentErrorMessage:(NSString * )message {
-    [self presentNoCitiesFoundMessage:message];
+    [self showEmptyStateLabelWithMessage:message];
 }
 
 - (NSInteger)selectedMetric {
@@ -152,7 +137,13 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     }];
 }
 
+
 #pragma mark - Private
+
+- (void)showEmptyStateLabelWithMessage:(NSString *)message {
+    self.noCitiesView.hidden = NO;
+    self.noCitiesViewLabel.text = message;
+}
 
 - (void)localizeView {
     [self.myCitiesButton setTitle:NSLocalizedString(@"MY_CITIES_BUTTON", nil) forState:UIControlStateNormal];
@@ -198,18 +189,17 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 }
 
 - (void)updateHeaderInformation {
-    
     self.currentLocation.text = self.currentCity.description ?: @"--";
     self.currentTemperature.text = [self.displayData currentTemperature] ?: @"--";
     self.currentWeatherDescription.text = [self.displayData currentWeatherDescription] ?: @"--";
     
     BOOL cityIsSaved = self.currentCity.saved;
+
     self.saveCityButton.hidden = cityIsSaved;
     self.removeCityButton.hidden = !cityIsSaved;
 }
 
 - (void)setupTableView {
-    // Adding a blank view as a tableFooterView removes all the extra empty cells
     self.tableView.tableFooterView = [UIView new];
     UINib *headerNib = [UINib nibWithNibName:UIHourlyConditionTableViewHeaderViewNibName bundle:nil];
     [self.tableView registerNib:headerNib forHeaderFooterViewReuseIdentifier:ForecastViewControllerTableHeaderReuseIdentifier];
@@ -224,6 +214,13 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     self.searchTextField.leftViewMode = UITextFieldViewModeAlways;
 }
 
+- (void)setupKeylines {
+    [self.keylinesHeightConstraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *_Nonnull constraint, NSUInteger idx, BOOL * _Nonnull stop) {
+        constraint.constant = .5f;
+    }];
+}
+
+
 #pragma mark - IBActions
 
 - (IBAction)segmentedControlValueChanged:(id)sender {
@@ -231,7 +228,7 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 }
 
 - (IBAction)cancelButtonTouched:(id)sender {
-    [self.presenter cancelCitySearch];
+    [self.presenter didTapCancelSearchButton];
 }
 
 - (IBAction)searchTextChanged:(id)sender {
@@ -239,16 +236,17 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 }
 
 - (IBAction)btnSaveTouched:(id)sender {
-    [self.presenter saveCity];
+    [self.presenter didTapSaveCityButton];
 }
 
 - (IBAction)btnRemoveCityTouched:(id)sender {
-    [self.presenter removeCity];
+    [self.presenter didTapRemoveCityButton];
 }
 
 - (IBAction)btnMyCitiesTouched:(id)sender {
-    [self.presenter presentMyCities];
+    [self.presenter didTapMyCitiesButton];
 }
+
 
 #pragma mark - UITableViewDataSource
 
@@ -292,11 +290,11 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     return [self.displayData hourlyConditionDisplayDataAtIndex:index];
 }
 
+
 #pragma mark - UITextFieldDelegate
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    // The presenter will load the search view and ask this view to present the VC in its container
-    return [self.presenter canStartSearchingCity];
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    [self.presenter didStartTypingCitySearch];
 }
 
 @end

@@ -13,9 +13,9 @@
 
 @interface ForecastDisplayData()
 
-@property (strong, nonatomic) NSString *  locationName;
-@property (strong, nonatomic) ForecastCurrentConditionDisplayData *  currentCondition;
-@property (strong, nonatomic) NSArray <ForecastUpcomingConditionDisplayData *> *  upcomingConditions;
+@property (strong, nonatomic) NSString *locationName;
+@property (strong, nonatomic) ForecastCurrentConditionDisplayData *currentCondition;
+@property (strong, nonatomic) NSArray <ForecastUpcomingConditionDisplayData *> *upcomingConditions;
 
 
 @end

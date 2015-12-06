@@ -10,8 +10,8 @@
 #import "ForecastDataManagerParameters.h"
 
 @class Forecast, City;
-typedef void(^ForecastDataManagerForecastCompletionBlock)(Forecast *forecast, NSError *  error);
-typedef void(^ForecastDataManagerCitySearchCompletionBlock)(NSArray <City *> * cities, NSError *  error);
+typedef void(^ForecastDataManagerForecastCompletionBlock)(Forecast *forecast, NSError *error);
+typedef void(^ForecastDataManagerCitySearchCompletionBlock)(NSArray <City *> * cities, NSError *error);
 
 @interface ForecastDataManager : NSObject
 

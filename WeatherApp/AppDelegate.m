@@ -11,7 +11,7 @@
 
 @interface AppDelegate ()
 
-@property (strong, nonatomic) AppWireframe *  appWireframe;
+@property (strong, nonatomic) AppWireframe *appWireframe;
 
 @end
 

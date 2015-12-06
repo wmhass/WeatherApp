@@ -18,8 +18,8 @@
 
 @interface ForecastDisplayDataCollector()
 
-@property (strong, nonatomic) ForecastCurrentConditionDisplayData *  currentCondition;
-@property (strong, nonatomic) NSMutableArray <ForecastUpcomingConditionDisplayData *> *   upcomingConditions;
+@property (strong, nonatomic) ForecastCurrentConditionDisplayData *currentCondition;
+@property (strong, nonatomic) NSMutableArray <ForecastUpcomingConditionDisplayData *> * upcomingConditions;
 @property (nonatomic) ForecastDisplayDataCollectorTemperatureMetric collectingMetric;
 
 @end

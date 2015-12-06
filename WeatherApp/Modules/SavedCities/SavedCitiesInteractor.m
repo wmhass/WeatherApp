@@ -14,7 +14,7 @@
 
 #pragma mark - Private
 
-- (NSMutableArray <City *> *  )storedCities {
+- (NSMutableArray <City *> *)storedCities {
     static NSMutableArray <City *> * storedCities;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

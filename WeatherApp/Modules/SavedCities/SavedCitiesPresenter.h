@@ -20,9 +20,9 @@
 
 @property (weak, nonatomic) id<SavedCitiesPresenterDelegate>  delegate;
 
-@property (weak, nonatomic) SavedCitiesViewController *  savedCitiesView;
-@property (strong, nonatomic) SavedCitiesInteractor *  savedCitiesInteractor;
-@property (strong, nonatomic) SavedCitiesWireframe *  savedCitiesWireframe;
+@property (weak, nonatomic) SavedCitiesViewController *savedCitiesView;
+@property (strong, nonatomic) SavedCitiesInteractor *savedCitiesInteractor;
+@property (strong, nonatomic) SavedCitiesWireframe *savedCitiesWireframe;
 
 - (void)loadData;
 - (void)didSelectCityDisplay:(CityDisplayData * )cityDisplayData;

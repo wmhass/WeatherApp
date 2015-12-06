@@ -19,6 +19,7 @@
 @interface ForecastViewInteractor : NSObject
 
 @property (weak, nonatomic) id<ForecastViewInteractorDelegate>  delegate;
+@property (strong, nonatomic, readonly) Forecast *cachedForecast;
 
 - (void)loadForecastForLatitude:(NSString * )latitude longitude:(NSString * )longitude;
 

@@ -17,7 +17,7 @@
 
 @interface ForecastViewWireframe()
 
-@property (weak, nonatomic) ForecastViewController *  presentingView;
+@property (weak, nonatomic) ForecastViewController *presentingView;
 
 @end
 
@@ -28,11 +28,14 @@
 - (void)launchViewInWindow:(UIWindow *)window {
     
     ForecastViewController *forecastView = (ForecastViewController *)[[AppStoryboard sharedInstance] initialViewController];
+    
     forecastView.presenter = [[ForecastViewPresenter alloc] init];
-    forecastView.presenter.forecastView = forecastView;
+    
     forecastView.presenter.forecastWireframe = [[ForecastViewWireframe alloc] init];
     forecastView.presenter.savedCitiesWireframe = [[SavedCitiesWireframe alloc] init];
     forecastView.presenter.forecastInteractor = [[ForecastViewInteractor alloc] init];
+
+    forecastView.presenter.forecastView = forecastView;
     forecastView.presenter.forecastInteractor.delegate = forecastView.presenter;
     
     self.presentingView = forecastView;

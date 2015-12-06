@@ -13,22 +13,25 @@
 #import "ForecastDisplayDataCollector.h"
 #import "ForecastDisplayData.h"
 #import "Forecast.h"
+
 #import "CityDisplayData.h"
 #import "CityDisplayDataCollector.h"
+
 #import "SearchCitiesViewWireframe.h"
 #import "SearchCitiesPresenter.h"
 #import "SearchCitiesViewController.h"
+
 #import "CitiesListDisplayData.h"
+
 #import "SavedCitiesInteractor.h"
 #import "SavedCitiesViewController.h"
 #import "SavedCitiesPresenter.h"
 #import "SavedCitiesWireframe.h"
-#import "City.h"
+
 @interface ForecastViewPresenter() <SearchCitiesPresenterDelegate, SavedCitiesPresenterDelegate>
 
-@property (strong, nonatomic) Forecast *cachedForecast;
-@property (strong, nonatomic) SavedCitiesInteractor *  savedCitiesInteractor;
-@property (weak, nonatomic) SearchCitiesPresenter *  searchCitiesPresenter;
+@property (strong, nonatomic) SavedCitiesInteractor *savedCitiesInteractor;
+@property (weak, nonatomic) SearchCitiesPresenter *searchCitiesPresenter;
 
 @end
 
@@ -48,14 +51,57 @@
 
 #pragma mark - Public (Presenter Actions)
 
-- (void)doInitialLoad {
-    [self reloadViewData];
+- (void)viewWillAppear {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self doInitialDataLoad];
+    });
 }
 
-- (void)reloadViewData {
+- (void)metricValueChanged {
+    [self makeViewPresentDisplayData:[self forecastDisplayDataFromForecast:self.forecastInteractor.cachedForecast]];
+}
 
+- (void)didStartTypingCitySearch {
+    SearchCitiesViewWireframe *searchWireframe = [[SearchCitiesViewWireframe alloc] init];
+    SearchCitiesViewController *searchView = [searchWireframe searchCitiesViewController];
+    [self.forecastView presentSearchCitiesView:searchView];
+    
+    searchView.presenter.delegate = self;
+    self.searchCitiesPresenter = searchView.presenter;
+}
+
+- (void)didTapCancelSearchButton {
+    [self.forecastView dismissSearchCitiesView];
+}
+
+- (void)citySearchTextChanged {
+    [self.searchCitiesPresenter fetchCitiesWithSearchString:[self.forecastView searchingCityString]];
+}
+
+- (void)didTapSaveCityButton {
+    CityDisplayData *selectedCity = [self.forecastView presentingCity];
+    if(selectedCity.saved) { return ; }
+    [self.savedCitiesInteractor storeCity:selectedCity.referencedModel];
+    [self.forecastView displayCity:selectedCity];
+}
+
+- (void)didTapRemoveCityButton {
+    CityDisplayData *selectedCity = [self.forecastView presentingCity];
+    if(!selectedCity.saved) { return; }
+    [self.savedCitiesInteractor removeCity:selectedCity.referencedModel];
+    [self.forecastView displayCity:selectedCity];
+}
+
+- (void)didTapMyCitiesButton {
+    [self.savedCitiesWireframe presentInViewControllerContext:self.forecastView delegate:self];
+}
+
+#pragma mark - Private
+
+- (void)doInitialDataLoad {
     NSArray *cities = [self.savedCitiesInteractor loadSavedCities];
-
+    
     if (cities.count > 0) {
         
         CityDisplayDataCollector *dataCollector = [[CityDisplayDataCollector alloc] init];
@@ -64,63 +110,16 @@
         
         [self.forecastView displayCity:firstCity];
         [self refreshForecast];
-
+        
     } else {
-        [self.forecastView presentNoCitiesFoundMessage:NSLocalizedString(@"NO_CITIES_MESSAGE", nil)];
+        [self.forecastView presentEmptySavedCities];
     }
 }
-
-- (void)metricValueChanged {
-    [self makeViewPresentDisplayData:[self forecastDisplayDataFromForecast:self.cachedForecast]];
-}
-
-- (BOOL)canStartSearchingCity {
-    SearchCitiesViewWireframe *searchWireframe = [[SearchCitiesViewWireframe alloc] init];
-    SearchCitiesViewController *searchView = [searchWireframe searchCitiesViewController];
-    [self.forecastView presentSearchCitiesView:searchView];
-    
-    [self holdSearchPresenter:searchView.presenter];
-    
-    return YES;
-}
-
-- (void)cancelCitySearch {
-    [self.forecastView dismissSearchCitiesView];
-}
-
-- (void)citySearchTextChanged {
-    [self.searchCitiesPresenter fetchCitiesWithSearchString:[self.forecastView searchingCityString]];
-}
-
-- (void)saveCity {
-    CityDisplayData *selectedCity = [self.forecastView presentingCity];
-    if(selectedCity.saved) { return ; }
-    [self.savedCitiesInteractor storeCity:selectedCity.referencedModel];
-    [self.forecastView displayCity:selectedCity];
-}
-
-- (void)removeCity {
-    CityDisplayData *selectedCity = [self.forecastView presentingCity];
-    if(!selectedCity.saved) { return; }
-    [self.savedCitiesInteractor removeCity:selectedCity.referencedModel];
-    [self.forecastView displayCity:selectedCity];
-}
-
-- (void)presentMyCities {
-    [self.savedCitiesWireframe presentInViewControllerContext:self.forecastView delegate:self];
-}
-
-#pragma mark - Private
 
 - (void)refreshForecast {
     [self.forecastView showLoadingView];
     CityDisplayData *displayingCity = [self.forecastView presentingCity];
     [self.forecastInteractor loadForecastForLatitude:displayingCity.latitude longitude:displayingCity.longitude];
-}
-
-- (void)holdSearchPresenter:(SearchCitiesPresenter *)presenter {
-    presenter.delegate = self;
-    self.searchCitiesPresenter = presenter;
 }
 
 - (ForecastDisplayData * )forecastDisplayDataFromForecast:(Forecast * )forecast {
@@ -138,14 +137,13 @@
 }
 
 - (void)makeViewPresentDisplayData:(ForecastDisplayData *)forecastDisplayData {
-    [self.forecastView displayForecastData:forecastDisplayData];
+    [self.forecastView displayForecast:forecastDisplayData];
     [self.forecastView reloadAllData];
 }
 
 #pragma mark - ForecastViewInteractorDelegate
 
-- (void)forecastViewInteractor:(ForecastViewInteractor * )interactor didFetchForecast:(Forecast *  )forecast {
-    self.cachedForecast = forecast;
+- (void)forecastViewInteractor:(ForecastViewInteractor * )interactor didFetchForecast:(Forecast *)forecast {
     [self makeViewPresentDisplayData:[self forecastDisplayDataFromForecast:forecast]];
     [self.forecastView hideLoadingView];
 }
@@ -159,17 +157,16 @@
 #pragma mark - SearchCitiesPresenterDelegate
 
 - (void)searchCitiesPresenter:(SearchCitiesPresenter * )presenter didSelectCityDisplayData:(CityDisplayData * )cityDisplayData {
-    
-    // We check if this city already exists in our list of saved cities
-    City *existingCity = [self.savedCitiesInteractor storedCityWithModel:cityDisplayData.referencedModel];
-    if (existingCity) {
-        cityDisplayData.referencedModel = existingCity;
+
+    City *storedCityForReferencedModel = [self.savedCitiesInteractor storedCityWithModel:cityDisplayData.referencedModel];
+    if (storedCityForReferencedModel) {
+        cityDisplayData.referencedModel = storedCityForReferencedModel;
     }
     
     [self.forecastView displayCity:cityDisplayData];
-    [self refreshForecast];
     [self.forecastView dismissSearchCitiesView];
-    
+
+    [self refreshForecast];
 }
 
 #pragma mark - SavedCitiesPresenterDelegate
