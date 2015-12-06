@@ -43,4 +43,8 @@ NSString * const AppStoryboardMainStoryBoard = @"Main";
     return [self.mainStoryBoard instantiateInitialViewController];
 }
 
+- (UIViewController * _Nullable)viewControllerWithIdentifier:(NSString * _Nonnull)controllerIdentifier {
+    return [self.mainStoryBoard instantiateViewControllerWithIdentifier:controllerIdentifier];
+}
+
 @end

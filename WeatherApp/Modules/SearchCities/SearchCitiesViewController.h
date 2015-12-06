@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@class CitiesListDisplayData;
+extern NSString * _Nonnull const SearchCitiesViewControllerIdentifier;
+
+@class CitiesListDisplayData, SearchCitiesPresenter;
 @interface SearchCitiesViewController : UIViewController
 
+@property (strong, nonatomic) SearchCitiesPresenter * _Nonnull presenter;
+
 - (void)reloadAllData;
-- (void)presentSearchEmptyMessage;
 - (void)presentErrorMessage:(NSString * _Nonnull)errorMessage;
 - (void)displayData:(CitiesListDisplayData * _Nonnull)listDisplayData;
-- (NSString * _Nullable)searchingTerm;
+- (void)displayNoCitiesFound;
+- (void)presentEmptySearchTextMessage;
 
 @end

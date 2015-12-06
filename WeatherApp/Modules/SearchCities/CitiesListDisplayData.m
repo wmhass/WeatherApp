@@ -11,7 +11,7 @@
 
 @interface CitiesListDisplayData()
 
-@property (strong, nonatomic) NSArray <CityDisplayData *> * _Nonnull citiesDisplay;
+@property (strong, nonatomic) NSMutableArray <CityDisplayData *> * _Nonnull citiesDisplay;
 
 @end
 
@@ -22,7 +22,7 @@
 - (id _Nonnull)initWithCitiesDisplayData:(NSArray <CityDisplayData *> *_Nonnull)citiesDisplayData {
     self = [super init];
     if (self) {
-        
+        _citiesDisplay = [citiesDisplayData mutableCopy];
     }
     return self;
 }
@@ -36,6 +36,10 @@
 
 - (NSInteger)numberOfCities {
     return self.citiesDisplay.count;
+}
+
+- (void)addCityDisplayData:(CityDisplayData * _Nonnull)cityDisplaydata {
+    [self.citiesDisplay addObject:cityDisplaydata];
 }
 
 @end

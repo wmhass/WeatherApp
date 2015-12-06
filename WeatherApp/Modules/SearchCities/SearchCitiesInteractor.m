@@ -20,7 +20,7 @@
     
     __weak SearchCitiesInteractor *weakSelf = self;
     [dataManager fetchCitiesWithSearch:searchString withCompletion:^(NSDictionary * _Nullable response, NSError * _Nullable error) {
-        
+
         if (error) {
             [weakSelf.delegate searchCitiesInteractor:weakSelf didFailFetchingCitiesWithError:error];
         } else {
@@ -31,8 +31,7 @@
 }
 
 - (void)loadSavedCities {
-    SavedCitiesDataManager *dataManager = [[SavedCitiesDataManager alloc] init];
-    NSArray *savedCities = [dataManager loadStoredCities];
+    NSArray *savedCities = [self storedCities];
     if (savedCities) {
         [self.delegate searchCitiesInteractor:self didFetchCities:savedCities];
     } else {
@@ -45,7 +44,29 @@
     return [[NSError alloc] initWithDomain:@"com.interactor" code:0 userInfo:@{NSLocalizedDescriptionKey: message}];
 }
 
+- (BOOL)storeCity:(City * _Nonnull)city {
+    NSMutableArray *savedCities = [self storedCities];
+    [savedCities addObject:city];
+    return [[[SavedCitiesDataManager alloc] init] storeCities:savedCities];
+}
+
+- (BOOL)removeCity:(City * _Nonnull)city {
+    NSMutableArray *savedCities = [self storedCities];
+    [savedCities removeObject:city];
+    return [[[SavedCitiesDataManager alloc] init] storeCities:savedCities];
+}
+
 #pragma mark - Private
+
+- (NSMutableArray <City *> *  _Nullable)storedCities {
+    static NSMutableArray <City *> * storedCities;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        SavedCitiesDataManager *dataManager = [[SavedCitiesDataManager alloc] init];
+        storedCities = [[dataManager loadStoredCities] mutableCopy] ?: [NSMutableArray new];
+    });
+    return storedCities;
+}
 
 - (NSArray <City *> * _Nonnull)citiesFromDictionary:(NSDictionary * _Nonnull)dictionary {
     

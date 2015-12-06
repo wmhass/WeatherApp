@@ -12,5 +12,5 @@
 
 + (instancetype _Nonnull)sharedInstance;
 - (UIViewController * _Nonnull)initialViewController;
-
+- (UIViewController * _Nullable)viewControllerWithIdentifier:(NSString * _Nonnull)controllerIdentifier;
 @end

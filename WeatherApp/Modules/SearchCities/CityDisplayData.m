@@ -29,7 +29,7 @@
         [descriptionComponents addObject:self.country];
     }
     
-    return [descriptionComponents componentsJoinedByString:@","];
+    return [descriptionComponents componentsJoinedByString:@", "];
 }
 
 

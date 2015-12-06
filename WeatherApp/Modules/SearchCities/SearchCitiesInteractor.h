@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @class SearchCitiesInteractor, City;
-@protocol SearchCitiesInteractorDelegate
+
+@protocol SearchCitiesInteractorDelegate <NSObject>
 
 - (void)searchCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFetchCities:(NSArray <City *> * _Nonnull)cities;
 - (void)searchCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFailFetchingCitiesWithError:(NSError * _Nonnull)error;
@@ -22,5 +23,7 @@
 
 - (void)searchCitiesWithSearchString:(NSString * _Nonnull)searchString;
 - (void)loadSavedCities;
+- (BOOL)storeCity:(City * _Nonnull)city;
+- (BOOL)removeCity:(City * _Nonnull)city;
 
 @end

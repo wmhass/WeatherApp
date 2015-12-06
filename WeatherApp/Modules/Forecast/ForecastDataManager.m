@@ -30,7 +30,8 @@ NSString * const APIResponsePrefferedFormat = @"json";
     if (parameters.cityName) {
         [returnParameters setObject:parameters.cityName forKey:@"q"];
     } else if (parameters.latitude.length > 0 && parameters.longitude > 0) {
-        
+        NSString *locationQuery = [NSString stringWithFormat:@"%@,%@",parameters.latitude, parameters.longitude];
+        [returnParameters setObject:locationQuery forKey:@"q"];
     }
     
     if (parameters.numberOfDays) {

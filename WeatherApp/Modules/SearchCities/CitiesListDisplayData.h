@@ -15,5 +15,6 @@
 
 - (NSInteger)numberOfCities;
 - (CityDisplayData * _Nonnull)cityDisplayDataAtIndex:(NSInteger)index;
+- (void)addCityDisplayData:(CityDisplayData * _Nonnull)cityDisplaydata;
 
 @end

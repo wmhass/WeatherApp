@@ -15,7 +15,7 @@ static NSString * const SavedCitiesFileName = @"saved_cities";
 #pragma mark - Private
 
 - (NSString *)filePath {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, NO);
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = paths[0];
     
     return [documentsPath stringByAppendingPathComponent:SavedCitiesFileName];
@@ -30,5 +30,7 @@ static NSString * const SavedCitiesFileName = @"saved_cities";
 - (BOOL)storeCities:(NSArray <City *> * _Nonnull)cities {
     return [NSKeyedArchiver archiveRootObject:cities toFile:[self filePath]];
 }
+
+
 
 @end

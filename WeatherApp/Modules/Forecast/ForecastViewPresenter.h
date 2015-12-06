@@ -21,5 +21,9 @@
 
 - (void)doInitialLoad;
 - (void)reloadViewData;
-
+- (BOOL)canStartSearchingCity;
+- (void)cancelCitySearch;
+- (void)citySearchTextChanged;
+- (void)saveCity;
+- (void)removeCity;
 @end

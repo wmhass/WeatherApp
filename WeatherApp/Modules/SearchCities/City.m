@@ -28,6 +28,12 @@
 }
 
 
+#pragma mark - Overriden
+
+- (NSUInteger)hash {
+    return [self.country hash] ^ [self.city hash] ^ [self.region hash] ^ [self.latitude hash] ^ [self.longitude hash];
+}
+
 #pragma mark - NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {

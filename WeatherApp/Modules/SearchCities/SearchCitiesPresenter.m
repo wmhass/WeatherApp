@@ -10,29 +10,58 @@
 #import "CityDisplayDataCollector.h"
 #import "SearchCitiesViewController.h"
 
+@interface SearchCitiesPresenter()
+
+@property (strong, nonatomic) NSTimer * _Nullable searchTimer;
+
+@end
+
 @implementation SearchCitiesPresenter
+
 
 #pragma mark - Public
 
-- (void)fetchCities {
-    NSString *searchString = [self.searchCitiesView searchingTerm];
+- (void)fetchCitiesWithSearchString:(NSString * _Nullable)searchString {
 
+    [self.searchTimer invalidate];
+    
     if (searchString.length == 0) {
-        [self.searchCitiesView presentSearchEmptyMessage];
-    } else {
-        [self.searchCitiesInteractor searchCitiesWithSearchString:searchString];
+        return [self.searchCitiesView presentEmptySearchTextMessage];
     }
+
+    self.searchTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(searchTimerFinished:) userInfo:searchString repeats:NO];
+    
+}
+
+- (void)searchTimerFinished:(NSTimer *)timer {
+    [self.searchCitiesInteractor searchCitiesWithSearchString:timer.userInfo];
+}
+
+- (void)didSelectCityDisplayData:(CityDisplayData *)cityDisplayData {
+    [self.delegate searchCitiesPresenter:self didSelectCityDisplayData:cityDisplayData];
+}
+
+#pragma mark - Private
+
+- (void)makeViewDisplayCities:(NSArray <City *> * _Nonnull)cities {
+    CityDisplayDataCollector *dataCollector = [[CityDisplayDataCollector alloc] init];
+    [dataCollector collectCities:cities];
+    
+    [self.searchCitiesView displayData:[dataCollector collectedData]];
+    [self.searchCitiesView reloadAllData];
 }
 
 
 #pragma mark - SearchCitiesInteractorDelegate
 
 - (void)searchCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFetchCities:(NSArray <City *> * _Nonnull)cities {
-    CityDisplayDataCollector *dataCollector = [[CityDisplayDataCollector alloc] init];
-    [dataCollector collectCities:cities];
     
-    [self.searchCitiesView displayData:[dataCollector collectedData]];
-    [self.searchCitiesView reloadAllData];
+    if (cities.count == 0) {
+        [self.searchCitiesView displayNoCitiesFound];
+    } else {
+        [self makeViewDisplayCities:cities];
+    }
+    
 }
 
 

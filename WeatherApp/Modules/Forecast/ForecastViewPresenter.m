@@ -16,10 +16,14 @@
 #import "CityDisplayData.h"
 #import "SearchCitiesInteractor.h"
 #import "CityDisplayDataCollector.h"
+#import "SearchCitiesViewWireframe.h"
+#import "SearchCitiesPresenter.h"
+#import "SearchCitiesViewController.h"
 
-@interface ForecastViewPresenter() <SearchCitiesInteractorDelegate>
+@interface ForecastViewPresenter() <SearchCitiesInteractorDelegate, SearchCitiesPresenterDelegate>
 
 @property (strong, nonatomic) SearchCitiesInteractor * _Nonnull searchCitiesInteractor;
+@property (weak, nonatomic) SearchCitiesPresenter * _Nullable searchCitiesPresenter;
 
 @end
 
@@ -37,19 +41,55 @@
 }
 
 
-#pragma mark - Presenter Actions
+#pragma mark - Public (Presenter Actions)
 
 - (void)doInitialLoad {
     [self reloadViewData];
 }
 
 - (void)reloadViewData {
-    // If we could get the cities, we load the forecast, otherwise we present an error
+    // If we could get the cities, we load the forecast, otherwise we present an empty state
     [self.searchCitiesInteractor loadSavedCities];
 }
 
+- (BOOL)canStartSearchingCity {
+    SearchCitiesViewWireframe *searchWireframe = [[SearchCitiesViewWireframe alloc] init];
+    SearchCitiesViewController *searchView = [searchWireframe searchCitiesViewController];
+    [self.forecastView presentSearchCitiesView:searchView];
+    
+    [self holdSearchPresenter:searchView.presenter];
+    
+    return YES;
+}
+
+- (void)cancelCitySearch {
+    [self.forecastView dismissSearchCitiesView];
+}
+
+- (void)citySearchTextChanged {
+    [self.searchCitiesPresenter fetchCitiesWithSearchString:[self.forecastView searchingCityString]];
+}
+
+- (void)saveCity {
+    CityDisplayData *selectedCity = [self.forecastView selectedCity];
+    if(selectedCity.stored) { return ; }
+    selectedCity.stored = [self.searchCitiesInteractor storeCity:selectedCity.referencedModel];
+    [self.forecastView displayCity:selectedCity];
+}
+
+- (void)removeCity {
+    CityDisplayData *selectedCity = [self.forecastView selectedCity];
+    if(!selectedCity.stored) { return; }
+    selectedCity.stored = ![self.searchCitiesInteractor removeCity:selectedCity.referencedModel];
+    [self.forecastView displayCity:selectedCity];
+}
 
 #pragma mark - Private
+
+- (void)holdSearchPresenter:(SearchCitiesPresenter *)presenter {
+    presenter.delegate = self;
+    self.searchCitiesPresenter = presenter;
+}
 
 - (ForecastDisplayData * _Nonnull)forecastDisplayDataFromForecast:(Forecast * _Nonnull)forecast {
     
@@ -81,8 +121,10 @@
 #pragma mark - SearchCitiesInteractorDelegate
 
 - (void)searchCitiesInteractor:(SearchCitiesInteractor * _Nonnull)interactor didFetchCities:(NSArray <City *> * _Nonnull)cities {
+
     CityDisplayDataCollector *dataCollector = [[CityDisplayDataCollector alloc] init];
-    [dataCollector collectCities:cities];
+    [dataCollector collectSavedCities:cities];
+    
     [self.forecastView displayCities:[dataCollector collectedData]];
 
     CityDisplayData *selectedCity = [self.forecastView selectedCity];
@@ -98,5 +140,15 @@
 }
 
 
+
+#pragma mark - SearchCitiesPresenterDelegate
+
+- (void)searchCitiesPresenter:(SearchCitiesPresenter * _Nonnull)presenter didSelectCityDisplayData:(CityDisplayData * _Nonnull)cityDisplayData {
+    
+    [self.forecastInteractor loadForecastForLatitude:cityDisplayData.latitude longitude:cityDisplayData.longitude];
+    [self.forecastView displayCity:cityDisplayData];
+    [self.forecastView dismissSearchCitiesView];
+    
+}
 
 @end

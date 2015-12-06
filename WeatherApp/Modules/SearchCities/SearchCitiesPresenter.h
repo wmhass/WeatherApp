@@ -9,13 +9,25 @@
 #import <Foundation/Foundation.h>
 #import "SearchCitiesInteractor.h"
 
-@class SearchCitiesViewController;
+@class SearchCitiesViewController, SearchCitiesViewWireframe, CityDisplayData, SearchCitiesPresenter;
+
+@protocol SearchCitiesPresenterDelegate <NSObject>
+
+- (void)searchCitiesPresenter:(SearchCitiesPresenter * _Nonnull)presenter didSelectCityDisplayData:(CityDisplayData * _Nonnull)cityDisplayData;
+
+@end
+
 @interface SearchCitiesPresenter : NSObject <SearchCitiesInteractorDelegate>
 
-@property (weak, nonatomic) SearchCitiesViewController * _Nullable searchCitiesView;
+@property (weak, nonatomic) id<SearchCitiesPresenterDelegate> _Nullable delegate;
+
+@property (assign, nonatomic) SearchCitiesViewController * _Nullable searchCitiesView;
 @property (strong, nonatomic) SearchCitiesInteractor * _Nullable searchCitiesInteractor;
+@property (strong, nonatomic) SearchCitiesViewWireframe * _Nullable searchCitiesWireframe;
 
 #pragma mark - Presenter actions
-- (void)fetchCities;
+
+- (void)fetchCitiesWithSearchString:(NSString * _Nullable)searchString;
+- (void)didSelectCityDisplayData:(CityDisplayData * _Nonnull)cityDisplayData;
 
 @end

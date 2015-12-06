@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class ForecastViewInteractor, Forecast;
-@protocol ForecastViewInteractorDelegate
+@protocol ForecastViewInteractorDelegate <NSObject>
 
 - (void)forecastViewInteractor:(ForecastViewInteractor * _Nonnull)interactor didFetchForecast:(Forecast * _Nonnull)forecast;
 - (void)forecastViewInteractor:(ForecastViewInteractor * _Nonnull)interactor didFailFetchingForecastWithError:(NSError * _Nonnull)error;

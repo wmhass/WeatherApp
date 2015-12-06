@@ -19,8 +19,11 @@
 - (void)presentErrorMessage:(NSString * _Nonnull)message;
 - (void)displayForecastData:(ForecastDisplayData * _Nullable)displayData;
 - (void)displayCities:(CitiesListDisplayData * _Nonnull)citiesList;
+- (void)displayCity:(CityDisplayData * _Nonnull)cityDisplay;
 - (void)presentNoCitiesFoundMessage:(NSString * _Nonnull)message;
 - (void)reloadAllData;
-
+- (void)presentSearchCitiesView:(SearchCitiesViewController * _Nonnull)viewController;
+- (void)dismissSearchCitiesView;
+- (NSString * _Nullable)searchingCityString;
 
 @end

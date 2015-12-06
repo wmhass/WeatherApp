@@ -14,11 +14,12 @@
 #import "UIHourlyConditionTableViewHeaderView.h"
 #import "CityDisplayData.h"
 #import "CitiesListDisplayData.h"
+#import "SearchCitiesViewController.h"
 
 NSString * const ForecastViewSearchSegueIdentifier = @"search_segue";
 NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_header";
 
-@interface ForecastViewController () <UITableViewDataSource, UITableViewDelegate, UIHourlyConditionTableViewHeaderViewDataSource>
+@interface ForecastViewController () <UITableViewDataSource, UITableViewDelegate, UIHourlyConditionTableViewHeaderViewDataSource, UITextFieldDelegate>
 
 @property (strong, nonatomic) ForecastDisplayData * _Nullable displayData;
 @property (strong, nonatomic) CityDisplayData * _Nullable currentCity;
@@ -30,7 +31,13 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 @property (weak, nonatomic) IBOutlet UILabel *currentLocation;
 @property (weak, nonatomic) IBOutlet UILabel *currentWeatherDescription;
 @property (weak, nonatomic) IBOutlet UILabel *currentTemperature;
-
+@property (weak, nonatomic) IBOutlet UIButton *cancelSearchButton;
+@property (weak, nonatomic) IBOutlet UIButton *saveCityButton;
+@property (weak, nonatomic) IBOutlet UIButton *removeCityButton;
+@property (weak, nonatomic) IBOutlet UIView *searchCityContainer;
+@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchTextContainerTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchTextContainerBottomConstraint;
 @end
 
 @implementation ForecastViewController
@@ -57,7 +64,7 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 }
 
 - (void)displayCities:(CitiesListDisplayData * _Nonnull)citiesList {
-    self.noCitiesView.hidden = [citiesList numberOfCities] > 0;
+    self.noCitiesView.hidden = NO;
     self.citiesList = citiesList;
 }
 
@@ -70,6 +77,7 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 }
 
 - (void)displayForecastData:(ForecastDisplayData * _Nullable)displayData {
+    self.noCitiesView.hidden = YES;
     self.displayData = displayData;
     [self updateHeaderInformation];
 }
@@ -86,16 +94,83 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 }
 
 - (NSInteger)selectedMetric {
+    // TODO: Add control to select between celsius and farenheit
     return 0;
+}
+
+- (void)presentSearchCitiesView:(SearchCitiesViewController * _Nonnull)viewController {
+    [self addViewControllerToContainer:viewController];
+    [self raiseContainerViewAnimated];
+}
+
+- (void)dismissSearchCitiesView {
+    self.searchTextField.text = nil;
+    [self.searchTextField resignFirstResponder];
+    [self fallContainerViewAnimatedWithCompletion:^{
+        [self.searchCityContainer.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    }];
+}
+
+- (NSString * _Nullable)searchingCityString {
+    return self.searchTextField.text;
+}
+
+- (void)displayCity:(CityDisplayData * _Nonnull)cityDisplay {
+    if (cityDisplay == self.currentCity) {
+        [self updateHeaderInformation];
+    } else {
+        [self.citiesList addCityDisplayData:cityDisplay];
+        self.currentCity = cityDisplay;        
+    }
 }
 
 #pragma mark - Private
 
+- (void)raiseContainerViewAnimated {
+    [self.view layoutIfNeeded];
+    
+    self.searchTextContainerBottomConstraint.priority = UILayoutPriorityDefaultLow;
+    self.searchTextContainerTopConstraint.priority = UILayoutPriorityDefaultHigh;
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.cancelSearchButton.alpha = 1;
+        [self.view layoutIfNeeded];
+    } completion:nil];
+}
+
+- (void)fallContainerViewAnimatedWithCompletion:(void(^)(void))completion {
+    [self.view layoutIfNeeded];
+    
+    self.searchTextContainerBottomConstraint.priority = UILayoutPriorityDefaultHigh;
+    self.searchTextContainerTopConstraint.priority = UILayoutPriorityDefaultLow;
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        self.cancelSearchButton.alpha = 0;
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        if (completion) {
+            completion();
+        }
+    }];
+}
+
+- (void)addViewControllerToContainer:(UIViewController *)viewController {
+    [viewController willMoveToParentViewController:self];
+    viewController.view.frame = self.searchCityContainer.bounds;
+    viewController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    viewController.view.translatesAutoresizingMaskIntoConstraints = YES;
+    [self.searchCityContainer addSubview:viewController.view];
+    [self addChildViewController:viewController];
+    [viewController didMoveToParentViewController:self];
+}
+
 - (void)updateHeaderInformation {
     //TODO: Remove currentLocation from displayData, we already have this data in the currentCity property
-    self.currentLocation.text = [self.displayData currentLocation];
+    self.currentLocation.text = self.currentCity.description;
     self.currentTemperature.text = [self.displayData currentTemperature];
     self.currentWeatherDescription.text = [self.displayData currentWeatherDescription];
+    
+    BOOL cityIsSaved = self.currentCity.stored;
+    self.saveCityButton.hidden = cityIsSaved;
+    self.removeCityButton.hidden = !cityIsSaved;
 }
 
 - (void)setupTableView {
@@ -115,6 +190,24 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 - (void)setCurrentCity:(CityDisplayData *)currentCity {
     _currentCity = currentCity;
     [self updateHeaderInformation];
+}
+
+#pragma mark - IBActions
+
+- (IBAction)cancelButtonTouched:(id)sender {
+    [self.presenter cancelCitySearch];
+}
+
+- (IBAction)searchTextChanged:(id)sender {
+    [self.presenter citySearchTextChanged];
+}
+
+- (IBAction)btnSaveTouched:(id)sender {
+    [self.presenter saveCity];
+}
+
+- (IBAction)btnRemoveCityTouched:(id)sender {
+    [self.presenter removeCity];
 }
 
 #pragma mark - UITableViewDataSource
@@ -157,6 +250,13 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 
 - (ForecastHourlyConditionDisplayData *)hourlyConditionHeaderView:(UIHourlyConditionTableViewHeaderView *)haderView hourlyConditionDisplayDataAtIndex:(NSInteger)index {
     return [self.displayData hourlyConditionDisplayDataAtIndex:index];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    // The presenter will load the search view and ask this view to present the VC in its container
+    return [self.presenter canStartSearchingCity];
 }
 
 @end
