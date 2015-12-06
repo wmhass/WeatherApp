@@ -15,13 +15,8 @@
 		3D34301A1C0FF06200351C0F /* ForecastViewWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430191C0FF06200351C0F /* ForecastViewWireframe.m */; };
 		3D34301D1C1066F900351C0F /* ForecastViewInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D34301C1C1066F900351C0F /* ForecastViewInteractor.m */; };
 		3D3430211C10688F00351C0F /* ForecastDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430201C10688F00351C0F /* ForecastDataManager.m */; };
-		3D3430251C10774A00351C0F /* ForecastCurrentCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430241C10774A00351C0F /* ForecastCurrentCondition.m */; };
-		3D3430281C10775800351C0F /* ForecastHourlyCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430271C10775800351C0F /* ForecastHourlyCondition.m */; };
-		3D34302B1C10785A00351C0F /* ForecastWeatherDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D34302A1C10785A00351C0F /* ForecastWeatherDescription.m */; };
-		3D34302E1C1083A000351C0F /* ForecastUpcomingCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D34302D1C1083A000351C0F /* ForecastUpcomingCondition.m */; };
 		3D3430331C108CE400351C0F /* ForecastDataManagerParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430321C108CE400351C0F /* ForecastDataManagerParameters.m */; };
 		3D80EE391C1370B500ACE7AF /* SearchCitiesInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE381C1370B500ACE7AF /* SearchCitiesInteractor.m */; };
-		3D80EE3D1C1371BF00ACE7AF /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE3C1C1371BF00ACE7AF /* City.m */; };
 		3D80EE411C1378A900ACE7AF /* CityDisplayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE401C1378A900ACE7AF /* CityDisplayData.m */; };
 		3D80EE441C1379AB00ACE7AF /* CityDisplayDataCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE431C1379AB00ACE7AF /* CityDisplayDataCollector.m */; };
 		3D80EE471C137B5400ACE7AF /* SearchCitiesPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE461C137B5400ACE7AF /* SearchCitiesPresenter.m */; };
@@ -36,6 +31,12 @@
 		3D80EE6A1C14CB6C00ACE7AF /* search_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D80EE671C14CB6C00ACE7AF /* search_icon.png */; };
 		3D80EE6B1C14CB6C00ACE7AF /* search_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D80EE681C14CB6C00ACE7AF /* search_icon@2x.png */; };
 		3D80EE6C1C14CB6C00ACE7AF /* search_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D80EE691C14CB6C00ACE7AF /* search_icon@3x.png */; };
+		3D80EE771C14EB6800ACE7AF /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE701C14EB6800ACE7AF /* Forecast.m */; };
+		3D80EE781C14EB6800ACE7AF /* ForecastCurrentCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE721C14EB6800ACE7AF /* ForecastCurrentCondition.m */; };
+		3D80EE791C14EB6800ACE7AF /* ForecastUpcomingCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE741C14EB6800ACE7AF /* ForecastUpcomingCondition.m */; };
+		3D80EE7A1C14EB6800ACE7AF /* ForecastWeatherDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE761C14EB6800ACE7AF /* ForecastWeatherDescription.m */; };
+		3D80EE7D1C14EB8700ACE7AF /* ForecastHourlyCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE7C1C14EB8700ACE7AF /* ForecastHourlyCondition.m */; };
+		3D80EE811C14EBDF00ACE7AF /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE801C14EBDF00ACE7AF /* City.m */; };
 		3DD9571C1C128EB80027A63D /* UIUpcomingConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9571B1C128EB80027A63D /* UIUpcomingConditionTableViewCell.m */; };
 		3DD957201C12A4610027A63D /* UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9571F1C12A4610027A63D /* UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.m */; };
 		3DD957231C12A7A70027A63D /* UIHourlyConditionTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD957221C12A7A70027A63D /* UIHourlyConditionTableViewHeaderView.m */; };
@@ -49,7 +50,6 @@
 		3DF3B7BB1C0FDDA10024C06C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3B7BA1C0FDDA10024C06C /* Assets.xcassets */; };
 		3DF3B7BE1C0FDDA10024C06C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3B7BC1C0FDDA10024C06C /* LaunchScreen.storyboard */; };
 		3DF76D6A1C1147D100C181FA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DF76D691C1147D100C181FA /* Localizable.strings */; };
-		3DF76D701C114AB700C181FA /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF76D6F1C114AB700C181FA /* Forecast.m */; };
 		3DF76D761C11578600C181FA /* ForecastDisplayDataCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF76D751C11578600C181FA /* ForecastDisplayDataCollector.m */; };
 		3DF76D7A1C115A6B00C181FA /* ForecastUpcomingConditionDisplayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF76D791C115A6B00C181FA /* ForecastUpcomingConditionDisplayData.m */; };
 		3DF76D7E1C115A8300C181FA /* ForecastCurrentConditionDisplayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF76D7D1C115A8300C181FA /* ForecastCurrentConditionDisplayData.m */; };
@@ -87,20 +87,10 @@
 		3D34301C1C1066F900351C0F /* ForecastViewInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewInteractor.m; sourceTree = "<group>"; };
 		3D34301F1C10688F00351C0F /* ForecastDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastDataManager.h; sourceTree = "<group>"; };
 		3D3430201C10688F00351C0F /* ForecastDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastDataManager.m; sourceTree = "<group>"; };
-		3D3430231C10774A00351C0F /* ForecastCurrentCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastCurrentCondition.h; sourceTree = "<group>"; };
-		3D3430241C10774A00351C0F /* ForecastCurrentCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastCurrentCondition.m; sourceTree = "<group>"; };
-		3D3430261C10775800351C0F /* ForecastHourlyCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastHourlyCondition.h; sourceTree = "<group>"; };
-		3D3430271C10775800351C0F /* ForecastHourlyCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastHourlyCondition.m; sourceTree = "<group>"; };
-		3D3430291C10785A00351C0F /* ForecastWeatherDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastWeatherDescription.h; sourceTree = "<group>"; };
-		3D34302A1C10785A00351C0F /* ForecastWeatherDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastWeatherDescription.m; sourceTree = "<group>"; };
-		3D34302C1C1083A000351C0F /* ForecastUpcomingCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastUpcomingCondition.h; sourceTree = "<group>"; };
-		3D34302D1C1083A000351C0F /* ForecastUpcomingCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastUpcomingCondition.m; sourceTree = "<group>"; };
 		3D3430311C108CE400351C0F /* ForecastDataManagerParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastDataManagerParameters.h; sourceTree = "<group>"; };
 		3D3430321C108CE400351C0F /* ForecastDataManagerParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastDataManagerParameters.m; sourceTree = "<group>"; };
 		3D80EE371C1370B500ACE7AF /* SearchCitiesInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SearchCitiesInteractor.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		3D80EE381C1370B500ACE7AF /* SearchCitiesInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SearchCitiesInteractor.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		3D80EE3B1C1371BF00ACE7AF /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
-		3D80EE3C1C1371BF00ACE7AF /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		3D80EE3F1C1378A900ACE7AF /* CityDisplayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityDisplayData.h; sourceTree = "<group>"; };
 		3D80EE401C1378A900ACE7AF /* CityDisplayData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityDisplayData.m; sourceTree = "<group>"; };
 		3D80EE421C1379AB00ACE7AF /* CityDisplayDataCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityDisplayDataCollector.h; sourceTree = "<group>"; };
@@ -126,6 +116,18 @@
 		3D80EE671C14CB6C00ACE7AF /* search_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_icon.png; sourceTree = "<group>"; };
 		3D80EE681C14CB6C00ACE7AF /* search_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search_icon@2x.png"; sourceTree = "<group>"; };
 		3D80EE691C14CB6C00ACE7AF /* search_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search_icon@3x.png"; sourceTree = "<group>"; };
+		3D80EE6F1C14EB6800ACE7AF /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
+		3D80EE701C14EB6800ACE7AF /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
+		3D80EE711C14EB6800ACE7AF /* ForecastCurrentCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastCurrentCondition.h; sourceTree = "<group>"; };
+		3D80EE721C14EB6800ACE7AF /* ForecastCurrentCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastCurrentCondition.m; sourceTree = "<group>"; };
+		3D80EE731C14EB6800ACE7AF /* ForecastUpcomingCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastUpcomingCondition.h; sourceTree = "<group>"; };
+		3D80EE741C14EB6800ACE7AF /* ForecastUpcomingCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastUpcomingCondition.m; sourceTree = "<group>"; };
+		3D80EE751C14EB6800ACE7AF /* ForecastWeatherDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastWeatherDescription.h; sourceTree = "<group>"; };
+		3D80EE761C14EB6800ACE7AF /* ForecastWeatherDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastWeatherDescription.m; sourceTree = "<group>"; };
+		3D80EE7B1C14EB8700ACE7AF /* ForecastHourlyCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastHourlyCondition.h; sourceTree = "<group>"; };
+		3D80EE7C1C14EB8700ACE7AF /* ForecastHourlyCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastHourlyCondition.m; sourceTree = "<group>"; };
+		3D80EE7F1C14EBDF00ACE7AF /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		3D80EE801C14EBDF00ACE7AF /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		3DD9571A1C128EB80027A63D /* UIUpcomingConditionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUpcomingConditionTableViewCell.h; sourceTree = "<group>"; };
 		3DD9571B1C128EB80027A63D /* UIUpcomingConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUpcomingConditionTableViewCell.m; sourceTree = "<group>"; };
 		3DD9571E1C12A4610027A63D /* UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.h"; sourceTree = "<group>"; };
@@ -149,8 +151,6 @@
 		3DF3B7C41C0FDDA10024C06C /* WeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF3B7CA1C0FDDA10024C06C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DF76D691C1147D100C181FA /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		3DF76D6E1C114AB700C181FA /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
-		3DF76D6F1C114AB700C181FA /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
 		3DF76D741C11578600C181FA /* ForecastDisplayDataCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastDisplayDataCollector.h; sourceTree = "<group>"; };
 		3DF76D751C11578600C181FA /* ForecastDisplayDataCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastDisplayDataCollector.m; sourceTree = "<group>"; };
 		3DF76D781C115A6B00C181FA /* ForecastUpcomingConditionDisplayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastUpcomingConditionDisplayData.h; sourceTree = "<group>"; };
@@ -207,13 +207,14 @@
 			children = (
 				3D80EE521C13B2A500ACE7AF /* UI */,
 				3D80EE3E1C13789800ACE7AF /* DisplayData */,
-				3D80EE361C13630B00ACE7AF /* Data */,
 				3D3430031C0FDFB700351C0F /* SearchCitiesViewController.h */,
 				3D3430041C0FDFB700351C0F /* SearchCitiesViewController.m */,
 				3D80EE451C137B5400ACE7AF /* SearchCitiesPresenter.h */,
 				3D80EE461C137B5400ACE7AF /* SearchCitiesPresenter.m */,
 				3D80EE4F1C13A0B700ACE7AF /* SearchCitiesViewWireframe.h */,
 				3D80EE501C13A0B700ACE7AF /* SearchCitiesViewWireframe.m */,
+				3D80EE371C1370B500ACE7AF /* SearchCitiesInteractor.h */,
+				3D80EE381C1370B500ACE7AF /* SearchCitiesInteractor.m */,
 			);
 			path = SearchCities;
 			sourceTree = "<group>";
@@ -245,45 +246,8 @@
 				3D3430201C10688F00351C0F /* ForecastDataManager.m */,
 				3D3430311C108CE400351C0F /* ForecastDataManagerParameters.h */,
 				3D3430321C108CE400351C0F /* ForecastDataManagerParameters.m */,
-				3D3430221C10773800351C0F /* Models */,
 			);
 			name = Data;
-			sourceTree = "<group>";
-		};
-		3D3430221C10773800351C0F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				3D3430231C10774A00351C0F /* ForecastCurrentCondition.h */,
-				3D3430241C10774A00351C0F /* ForecastCurrentCondition.m */,
-				3D3430261C10775800351C0F /* ForecastHourlyCondition.h */,
-				3D3430271C10775800351C0F /* ForecastHourlyCondition.m */,
-				3D34302C1C1083A000351C0F /* ForecastUpcomingCondition.h */,
-				3D34302D1C1083A000351C0F /* ForecastUpcomingCondition.m */,
-				3D3430291C10785A00351C0F /* ForecastWeatherDescription.h */,
-				3D34302A1C10785A00351C0F /* ForecastWeatherDescription.m */,
-				3DF76D6E1C114AB700C181FA /* Forecast.h */,
-				3DF76D6F1C114AB700C181FA /* Forecast.m */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		3D80EE361C13630B00ACE7AF /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				3D80EE3A1C1371B400ACE7AF /* Models */,
-				3D80EE371C1370B500ACE7AF /* SearchCitiesInteractor.h */,
-				3D80EE381C1370B500ACE7AF /* SearchCitiesInteractor.m */,
-			);
-			name = Data;
-			sourceTree = "<group>";
-		};
-		3D80EE3A1C1371B400ACE7AF /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				3D80EE3B1C1371BF00ACE7AF /* City.h */,
-				3D80EE3C1C1371BF00ACE7AF /* City.m */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		3D80EE3E1C13789800ACE7AF /* DisplayData */ = {
@@ -311,26 +275,61 @@
 		3D80EE561C13EF6900ACE7AF /* SavedCities */ = {
 			isa = PBXGroup;
 			children = (
-				3D80EE5A1C13FEE800ACE7AF /* Data */,
+				3D80EE5A1C13FEE800ACE7AF /* DataManager */,
 				3D80EE5E1C140D5400ACE7AF /* SavedCitiesViewController.h */,
 				3D80EE5F1C140D5400ACE7AF /* SavedCitiesViewController.m */,
 				3D80EE611C14127600ACE7AF /* SavedCitiesPresenter.h */,
 				3D80EE621C14127600ACE7AF /* SavedCitiesPresenter.m */,
 				3D80EE641C1417B600ACE7AF /* SavedCitiesWireframe.h */,
 				3D80EE651C1417B600ACE7AF /* SavedCitiesWireframe.m */,
+				3D80EE5B1C13FF2E00ACE7AF /* SavedCitiesInteractor.h */,
+				3D80EE5C1C13FF2E00ACE7AF /* SavedCitiesInteractor.m */,
 			);
 			path = SavedCities;
 			sourceTree = "<group>";
 		};
-		3D80EE5A1C13FEE800ACE7AF /* Data */ = {
+		3D80EE5A1C13FEE800ACE7AF /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
 				3D80EE571C13FEE600ACE7AF /* SavedCitiesDataManager.h */,
 				3D80EE581C13FEE600ACE7AF /* SavedCitiesDataManager.m */,
-				3D80EE5B1C13FF2E00ACE7AF /* SavedCitiesInteractor.h */,
-				3D80EE5C1C13FF2E00ACE7AF /* SavedCitiesInteractor.m */,
 			);
-			name = Data;
+			name = DataManager;
+			sourceTree = "<group>";
+		};
+		3D80EE6D1C14EACF00ACE7AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3D80EE7E1C14EB9500ACE7AF /* City */,
+				3D80EE6E1C14EB4200ACE7AF /* Forecast */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3D80EE6E1C14EB4200ACE7AF /* Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				3D80EE7B1C14EB8700ACE7AF /* ForecastHourlyCondition.h */,
+				3D80EE7C1C14EB8700ACE7AF /* ForecastHourlyCondition.m */,
+				3D80EE6F1C14EB6800ACE7AF /* Forecast.h */,
+				3D80EE701C14EB6800ACE7AF /* Forecast.m */,
+				3D80EE711C14EB6800ACE7AF /* ForecastCurrentCondition.h */,
+				3D80EE721C14EB6800ACE7AF /* ForecastCurrentCondition.m */,
+				3D80EE731C14EB6800ACE7AF /* ForecastUpcomingCondition.h */,
+				3D80EE741C14EB6800ACE7AF /* ForecastUpcomingCondition.m */,
+				3D80EE751C14EB6800ACE7AF /* ForecastWeatherDescription.h */,
+				3D80EE761C14EB6800ACE7AF /* ForecastWeatherDescription.m */,
+			);
+			path = Forecast;
+			sourceTree = "<group>";
+		};
+		3D80EE7E1C14EB9500ACE7AF /* City */ = {
+			isa = PBXGroup;
+			children = (
+				3D80EE7F1C14EBDF00ACE7AF /* City.h */,
+				3D80EE801C14EBDF00ACE7AF /* City.m */,
+			);
+			path = City;
 			sourceTree = "<group>";
 		};
 		3DD957161C1287130027A63D /* Images */ = {
@@ -394,6 +393,7 @@
 		3DF3B7AD1C0FDDA10024C06C /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				3D80EE6D1C14EACF00ACE7AF /* Models */,
 				3DF76D8B1C11D33F00C181FA /* Categories */,
 				3D34300A1C0FE19A00351C0F /* Helpers */,
 				3D3430061C0FE00900351C0F /* Resources */,
@@ -641,20 +641,18 @@
 				3D80EE391C1370B500ACE7AF /* SearchCitiesInteractor.m in Sources */,
 				3D80EE411C1378A900ACE7AF /* CityDisplayData.m in Sources */,
 				3DD957231C12A7A70027A63D /* UIHourlyConditionTableViewHeaderView.m in Sources */,
-				3D3430251C10774A00351C0F /* ForecastCurrentCondition.m in Sources */,
 				3DD957291C12AFBF0027A63D /* UIHourlyConditionCollectionViewCell.m in Sources */,
 				3D80EE511C13A0B700ACE7AF /* SearchCitiesViewWireframe.m in Sources */,
 				3D80EE5D1C13FF2E00ACE7AF /* SavedCitiesInteractor.m in Sources */,
 				3DD9571C1C128EB80027A63D /* UIUpcomingConditionTableViewCell.m in Sources */,
 				3D34301D1C1066F900351C0F /* ForecastViewInteractor.m in Sources */,
 				3D3430331C108CE400351C0F /* ForecastDataManagerParameters.m in Sources */,
+				3D80EE811C14EBDF00ACE7AF /* City.m in Sources */,
 				3DD9572D1C12B2760027A63D /* UIHourlyConditionCollectionViewCell+ForecastHourlyConditionDisplayData.m in Sources */,
-				3D34302E1C1083A000351C0F /* ForecastUpcomingCondition.m in Sources */,
 				3D80EE631C14127600ACE7AF /* SavedCitiesPresenter.m in Sources */,
 				3DF76D811C115A9300C181FA /* ForecastDisplayData.m in Sources */,
-				3D34302B1C10785A00351C0F /* ForecastWeatherDescription.m in Sources */,
+				3D80EE7D1C14EB8700ACE7AF /* ForecastHourlyCondition.m in Sources */,
 				3D80EE551C13B2BD00ACE7AF /* UICityTableViewCell.m in Sources */,
-				3D3430281C10775800351C0F /* ForecastHourlyCondition.m in Sources */,
 				3D3430171C0FEBA600351C0F /* ForecastViewPresenter.m in Sources */,
 				3DF76D8A1C11CE5D00C181FA /* ForecastHourlyConditionDisplayData.m in Sources */,
 				3DF76D7A1C115A6B00C181FA /* ForecastUpcomingConditionDisplayData.m in Sources */,
@@ -662,13 +660,14 @@
 				3DF76D911C11D39600C181FA /* NSNumber+TemperatureFormatter.m in Sources */,
 				3D80EE661C1417B600ACE7AF /* SavedCitiesWireframe.m in Sources */,
 				3D3430051C0FDFB700351C0F /* SearchCitiesViewController.m in Sources */,
-				3DF76D701C114AB700C181FA /* Forecast.m in Sources */,
 				3D80EE441C1379AB00ACE7AF /* CityDisplayDataCollector.m in Sources */,
 				3D34300D1C0FE1B500351C0F /* AppStoryboard.m in Sources */,
 				3DD957201C12A4610027A63D /* UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.m in Sources */,
+				3D80EE771C14EB6800ACE7AF /* Forecast.m in Sources */,
 				3D34301A1C0FF06200351C0F /* ForecastViewWireframe.m in Sources */,
+				3D80EE791C14EB6800ACE7AF /* ForecastUpcomingCondition.m in Sources */,
 				3D342FF71C0FDEC700351C0F /* ForecastViewController.m in Sources */,
-				3D80EE3D1C1371BF00ACE7AF /* City.m in Sources */,
+				3D80EE781C14EB6800ACE7AF /* ForecastCurrentCondition.m in Sources */,
 				3D3430091C0FE06900351C0F /* AppWireframe.m in Sources */,
 				3D80EE601C140D5400ACE7AF /* SavedCitiesViewController.m in Sources */,
 				3D80EE4A1C137CF500ACE7AF /* CitiesListDisplayData.m in Sources */,
@@ -677,6 +676,7 @@
 				3D3430211C10688F00351C0F /* ForecastDataManager.m in Sources */,
 				3DF76D761C11578600C181FA /* ForecastDisplayDataCollector.m in Sources */,
 				3DF76D7E1C115A8300C181FA /* ForecastCurrentConditionDisplayData.m in Sources */,
+				3D80EE7A1C14EB6800ACE7AF /* ForecastWeatherDescription.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
