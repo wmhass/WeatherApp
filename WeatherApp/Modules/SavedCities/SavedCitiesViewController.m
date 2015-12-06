@@ -12,6 +12,8 @@
 #import "CityDisplayData.h"
 #import "SavedCitiesPresenter.h"
 
+NSString * const SavedCitiesViewControllerIdentifier = @"SavedCitiesViewController";
+
 @interface SavedCitiesViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

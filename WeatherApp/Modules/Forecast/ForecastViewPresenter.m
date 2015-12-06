@@ -105,9 +105,8 @@
     [self.forecastView displayCity:selectedCity];
 }
 
-- (void)willPresentMyCitiesView:(SavedCitiesViewController * )viewController {
-    viewController.presenter.delegate = self;
-    [self.forecastWireframe willPresentSavedCitiesView:viewController];
+- (void)presentMyCities {
+    [self.savedCitiesWireframe presentInViewControllerContext:self.forecastView delegate:self];
 }
 
 #pragma mark - Private

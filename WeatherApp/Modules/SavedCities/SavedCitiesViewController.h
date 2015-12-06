@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString * const SavedCitiesViewControllerIdentifier;
+
 @class SavedCitiesPresenter, CitiesListDisplayData;
 @interface SavedCitiesViewController : UIViewController
 

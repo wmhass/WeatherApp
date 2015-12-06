@@ -8,8 +8,8 @@
 
 #import "SavedCitiesWireframe.h"
 #import "SavedCitiesViewController.h"
-#import "SavedCitiesPresenter.h"
 #import "SavedCitiesInteractor.h"
+#import "AppStoryboard.h"
 
 @interface SavedCitiesWireframe()
 
@@ -21,11 +21,16 @@
 
 #pragma mark - Public
 
-- (void)setupSavedCitiesView:(SavedCitiesViewController * )savedCitiesView {
+- (void)presentInViewControllerContext:(UIViewController *)context delegate:(id<SavedCitiesPresenterDelegate>)delegate {
+    SavedCitiesViewController *savedCitiesView = (SavedCitiesViewController *)[[AppStoryboard sharedInstance] viewControllerWithIdentifier:SavedCitiesViewControllerIdentifier];
+    
     savedCitiesView.presenter = [[SavedCitiesPresenter alloc] init];
+    savedCitiesView.presenter.delegate = delegate;
     savedCitiesView.presenter.savedCitiesView = savedCitiesView;
     savedCitiesView.presenter.savedCitiesWireframe = self;
     savedCitiesView.presenter.savedCitiesInteractor = [[SavedCitiesInteractor alloc] init];
+    
+    [context presentViewController:savedCitiesView animated:YES completion:nil];
     
     self.presentingView = savedCitiesView;
 }

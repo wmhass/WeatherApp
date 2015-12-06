@@ -6,12 +6,12 @@
 //  Copyright © 2015 William Hass. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "SavedCitiesPresenter.h"
 
-@class SavedCitiesViewController;
 @interface SavedCitiesWireframe : NSObject
 
-- (void)setupSavedCitiesView:(SavedCitiesViewController * )savedCitiesView;
+- (void)presentInViewControllerContext:(UIViewController *)context delegate:(id<SavedCitiesPresenterDelegate>)delegate;
 - (void)closeView;
 
 @end

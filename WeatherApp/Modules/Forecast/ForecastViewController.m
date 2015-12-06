@@ -16,7 +16,6 @@
 #import "CitiesListDisplayData.h"
 #import "SearchCitiesViewController.h"
 
-NSString * const ForecastViewMyCitiesSegue = @"my_cities_segue";
 NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_header";
 
 @interface ForecastViewController () <UITableViewDataSource, UITableViewDelegate, UIHourlyConditionTableViewHeaderViewDataSource, UITextFieldDelegate>
@@ -57,13 +56,6 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [super prepareForSegue:segue sender:sender];
-    if ([segue.identifier isEqualToString:ForecastViewMyCitiesSegue]) {
-        [self.presenter willPresentMyCitiesView:(SavedCitiesViewController *)segue.destinationViewController];
-    }
 }
 
 
@@ -202,6 +194,10 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 
 - (IBAction)btnRemoveCityTouched:(id)sender {
     [self.presenter removeCity];
+}
+
+- (IBAction)btnMyCitiesTouched:(id)sender {
+    [self.presenter presentMyCities];
 }
 
 #pragma mark - UITableViewDataSource
