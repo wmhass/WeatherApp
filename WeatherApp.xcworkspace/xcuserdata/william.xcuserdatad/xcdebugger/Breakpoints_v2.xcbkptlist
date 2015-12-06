@@ -6,32 +6,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WeatherApp/Modules/SearchCities/SearchCitiesViewController.m"
-            timestampString = "471059195.585922"
+            filePath = "WeatherApp/Modules/Forecast/ForecastViewPresenter.m"
+            timestampString = "471114110.842093"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-displayData:"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "-init"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WeatherApp/Modules/SearchCities/SearchCitiesViewController.m"
-            timestampString = "471059195.585922"
+            filePath = "WeatherApp/Modules/Forecast/ForecastViewPresenter.m"
+            timestampString = "471114118.62714"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "-displayNoCitiesFound"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-doInitialLoad"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

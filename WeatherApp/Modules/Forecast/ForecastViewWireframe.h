@@ -12,7 +12,7 @@
 
 @interface ForecastViewWireframe : NSObject
 
-@property (strong, nonatomic) SavedCitiesWireframe * _Nonnull savedCitiesWireframe;
+@property (strong, nonatomic) SavedCitiesWireframe * _Nullable savedCitiesWireframe;
 
 - (void)launchViewInWindow:(UIWindow * _Nonnull)window;
 - (void)willPresentSavedCitiesView:(SavedCitiesViewController * _Nonnull)savedCitiesView;

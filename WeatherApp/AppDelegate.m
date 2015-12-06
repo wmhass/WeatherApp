@@ -11,6 +11,8 @@
 
 @interface AppDelegate ()
 
+@property (strong, nonatomic) AppWireframe * _Nullable appWireframe;
+
 @end
 
 @implementation AppDelegate
@@ -24,7 +26,9 @@
     
     AppWireframe *wireframe = [[AppWireframe alloc] init];
     [wireframe installRootViewInWindow:self.window];
-
+    
+    self.appWireframe = wireframe;
+    
     return YES;
 }
 

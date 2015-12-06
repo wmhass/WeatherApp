@@ -27,7 +27,7 @@
 }
 
 - (void)didSelectCityDisplay:(CityDisplayData * _Nonnull)cityDisplayData {
-    // TODO: Tells delegate
+    [self.delegate savedCitiesPresenter:self didSelectCityDisplay:cityDisplayData];
     [self.savedCitiesWireframe closeView];
 }
 

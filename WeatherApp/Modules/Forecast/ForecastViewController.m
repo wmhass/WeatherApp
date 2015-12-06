@@ -45,9 +45,13 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 #pragma mark - Lifecycle
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewDidLoad];
+    [super viewWillAppear:animated];
     [self setupTableView];
-    [self.presenter doInitialLoad];
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self.presenter doInitialLoad];
+    });
 }
 
 

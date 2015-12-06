@@ -9,7 +9,7 @@
 #import "ForecastDataManager.h"
 #import <AFNetworking/AFNetworking.h>
 
-NSString * const APIKey = @"e09a42c0b1e877e6738cf26aa20ca";
+NSString * const APIKey = @"9702c27797d0afe90e0b3b165c404";
 NSString * const APIURI = @"http://api.worldweatheronline.com/free";
 NSString * const APIVersion = @"v2";
 NSString * const APIWeatherEndPoint = @"weather.ashx";

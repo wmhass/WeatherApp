@@ -8,8 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@class SavedCitiesViewController, SavedCitiesInteractor, CityDisplayData, SavedCitiesWireframe;
+@class SavedCitiesViewController, SavedCitiesInteractor, CityDisplayData, SavedCitiesWireframe, SavedCitiesPresenter;
+
+@protocol SavedCitiesPresenterDelegate <NSObject>
+
+- (void)savedCitiesPresenter:(SavedCitiesPresenter * _Nonnull)presenter didSelectCityDisplay:(CityDisplayData * _Nonnull)cityDisplayData;
+
+@end
+
 @interface SavedCitiesPresenter : NSObject
+
+@property (weak, nonatomic) id<SavedCitiesPresenterDelegate> _Nullable delegate;
 
 @property (weak, nonatomic) SavedCitiesViewController * _Nullable savedCitiesView;
 @property (strong, nonatomic) SavedCitiesInteractor * _Nullable savedCitiesInteractor;

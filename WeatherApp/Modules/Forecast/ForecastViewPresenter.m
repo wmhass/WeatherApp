@@ -20,10 +20,11 @@
 #import "SearchCitiesViewController.h"
 #import "CitiesListDisplayData.h"
 #import "SavedCitiesInteractor.h"
-
+#import "SavedCitiesViewController.h"
+#import "SavedCitiesPresenter.h"
 #import "SavedCitiesWireframe.h"
 
-@interface ForecastViewPresenter() <SearchCitiesPresenterDelegate>
+@interface ForecastViewPresenter() <SearchCitiesPresenterDelegate, SavedCitiesPresenterDelegate>
 
 @property (strong, nonatomic) SavedCitiesInteractor * _Nonnull savedCitiesInteractor;
 @property (weak, nonatomic) SearchCitiesPresenter * _Nullable searchCitiesPresenter;
@@ -105,7 +106,7 @@
 }
 
 - (void)willPresentMyCitiesView:(SavedCitiesViewController * _Nonnull)viewController {
-    self.forecastWireframe.savedCitiesWireframe = [[SavedCitiesWireframe alloc] init];
+    viewController.presenter.delegate = self;
     [self.forecastWireframe willPresentSavedCitiesView:viewController];
 }
 
@@ -152,10 +153,17 @@
 
 - (void)searchCitiesPresenter:(SearchCitiesPresenter * _Nonnull)presenter didSelectCityDisplayData:(CityDisplayData * _Nonnull)cityDisplayData {
     
-    [self.forecastInteractor loadForecastForLatitude:cityDisplayData.latitude longitude:cityDisplayData.longitude];
     [self.forecastView displayCity:cityDisplayData];
+    [self refreshForecast];
     [self.forecastView dismissSearchCitiesView];
     
+}
+
+#pragma mark - SavedCitiesPresenterDelegate
+
+- (void)savedCitiesPresenter:(SavedCitiesPresenter *)presenter didSelectCityDisplay:(CityDisplayData *)cityDisplayData {
+    [self.forecastView displayCity:cityDisplayData];
+    [self refreshForecast];
 }
 
 @end
