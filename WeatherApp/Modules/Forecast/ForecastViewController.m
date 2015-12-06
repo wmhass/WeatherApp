@@ -37,6 +37,7 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchTextContainerTopConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchTextContainerBottomConstraint;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *metricsSegmentedControl;
 @end
 
 @implementation ForecastViewController
@@ -89,8 +90,7 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 }
 
 - (NSInteger)selectedMetric {
-    // TODO: Add control to select between celsius and farenheit
-    return 0;
+    return self.metricsSegmentedControl.selectedSegmentIndex;
 }
 
 - (void)presentSearchCitiesView:(SearchCitiesViewController * _Nonnull)viewController {
@@ -172,6 +172,10 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 }
 
 #pragma mark - IBActions
+
+- (IBAction)segmentedControlValueChanged:(id)sender {
+    [self.presenter metricValueChanged];
+}
 
 - (IBAction)cancelButtonTouched:(id)sender {
     [self.presenter cancelCitySearch];

@@ -201,8 +201,8 @@
                                             <action selector="btnSaveTouched:" destination="tdT-Ol-YMV" eventType="touchUpInside" id="G56-6Y-QV5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYq-kz-34G" userLabel="Remove city button">
-                                        <rect key="frame" x="277" y="150" width="46" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYq-kz-34G" userLabel="Remove city button">
+                                        <rect key="frame" x="258" y="150" width="84" height="30"/>
                                         <animations/>
                                         <state key="normal" title="Remove city"/>
                                         <connections>
@@ -231,6 +231,17 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GLH-16-Jl1">
+                                <rect key="frame" x="276" y="512" width="49" height="29"/>
+                                <animations/>
+                                <segments>
+                                    <segment title="C"/>
+                                    <segment title="F"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlValueChanged:" destination="tdT-Ol-YMV" eventType="valueChanged" id="T3D-fd-mpV"/>
+                                </connections>
+                            </segmentedControl>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFT-oz-bCu" userLabel="No cities view">
                                 <rect key="frame" x="0.0" y="200" width="600" height="350"/>
                                 <subviews>
@@ -251,6 +262,11 @@
                                     <constraint firstItem="yD1-vk-yo9" firstAttribute="centerY" secondItem="qFT-oz-bCu" secondAttribute="centerY" id="ut5-OZ-hOa"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLo-vg-57h">
+                                <rect key="frame" x="513" y="511" width="62" height="30"/>
+                                <animations/>
+                                <state key="normal" title="My cities"/>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FYP-ah-EdJ" userLabel="Search field container">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
                                 <subviews>
@@ -300,6 +316,8 @@
                         <color key="backgroundColor" red="0.30588235289999999" green="0.67843137249999996" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="t8c-5X-Ju0" firstAttribute="height" secondItem="Itx-Dx-4nT" secondAttribute="height" id="4f6-w1-ykr"/>
+                            <constraint firstItem="cQX-Hh-RQR" firstAttribute="top" secondItem="GLH-16-Jl1" secondAttribute="bottom" constant="60" id="4o0-k3-Rgf"/>
+                            <constraint firstItem="XLo-vg-57h" firstAttribute="centerY" secondItem="GLH-16-Jl1" secondAttribute="centerY" id="CaD-Am-Mfo"/>
                             <constraint firstItem="t8c-5X-Ju0" firstAttribute="top" secondItem="FYP-ah-EdJ" secondAttribute="bottom" id="CeB-Hf-UwL"/>
                             <constraint firstItem="cQX-Hh-RQR" firstAttribute="top" secondItem="qFT-oz-bCu" secondAttribute="bottom" constant="50" id="I6C-FT-g0E"/>
                             <constraint firstAttribute="trailing" secondItem="t8c-5X-Ju0" secondAttribute="trailing" id="MXp-l9-c3V"/>
@@ -316,6 +334,8 @@
                             <constraint firstItem="iyz-z2-grw" firstAttribute="top" secondItem="z8S-nF-B03" secondAttribute="bottom" constant="120" id="jSp-Gj-IiL"/>
                             <constraint firstItem="vyR-ht-Gvf" firstAttribute="leading" secondItem="Itx-Dx-4nT" secondAttribute="leading" id="ryo-Oa-NJO"/>
                             <constraint firstAttribute="trailing" secondItem="vyR-ht-Gvf" secondAttribute="trailing" id="tu9-Ly-yZB"/>
+                            <constraint firstItem="GLH-16-Jl1" firstAttribute="centerX" secondItem="Itx-Dx-4nT" secondAttribute="centerX" id="v61-ML-bKY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XLo-vg-57h" secondAttribute="trailing" constant="5" id="wv6-1K-VAC"/>
                             <constraint firstAttribute="topMargin" secondItem="vyR-ht-Gvf" secondAttribute="top" id="ygE-Bo-NY6"/>
                             <constraint firstAttribute="trailing" secondItem="FYP-ah-EdJ" secondAttribute="trailing" id="zPV-wr-FoK"/>
                         </constraints>
@@ -326,6 +346,7 @@
                         <outlet property="currentTemperature" destination="Iw8-YI-jFZ" id="Chv-aM-CeJ"/>
                         <outlet property="currentWeatherDescription" destination="Ap3-C9-jNP" id="UY2-Fz-1Yj"/>
                         <outlet property="headerView" destination="vyR-ht-Gvf" id="ft6-na-JN7"/>
+                        <outlet property="metricsSegmentedControl" destination="GLH-16-Jl1" id="Xb8-hp-yPj"/>
                         <outlet property="noCitiesView" destination="qFT-oz-bCu" id="PvE-S8-2x0"/>
                         <outlet property="noCitiesViewLabel" destination="yD1-vk-yo9" id="EKI-Sk-IPa"/>
                         <outlet property="removeCityButton" destination="VYq-kz-34G" id="D58-5O-MI3"/>

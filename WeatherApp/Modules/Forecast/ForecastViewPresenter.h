@@ -26,4 +26,6 @@
 - (void)citySearchTextChanged;
 - (void)saveCity;
 - (void)removeCity;
+- (void)metricValueChanged;
+
 @end

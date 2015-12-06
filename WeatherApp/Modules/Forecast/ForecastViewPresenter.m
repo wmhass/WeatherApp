@@ -21,7 +21,7 @@
 #import "CitiesListDisplayData.h"
 #import "SavedCitiesInteractor.h"
 
-@interface ForecastViewPresenter() <SearchCitiesInteractorDelegate, SearchCitiesPresenterDelegate>
+@interface ForecastViewPresenter() <SearchCitiesPresenterDelegate>
 
 @property (strong, nonatomic) SavedCitiesInteractor * _Nonnull savedCitiesInteractor;
 @property (weak, nonatomic) SearchCitiesPresenter * _Nullable searchCitiesPresenter;
@@ -30,10 +30,6 @@
 
 @implementation ForecastViewPresenter
 
-/*- (NSError *)noCitiesError {
-    NSString *message = NSLocalizedString(@"NO_CITIES_MESSAGE", nil);
-    return [[NSError alloc] initWithDomain:@"com.interactor" code:0 userInfo:@{NSLocalizedDescriptionKey: message}];
-}*/
 
 #pragma mark - Initializer
 
@@ -55,7 +51,7 @@
 - (void)reloadViewData {
 
     NSArray *cities = [self.savedCitiesInteractor loadSavedCities];
-    
+
     if (cities.count > 0) {
         
         CityDisplayDataCollector *dataCollector = [[CityDisplayDataCollector alloc] init];
@@ -63,12 +59,15 @@
         CityDisplayData *firstCity = [[dataCollector collectedData] cityDisplayDataAtIndex:0];
         
         [self.forecastView displayCity:firstCity];
-        [self.forecastInteractor loadForecastForLatitude:firstCity.latitude longitude:firstCity.longitude];
-        
+        [self refreshForecast];
+
     } else {
         [self.forecastView presentNoCitiesFoundMessage:NSLocalizedString(@"NO_CITIES_MESSAGE", nil)];
     }
-    
+}
+
+- (void)metricValueChanged {
+    [self refreshForecast];
 }
 
 - (BOOL)canStartSearchingCity {
@@ -104,6 +103,11 @@
 }
 
 #pragma mark - Private
+
+- (void)refreshForecast {
+    CityDisplayData *displayingCity = [self.forecastView presentingCity];
+    [self.forecastInteractor loadForecastForLatitude:displayingCity.latitude longitude:displayingCity.longitude];
+}
 
 - (void)holdSearchPresenter:(SearchCitiesPresenter *)presenter {
     presenter.delegate = self;
