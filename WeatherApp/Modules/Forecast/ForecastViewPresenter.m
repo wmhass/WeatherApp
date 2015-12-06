@@ -21,6 +21,8 @@
 #import "CitiesListDisplayData.h"
 #import "SavedCitiesInteractor.h"
 
+#import "SavedCitiesWireframe.h"
+
 @interface ForecastViewPresenter() <SearchCitiesPresenterDelegate>
 
 @property (strong, nonatomic) SavedCitiesInteractor * _Nonnull savedCitiesInteractor;
@@ -100,6 +102,11 @@
     if(!selectedCity.saved) { return; }
     selectedCity.saved = ![self.savedCitiesInteractor removeCity:selectedCity.referencedModel];
     [self.forecastView displayCity:selectedCity];
+}
+
+- (void)willPresentMyCitiesView:(SavedCitiesViewController * _Nonnull)viewController {
+    self.forecastWireframe.savedCitiesWireframe = [[SavedCitiesWireframe alloc] init];
+    [self.forecastWireframe willPresentSavedCitiesView:viewController];
 }
 
 #pragma mark - Private

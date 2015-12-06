@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ForecastViewInteractor.h"
 
-@class ForecastViewController, ForecastViewWireframe, ForecastViewInteractor, UIStoryboardSegue;
+@class ForecastViewController, ForecastViewWireframe, ForecastViewInteractor, UIStoryboardSegue, SavedCitiesViewController;
 
 @interface ForecastViewPresenter : NSObject <ForecastViewInteractorDelegate>
 
@@ -27,5 +27,6 @@
 - (void)saveCity;
 - (void)removeCity;
 - (void)metricValueChanged;
+- (void)willPresentMyCitiesView:(SavedCitiesViewController * _Nonnull)viewController;
 
 @end

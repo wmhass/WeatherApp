@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class SearchCitiesViewController;
+@class SavedCitiesViewController, SavedCitiesWireframe;
+
 @interface ForecastViewWireframe : NSObject
 
-- (void)launchViewInWindow:(UIWindow *)window;
+@property (strong, nonatomic) SavedCitiesWireframe * _Nonnull savedCitiesWireframe;
+
+- (void)launchViewInWindow:(UIWindow * _Nonnull)window;
+- (void)willPresentSavedCitiesView:(SavedCitiesViewController * _Nonnull)savedCitiesView;
 
 @end

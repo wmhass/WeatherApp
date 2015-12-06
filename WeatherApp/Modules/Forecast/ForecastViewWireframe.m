@@ -10,11 +10,14 @@
 #import "ForecastViewController.h"
 #import "ForecastViewInteractor.h"
 #import "ForecastViewPresenter.h"
+
+#import "SavedCitiesWireframe.h"
+
 #import "AppStoryboard.h"
 
 @interface ForecastViewWireframe()
 
-@property (weak, nonatomic) ForecastViewController *presentingView;
+@property (weak, nonatomic) ForecastViewController * _Nullable presentingView;
 
 @end
 
@@ -22,7 +25,7 @@
 
 #pragma mark - Public
 
-- (void)launchViewInWindow:(UIWindow *)window {
+- (void)launchViewInWindow:(UIWindow *_Nonnull)window {
     
     ForecastViewController *forecastView = (ForecastViewController *)[[AppStoryboard sharedInstance] initialViewController];
     forecastView.presenter = [[ForecastViewPresenter alloc] init];
@@ -31,9 +34,13 @@
     forecastView.presenter.forecastInteractor = [[ForecastViewInteractor alloc] init];
     forecastView.presenter.forecastInteractor.delegate = forecastView.presenter;
     
-    window.rootViewController = forecastView;
-    
     self.presentingView = forecastView;
+    
+    window.rootViewController = forecastView;
+}
+
+- (void)willPresentSavedCitiesView:(SavedCitiesViewController *_Nonnull)savedCitiesView {
+    [self.savedCitiesWireframe setupSavedCitiesView:savedCitiesView];
 }
 
 @end
