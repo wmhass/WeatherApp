@@ -34,33 +34,15 @@
 - (void)searchCitiesWithSearchString:(NSString * )searchString {
     
     __weak SearchCitiesInteractor *weakSelf = self;
-    [self.dataManager fetchCitiesWithSearch:searchString withCompletion:^(NSDictionary *  response, NSError *  error) {
+    [self.dataManager fetchCitiesWithSearch:searchString withCompletion:^(NSArray <City *> * cities, NSError *  error) {
 
         if (error) {
             [weakSelf.delegate searchCitiesInteractor:weakSelf didFailFetchingCitiesWithError:error];
         } else {
-            [weakSelf.delegate searchCitiesInteractor:weakSelf didFetchCities:[weakSelf citiesFromDictionary:response]];
+            [weakSelf.delegate searchCitiesInteractor:weakSelf didFetchCities:cities];
         }
         
     }];
 }
-
-
-#pragma mark - Private
-
-
-- (NSArray <City *> * )citiesFromDictionary:(NSDictionary * )dictionary {
-    
-    NSArray <NSDictionary *> * rawCities = dictionary[@"result"];
-    
-    NSMutableArray *cities = [[NSMutableArray alloc] initWithCapacity:rawCities.count];
-    
-    for (NSDictionary *rawCity in rawCities) {
-        [cities addObject:[[City alloc] initWithDictionary:rawCity]];
-    }
-    
-    return [NSArray arrayWithArray:cities];
-}
-
 
 @end

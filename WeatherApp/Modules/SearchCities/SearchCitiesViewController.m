@@ -18,7 +18,7 @@ NSString * const SearchCitiesViewControllerIdentifier = @"SearchCitiesViewContro
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinnerView;
 @property (weak, nonatomic) IBOutlet UILabel *footerEmptyStateLabel;
-@property (strong, nonatomic) IBOutlet UIView *tableFooterView;
+@property (strong, nonatomic) IBOutlet UIView *tableHeaderView;
 @property (weak, nonatomic) IBOutlet UITableView *  tableView;
 @property (strong, nonatomic) CitiesListDisplayData *  displayData;
 
@@ -39,10 +39,11 @@ NSString * const SearchCitiesViewControllerIdentifier = @"SearchCitiesViewContro
 - (void)setupTableView {
     self.tableView.estimatedRowHeight = 120;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.tableFooterView = [UIView new];
 }
 
 - (void)presentFooterMessage {
-    self.tableView.tableFooterView = self.tableFooterView;
+    self.tableView.tableHeaderView = self.tableHeaderView;
     self.footerEmptyStateLabel.alpha = 1;
     [self.spinnerView stopAnimating];
 }
@@ -50,7 +51,7 @@ NSString * const SearchCitiesViewControllerIdentifier = @"SearchCitiesViewContro
 #pragma mark - Public
 
 - (void)presentLoadingContent {
-    self.tableView.tableFooterView = self.tableFooterView;
+    self.tableView.tableHeaderView = self.tableHeaderView;
     self.footerEmptyStateLabel.alpha = 0;
     [self.spinnerView startAnimating];
 }
@@ -71,7 +72,7 @@ NSString * const SearchCitiesViewControllerIdentifier = @"SearchCitiesViewContro
 }
 
 - (void)displayData:(CitiesListDisplayData * )listDisplayData {
-    self.tableView.tableFooterView = nil;
+    self.tableView.tableHeaderView = nil;
     self.displayData = listDisplayData;
 }
 

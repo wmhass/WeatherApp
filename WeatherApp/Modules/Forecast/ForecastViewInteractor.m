@@ -29,51 +29,16 @@ static NSInteger const ForecastViewInteractorNumberOfDays = 5;
     parameters.longitude = longitude;
     
     __weak ForecastViewInteractor *weakSelf = self;
-    [manager fetchForecastRemoteInformationWithParameters:parameters withCompletion:^(NSDictionary *  response, NSError *  error) {
+    [manager fetchForecastRemoteInformationWithParameters:parameters withCompletion:^(Forecast * forecast, NSError *  error) {
         
         if (error) {
             [weakSelf.delegate forecastViewInteractor:weakSelf didFailFetchingForecastWithError:error];
         } else {
-            [weakSelf.delegate forecastViewInteractor:weakSelf didFetchForecast:[weakSelf forecastFromDictionary:response]];
+            [weakSelf.delegate forecastViewInteractor:weakSelf didFetchForecast:forecast];
         }
         
     }];
 }
 
-- (Forecast * )forecastFromDictionary:(NSDictionary * )dictionary {
-    
-    ForecastCurrentCondition *currentCondition = [self forecastCurrentConditionFromDictionary:dictionary];
-    
-    NSArray <ForecastUpcomingCondition *> *upcomingConditions = [self forecastUpcomingConditionsWithDictionary:dictionary];
-    
-    return [[Forecast alloc] initWithCurrentCondition:currentCondition upcomingConditions:upcomingConditions];
-}
-
-- (NSArray <ForecastUpcomingCondition *> * )forecastUpcomingConditionsWithDictionary:(NSDictionary * )dictionary {
-    NSMutableArray <ForecastUpcomingCondition *> *upcomingConditions = [@[] mutableCopy];
-    
-    NSArray *weather = dictionary[@"weather"];
-
-    // The first item of the array is actually the current day, so we skip it
-    NSArray *upcomingWeather = [weather subarrayWithRange:NSMakeRange(1, weather.count-1)];
-    for (NSDictionary *upcomingCondition in upcomingWeather) {
-        [upcomingConditions addObject:[[ForecastUpcomingCondition alloc] initWithDictionary:upcomingCondition]];
-    }
-
-    return [NSArray arrayWithArray:upcomingConditions];
-}
-
-- (ForecastCurrentCondition * )forecastCurrentConditionFromDictionary:(NSDictionary * )dictionary {
-
-    NSMutableArray <ForecastHourlyCondition *> *hourlyConditions = [@[] mutableCopy];
-    for (NSDictionary *hourlyCondition in dictionary[@"weather"][0][@"hourly"]) {
-        [hourlyConditions addObject:[[ForecastHourlyCondition alloc] initWithDictionary:hourlyCondition]];
-    }
-    
-    ForecastCurrentCondition *currentCondition = [[ForecastCurrentCondition alloc] initWithDictionary:[dictionary[@"current_condition"] firstObject]];
-    currentCondition.hourlyConditions = [NSArray arrayWithArray:hourlyConditions];
-
-    return currentCondition;
-}
 
 @end

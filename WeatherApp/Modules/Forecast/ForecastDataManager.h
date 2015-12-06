@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "ForecastDataManagerParameters.h"
 
-typedef void(^ForecastDataManagerCompletionBlock)(NSDictionary *  response, NSError *  error);
+@class Forecast, City;
+typedef void(^ForecastDataManagerForecastCompletionBlock)(Forecast *forecast, NSError *  error);
+typedef void(^ForecastDataManagerCitySearchCompletionBlock)(NSArray <City *> * cities, NSError *  error);
 
 @interface ForecastDataManager : NSObject
 
-- (void)fetchForecastRemoteInformationWithParameters:(ForecastDataManagerParameters * )parameters withCompletion:(ForecastDataManagerCompletionBlock )completionBlock;
+- (void)fetchForecastRemoteInformationWithParameters:(ForecastDataManagerParameters * )parameters withCompletion:(ForecastDataManagerForecastCompletionBlock)completionBlock;
 
-- (void)fetchCitiesWithSearch:(NSString * )cityName withCompletion:(ForecastDataManagerCompletionBlock )completionBlock;
+- (void)fetchCitiesWithSearch:(NSString * )cityName withCompletion:(ForecastDataManagerCitySearchCompletionBlock)completionBlock;
 
 @end

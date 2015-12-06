@@ -12,7 +12,7 @@
 
 @protocol SearchCitiesInteractorDelegate <NSObject>
 
-- (void)searchCitiesInteractor:(SearchCitiesInteractor * )interactor didFetchCities:(NSArray <City *> * )cities;
+- (void)searchCitiesInteractor:(SearchCitiesInteractor * )interactor didFetchCities:(NSArray <City *> *)cities;
 - (void)searchCitiesInteractor:(SearchCitiesInteractor * )interactor didFailFetchingCitiesWithError:(NSError * )error;
 
 @end
