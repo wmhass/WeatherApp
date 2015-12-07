@@ -502,7 +502,7 @@
                                     </button>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="XLo-vg-57h" firstAttribute="centerY" secondItem="lSQ-pX-pNX" secondAttribute="centerY" id="1ao-s8-Daf"/>
                                     <constraint firstAttribute="bottom" secondItem="Ba5-r1-IBw" secondAttribute="bottom" id="5XD-4L-Xbl"/>
