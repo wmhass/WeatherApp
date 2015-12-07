@@ -12,6 +12,7 @@
 @protocol CustomLocationManagerDelegate <NSObject>
 
 - (void)locationManager:(CustomLocationManager *)locationManager didGetLocationWithLatitude:(double)latitude andLongigtude:(double)longitude;
+- (void)locationManagerDidFailFetchingLocation:(CustomLocationManager *)locationManager;
 
 @end
 

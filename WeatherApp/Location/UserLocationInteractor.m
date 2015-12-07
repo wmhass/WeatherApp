@@ -45,4 +45,8 @@
     
 }
 
+- (void)locationManagerDidFailFetchingLocation:(CustomLocationManager *)locationManager {
+    [self.delegate userLocationInteractor:self didFetchUserLocation:nil];
+}
+
 @end

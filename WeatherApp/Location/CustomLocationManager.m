@@ -47,4 +47,9 @@
     [self stopUpdatingLocation];
 }
 
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error {
+    [self.customManagerDelegate locationManagerDidFailFetchingLocation:self];
+}
+
 @end
