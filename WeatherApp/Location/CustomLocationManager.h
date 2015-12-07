@@ -9,7 +9,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 @class CustomLocationManager;
-@protocol CustomLocationManagerDelegate
+@protocol CustomLocationManagerDelegate <NSObject>
 
 - (void)locationManager:(CustomLocationManager *)locationManager didGetLocationWithLatitude:(double)latitude andLongigtude:(double)longitude;
 
@@ -19,7 +19,6 @@
 
 @property (weak, nonatomic) id<CustomLocationManagerDelegate> customManagerDelegate;
 
-- (void)startTracking;
-- (void)stopTracking;
+- (void)getLocation;
 
 @end

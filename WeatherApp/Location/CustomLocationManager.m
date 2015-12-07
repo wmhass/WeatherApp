@@ -31,21 +31,20 @@
 
 #pragma mark - Public
 
-- (void)startTracking {
+- (void)getLocation {
     [self requestWhenInUseAuthorization];
     [self startUpdatingLocation];
-}
-
-- (void)stopTracking {
-    [self stopUpdatingLocation];
 }
 
 #pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray *)locations {
+    
     CLLocation *location = [locations lastObject];
     [self.customManagerDelegate locationManager:self didGetLocationWithLatitude:location.coordinate.latitude andLongigtude:location.coordinate.longitude];
+    
+    [self stopUpdatingLocation];
 }
 
 @end
