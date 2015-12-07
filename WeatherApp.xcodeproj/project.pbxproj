@@ -38,6 +38,8 @@
 		3DC7BD821C1515BC00821EF4 /* CitiesListDisplayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7BD7D1C1515BC00821EF4 /* CitiesListDisplayData.m */; };
 		3DC7BD831C1515BC00821EF4 /* CityDisplayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7BD7F1C1515BC00821EF4 /* CityDisplayData.m */; };
 		3DC7BD841C1515BC00821EF4 /* CityDisplayDataCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7BD811C1515BC00821EF4 /* CityDisplayDataCollector.m */; };
+		3DC7BD871C1521C400821EF4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC7BD861C1521C400821EF4 /* CoreLocation.framework */; };
+		3DC7BD8A1C1521E300821EF4 /* CustomLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7BD891C1521E300821EF4 /* CustomLocationManager.m */; };
 		3DD9571C1C128EB80027A63D /* UIUpcomingConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9571B1C128EB80027A63D /* UIUpcomingConditionTableViewCell.m */; };
 		3DD957201C12A4610027A63D /* UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9571F1C12A4610027A63D /* UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.m */; };
 		3DD957231C12A7A70027A63D /* UIHourlyConditionTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD957221C12A7A70027A63D /* UIHourlyConditionTableViewHeaderView.m */; };
@@ -127,6 +129,9 @@
 		3DC7BD7F1C1515BC00821EF4 /* CityDisplayData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityDisplayData.m; sourceTree = "<group>"; };
 		3DC7BD801C1515BC00821EF4 /* CityDisplayDataCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityDisplayDataCollector.h; sourceTree = "<group>"; };
 		3DC7BD811C1515BC00821EF4 /* CityDisplayDataCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityDisplayDataCollector.m; sourceTree = "<group>"; };
+		3DC7BD861C1521C400821EF4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3DC7BD881C1521E300821EF4 /* CustomLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLocationManager.h; sourceTree = "<group>"; };
+		3DC7BD891C1521E300821EF4 /* CustomLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLocationManager.m; sourceTree = "<group>"; };
 		3DD9571A1C128EB80027A63D /* UIUpcomingConditionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUpcomingConditionTableViewCell.h; sourceTree = "<group>"; };
 		3DD9571B1C128EB80027A63D /* UIUpcomingConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUpcomingConditionTableViewCell.m; sourceTree = "<group>"; };
 		3DD9571E1C12A4610027A63D /* UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.h"; sourceTree = "<group>"; };
@@ -172,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC7BD871C1521C400821EF4 /* CoreLocation.framework in Frameworks */,
 				05D315A75E3DA320B760BC2B /* libPods-WeatherApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +345,15 @@
 			path = CommonDisplayData;
 			sourceTree = "<group>";
 		};
+		3DC7BD851C15217800821EF4 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				3DC7BD881C1521E300821EF4 /* CustomLocationManager.h */,
+				3DC7BD891C1521E300821EF4 /* CustomLocationManager.m */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		3DD957161C1287130027A63D /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,6 +415,7 @@
 		3DF3B7AD1C0FDDA10024C06C /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				3DC7BD851C15217800821EF4 /* Location */,
 				3DC7BD7B1C15141000821EF4 /* CommonDisplayData */,
 				3D7834861C150A2600F16BC9 /* RemoteAPI */,
 				3D80EE6D1C14EACF00ACE7AF /* Models */,
@@ -475,6 +491,7 @@
 		F08E7F41BBD302EE2951FBED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3DC7BD861C1521C400821EF4 /* CoreLocation.framework */,
 				F289475C21B16504556C6A8D /* libPods-WeatherApp.a */,
 			);
 			name = Frameworks;
@@ -666,6 +683,7 @@
 				3D80EE771C14EB6800ACE7AF /* Forecast.m in Sources */,
 				3D78348C1C150A5600F16BC9 /* WorldWeatherDataManagerParameters.m in Sources */,
 				3D34301A1C0FF06200351C0F /* ForecastViewWireframe.m in Sources */,
+				3DC7BD8A1C1521E300821EF4 /* CustomLocationManager.m in Sources */,
 				3D80EE791C14EB6800ACE7AF /* ForecastUpcomingCondition.m in Sources */,
 				3D342FF71C0FDEC700351C0F /* ForecastViewController.m in Sources */,
 				3D80EE781C14EB6800ACE7AF /* ForecastCurrentCondition.m in Sources */,
