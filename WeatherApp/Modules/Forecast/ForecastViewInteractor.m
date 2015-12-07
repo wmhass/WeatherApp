@@ -15,22 +15,10 @@ static NSInteger const ForecastViewInteractorNumberOfDays = 5;
 @interface ForecastViewInteractor()
 
 @property (strong, nonatomic) Forecast *cachedForecast;
-@property (strong, nonatomic) WorldWeatherDataManager *dataManager;
 
 @end
 
 @implementation ForecastViewInteractor
-
-#pragma mark - Initializers
-
-- (id)init {
-    self = [super init];
-    if(self) {
-        _dataManager = [[WorldWeatherDataManager alloc] init];
-    }
-    return self;
-}
-
 
 #pragma mark - Public 
 

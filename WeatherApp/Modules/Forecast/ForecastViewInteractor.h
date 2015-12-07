@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class ForecastViewInteractor, Forecast;
+@class ForecastViewInteractor, Forecast, WorldWeatherDataManager;
 @protocol ForecastViewInteractorDelegate <NSObject>
 
 - (void)forecastViewInteractor:(ForecastViewInteractor * )interactor didFetchForecast:(Forecast * )forecast;
@@ -20,6 +20,7 @@
 
 @property (weak, nonatomic) id<ForecastViewInteractorDelegate>  delegate;
 @property (strong, nonatomic, readonly) Forecast *cachedForecast;
+@property (strong, nonatomic) WorldWeatherDataManager *dataManager;
 
 - (void)loadForecastForLatitude:(NSString * )latitude longitude:(NSString * )longitude;
 

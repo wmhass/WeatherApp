@@ -10,7 +10,7 @@
 #import "ForecastViewController.h"
 #import "ForecastViewInteractor.h"
 #import "ForecastViewPresenter.h"
-
+#import "WorldWeatherDataManager.h"
 #import "SavedCitiesWireframe.h"
 
 #import "AppStoryboard.h"
@@ -33,9 +33,10 @@
     
     forecastView.presenter.forecastWireframe = self;
     forecastView.presenter.forecastInteractor = [[ForecastViewInteractor alloc] init];
-
+    
     forecastView.presenter.forecastView = forecastView;
     forecastView.presenter.forecastInteractor.delegate = forecastView.presenter;
+    forecastView.presenter.forecastInteractor.dataManager = [[WorldWeatherDataManager alloc] init];
     
     window.rootViewController = forecastView;
 

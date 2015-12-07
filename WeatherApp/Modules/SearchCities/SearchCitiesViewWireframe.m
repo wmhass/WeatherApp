@@ -10,6 +10,7 @@
 #import "AppStoryboard.h"
 #import "SearchCitiesViewController.h"
 #import "SearchCitiesPresenter.h"
+#import "WorldWeatherDataManager.h"
 
 @implementation SearchCitiesViewWireframe
 
@@ -21,10 +22,10 @@
     
     controller.presenter = [[SearchCitiesPresenter alloc] init];
     controller.presenter.searchCitiesWireframe = self;
+    controller.presenter.searchCitiesView = controller;
     controller.presenter.searchCitiesInteractor = [[SearchCitiesInteractor alloc] init];
     controller.presenter.searchCitiesInteractor.delegate = controller.presenter;
-    controller.presenter.searchCitiesView = controller;
-    
+    controller.presenter.searchCitiesInteractor.dataManager = [[WorldWeatherDataManager alloc] init];
     return controller;
 }
 

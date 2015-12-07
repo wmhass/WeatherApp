@@ -11,23 +11,7 @@
 #import "WorldWeatherDataManager.h"
 #import "SavedCitiesDataManager.h"
 
-@interface SearchCitiesInteractor()
-
-@property (strong, nonatomic) WorldWeatherDataManager *dataManager;
-
-@end
-
 @implementation SearchCitiesInteractor
-
-#pragma mark - Initializers
-
-- (id)init {
-    self = [super init];
-    if (self) {
-        _dataManager = [[WorldWeatherDataManager alloc] init];
-    }
-    return self;
-}
 
 #pragma mark - Public 
 

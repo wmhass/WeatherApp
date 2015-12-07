@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class SearchCitiesInteractor, City;
+@class SearchCitiesInteractor, City, WorldWeatherDataManager;
 
 @protocol SearchCitiesInteractorDelegate <NSObject>
 
@@ -20,6 +20,7 @@
 @interface SearchCitiesInteractor : NSObject
 
 @property (weak, nonatomic) id<SearchCitiesInteractorDelegate>  delegate;
+@property (strong, nonatomic) WorldWeatherDataManager *dataManager;
 
 - (void)searchCitiesWithSearchString:(NSString * )searchString;
 

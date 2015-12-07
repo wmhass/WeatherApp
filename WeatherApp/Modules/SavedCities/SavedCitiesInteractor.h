@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class City;
+@class City, SavedCitiesDataManager;
 @interface SavedCitiesInteractor : NSObject
+
+@property (strong, nonatomic) SavedCitiesDataManager *dataManager;
 
 - (NSArray <City *> * )savedCities;
 - (BOOL)storeCity:(City * )city;

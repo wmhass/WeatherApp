@@ -9,6 +9,7 @@
 #import "SavedCitiesWireframe.h"
 #import "SavedCitiesViewController.h"
 #import "SavedCitiesInteractor.h"
+#import "SavedCitiesDataManager.h"
 #import "AppStoryboard.h"
 
 @interface SavedCitiesWireframe()
@@ -29,6 +30,7 @@
     savedCitiesView.presenter.savedCitiesView = savedCitiesView;
     savedCitiesView.presenter.savedCitiesWireframe = self;
     savedCitiesView.presenter.savedCitiesInteractor = [[SavedCitiesInteractor alloc] init];
+    savedCitiesView.presenter.savedCitiesInteractor.dataManager = [[SavedCitiesDataManager alloc] init];
     
     [context presentViewController:savedCitiesView animated:YES completion:nil];
     

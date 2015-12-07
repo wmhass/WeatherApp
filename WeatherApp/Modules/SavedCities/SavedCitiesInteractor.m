@@ -10,23 +10,7 @@
 #import "City.h"
 #import "SavedCitiesDataManager.h"
 
-@interface SavedCitiesInteractor()
-
-@property (strong, nonatomic) SavedCitiesDataManager *dataManager;
-
-@end
-
 @implementation SavedCitiesInteractor
-
-#pragma mark - Initializers
-
-- (id)init {
-    self = [super init];
-    if (self) {
-        _dataManager = [[SavedCitiesDataManager alloc] init];
-    }
-    return self;
-}
 
 #pragma mark - Private
 
