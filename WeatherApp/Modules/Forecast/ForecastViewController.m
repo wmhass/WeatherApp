@@ -157,7 +157,7 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     
     self.searchTextContainerBottomConstraint.priority = UILayoutPriorityDefaultLow;
     self.searchTextContainerTopConstraint.priority = UILayoutPriorityDefaultHigh;
-    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.cancelSearchButton.alpha = 1;
         [self.view layoutIfNeeded];
     } completion:nil];
@@ -203,6 +203,7 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     self.tableView.tableFooterView = [UIView new];
     UINib *headerNib = [UINib nibWithNibName:UIHourlyConditionTableViewHeaderViewNibName bundle:nil];
     [self.tableView registerNib:headerNib forHeaderFooterViewReuseIdentifier:ForecastViewControllerTableHeaderReuseIdentifier];
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 100, 0);
 }
 
 - (void)setupSearchTextField {
