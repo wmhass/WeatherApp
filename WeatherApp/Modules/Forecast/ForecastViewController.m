@@ -79,6 +79,7 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 }
 
 - (void)presentEmptySavedCities {
+    self.metricsSegmentedControl.enabled = NO;
     [self showEmptyStateLabelWithMessage:NSLocalizedString(@"NO_CITIES_MESSAGE", nil)];
 }
 
@@ -89,6 +90,7 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 - (void)displayForecast:(ForecastDisplayData * )displayData {
     self.noCitiesView.hidden = YES;
     self.displayData = displayData;
+    self.metricsSegmentedControl.enabled = YES;
     [self updateHeaderInformation];
 }
 

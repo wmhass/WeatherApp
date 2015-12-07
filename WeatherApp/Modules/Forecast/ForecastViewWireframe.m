@@ -12,6 +12,8 @@
 #import "ForecastViewPresenter.h"
 #import "WorldWeatherDataManager.h"
 #import "SavedCitiesWireframe.h"
+#import "SavedCitiesInteractor.h"
+#import "SavedCitiesDataManager.h"
 
 #import "AppStoryboard.h"
 
@@ -37,6 +39,9 @@
     forecastView.presenter.forecastView = forecastView;
     forecastView.presenter.forecastInteractor.delegate = forecastView.presenter;
     forecastView.presenter.forecastInteractor.dataManager = [[WorldWeatherDataManager alloc] init];
+    
+    forecastView.presenter.savedCitiesInteractor = [[SavedCitiesInteractor alloc] init];
+    forecastView.presenter.savedCitiesInteractor.dataManager = [[SavedCitiesDataManager alloc] init];
     
     window.rootViewController = forecastView;
 

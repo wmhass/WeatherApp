@@ -29,23 +29,11 @@
 
 @interface ForecastViewPresenter() <SearchCitiesPresenterDelegate, SavedCitiesPresenterDelegate>
 
-@property (strong, nonatomic) SavedCitiesInteractor *savedCitiesInteractor;
 @property (weak, nonatomic) SearchCitiesPresenter *searchCitiesPresenter;
 
 @end
 
 @implementation ForecastViewPresenter
-
-
-#pragma mark - Initializer
-
-- (id)init {
-    self = [super init];
-    if (self) {
-        _savedCitiesInteractor = [[SavedCitiesInteractor alloc] init];
-    }
-    return self;
-}
 
 
 #pragma mark - Public (Presenter Actions)
