@@ -21,5 +21,6 @@
 
 // Explicitng we are rewriting this method
 - (NSString * )description;
+- (id)initWithCity:(City *)city;
 
 @end

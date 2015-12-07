@@ -22,21 +22,8 @@
 #pragma mark - Private
 
 - (void)collectCity:(City *)city {
-    [self.citiesDisplayData addObject:[self cityDisplayDataFromCity:city]];
+    [self.citiesDisplayData addObject:[[CityDisplayData alloc] initWithCity:city]];
 }
-
-- (CityDisplayData *)cityDisplayDataFromCity:(City *)city {
-    CityDisplayData *displayData = [[CityDisplayData alloc] init];
-    
-    displayData.city = city.city;
-    displayData.region = city.region;
-    displayData.country = city.country;
-    displayData.latitude = city.latitude;
-    displayData.longitude = city.longitude;
-    displayData.referencedModel = city;
-    return displayData;
-}
-
 
 #pragma mark - Public
 

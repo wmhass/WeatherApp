@@ -13,7 +13,6 @@
 
 @interface ForecastDisplayData()
 
-@property (strong, nonatomic) NSString *locationName;
 @property (strong, nonatomic) ForecastCurrentConditionDisplayData *currentCondition;
 @property (strong, nonatomic) NSArray <ForecastUpcomingConditionDisplayData *> *upcomingConditions;
 
@@ -50,10 +49,6 @@
 
 - (ForecastHourlyConditionDisplayData * )hourlyConditionDisplayDataAtIndex:(NSInteger)index {
     return self.currentCondition.hourlyConditions[index];
-}
-
-- (NSString *)currentLocation {
-    return self.locationName;
 }
 
 - (NSString *)currentWeatherDescription {

@@ -10,6 +10,21 @@
 #import "City.h"
 @implementation CityDisplayData
 
+#pragma mark - Initializer
+
+- (id)initWithCity:(City *)city {
+    self = [super init];
+    if (self) {
+        _city = city.city;
+        _region = city.region;
+        _country = city.country;
+        _latitude = city.latitude;
+        _longitude = city.longitude;
+        _referencedModel = city;
+    }
+    return self;
+}
+
 
 #pragma mark - Public (Rewrtitten)
 

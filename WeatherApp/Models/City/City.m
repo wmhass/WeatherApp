@@ -35,6 +35,9 @@
 }
 
 - (BOOL)isEqual:(id)object {
+    if (object == self) {
+        return YES;
+    }
     return [object hash] == [self hash];
 }
 

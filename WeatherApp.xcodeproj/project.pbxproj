@@ -43,6 +43,11 @@
 		3DC7BD8D1C1524E700821EF4 /* UserLocationInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7BD8C1C1524E700821EF4 /* UserLocationInteractor.m */; };
 		3DC7BD911C15259400821EF4 /* UserLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7BD901C15259400821EF4 /* UserLocation.m */; };
 		3DC7BD931C1581A400821EF4 /* ForecastViewInteractorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7BD921C1581A400821EF4 /* ForecastViewInteractorTests.m */; };
+		3DC7BD951C1593F200821EF4 /* ForecastViewPresenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7BD941C1593F200821EF4 /* ForecastViewPresenterTests.m */; };
+		3DC7BD991C159EAF00821EF4 /* ForecastDisplayData+Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7BD981C159EAF00821EF4 /* ForecastDisplayData+Tests.m */; };
+		3DC7BD9C1C159F5F00821EF4 /* ForecastHourlyConditionDisplayData+Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7BD9B1C159F5F00821EF4 /* ForecastHourlyConditionDisplayData+Tests.m */; };
+		3DC7BDA21C159FBB00821EF4 /* ForecastUpcomingConditionDisplayData+Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7BDA11C159FBB00821EF4 /* ForecastUpcomingConditionDisplayData+Tests.m */; };
+		3DC7BDA51C159FEF00821EF4 /* ForecastCurrentConditionDisplayData+Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7BDA41C159FEF00821EF4 /* ForecastCurrentConditionDisplayData+Tests.m */; };
 		3DD9571C1C128EB80027A63D /* UIUpcomingConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9571B1C128EB80027A63D /* UIUpcomingConditionTableViewCell.m */; };
 		3DD957201C12A4610027A63D /* UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9571F1C12A4610027A63D /* UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.m */; };
 		3DD957231C12A7A70027A63D /* UIHourlyConditionTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD957221C12A7A70027A63D /* UIHourlyConditionTableViewHeaderView.m */; };
@@ -142,6 +147,15 @@
 		3DC7BD8F1C15259400821EF4 /* UserLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLocation.h; sourceTree = "<group>"; };
 		3DC7BD901C15259400821EF4 /* UserLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLocation.m; sourceTree = "<group>"; };
 		3DC7BD921C1581A400821EF4 /* ForecastViewInteractorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewInteractorTests.m; sourceTree = "<group>"; };
+		3DC7BD941C1593F200821EF4 /* ForecastViewPresenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewPresenterTests.m; sourceTree = "<group>"; };
+		3DC7BD971C159EAF00821EF4 /* ForecastDisplayData+Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ForecastDisplayData+Tests.h"; sourceTree = "<group>"; };
+		3DC7BD981C159EAF00821EF4 /* ForecastDisplayData+Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ForecastDisplayData+Tests.m"; sourceTree = "<group>"; };
+		3DC7BD9A1C159F5F00821EF4 /* ForecastHourlyConditionDisplayData+Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ForecastHourlyConditionDisplayData+Tests.h"; sourceTree = "<group>"; };
+		3DC7BD9B1C159F5F00821EF4 /* ForecastHourlyConditionDisplayData+Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ForecastHourlyConditionDisplayData+Tests.m"; sourceTree = "<group>"; };
+		3DC7BDA01C159FBB00821EF4 /* ForecastUpcomingConditionDisplayData+Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ForecastUpcomingConditionDisplayData+Tests.h"; sourceTree = "<group>"; };
+		3DC7BDA11C159FBB00821EF4 /* ForecastUpcomingConditionDisplayData+Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ForecastUpcomingConditionDisplayData+Tests.m"; sourceTree = "<group>"; };
+		3DC7BDA31C159FEF00821EF4 /* ForecastCurrentConditionDisplayData+Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ForecastCurrentConditionDisplayData+Tests.h"; sourceTree = "<group>"; };
+		3DC7BDA41C159FEF00821EF4 /* ForecastCurrentConditionDisplayData+Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ForecastCurrentConditionDisplayData+Tests.m"; sourceTree = "<group>"; };
 		3DD9571A1C128EB80027A63D /* UIUpcomingConditionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUpcomingConditionTableViewCell.h; sourceTree = "<group>"; };
 		3DD9571B1C128EB80027A63D /* UIUpcomingConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUpcomingConditionTableViewCell.m; sourceTree = "<group>"; };
 		3DD9571E1C12A4610027A63D /* UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.h"; sourceTree = "<group>"; };
@@ -381,6 +395,21 @@
 			path = Location;
 			sourceTree = "<group>";
 		};
+		3DC7BD961C159E5300821EF4 /* ModelTestCategories */ = {
+			isa = PBXGroup;
+			children = (
+				3DC7BD971C159EAF00821EF4 /* ForecastDisplayData+Tests.h */,
+				3DC7BD981C159EAF00821EF4 /* ForecastDisplayData+Tests.m */,
+				3DC7BD9A1C159F5F00821EF4 /* ForecastHourlyConditionDisplayData+Tests.h */,
+				3DC7BD9B1C159F5F00821EF4 /* ForecastHourlyConditionDisplayData+Tests.m */,
+				3DC7BDA01C159FBB00821EF4 /* ForecastUpcomingConditionDisplayData+Tests.h */,
+				3DC7BDA11C159FBB00821EF4 /* ForecastUpcomingConditionDisplayData+Tests.m */,
+				3DC7BDA31C159FEF00821EF4 /* ForecastCurrentConditionDisplayData+Tests.h */,
+				3DC7BDA41C159FEF00821EF4 /* ForecastCurrentConditionDisplayData+Tests.m */,
+			);
+			path = ModelTestCategories;
+			sourceTree = "<group>";
+		};
 		3DD957161C1287130027A63D /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,8 +503,10 @@
 		3DF3B7C71C0FDDA10024C06C /* WeatherAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				3DC7BD961C159E5300821EF4 /* ModelTestCategories */,
 				3DF3B7CA1C0FDDA10024C06C /* Info.plist */,
 				3DC7BD921C1581A400821EF4 /* ForecastViewInteractorTests.m */,
+				3DC7BD941C1593F200821EF4 /* ForecastViewPresenterTests.m */,
 			);
 			path = WeatherAppTests;
 			sourceTree = "<group>";
@@ -781,6 +812,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC7BD9C1C159F5F00821EF4 /* ForecastHourlyConditionDisplayData+Tests.m in Sources */,
+				3DC7BD991C159EAF00821EF4 /* ForecastDisplayData+Tests.m in Sources */,
+				3DC7BD951C1593F200821EF4 /* ForecastViewPresenterTests.m in Sources */,
+				3DC7BDA51C159FEF00821EF4 /* ForecastCurrentConditionDisplayData+Tests.m in Sources */,
+				3DC7BDA21C159FBB00821EF4 /* ForecastUpcomingConditionDisplayData+Tests.m in Sources */,
 				3DC7BD931C1581A400821EF4 /* ForecastViewInteractorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
