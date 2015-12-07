@@ -7,8 +7,16 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
+#import "ForecastViewInteractor.h"
+#import "WorldWeatherDataManager.h"
+#import "Forecast.h"
 
 @interface ForecastViewInteractorTests : XCTestCase
+
+@property (strong, nonatomic) ForecastViewInteractor *interactor;
+@property (strong, nonatomic) id interactorDelegate;
+@property (strong, nonatomic) id dataManager;
 
 @end
 
@@ -16,24 +24,59 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    self.interactorDelegate = [OCMockObject mockForProtocol:@protocol(ForecastViewInteractorDelegate)];
+    self.dataManager = [OCMockObject mockForClass:[WorldWeatherDataManager class]];
+    
+    self.interactor = [[ForecastViewInteractor alloc] init];
+    self.interactor.dataManager = self.dataManager;
+    self.interactor.delegate = self.interactorDelegate;
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
+    [self.interactorDelegate verify];
+    [self.dataManager verify];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testFailLoadingForecast {
+    NSError *error = [OCMockObject mockForClass:[NSError class]];
+    
+    [self dataStoreWillReturnError:error];
+    
+    [[self.interactorDelegate expect] forecastViewInteractor:self.interactor didFailFetchingForecastWithError:error];
+    
+    [self.interactor loadForecastForLatitude:OCMOCK_ANY longitude:OCMOCK_ANY];
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testLoadNonEmptyForecast {
+    
+    Forecast *forecast = [OCMockObject mockForClass:[Forecast class]];
+    
+    [self dataStoreWillReturnForecast:forecast];
+    
+    [[self.interactorDelegate expect] forecastViewInteractor:self.interactor didFetchForecast:forecast];
+    
+    [self.interactor loadForecastForLatitude:OCMOCK_ANY longitude:OCMOCK_ANY];
+
+}
+
+- (void)dataStoreWillReturnForecast:(Forecast *)forecast {
+    [self dataStoreWillReturnForecast:forecast error:nil];
+}
+
+- (void)dataStoreWillReturnError:(NSError *)error {
+    [self dataStoreWillReturnForecast:nil error:error];
+}
+
+- (void)dataStoreWillReturnForecast:(Forecast *)forecast error:(NSError *)error {
+    [[[self.dataManager stub] andDo:^(NSInvocation *invocation) {
+        
+        WorldWeatherDataManagerForecastCompletionBlock completionBlock;
+        [invocation getArgument:&completionBlock atIndex:3];
+        completionBlock(forecast,error);
+        
+    }] fetchForecastRemoteInformationWithParameters:OCMOCK_ANY withCompletion:OCMOCK_ANY];
 }
 
 @end
