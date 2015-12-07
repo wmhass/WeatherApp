@@ -309,9 +309,8 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XMk-mE-RVj">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <rect key="frame" x="0.0" y="-20" width="0.0" height="0.0"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="Czq-Ch-Fqb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <animations/>
                                                     </view>
@@ -357,9 +356,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Wg-uo-nGi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="Imk-oi-LYr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <animations/>
                                                     </view>
@@ -466,30 +463,58 @@
                                     <constraint firstItem="bYS-k7-ghj" firstAttribute="leading" secondItem="FYP-ah-EdJ" secondAttribute="leading" id="nvL-HJ-W1e"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLo-vg-57h">
-                                <rect key="frame" x="518" y="511" width="62" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lSQ-pX-pNX" userLabel="Controls container">
+                                <rect key="frame" x="0.0" y="500" width="600" height="50"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ba5-r1-IBw">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="beE-Gf-Gl0">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <animations/>
+                                        </view>
+                                        <animations/>
+                                        <blurEffect style="light"/>
+                                    </visualEffectView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GLH-16-Jl1">
+                                        <rect key="frame" x="250" y="11" width="100" height="29"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="D8G-bu-GSd"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="°C"/>
+                                            <segment title="°F"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.32441434940000002" green="0.73997790399999996" blue="0.30367929059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="segmentedControlValueChanged:" destination="tdT-Ol-YMV" eventType="valueChanged" id="T3D-fd-mpV"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLo-vg-57h">
+                                        <rect key="frame" x="523" y="10" width="62" height="30"/>
+                                        <animations/>
+                                        <color key="tintColor" red="0.32441434940000002" green="0.73997790399999996" blue="0.30367929059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="My cities"/>
+                                        <connections>
+                                            <action selector="btnMyCitiesTouched:" destination="tdT-Ol-YMV" eventType="touchUpInside" id="JcK-j8-j0W"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <animations/>
-                                <color key="tintColor" red="0.32441434940000002" green="0.73997790399999996" blue="0.30367929059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="My cities"/>
-                                <connections>
-                                    <action selector="btnMyCitiesTouched:" destination="tdT-Ol-YMV" eventType="touchUpInside" id="JcK-j8-j0W"/>
-                                </connections>
-                            </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GLH-16-Jl1">
-                                <rect key="frame" x="250" y="512" width="100" height="29"/>
-                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="D8G-bu-GSd"/>
+                                    <constraint firstItem="XLo-vg-57h" firstAttribute="centerY" secondItem="lSQ-pX-pNX" secondAttribute="centerY" id="1ao-s8-Daf"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ba5-r1-IBw" secondAttribute="bottom" id="5XD-4L-Xbl"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ba5-r1-IBw" secondAttribute="trailing" id="9PP-sN-PmO"/>
+                                    <constraint firstAttribute="height" constant="50" id="Fcm-0r-zHU"/>
+                                    <constraint firstItem="GLH-16-Jl1" firstAttribute="centerX" secondItem="lSQ-pX-pNX" secondAttribute="centerX" id="HWL-VW-2kw"/>
+                                    <constraint firstItem="GLH-16-Jl1" firstAttribute="centerY" secondItem="lSQ-pX-pNX" secondAttribute="centerY" id="JJs-LH-e9q"/>
+                                    <constraint firstItem="Ba5-r1-IBw" firstAttribute="top" secondItem="lSQ-pX-pNX" secondAttribute="top" id="cVA-lh-yfv"/>
+                                    <constraint firstAttribute="trailing" secondItem="XLo-vg-57h" secondAttribute="trailing" constant="15" id="fRn-Hv-oa6"/>
+                                    <constraint firstItem="Ba5-r1-IBw" firstAttribute="leading" secondItem="lSQ-pX-pNX" secondAttribute="leading" id="qgP-Uw-Tqy"/>
                                 </constraints>
-                                <segments>
-                                    <segment title="°C"/>
-                                    <segment title="°F"/>
-                                </segments>
-                                <color key="tintColor" red="0.32441434940000002" green="0.73997790399999996" blue="0.30367929059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="segmentedControlValueChanged:" destination="tdT-Ol-YMV" eventType="valueChanged" id="T3D-fd-mpV"/>
-                                </connections>
-                            </segmentedControl>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8c-5X-Ju0" userLabel="Search view container">
                                 <rect key="frame" x="0.0" y="600" width="600" height="530"/>
                                 <animations/>
@@ -500,11 +525,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="t8c-5X-Ju0" firstAttribute="height" secondItem="Itx-Dx-4nT" secondAttribute="height" constant="-70" id="4f6-w1-ykr"/>
-                            <constraint firstItem="cQX-Hh-RQR" firstAttribute="top" secondItem="GLH-16-Jl1" secondAttribute="bottom" constant="60" id="4o0-k3-Rgf"/>
-                            <constraint firstItem="XLo-vg-57h" firstAttribute="centerY" secondItem="GLH-16-Jl1" secondAttribute="centerY" id="CaD-Am-Mfo"/>
                             <constraint firstItem="t8c-5X-Ju0" firstAttribute="top" secondItem="FYP-ah-EdJ" secondAttribute="bottom" id="CeB-Hf-UwL"/>
                             <constraint firstItem="iyz-z2-grw" firstAttribute="top" secondItem="z8S-nF-B03" secondAttribute="bottom" id="DCD-S5-bNs"/>
                             <constraint firstItem="cQX-Hh-RQR" firstAttribute="top" secondItem="qFT-oz-bCu" secondAttribute="bottom" constant="50" id="I6C-FT-g0E"/>
+                            <constraint firstAttribute="trailing" secondItem="lSQ-pX-pNX" secondAttribute="trailing" id="J7z-k7-8eF"/>
                             <constraint firstAttribute="trailing" secondItem="Ftm-P6-YGn" secondAttribute="trailing" id="Kae-kE-lz7"/>
                             <constraint firstAttribute="trailing" secondItem="t8c-5X-Ju0" secondAttribute="trailing" id="MXp-l9-c3V"/>
                             <constraint firstItem="Ftm-P6-YGn" firstAttribute="leading" secondItem="Itx-Dx-4nT" secondAttribute="leading" id="Nc5-6B-aim"/>
@@ -513,15 +537,15 @@
                             <constraint firstItem="cQX-Hh-RQR" firstAttribute="top" secondItem="FYP-ah-EdJ" secondAttribute="bottom" priority="750" id="Y95-1e-2i4"/>
                             <constraint firstItem="FYP-ah-EdJ" firstAttribute="top" secondItem="z8S-nF-B03" secondAttribute="bottom" priority="250" id="Yv7-lf-GOm"/>
                             <constraint firstItem="iyz-z2-grw" firstAttribute="leading" secondItem="Itx-Dx-4nT" secondAttribute="leading" id="a5a-qt-Ue6"/>
+                            <constraint firstItem="lSQ-pX-pNX" firstAttribute="leading" secondItem="Itx-Dx-4nT" secondAttribute="leading" id="b8C-PQ-F9P"/>
                             <constraint firstAttribute="trailing" secondItem="iyz-z2-grw" secondAttribute="trailing" id="bP1-xI-qhU"/>
                             <constraint firstAttribute="trailing" secondItem="qFT-oz-bCu" secondAttribute="trailing" id="c8C-Hf-vlu"/>
                             <constraint firstItem="cQX-Hh-RQR" firstAttribute="top" secondItem="iyz-z2-grw" secondAttribute="bottom" id="cba-gH-o4k"/>
                             <constraint firstItem="FYP-ah-EdJ" firstAttribute="leading" secondItem="Itx-Dx-4nT" secondAttribute="leading" id="gXv-n3-Tjr"/>
                             <constraint firstItem="qFT-oz-bCu" firstAttribute="top" secondItem="z8S-nF-B03" secondAttribute="bottom" id="gwg-J9-J7D"/>
                             <constraint firstItem="cQX-Hh-RQR" firstAttribute="top" secondItem="Ftm-P6-YGn" secondAttribute="bottom" constant="50" id="pc5-J3-omE"/>
+                            <constraint firstItem="FYP-ah-EdJ" firstAttribute="top" secondItem="lSQ-pX-pNX" secondAttribute="bottom" id="rud-nD-Awt"/>
                             <constraint firstItem="Ftm-P6-YGn" firstAttribute="top" secondItem="z8S-nF-B03" secondAttribute="bottom" constant="-20" id="uKg-7C-pYL"/>
-                            <constraint firstItem="GLH-16-Jl1" firstAttribute="centerX" secondItem="Itx-Dx-4nT" secondAttribute="centerX" id="v61-ML-bKY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XLo-vg-57h" secondAttribute="trailing" id="wv6-1K-VAC"/>
                             <constraint firstAttribute="trailing" secondItem="FYP-ah-EdJ" secondAttribute="trailing" id="zPV-wr-FoK"/>
                         </constraints>
                     </view>
