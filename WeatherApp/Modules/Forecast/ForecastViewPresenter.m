@@ -137,8 +137,8 @@
 }
 
 - (void)forecastViewInteractor:(ForecastViewInteractor * )interactor didFailFetchingForecastWithError:(NSError * )error {
-    [self.forecastView hideLoadingView];
     [self.forecastView presentErrorMessage:error.localizedDescription];
+    [self.forecastView hideLoadingView];
 }
 
 

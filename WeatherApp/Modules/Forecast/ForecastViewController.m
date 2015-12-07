@@ -129,9 +129,7 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 
 - (void)showLoadingView {
     [self.spinnerView startAnimating];
-    [UIView animateWithDuration:0.2 animations:^{
-        self.loadingContainerView.alpha = 1;
-    }];
+    self.loadingContainerView.alpha = 1;
 }
 
 - (void)hideLoadingView {
