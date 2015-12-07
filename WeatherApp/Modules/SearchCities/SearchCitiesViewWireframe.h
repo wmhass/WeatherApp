@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class SearchCitiesViewController;
+@class SearchCitiesViewController, UIView, UIViewController;
 @interface SearchCitiesViewWireframe : NSObject
 
-- (SearchCitiesViewController *)searchCitiesViewController;
+@property (weak, nonatomic, readonly) SearchCitiesViewController *presentingView;
+
+- (void)presentSearchCitiesInView:(UIView *)view viewControllerContext:(UIViewController *)context;
+
 
 @end

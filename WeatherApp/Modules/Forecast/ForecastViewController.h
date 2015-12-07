@@ -20,7 +20,7 @@
 - (void)presentEmptySavedCities;
 
 - (void)dismissSearchCitiesView;
-- (void)presentSearchCitiesView:(SearchCitiesViewController * )viewController;
+- (void)presentSearchCitiesView;
 
 - (void)displayForecast:(ForecastDisplayData * )displayData;
 - (void)displayCity:(CityDisplayData * )cityDisplay;
@@ -32,5 +32,6 @@
 - (NSInteger)selectedMetric;
 - (NSString * )searchingCityString;
 - (CityDisplayData * )presentingCity;
+- (UIView *)viewForPresentingSearchController;
 
 @end

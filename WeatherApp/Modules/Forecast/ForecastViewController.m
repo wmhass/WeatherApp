@@ -74,6 +74,10 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
 
 #pragma mark - Public
 
+- (UIView *)viewForPresentingSearchController {
+    return self.searchCityContainer;
+}
+
 - (CityDisplayData * )presentingCity {
     return self.currentCity;
 }
@@ -102,8 +106,7 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     return self.metricsSegmentedControl.selectedSegmentIndex;
 }
 
-- (void)presentSearchCitiesView:(SearchCitiesViewController * )viewController {
-    [self addViewControllerToContainer:viewController];
+- (void)presentSearchCitiesView {
     [self raiseContainerViewAnimated];
 }
 
@@ -179,16 +182,6 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
             completion();
         }
     }];
-}
-
-- (void)addViewControllerToContainer:(UIViewController *)viewController {
-    [viewController willMoveToParentViewController:self];
-    viewController.view.frame = self.searchCityContainer.bounds;
-    viewController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    viewController.view.translatesAutoresizingMaskIntoConstraints = YES;
-    [self.searchCityContainer addSubview:viewController.view];
-    [self addChildViewController:viewController];
-    [viewController didMoveToParentViewController:self];
 }
 
 - (void)updateHeaderInformation {

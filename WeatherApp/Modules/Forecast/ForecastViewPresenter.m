@@ -50,12 +50,13 @@
 }
 
 - (void)didStartTypingCitySearch {
-    SearchCitiesViewWireframe *searchWireframe = [[SearchCitiesViewWireframe alloc] init];
-    SearchCitiesViewController *searchView = [searchWireframe searchCitiesViewController];
-    [self.forecastView presentSearchCitiesView:searchView];
     
-    searchView.presenter.delegate = self;
-    self.searchCitiesPresenter = searchView.presenter;
+    [self.forecastWireframe presentSearchViewInView:[self.forecastView viewForPresentingSearchController]];
+    
+    [self.forecastView presentSearchCitiesView];
+    
+    self.searchCitiesPresenter = self.forecastWireframe.searchCitiesWireframe.presentingView.presenter;
+    self.searchCitiesPresenter.delegate = self;
 }
 
 - (void)didTapCancelSearchButton {
@@ -150,17 +151,17 @@
         cityDisplayData.referencedModel = storedCityForReferencedModel;
     }
     
-    [self.forecastView displayCity:cityDisplayData];
-    [self.forecastView dismissSearchCitiesView];
-
     [self refreshForecast];
+    [self.forecastView displayCity:cityDisplayData];
+
+    [self.forecastView dismissSearchCitiesView];
 }
 
 #pragma mark - SavedCitiesPresenterDelegate
 
 - (void)savedCitiesPresenter:(SavedCitiesPresenter *)presenter didSelectCityDisplay:(CityDisplayData *)cityDisplayData {
-    [self.forecastView displayCity:cityDisplayData];
     [self refreshForecast];
+    [self.forecastView displayCity:cityDisplayData];
 }
 
 @end

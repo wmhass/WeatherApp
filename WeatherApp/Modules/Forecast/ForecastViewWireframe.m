@@ -14,7 +14,7 @@
 #import "SavedCitiesWireframe.h"
 #import "SavedCitiesInteractor.h"
 #import "SavedCitiesDataManager.h"
-
+#import "SearchCitiesViewWireframe.h"
 #import "AppStoryboard.h"
 
 @interface ForecastViewWireframe()
@@ -50,6 +50,10 @@
 
 - (void)presentSavedCitiesViewWithDelegate:(id)delegate {
     [self.savedCitiesWireframe presentInViewControllerContext:self.presentingView delegate:delegate];
+}
+
+- (void)presentSearchViewInView:(UIView *)view {
+    [self.searchCitiesWireframe presentSearchCitiesInView:view viewControllerContext:self.presentingView];
 }
 
 @end

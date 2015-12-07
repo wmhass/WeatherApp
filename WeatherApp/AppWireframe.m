@@ -9,6 +9,7 @@
 #import "AppWireframe.h"
 #import "ForecastViewWireframe.h"
 #import "SavedCitiesWireframe.h"
+#import "SearchCitiesViewWireframe.h"
 
 @interface AppWireframe()
 
@@ -22,6 +23,8 @@
 
     self.rootWireframe = [[ForecastViewWireframe alloc] init];
     self.rootWireframe.savedCitiesWireframe = [[SavedCitiesWireframe alloc] init];
+    self.rootWireframe.searchCitiesWireframe = [[SearchCitiesViewWireframe alloc] init];
+
     [self.rootWireframe launchViewInWindow:window];
     
     [window makeKeyAndVisible];
