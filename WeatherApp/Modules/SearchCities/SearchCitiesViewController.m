@@ -102,4 +102,11 @@ NSString * const SearchCitiesViewControllerIdentifier = @"SearchCitiesViewContro
     [self.presenter didSelectCityDisplayData:[self.displayData cityDisplayDataAtIndex:indexPath.row]];
 }
 
+
+#pragma mark - UIScrollViewDelegate (UITableView inheritance)
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.parentViewController.view endEditing:YES];
+}
+
 @end
