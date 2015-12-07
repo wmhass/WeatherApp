@@ -11,14 +11,31 @@
             <rect key="frame" x="0.0" y="0.0" width="576" height="86"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68y-bP-lht" userLabel="Top keyline">
-                    <rect key="frame" x="0.0" y="0.0" width="576" height="1"/>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NLB-hT-8K8">
+                    <rect key="frame" x="0.0" y="0.0" width="576" height="86"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BJ5-E2-iJJ">
+                        <rect key="frame" x="0.0" y="0.0" width="576" height="86"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jgn-rg-qm0">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="5Zs-G0-1ap">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <animations/>
+                                </view>
+                                <animations/>
+                                <vibrancyEffect>
+                                    <blurEffect style="light"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                        </subviews>
+                        <animations/>
+                    </view>
                     <animations/>
-                    <color key="backgroundColor" red="0.32441434940000002" green="0.73997790399999996" blue="0.30367929059999998" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="7D9-ZR-87h"/>
-                    </constraints>
-                </view>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <blurEffect style="light"/>
+                </visualEffectView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQG-YH-Por" userLabel="Background">
                     <rect key="frame" x="0.0" y="0.0" width="576" height="86"/>
                     <animations/>
@@ -39,6 +56,14 @@
                         <outlet property="delegate" destination="xeG-nh-8fd" id="I9G-FY-oJC"/>
                     </connections>
                 </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68y-bP-lht" userLabel="Top keyline">
+                    <rect key="frame" x="0.0" y="0.0" width="576" height="1"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.32441434940000002" green="0.73997790399999996" blue="0.30367929059999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="7D9-ZR-87h"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Emm-Km-5VS" userLabel="Bottom keyline">
                     <rect key="frame" x="0.0" y="85" width="576" height="1"/>
                     <animations/>
@@ -53,14 +78,18 @@
                 <constraint firstAttribute="bottom" secondItem="Emm-Km-5VS" secondAttribute="bottom" id="1n1-qq-Qgq"/>
                 <constraint firstAttribute="trailing" secondItem="Js9-YZ-Nrw" secondAttribute="trailing" id="4x4-W9-zKl"/>
                 <constraint firstItem="Js9-YZ-Nrw" firstAttribute="leading" secondItem="xeG-nh-8fd" secondAttribute="leading" id="8gq-n8-J1d"/>
+                <constraint firstAttribute="bottom" secondItem="NLB-hT-8K8" secondAttribute="bottom" id="8wG-yD-pgg"/>
                 <constraint firstAttribute="trailing" secondItem="Emm-Km-5VS" secondAttribute="trailing" id="98d-r9-sAY"/>
                 <constraint firstItem="UQG-YH-Por" firstAttribute="top" secondItem="xeG-nh-8fd" secondAttribute="top" id="9ze-c8-N4J"/>
                 <constraint firstItem="UQG-YH-Por" firstAttribute="leading" secondItem="xeG-nh-8fd" secondAttribute="leading" id="BVX-rf-bgl"/>
                 <constraint firstItem="68y-bP-lht" firstAttribute="leading" secondItem="xeG-nh-8fd" secondAttribute="leading" id="NMs-WQ-tY0"/>
                 <constraint firstAttribute="trailing" secondItem="68y-bP-lht" secondAttribute="trailing" id="Sg8-V7-122"/>
+                <constraint firstItem="NLB-hT-8K8" firstAttribute="top" secondItem="xeG-nh-8fd" secondAttribute="top" id="Un6-gw-rNn"/>
                 <constraint firstItem="Emm-Km-5VS" firstAttribute="leading" secondItem="xeG-nh-8fd" secondAttribute="leading" id="eMC-CA-EEy"/>
+                <constraint firstItem="NLB-hT-8K8" firstAttribute="leading" secondItem="xeG-nh-8fd" secondAttribute="leading" id="eU3-k0-Hcl"/>
                 <constraint firstItem="68y-bP-lht" firstAttribute="top" secondItem="xeG-nh-8fd" secondAttribute="top" id="eZf-dF-fuV"/>
                 <constraint firstItem="Js9-YZ-Nrw" firstAttribute="top" secondItem="xeG-nh-8fd" secondAttribute="top" id="iX0-ba-5PM"/>
+                <constraint firstAttribute="trailing" secondItem="NLB-hT-8K8" secondAttribute="trailing" id="lg0-r7-kaN"/>
                 <constraint firstAttribute="bottom" secondItem="Js9-YZ-Nrw" secondAttribute="bottom" id="mju-hK-QGw"/>
                 <constraint firstAttribute="bottom" secondItem="UQG-YH-Por" secondAttribute="bottom" id="ul6-Nu-T3y"/>
                 <constraint firstAttribute="trailing" secondItem="UQG-YH-Por" secondAttribute="trailing" id="vRr-32-6Gj"/>
