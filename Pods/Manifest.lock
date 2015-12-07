@@ -20,11 +20,14 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - OCMock (3.2)
 
 DEPENDENCIES:
   - AFNetworking
+  - OCMock
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  OCMock: 28def049ef47f996b515a8eeea958be7ccab2dbb
 
 COCOAPODS: 0.39.0

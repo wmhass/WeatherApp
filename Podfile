@@ -11,5 +11,7 @@ end
 
 target 'WeatherAppTests' do
 
+pod 'OCMock'
+
 end
 
