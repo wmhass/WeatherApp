@@ -157,7 +157,8 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     
     self.searchTextContainerBottomConstraint.priority = UILayoutPriorityDefaultLow;
     self.searchTextContainerTopConstraint.priority = UILayoutPriorityDefaultHigh;
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+    
+    [UIView animateWithDuration:0.25 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.cancelSearchButton.alpha = 1;
         [self.view layoutIfNeeded];
     } completion:nil];
