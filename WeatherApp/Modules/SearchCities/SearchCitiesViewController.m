@@ -61,7 +61,7 @@ NSString * const SearchCitiesViewControllerIdentifier = @"SearchCitiesViewContro
     self.footerEmptyStateLabel.text = NSLocalizedString(@"SEARCH_PLACEHOLDER", nil);
 }
 
-- (void)displayNoCitiesFound {
+- (void)displayNoCitiesFoundMessage {
     [self presentFooterMessage];
     self.footerEmptyStateLabel.text = NSLocalizedString(@"NO_CITIES_FOUND", nil);
 }

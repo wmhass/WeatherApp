@@ -15,5 +15,6 @@
 @property (strong, nonatomic) SavedCitiesWireframe *savedCitiesWireframe;
 
 - (void)launchViewInWindow:(UIWindow * )window;
+- (void)presentSavedCitiesViewWithDelegate:(id)delegate;
 
 @end

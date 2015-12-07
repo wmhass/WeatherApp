@@ -7,7 +7,7 @@
 //
 
 #import "ForecastViewInteractor.h"
-#import "ForecastDataManager.h"
+#import "WorldWeatherDataManager.h"
 #import "Forecast.h"
 
 static NSInteger const ForecastViewInteractorNumberOfDays = 5;
@@ -15,24 +15,34 @@ static NSInteger const ForecastViewInteractorNumberOfDays = 5;
 @interface ForecastViewInteractor()
 
 @property (strong, nonatomic) Forecast *cachedForecast;
+@property (strong, nonatomic) WorldWeatherDataManager *dataManager;
 
 @end
 
 @implementation ForecastViewInteractor
+
+#pragma mark - Initializers
+
+- (id)init {
+    self = [super init];
+    if(self) {
+        _dataManager = [[WorldWeatherDataManager alloc] init];
+    }
+    return self;
+}
 
 
 #pragma mark - Public 
 
 - (void)loadForecastForLatitude:(NSString *)latitude longitude:(NSString *)longitude {
     
-    ForecastDataManager *manager = [[ForecastDataManager alloc] init];
-    ForecastDataManagerParameters *parameters = [[ForecastDataManagerParameters alloc] init];
+    WorldWeatherDataManagerParameters *parameters = [[WorldWeatherDataManagerParameters alloc] init];
     parameters.numberOfDays = @(ForecastViewInteractorNumberOfDays);
     parameters.latitude = latitude;
     parameters.longitude = longitude;
     
     __weak ForecastViewInteractor *weakSelf = self;
-    [manager fetchForecastRemoteInformationWithParameters:parameters withCompletion:^(Forecast * forecast, NSError *error) {
+    [self.dataManager fetchForecastRemoteInformationWithParameters:parameters withCompletion:^(Forecast * forecast, NSError *error) {
         
         if (error) {
             [weakSelf.delegate forecastViewInteractor:weakSelf didFailFetchingForecastWithError:error];

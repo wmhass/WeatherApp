@@ -8,12 +8,12 @@
 
 #import "SearchCitiesInteractor.h"
 #import "City.h"
-#import "ForecastDataManager.h"
+#import "WorldWeatherDataManager.h"
 #import "SavedCitiesDataManager.h"
 
 @interface SearchCitiesInteractor()
 
-@property (strong, nonatomic) ForecastDataManager *dataManager;
+@property (strong, nonatomic) WorldWeatherDataManager *dataManager;
 
 @end
 
@@ -24,7 +24,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _dataManager = [[ForecastDataManager alloc] init];
+        _dataManager = [[WorldWeatherDataManager alloc] init];
     }
     return self;
 }

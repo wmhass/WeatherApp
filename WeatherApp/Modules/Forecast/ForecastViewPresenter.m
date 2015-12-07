@@ -26,7 +26,6 @@
 #import "SavedCitiesInteractor.h"
 #import "SavedCitiesViewController.h"
 #import "SavedCitiesPresenter.h"
-#import "SavedCitiesWireframe.h"
 
 @interface ForecastViewPresenter() <SearchCitiesPresenterDelegate, SavedCitiesPresenterDelegate>
 
@@ -94,13 +93,13 @@
 }
 
 - (void)didTapMyCitiesButton {
-    [self.savedCitiesWireframe presentInViewControllerContext:self.forecastView delegate:self];
+    [self.forecastWireframe presentSavedCitiesViewWithDelegate:self];
 }
 
 #pragma mark - Private
 
 - (void)doInitialDataLoad {
-    NSArray *cities = [self.savedCitiesInteractor loadSavedCities];
+    NSArray *cities = [self.savedCitiesInteractor savedCities];
     
     if (cities.count > 0) {
         

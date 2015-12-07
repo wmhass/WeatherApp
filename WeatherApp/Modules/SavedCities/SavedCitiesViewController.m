@@ -39,7 +39,7 @@ NSString * const SavedCitiesViewControllerIdentifier = @"SavedCitiesViewControll
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.presenter loadData];
+    [self.presenter viewWillAppear];
 }
 
 #pragma mark - Public

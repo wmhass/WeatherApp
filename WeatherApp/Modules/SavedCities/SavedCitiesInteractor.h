@@ -11,7 +11,7 @@
 @class City;
 @interface SavedCitiesInteractor : NSObject
 
-- (NSArray <City *> * )loadSavedCities;
+- (NSArray <City *> * )savedCities;
 - (BOOL)storeCity:(City * )city;
 - (BOOL)removeCity:(City * )city;
 - (City *)storedCityWithModel:(City *)city;

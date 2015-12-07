@@ -10,7 +10,23 @@
 #import "City.h"
 #import "SavedCitiesDataManager.h"
 
+@interface SavedCitiesInteractor()
+
+@property (strong, nonatomic) SavedCitiesDataManager *dataManager;
+
+@end
+
 @implementation SavedCitiesInteractor
+
+#pragma mark - Initializers
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        _dataManager = [[SavedCitiesDataManager alloc] init];
+    }
+    return self;
+}
 
 #pragma mark - Private
 
@@ -18,22 +34,21 @@
     static NSMutableArray <City *> * storedCities;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        SavedCitiesDataManager *dataManager = [[SavedCitiesDataManager alloc] init];
-        storedCities = [[dataManager loadStoredCities] mutableCopy] ?: [NSMutableArray new];
+        storedCities = [[self.dataManager loadStoredCities] mutableCopy] ?: [NSMutableArray new];
     });
     return storedCities;
 }
 
 #pragma mark - Public
 
-- (NSArray <City *> * )loadSavedCities {
+- (NSArray <City *> * )savedCities {
     return [NSArray arrayWithArray:[self storedCities]];
 }
 
 - (BOOL)storeCity:(City * )city {
     NSMutableArray *savedCities = [self storedCities];
     [savedCities addObject:city];
-    if ([[[SavedCitiesDataManager alloc] init] storeCities:savedCities]) {
+    if ([self.dataManager storeCities:savedCities]) {
         city.saved = YES;
         return YES;
     }
@@ -43,7 +58,7 @@
 - (BOOL)removeCity:(City * )city {
     NSMutableArray *savedCities = [self storedCities];
     [savedCities removeObject:city];
-    if ([[[SavedCitiesDataManager alloc] init] storeCities:savedCities]) {
+    if ([self.dataManager storeCities:savedCities]) {
         city.saved = NO;
         return YES;
     }
@@ -51,8 +66,7 @@
 }
 
 - (City *)storedCityWithModel:(City *)city {
-    NSArray <City *> * cities = [self loadSavedCities];
-    for (City *storedCity in cities) {
+    for (City *storedCity in [self savedCities]) {
         if ([storedCity isEqual:city]) {
             return storedCity;
         }

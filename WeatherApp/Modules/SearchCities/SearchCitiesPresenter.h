@@ -22,13 +22,13 @@
 
 @property (weak, nonatomic) id<SearchCitiesPresenterDelegate> delegate;
 
-@property (assign, nonatomic) SearchCitiesViewController *searchCitiesView;
+@property (weak, nonatomic) SearchCitiesViewController *searchCitiesView;
 @property (strong, nonatomic) SearchCitiesInteractor *searchCitiesInteractor;
 @property (strong, nonatomic) SearchCitiesViewWireframe *searchCitiesWireframe;
 
 #pragma mark - Presenter actions
 
-- (void)fetchCitiesWithSearchString:(NSString * )searchString;
-- (void)didSelectCityDisplayData:(CityDisplayData * )cityDisplayData;
+- (void)fetchCitiesWithSearchString:(NSString *)searchString;
+- (void)didSelectCityDisplayData:(CityDisplayData *)cityDisplayData;
 
 @end

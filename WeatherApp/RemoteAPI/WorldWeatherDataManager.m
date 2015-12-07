@@ -1,12 +1,12 @@
 //
-//  ForecastDataManager.m
+//  WorldWeatherDataManager.m
 //  WeatherApp
 //
 //  Created by William Hass on 12/3/15.
 //  Copyright © 2015 William Hass. All rights reserved.
 //
 
-#import "ForecastDataManager.h"
+#import "WorldWeatherDataManager.h"
 #import "ForecastCurrentCondition.h"
 #import "Forecast.h"
 #import "ForecastUpcomingCondition.h"
@@ -21,7 +21,7 @@ NSString * const APIWeatherEndPoint = @"weather.ashx";
 NSString * const APICitySearchEndPoint = @"search.ashx";
 NSString * const APIResponsePrefferedFormat = @"json";
 
-@implementation ForecastDataManager
+@implementation WorldWeatherDataManager
 
 #pragma mark - Private
 
@@ -29,7 +29,7 @@ NSString * const APIResponsePrefferedFormat = @"json";
     return [@[APIURI, APIVersion, endpoint] componentsJoinedByString:@"/"];
 }
 
-- (NSDictionary * )parametersWithParameterObject:(ForecastDataManagerParameters * )parameters {
+- (NSDictionary * )parametersWithParameterObject:(WorldWeatherDataManagerParameters *)parameters {
     NSMutableDictionary *returnParameters = [@{@"format": APIResponsePrefferedFormat, @"key": APIKey} mutableCopy];
 
     if (parameters.cityName) {
@@ -61,41 +61,42 @@ NSString * const APIResponsePrefferedFormat = @"json";
 
 #pragma mark - Public
 
-- (void)fetchForecastRemoteInformationWithParameters:(ForecastDataManagerParameters * )parameters withCompletion:(ForecastDataManagerForecastCompletionBlock)completionBlock {
+- (void)fetchForecastRemoteInformationWithParameters:(WorldWeatherDataManagerParameters *)parameters withCompletion:(WorldWeatherDataManagerForecastCompletionBlock)completionBlock {
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
 
+    __weak WorldWeatherDataManager *weakSelf = self;
     [manager GET:[self URLForEndPoint:APIWeatherEndPoint]
       parameters:[self parametersWithParameterObject:parameters]
          success:^(AFHTTPRequestOperation *operation, id   responseObject) {
              
-             NSString *errorMessage = [self errorMessageForResponse:responseObject];
+             NSString *errorMessage = [weakSelf errorMessageForResponse:responseObject];
              
              if (errorMessage && completionBlock) {
-                 completionBlock(nil, [self datamanagerErrorWithMessage:errorMessage]);
+                 completionBlock(nil, [weakSelf datamanagerErrorWithMessage:errorMessage]);
              } else  if(completionBlock) {
-                 completionBlock([self forecastFromDictionary:responseObject[@"data"]],nil);
+                 completionBlock([weakSelf forecastFromDictionary:responseObject[@"data"]],nil);
              }
              
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              if (completionBlock) {
-                 completionBlock(nil, [self datamanagerErrorWithMessage:error.localizedDescription]);
+                 completionBlock(nil, [weakSelf datamanagerErrorWithMessage:error.localizedDescription]);
              }
          }];
 }
 
 
-- (void)fetchCitiesWithSearch:(NSString *)cityName withCompletion:(ForecastDataManagerCitySearchCompletionBlock)completionBlock {
+- (void)fetchCitiesWithSearch:(NSString * )cityName withCompletion:(WorldWeatherDataManagerCitySearchCompletionBlock)completionBlock {
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    ForecastDataManagerParameters *parameters = [[ForecastDataManagerParameters alloc] init];
+    WorldWeatherDataManagerParameters *parameters = [[WorldWeatherDataManagerParameters alloc] init];
     parameters.cityName = cityName;
     
-    __weak ForecastDataManager *weakSelf = self;
+    __weak WorldWeatherDataManager *weakSelf = self;
     [manager GET:[self URLForEndPoint:APICitySearchEndPoint]
       parameters:[self parametersWithParameterObject:parameters]
          success:^(AFHTTPRequestOperation *operation, id   responseObject) {

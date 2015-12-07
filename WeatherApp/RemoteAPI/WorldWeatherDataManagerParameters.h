@@ -1,5 +1,5 @@
 //
-//  ForecastDataManagerParameters.h
+//  WorldWeatherDataManagerParameters.h
 //  WeatherApp
 //
 //  Created by William Hass on 12/3/15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ForecastDataManagerParameters : NSObject
+@interface WorldWeatherDataManagerParameters : NSObject
 
 @property (strong, nonatomic) NSString *cityName;
 @property (strong, nonatomic) NSNumber *numberOfDays;

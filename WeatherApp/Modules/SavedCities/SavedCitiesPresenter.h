@@ -24,7 +24,7 @@
 @property (strong, nonatomic) SavedCitiesInteractor *savedCitiesInteractor;
 @property (strong, nonatomic) SavedCitiesWireframe *savedCitiesWireframe;
 
-- (void)loadData;
+- (void)viewWillAppear;
 - (void)didSelectCityDisplay:(CityDisplayData * )cityDisplayData;
 - (void)didTapCloseButton;
 

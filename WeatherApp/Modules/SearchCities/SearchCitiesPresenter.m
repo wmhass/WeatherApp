@@ -68,7 +68,7 @@
 - (void)searchCitiesInteractor:(SearchCitiesInteractor * )interactor didFetchCities:(NSArray <City *> * )cities {
     
     if (cities.count == 0) {
-        [self.searchCitiesView displayNoCitiesFound];
+        [self.searchCitiesView displayNoCitiesFoundMessage];
     } else {
         [self makeViewDisplayCities:cities];
     }

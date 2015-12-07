@@ -9,13 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "ForecastViewInteractor.h"
 
-@class ForecastViewController, ForecastViewWireframe, SavedCitiesWireframe;
+@class ForecastViewController, ForecastViewWireframe;
 @interface ForecastViewPresenter : NSObject <ForecastViewInteractorDelegate>
 
-@property (weak, nonatomic) ForecastViewController *forecastView;
 @property (strong, nonatomic) ForecastViewWireframe * forecastWireframe;
+@property (weak, nonatomic) ForecastViewController *forecastView;
 @property (strong, nonatomic) ForecastViewInteractor *forecastInteractor;
-@property (strong, nonatomic) SavedCitiesWireframe * savedCitiesWireframe;
 
 #pragma mark - Presenter Actions
 

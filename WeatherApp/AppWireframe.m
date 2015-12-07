@@ -19,10 +19,12 @@
 @implementation AppWireframe
 
 - (void)installRootViewInWindow:(UIWindow *)window {
-    [window makeKeyAndVisible];
 
     self.rootWireframe = [[ForecastViewWireframe alloc] init];
+    self.rootWireframe.savedCitiesWireframe = [[SavedCitiesWireframe alloc] init];
     [self.rootWireframe launchViewInWindow:window];
+    
+    [window makeKeyAndVisible];
 }
 
 @end

@@ -31,16 +31,19 @@
     
     forecastView.presenter = [[ForecastViewPresenter alloc] init];
     
-    forecastView.presenter.forecastWireframe = [[ForecastViewWireframe alloc] init];
-    forecastView.presenter.savedCitiesWireframe = [[SavedCitiesWireframe alloc] init];
+    forecastView.presenter.forecastWireframe = self;
     forecastView.presenter.forecastInteractor = [[ForecastViewInteractor alloc] init];
 
     forecastView.presenter.forecastView = forecastView;
     forecastView.presenter.forecastInteractor.delegate = forecastView.presenter;
     
-    self.presentingView = forecastView;
-    
     window.rootViewController = forecastView;
+
+    self.presentingView = forecastView;
+}
+
+- (void)presentSavedCitiesViewWithDelegate:(id)delegate {
+    [self.savedCitiesWireframe presentInViewControllerContext:self.presentingView delegate:delegate];
 }
 
 @end

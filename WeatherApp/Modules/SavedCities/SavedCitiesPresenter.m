@@ -16,8 +16,8 @@
 
 #pragma mark - Public
 
-- (void)loadData {
-    NSArray <City *> *cities = [self.savedCitiesInteractor loadSavedCities];
+- (void)viewWillAppear {
+    NSArray <City *> *cities = [self.savedCitiesInteractor savedCities];
     if (cities.count == 0) {
         [self.savedCitiesView presentEmptySavedCities];
     } else {

@@ -18,7 +18,7 @@ extern NSString *const SearchCitiesViewControllerIdentifier;
 - (void)reloadAllData;
 - (void)presentErrorMessage:(NSString * )errorMessage;
 - (void)displayData:(CitiesListDisplayData * )listDisplayData;
-- (void)displayNoCitiesFound;
+- (void)displayNoCitiesFoundMessage;
 - (void)presentEmptySearchTextMessage;
 - (void)presentLoadingContent;
 

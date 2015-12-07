@@ -15,8 +15,8 @@
 		3D3430171C0FEBA600351C0F /* ForecastViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430161C0FEBA600351C0F /* ForecastViewPresenter.m */; };
 		3D34301A1C0FF06200351C0F /* ForecastViewWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430191C0FF06200351C0F /* ForecastViewWireframe.m */; };
 		3D34301D1C1066F900351C0F /* ForecastViewInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D34301C1C1066F900351C0F /* ForecastViewInteractor.m */; };
-		3D3430211C10688F00351C0F /* ForecastDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430201C10688F00351C0F /* ForecastDataManager.m */; };
-		3D3430331C108CE400351C0F /* ForecastDataManagerParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3430321C108CE400351C0F /* ForecastDataManagerParameters.m */; };
+		3D78348B1C150A5600F16BC9 /* WorldWeatherDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7834881C150A5600F16BC9 /* WorldWeatherDataManager.m */; };
+		3D78348C1C150A5600F16BC9 /* WorldWeatherDataManagerParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D78348A1C150A5600F16BC9 /* WorldWeatherDataManagerParameters.m */; };
 		3D80EE391C1370B500ACE7AF /* SearchCitiesInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE381C1370B500ACE7AF /* SearchCitiesInteractor.m */; };
 		3D80EE411C1378A900ACE7AF /* CityDisplayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE401C1378A900ACE7AF /* CityDisplayData.m */; };
 		3D80EE441C1379AB00ACE7AF /* CityDisplayDataCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D80EE431C1379AB00ACE7AF /* CityDisplayDataCollector.m */; };
@@ -84,10 +84,10 @@
 		3D3430191C0FF06200351C0F /* ForecastViewWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewWireframe.m; sourceTree = "<group>"; };
 		3D34301B1C1066F900351C0F /* ForecastViewInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastViewInteractor.h; sourceTree = "<group>"; };
 		3D34301C1C1066F900351C0F /* ForecastViewInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewInteractor.m; sourceTree = "<group>"; };
-		3D34301F1C10688F00351C0F /* ForecastDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastDataManager.h; sourceTree = "<group>"; };
-		3D3430201C10688F00351C0F /* ForecastDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastDataManager.m; sourceTree = "<group>"; };
-		3D3430311C108CE400351C0F /* ForecastDataManagerParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastDataManagerParameters.h; sourceTree = "<group>"; };
-		3D3430321C108CE400351C0F /* ForecastDataManagerParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastDataManagerParameters.m; sourceTree = "<group>"; };
+		3D7834871C150A5600F16BC9 /* WorldWeatherDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldWeatherDataManager.h; sourceTree = "<group>"; };
+		3D7834881C150A5600F16BC9 /* WorldWeatherDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldWeatherDataManager.m; sourceTree = "<group>"; };
+		3D7834891C150A5600F16BC9 /* WorldWeatherDataManagerParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldWeatherDataManagerParameters.h; sourceTree = "<group>"; };
+		3D78348A1C150A5600F16BC9 /* WorldWeatherDataManagerParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldWeatherDataManagerParameters.m; sourceTree = "<group>"; };
 		3D80EE371C1370B500ACE7AF /* SearchCitiesInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SearchCitiesInteractor.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		3D80EE381C1370B500ACE7AF /* SearchCitiesInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SearchCitiesInteractor.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		3D80EE3F1C1378A900ACE7AF /* CityDisplayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityDisplayData.h; sourceTree = "<group>"; };
@@ -200,7 +200,6 @@
 			children = (
 				3DD957191C128E8D0027A63D /* UI */,
 				3DF76D771C115A0200C181FA /* DisplayData */,
-				3D34301E1C10682100351C0F /* Data */,
 				3D342FF51C0FDEC700351C0F /* ForecastViewController.h */,
 				3D342FF61C0FDEC700351C0F /* ForecastViewController.m */,
 				3D3430151C0FEBA600351C0F /* ForecastViewPresenter.h */,
@@ -248,15 +247,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		3D34301E1C10682100351C0F /* Data */ = {
+		3D7834861C150A2600F16BC9 /* RemoteAPI */ = {
 			isa = PBXGroup;
 			children = (
-				3D34301F1C10688F00351C0F /* ForecastDataManager.h */,
-				3D3430201C10688F00351C0F /* ForecastDataManager.m */,
-				3D3430311C108CE400351C0F /* ForecastDataManagerParameters.h */,
-				3D3430321C108CE400351C0F /* ForecastDataManagerParameters.m */,
+				3D7834871C150A5600F16BC9 /* WorldWeatherDataManager.h */,
+				3D7834881C150A5600F16BC9 /* WorldWeatherDataManager.m */,
+				3D7834891C150A5600F16BC9 /* WorldWeatherDataManagerParameters.h */,
+				3D78348A1C150A5600F16BC9 /* WorldWeatherDataManagerParameters.m */,
 			);
-			name = Data;
+			path = RemoteAPI;
 			sourceTree = "<group>";
 		};
 		3D80EE3E1C13789800ACE7AF /* DisplayData */ = {
@@ -341,6 +340,13 @@
 			path = City;
 			sourceTree = "<group>";
 		};
+		3DC7BD7B1C15141000821EF4 /* CommonDisplayData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CommonDisplayData;
+			sourceTree = "<group>";
+		};
 		3DD957161C1287130027A63D /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,6 +408,8 @@
 		3DF3B7AD1C0FDDA10024C06C /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				3DC7BD7B1C15141000821EF4 /* CommonDisplayData */,
+				3D7834861C150A2600F16BC9 /* RemoteAPI */,
 				3D80EE6D1C14EACF00ACE7AF /* Models */,
 				3DF76D8B1C11D33F00C181FA /* Categories */,
 				3D34300A1C0FE19A00351C0F /* Helpers */,
@@ -646,7 +654,6 @@
 				3D80EE5D1C13FF2E00ACE7AF /* SavedCitiesInteractor.m in Sources */,
 				3DD9571C1C128EB80027A63D /* UIUpcomingConditionTableViewCell.m in Sources */,
 				3D34301D1C1066F900351C0F /* ForecastViewInteractor.m in Sources */,
-				3D3430331C108CE400351C0F /* ForecastDataManagerParameters.m in Sources */,
 				3D80EE811C14EBDF00ACE7AF /* City.m in Sources */,
 				3DD9572D1C12B2760027A63D /* UIHourlyConditionCollectionViewCell+ForecastHourlyConditionDisplayData.m in Sources */,
 				3D80EE631C14127600ACE7AF /* SavedCitiesPresenter.m in Sources */,
@@ -664,6 +671,7 @@
 				3D34300D1C0FE1B500351C0F /* AppStoryboard.m in Sources */,
 				3DD957201C12A4610027A63D /* UIUpcomingConditionTableViewCell+ForecastUpcomingConditionDisplayData.m in Sources */,
 				3D80EE771C14EB6800ACE7AF /* Forecast.m in Sources */,
+				3D78348C1C150A5600F16BC9 /* WorldWeatherDataManagerParameters.m in Sources */,
 				3D34301A1C0FF06200351C0F /* ForecastViewWireframe.m in Sources */,
 				3D80EE791C14EB6800ACE7AF /* ForecastUpcomingCondition.m in Sources */,
 				3D342FF71C0FDEC700351C0F /* ForecastViewController.m in Sources */,
@@ -673,10 +681,10 @@
 				3D80EE4A1C137CF500ACE7AF /* CitiesListDisplayData.m in Sources */,
 				3DF3B7B01C0FDDA10024C06C /* main.m in Sources */,
 				3D80EE591C13FEE600ACE7AF /* SavedCitiesDataManager.m in Sources */,
-				3D3430211C10688F00351C0F /* ForecastDataManager.m in Sources */,
 				3DF76D761C11578600C181FA /* ForecastDisplayDataCollector.m in Sources */,
 				3DF76D7E1C115A8300C181FA /* ForecastCurrentConditionDisplayData.m in Sources */,
 				3D80EE7A1C14EB6800ACE7AF /* ForecastWeatherDescription.m in Sources */,
+				3D78348B1C150A5600F16BC9 /* WorldWeatherDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
