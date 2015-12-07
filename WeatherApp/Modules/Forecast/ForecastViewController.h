@@ -22,7 +22,7 @@
 - (void)dismissSearchCitiesView;
 - (void)presentSearchCitiesView;
 
-- (void)displayForecast:(ForecastDisplayData * )displayData;
+- (void)displayForecast:(ForecastDisplayData *)displayData;
 - (void)displayCity:(CityDisplayData * )cityDisplay;
 
 - (void)showLoadingView;

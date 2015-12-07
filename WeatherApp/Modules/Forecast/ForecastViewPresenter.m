@@ -30,6 +30,7 @@
 @interface ForecastViewPresenter() <SearchCitiesPresenterDelegate, SavedCitiesPresenterDelegate>
 
 @property (weak, nonatomic) SearchCitiesPresenter *searchCitiesPresenter;
+@property (nonatomic) ForecastDisplayDataTemperatureMetric currentMetric;
 
 @end
 
@@ -46,6 +47,7 @@
 }
 
 - (void)metricValueChanged {
+    self.currentMetric = [self.forecastView selectedMetric];
     [self updateUserInterfaceWithForecast:[self forecastDisplayDataFromForecast:self.forecastInteractor.cachedForecast]];
 }
 
@@ -112,7 +114,7 @@
 
 - (ForecastDisplayData * )forecastDisplayDataFromForecast:(Forecast * )forecast {
     
-    ForecastDisplayDataCollector *collector = [[ForecastDisplayDataCollector alloc] initWithTemperatureMetric:[self.forecastView selectedMetric]];
+    ForecastDisplayDataCollector *collector = [[ForecastDisplayDataCollector alloc] initWithTemperatureMetric:self.currentMetric];
 
     [collector collectCurrentCondition:forecast.currentCondition];
     [collector collectUpcomingConditions:forecast.upcomingConditions];

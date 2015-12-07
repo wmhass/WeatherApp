@@ -91,7 +91,7 @@ NSString * const ForecastViewControllerTableHeaderReuseIdentifier = @"table_head
     [self.tableView reloadData];
 }
 
-- (void)displayForecast:(ForecastDisplayData * )displayData {
+- (void)displayForecast:(ForecastDisplayData *)displayData {
     self.noCitiesView.hidden = YES;
     self.displayData = displayData;
     self.metricsSegmentedControl.enabled = YES;
