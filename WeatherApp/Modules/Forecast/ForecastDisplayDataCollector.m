@@ -7,7 +7,6 @@
 //
 
 #import "ForecastDisplayDataCollector.h"
-#import "ForecastDisplayData.h"
 #import "ForecastCurrentCondition.h"
 #import "ForecastCurrentConditionDisplayData.h"
 #import "ForecastUpcomingCondition.h"
@@ -20,7 +19,7 @@
 
 @property (strong, nonatomic) ForecastCurrentConditionDisplayData *currentCondition;
 @property (strong, nonatomic) NSMutableArray <ForecastUpcomingConditionDisplayData *> * upcomingConditions;
-@property (nonatomic) ForecastDisplayDataCollectorTemperatureMetric collectingMetric;
+@property (nonatomic) ForecastDisplayDataTemperatureMetric collectingMetric;
 
 @end
 
@@ -28,7 +27,7 @@
 
 #pragma mark - Public 
 
-- (id )initWithTemperatureMetric:(ForecastDisplayDataCollectorTemperatureMetric)metric {
+- (id )initWithTemperatureMetric:(ForecastDisplayDataTemperatureMetric)metric {
     self = [super init];
     if(self) {
         _collectingMetric = metric;
@@ -40,7 +39,7 @@
 #pragma mark - Private
 
 - (BOOL)isCollectingFarenheit {
-    return self.collectingMetric == ForecastDisplayDataCollectorTemperatureFarenheitMetric;
+    return self.collectingMetric == ForecastDisplayDataTemperatureFarenheitMetric;
 }
 
 - (void)collectUpcomingCondition:(ForecastUpcomingCondition *)upcomingCondition {

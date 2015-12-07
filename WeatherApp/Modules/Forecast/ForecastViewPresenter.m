@@ -46,7 +46,7 @@
 }
 
 - (void)metricValueChanged {
-    [self makeViewPresentDisplayData:[self forecastDisplayDataFromForecast:self.forecastInteractor.cachedForecast]];
+    [self updateUserInterfaceWithForecast:[self forecastDisplayDataFromForecast:self.forecastInteractor.cachedForecast]];
 }
 
 - (void)didStartTypingCitySearch {
@@ -112,7 +112,7 @@
 
 - (ForecastDisplayData * )forecastDisplayDataFromForecast:(Forecast * )forecast {
     
-    ForecastDisplayDataCollector *collector = [[ForecastDisplayDataCollector alloc] initWithTemperatureMetric:[self selectedMetric]];
+    ForecastDisplayDataCollector *collector = [[ForecastDisplayDataCollector alloc] initWithTemperatureMetric:[self.forecastView selectedMetric]];
 
     [collector collectCurrentCondition:forecast.currentCondition];
     [collector collectUpcomingConditions:forecast.upcomingConditions];
@@ -120,11 +120,7 @@
     return [collector collectedData];
 }
 
-- (ForecastDisplayDataCollectorTemperatureMetric)selectedMetric {
-    return (ForecastDisplayDataCollectorTemperatureMetric)[self.forecastView selectedMetric];
-}
-
-- (void)makeViewPresentDisplayData:(ForecastDisplayData *)forecastDisplayData {
+- (void)updateUserInterfaceWithForecast:(ForecastDisplayData *)forecastDisplayData {
     [self.forecastView displayForecast:forecastDisplayData];
     [self.forecastView reloadAllData];
 }
@@ -132,7 +128,7 @@
 #pragma mark - ForecastViewInteractorDelegate
 
 - (void)forecastViewInteractor:(ForecastViewInteractor * )interactor didFetchForecast:(Forecast *)forecast {
-    [self makeViewPresentDisplayData:[self forecastDisplayDataFromForecast:forecast]];
+    [self updateUserInterfaceWithForecast:[self forecastDisplayDataFromForecast:forecast]];
     [self.forecastView hideLoadingView];
 }
 

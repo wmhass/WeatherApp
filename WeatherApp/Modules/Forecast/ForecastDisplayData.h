@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, ForecastDisplayDataTemperatureMetric) {
+    ForecastDisplayDataTemperatureCelsiusMetric = 0,
+    ForecastDisplayDataTemperatureFarenheitMetric
+};
+
 @class ForecastCurrentConditionDisplayData, ForecastUpcomingConditionDisplayData, ForecastHourlyConditionDisplayData;
 
 @interface ForecastDisplayData : NSObject
