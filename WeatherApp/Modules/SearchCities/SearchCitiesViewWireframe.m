@@ -11,6 +11,7 @@
 #import "SearchCitiesViewController.h"
 #import "SearchCitiesPresenter.h"
 #import "WorldWeatherDataManager.h"
+#import "SavedCitiesInteractor.h"
 
 @interface SearchCitiesViewWireframe()
 
@@ -32,6 +33,7 @@
     controller.presenter.searchCitiesInteractor = [[SearchCitiesInteractor alloc] init];
     controller.presenter.searchCitiesInteractor.delegate = controller.presenter;
     controller.presenter.searchCitiesInteractor.dataManager = [[WorldWeatherDataManager alloc] init];
+    controller.presenter.savedCitiesInteractor = [[SavedCitiesInteractor alloc] init];
     return controller;
 }
 

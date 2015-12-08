@@ -9,6 +9,8 @@
 #import "SearchCitiesPresenter.h"
 #import "CityDisplayDataCollector.h"
 #import "SearchCitiesViewController.h"
+#import "SavedCitiesInteractor.h"
+#import "CityDisplayData.h"
 
 @interface SearchCitiesPresenter()
 
@@ -40,6 +42,10 @@
 }
 
 - (void)didSelectCityDisplayData:(CityDisplayData *)cityDisplayData {
+    City *city = [self.savedCitiesInteractor storedCityWithModel:cityDisplayData.referencedModel];
+    if (city) {
+        cityDisplayData.referencedModel = city;
+    }
     [self.delegate searchCitiesPresenter:self didSelectCityDisplayData:cityDisplayData];
 }
 

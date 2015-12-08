@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SearchCitiesInteractor.h"
 
-@class SearchCitiesViewController, SearchCitiesViewWireframe, CityDisplayData, SearchCitiesPresenter;
+@class SearchCitiesViewController, SearchCitiesViewWireframe, CityDisplayData, SearchCitiesPresenter, SavedCitiesInteractor;
 
 @protocol SearchCitiesPresenterDelegate <NSObject>
 
@@ -23,8 +23,9 @@
 @property (weak, nonatomic) id<SearchCitiesPresenterDelegate> delegate;
 
 @property (weak, nonatomic) SearchCitiesViewController *searchCitiesView;
-@property (strong, nonatomic) SearchCitiesInteractor *searchCitiesInteractor;
 @property (strong, nonatomic) SearchCitiesViewWireframe *searchCitiesWireframe;
+@property (strong, nonatomic) SearchCitiesInteractor *searchCitiesInteractor;
+@property (strong, nonatomic) SavedCitiesInteractor *savedCitiesInteractor;
 
 #pragma mark - Presenter actions
 

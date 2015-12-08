@@ -140,12 +140,6 @@
 #pragma mark - SearchCitiesPresenterDelegate
 
 - (void)searchCitiesPresenter:(SearchCitiesPresenter * )presenter didSelectCityDisplayData:(CityDisplayData * )cityDisplayData {
-
-    City *storedCityForReferencedModel = [self.savedCitiesInteractor storedCityWithModel:cityDisplayData.referencedModel];
-    if (storedCityForReferencedModel) {
-        cityDisplayData.referencedModel = storedCityForReferencedModel;
-    }
-    
     [self refreshForecast];
     [self.forecastView displayCity:cityDisplayData];
 
