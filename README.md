@@ -41,7 +41,7 @@ This class basically provides a communication with the World Weather API, holdin
 Drives and reacts to events from the `ForecastViewController`. When something happens in the view, it knows how and which data it must obtain. It will ask and receive models from its interactors, and through a data collector (`ForecastDisplayDataCollector`) will prepare the data to send out to the view present it. This class holds not only a `ForecastViewInteractor`, but also a `SavedCitiesInteractor` in order to ask the view to present city's informations.
 
 #### `ForecastDisplayDataCollector`
-It collects models in the format the come from the database into display data objects. Since we don't want to tie our view to our model, it converts the models to how they should be presented in the view. This layer provides an awesome flexibility, because once we have to modify models due to a database structure, or even have different types of models being presented in the same way in our view, this class will abstract all this logic.
+It collects models in the format they come from the database, and convert them into display data objects. Since we don't want to tie our view to our model, it converts the models to how they should be presented in the view. This layer provides an awesome flexibility, because once we have to modify models due to a database structure change, or even have different types of models being presented in the same way in our view, this class will abstract all this logic.
 
 #### `ForecastViewController`
 This is our presentation layer itself. It holds only User Interface logic. It holds an instance of `ForecastDisplayData`, which provides all the data in a way that it should be presented.
