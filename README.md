@@ -61,7 +61,7 @@ This storage method was chosen not only because of the arguments mentioned above
 
 ## Third party libraries
 ---
-The only third party library being used in this project is the `AFNetworking`, which is one of the most popular networking library for iOS. The library is installed and maintained using `Cocoapods`
+This project uses two dependencies only, the `AFNetworking`, which is one of the most popular networking library for iOS, and the `OCMock` library, which is an Objective-C implementation of mock objects library used for writing tests. All the libraries are installed and maintained using `Cocoapods`.
 
 <br />
 ## App screenshots
@@ -77,8 +77,17 @@ Searching a city ([Full image](http://lilohass.com/weather_app/searching_city.pn
 Saved cities ([Full image](http://lilohass.com/weather_app/saved_cities.png)): <br />
 ![List of saved cities](http://lilohass.com/weather_app/saved_cities_lowres.png)
 
+<br />
 
 ---
+
+## Backlog
+
+In order to achieve a MVP, some features couldn't be completed and were added to the backlog for further implementation:
+
+- Fetch the user's location to present the forecast of his current location
+- Writing more unit testing for the most important app's classes
+   - Only one unit testing has been written. 
 
 <br />
 ## References
