@@ -51,7 +51,7 @@
     [aCoder encodeObject:self.longitude forKey:@"longitude"];
 }
 
-- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder {
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
         _country = [aDecoder decodeObjectForKey:@"country"];
