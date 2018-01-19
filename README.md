@@ -15,9 +15,9 @@ Each module of the app (in this case, each screen) consists in at least four dif
 - Interactor: Contains all the business logic as specified by a use case. It potentially communicates with a data source (webservice, database...) to obtain the data.
 - Presenter: The presenter drives the view controller. It has all the logic to obtain the data from the interactor and prepare the content to display. This layer also reacts to user inputs and actions, and does the needed decision
 - View: Display what is told by the presenter. It doesn't hold any business logic, it is just prepared to display content when asked by the presenter
-- WIreframe: Holds all the app's navigation logic. Its role is instantiate, prepare, and present view controllers.
+- Wireframe: Holds all the app's navigation logic. Its role is instantiate, prepare, and present view controllers.
 
-<br />
+
 ## App structure explanation
 ---
  This section will provide a briefly explanation about the app's implementation, talking a bit about the main screen (`ForecastViewController`).
@@ -60,26 +60,10 @@ This storage method was chosen not only because of the arguments mentioned above
 
 
 ## Third party libraries
----
+
 This project uses two dependencies only, the `AFNetworking`, which is one of the most popular networking library for iOS, and the `OCMock` library, which is an Objective-C implementation of mock objects library used for writing tests. All the libraries are installed and maintained using `Cocoapods`.
 
 <br />
-## App screenshots
----
-Home screen - Forecast presentation ([Full image](http://lilohass.com/weather_app/forecast.png)): <br />
-![App's home screen - Forecast](http://lilohass.com/weather_app/forecast_lowres.png)
-
-<br />
-Searching a city ([Full image](http://lilohass.com/weather_app/searching_city.png)): <br /> 
-![Searching a city](http://lilohass.com/weather_app/searching_city_lowres.png)
-
-<br />
-Saved cities ([Full image](http://lilohass.com/weather_app/saved_cities.png)): <br />
-![List of saved cities](http://lilohass.com/weather_app/saved_cities_lowres.png)
-
-<br />
-
----
 
 ## Backlog
 
