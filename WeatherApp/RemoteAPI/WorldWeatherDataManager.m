@@ -14,9 +14,9 @@
 #import "City.h"
 #import <AFNetworking/AFNetworking.h>
 
-NSString * const APIKey = @"9968f117acac39952af7a517732e8";
-NSString * const APIURI = @"http://api.worldweatheronline.com/free";
-NSString * const APIVersion = @"v2";
+NSString * const APIKey = @"b0c1ec953c664fbc91415306181901";
+NSString * const APIURI = @"http://api.worldweatheronline.com/premium";
+NSString * const APIVersion = @"v1";
 NSString * const APIWeatherEndPoint = @"weather.ashx";
 NSString * const APICitySearchEndPoint = @"search.ashx";
 NSString * const APIResponsePrefferedFormat = @"json";

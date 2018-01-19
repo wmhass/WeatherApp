@@ -43,6 +43,10 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Check your current location forecast</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Check your current location forecast</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Check your current location forecast</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>

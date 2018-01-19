@@ -20,7 +20,9 @@
 - (id)init {
     self = [super init];
     if(self) {
+        self.distanceFilter = 100.0;
         self.desiredAccuracy = kCLLocationAccuracyBest;
+        self.allowsBackgroundLocationUpdates = YES;
         self.delegate = self;
         if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9) {
             self.allowsBackgroundLocationUpdates = YES;

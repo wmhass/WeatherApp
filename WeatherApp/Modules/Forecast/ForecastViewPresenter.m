@@ -140,8 +140,8 @@
 #pragma mark - SearchCitiesPresenterDelegate
 
 - (void)searchCitiesPresenter:(SearchCitiesPresenter * )presenter didSelectCityDisplayData:(CityDisplayData * )cityDisplayData {
-    [self refreshForecast];
     [self.forecastView displayCity:cityDisplayData];
+    [self refreshForecast];
 
     [self.forecastView dismissSearchCitiesView];
 }
@@ -149,8 +149,8 @@
 #pragma mark - SavedCitiesPresenterDelegate
 
 - (void)savedCitiesPresenter:(SavedCitiesPresenter *)presenter didSelectCityDisplay:(CityDisplayData *)cityDisplayData {
-    [self refreshForecast];
     [self.forecastView displayCity:cityDisplayData];
+    [self refreshForecast];
 }
 
 @end
